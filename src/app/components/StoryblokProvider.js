@@ -2,10 +2,10 @@
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 
 /** Import your components */
-import Page from "./Page";
-import Teaser from "./Teaser";
-import Feature from "./Feature";
-import Grid from "./Grid";
+import Page from "@/app/components/Page";
+import Teaser from "@/app/components/Teaser";
+import Feature from "@/app/components/Feature";
+import Grid from "@/app/components/Grid";
 
 const components = {
   feature: Feature,
@@ -17,12 +17,7 @@ const components = {
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
   use: [apiPlugin],
-  components: {
-    feature: Feature,
-    grid: Grid,
-    page: Page,
-    teaser: Teaser,
-  },
+  components,
 });
 
 export default function StoryblokProvider({ children }) {

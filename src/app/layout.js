@@ -3,10 +3,24 @@ import "./globals.css";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/app/components/StoryblokProvider";
 
+import Page from "@/app/components/Page";
+import Teaser from "@/app/components/Teaser";
+import Feature from "@/app/components/Feature";
+import Grid from "@/app/components/Grid";
+
+const components = {
+  feature: Feature,
+  grid: Grid,
+  teaser: Teaser,
+  page: Page,
+};
+
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
   use: [apiPlugin],
+  components,
 });
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
