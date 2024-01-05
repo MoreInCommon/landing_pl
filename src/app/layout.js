@@ -12,6 +12,7 @@ import Footer from "@/app/components/Footer";
 import Config from "@/app/components/Config";
 import HeaderMenu from "@/app/components/HeaderMenu";
 import MenuLink from "@/app/components/MenuLink";
+import Hero from "@/app/components/Hero";
 
 const components = {
   feature: Feature,
@@ -21,6 +22,7 @@ const components = {
   config: Config,
   header_menu: HeaderMenu,
   menu_link: MenuLink,
+  hero: Hero,
 };
 
 storyblokInit({
