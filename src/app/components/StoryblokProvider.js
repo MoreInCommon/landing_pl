@@ -6,12 +6,18 @@ import Page from "@/app/components/Page";
 import Teaser from "@/app/components/Teaser";
 import Feature from "@/app/components/Feature";
 import Grid from "@/app/components/Grid";
+import Config from "@/app/components/Config";
+import HeaderMenu from "@/app/components/HeaderMenu";
+import MenuLink from "@/app/components/MenuLink";
 
 const components = {
   feature: Feature,
   grid: Grid,
   teaser: Teaser,
   page: Page,
+  config: Config,
+  header_menu: HeaderMenu,
+  menu_link: MenuLink,
 };
 
 storyblokInit({
