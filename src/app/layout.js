@@ -1,4 +1,6 @@
 import { Inter } from "next/font/google";
+import localFont from "next/font/local";
+
 import "./globals.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/app/components/StoryblokProvider";
@@ -38,15 +40,42 @@ export const metadata = {
   description: "More in common desc",
 };
 
+const sailec = localFont({
+  src: [
+    {
+      path: "/fonts/Sailec.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "/fonts/Sailec_Bold.ttf",
+      weight: "700",
+      style: "bold",
+    },
+    {
+      path: "/fonts/Sailec_Light.ttf",
+      weight: "300",
+      style: "normal",
+    },
+    {
+      path: "/fonts/Sailec_Italic.ttf",
+      weight: "400",
+      style: "italic",
+    },
+  ],
+});
+
 export default async function RootLayout({ children }) {
   const { data } = await fetchData();
   return (
     <StoryblokProvider>
-      <html lang="en">
-        <body className={inter.className}>
+      <html lang="pl">
+        <body className={`${sailec.className}`} style={{ background: "white" }}>
           <Navigation />
-          <Config blok={data.story.content} />
-          {children}
+          <main className="max-w-[1440px] m-auto w-full bg-white px-[100px] py-16">
+            {/* <Config blok={data.story.content} /> */}
+            {children}
+          </main>
           <Footer />
         </body>
       </html>
