@@ -70,7 +70,7 @@ export default async function RootLayout({ children }) {
   return (
     <StoryblokProvider>
       <html lang="pl">
-        <body className={`${sailec.className} bg-white`}>
+        <body className={`${sailec.className} bg-white mt-[76px]`}>
           <Navigation />
           <main className="max-w-[1440px] m-auto w-full bg-white px-[100px] py-16">
             {/* <Config blok={data.story.content} /> */}

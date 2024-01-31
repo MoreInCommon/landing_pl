@@ -18,7 +18,7 @@ const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
   return (
-    <div className="relative bg-white border-b-2 border-gray-100">
+    <div className="w-full bg-white fixed top-0 shadow-md z-50">
       <div className="max-w-[1440px] m-auto w-full bg-white">
         <div className="flex justify-between items-center px-[100px] ">
           <div className="flex">
@@ -56,7 +56,7 @@ const Navigation = () => {
             {navigationItems.map((item) => (
               <Link
                 key={item.link}
-                className={`pt-8 pb-7 px-4 text-brand-darkBlue text-captionSmall hover:text-brand-blue transition-colors ${
+                className={`pt-8 pb-7 px-4 text-brand-darkBlue text-captionSmall leading-[12px] hover:text-brand-blue transition-colors ${
                   pathname === item.link
                     ? "border-b-4 border-brand-darkBlue font-bold hover:text-brand-darkBlue"
                     : ""
