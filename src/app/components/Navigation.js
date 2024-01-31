@@ -56,7 +56,7 @@ const Navigation = () => {
             {navigationItems.map((item) => (
               <Link
                 key={item.link}
-                className={`pt-8 pb-7 px-4 text-brand-darkBlue text-bodySmall hover:text-brand-blue transition-colors ${
+                className={`pt-8 pb-7 px-4 text-brand-darkBlue text-captionSmall hover:text-brand-blue transition-colors ${
                   pathname === item.link
                     ? "border-b-4 border-brand-darkBlue font-bold hover:text-brand-darkBlue"
                     : ""
