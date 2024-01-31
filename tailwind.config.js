@@ -53,6 +53,11 @@ module.exports = {
           blue: "#10BEE8",
           green: "#009E59",
         },
+        hover: {
+          darkBlue: "#101E47",
+          blue: "#008DB2",
+          green: "#006B3C",
+        },
         mono: {
           neutral11: "#191B20",
           neutral22: "#393939",

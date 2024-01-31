@@ -8,7 +8,7 @@ const Project = ({ project }) => {
   return (
     <Link
       href={project.url}
-      className="p-6 border-t-4 border-brand-darkBlue flex-[48%] w-1/2 flex flex-col max-w-1/2 hover:shadow transition-shadow"
+      className="bg-white p-6 border-t-4 border-brand-darkBlue flex-[48%] w-1/2 flex flex-col max-w-1/2 hover:shadow transition-shadow"
     >
       <div className="h-[350px] relative mb-6">
         <Image
@@ -43,7 +43,10 @@ const Project = ({ project }) => {
             </g>
           </svg>
         </Button>
-        <Button onClick={() => console.log(project.url)} classes="bg-brand-green">
+        <Button
+          onClick={() => console.log(project.url)}
+          classes="bg-brand-green hover:bg-hover-green"
+        >
           <div className="relative top-[1px]">Czytaj dalej</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
