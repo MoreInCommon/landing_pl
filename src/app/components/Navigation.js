@@ -4,14 +4,15 @@ import { useState } from "react";
 import Logo from "../../../public/tempImages/image22.png";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { urls } from "@/app/utils";
 
 const navigationItems = [
-  { title: "O nas", link: "/about" },
-  { title: "Co robimy", link: "/blog" },
-  { title: "W mediach", link: "/w" },
-  { title: "Kontakt", link: "/d" },
-  { title: "Siedem Segmentów", link: "/k" },
-  { title: "Raport klimatyczny", link: "/" },
+  { title: "O nas", link: urls.home },
+  { title: "Co robimy", link: urls.whatWeDo },
+  { title: "W mediach", link: urls.media },
+  { title: "Kontakt", link: urls.home },
+  { title: "Siedem Segmentów", link: urls.home },
+  { title: "Raport klimatyczny", link: urls.home },
 ];
 
 const Navigation = () => {
