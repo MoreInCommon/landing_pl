@@ -8,7 +8,7 @@ const Project = ({ project }) => {
   return (
     <Link
       href={project.url}
-      className="bg-white p-6 border-t-4 border-brand-darkBlue flex-[48%] w-1/2 flex flex-col max-w-1/2 hover:shadow transition-shadow"
+      className="bg-white p-6 border-t-4 border-brand-darkBlue flex-[48%] w-1/2 flex flex-col max-w-1/2 hover:shadow-tile-shadow transition-shadow"
     >
       <div className="h-[350px] relative mb-6">
         <Image
@@ -19,12 +19,12 @@ const Project = ({ project }) => {
           style={{ objectFit: "contain" }}
         />
       </div>
-      <p className="text-grey-medium text-captionRegular mb-4">{project.date}</p>
-      <h4 className="text-h4 text-mono-neutral11 mb-6 font-bold">{project.title}</h4>
-      <p className="text-bodyRegular text-mono-neutral11 mb-10">{project.description}</p>
+      <p className="text-grey-medium text-captionRegular mb-1">{project.date}</p>
+      <h4 className="text-h4 text-mono-neutral11 mb-2 font-bold">{project.title}</h4>
+      <p className="text-bodyRegular text-mono-neutral11 mb-[30px]">{project.description}</p>
       <div className="flex items-center justify-end gap-2 mt-auto">
         <Button onClick={() => console.log(project.downloadUrl)}>
-          <div className="relative top-[1px]">Raport</div>
+          <div className="relative top-[2px]">Raport</div>
           <svg
             width="24"
             height="24"
@@ -37,7 +37,7 @@ const Project = ({ project }) => {
                 id="Vector"
                 d="M18.75 15.375V18.75H5.25V15.375H3V18.75C3 19.9875 4.0125 21 5.25 21H18.75C19.9875 21 21 19.9875 21 18.75V15.375H18.75ZM17.625 10.875L16.0387 9.28875L13.125 12.1912V3H10.875V12.1912L7.96125 9.28875L6.375 10.875L12 16.5L17.625 10.875Z"
                 fill="white"
-                stroke="#10BEE8"
+                stroke="transparent"
                 strokeWidth="0.75"
               />
             </g>
@@ -58,7 +58,7 @@ const Project = ({ project }) => {
             <path
               d="M3 11H17.17L13.59 7.41L15 6L21 12L15 18L13.59 16.59L17.17 13H3V11Z"
               fill="white"
-              stroke="#009E59"
+              stroke="transparent"
               strokeWidth="0.5"
             />
           </svg>

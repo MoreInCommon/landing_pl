@@ -7,6 +7,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      boxShadow: {
+        "nav-shadow": "0px 1px 12px 0px rgba(34, 64, 153, 0.10)",
+        "tile-shadow": "0px 0px 16px 0px rgba(34, 64, 153, 0.10);",
+      },
       maxWidth: {
         "1/4": "25%",
         "1/2": "50%",
@@ -65,15 +69,15 @@ module.exports = {
         },
       },
       fontSize: {
-        h1: ["2rem", "2rem"],
-        h2: ["1.75rem", "1.75rem"],
-        h3: ["1.75rem", "2.25rem"],
-        h4: ["1.375rem", "1.375rem"],
-        h5: ["1rem", "1rem"],
+        h1: ["2rem", "2.5rem"],
+        h2: ["1.75rem", "2.875rem"],
+        h3: ["1.75rem", "2.875rem"],
+        h4: ["1.375rem", "1.875rem"],
+        h5: ["1rem", "1.625rem"],
         bodyRegular: ["1.125rem", "1.75rem"],
         bodySmall: ["1rem", "1.625rem"],
-        captionRegular: ["1.125rem", "1.125rem"],
-        captionSmall: ["1rem", "1rem"],
+        captionRegular: ["1.125rem", "1.75rem"],
+        captionSmall: ["1rem", "1.625rem"],
       },
     },
   },

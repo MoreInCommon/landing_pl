@@ -64,38 +64,38 @@ const Footer = () => (
               </svg>
             </a>
           </div>
-          <span className="mt-auto">
+          <span className="mt-8">
             © 2024 More in Common{" "}
             <a href="#" className="ml-8">
-              <span className="text-brand-darkBlue">Polityka prywatności</span>
+              <span className="text-brand-darkBlue underline">Polityka prywatności</span>
             </a>
           </span>
         </div>
         <div className="flex gap-[115px] justify-between ">
           <div className="flex flex-col">
-            <h5 className="uppercase font-bold mb-10">Co robimy</h5>
-            <Link href="/#" className="mb-8">
+            <h5 className="uppercase font-bold mb-6">Co robimy</h5>
+            <Link href="/#" className="mb-4">
               Nasze projekty
             </Link>
-            <Link href="/#" className="mb-8">
+            <Link href="/#" className="mb-4">
               W mediach
             </Link>
           </div>
           <div className="flex flex-col">
-            <h5 className="uppercase font-bold mb-10">Kontakt</h5>
-            <Link href="/#" className="mb-8">
+            <h5 className="uppercase font-bold mb-6">Kontakt</h5>
+            <Link href="/#" className="mb-4">
               Nasze biuro
             </Link>
-            <Link href="/#" className="mb-8">
+            <Link href="/#" className="mb-4">
               Pracuj z nami
             </Link>
           </div>
           <div className="flex flex-col">
-            <h5 className="uppercase font-bold mb-10">O nas</h5>
-            <Link href="/#" className="mb-8">
+            <h5 className="uppercase font-bold mb-6">O nas</h5>
+            <Link href="/#" className="mb-4">
               Misja
             </Link>
-            <Link href="/#" className="mb-8">
+            <Link href="/#" className="mb-4">
               Zespół
             </Link>
             <Link href="/#">Status</Link>

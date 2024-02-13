@@ -75,18 +75,18 @@ export default async function RootLayout({ children }) {
           <main className="max-w-[1440px] m-auto w-full bg-transparent px-[100px] py-16 relative z-[1]">
             {/* <Config blok={data.story.content} /> */}
             {children}
+            <svg
+              className="absolute top-0 left-0 z-[-1]"
+              xmlns="http://www.w3.org/2000/svg"
+              width="1440"
+              height="583"
+              viewBox="0 0 1440 583"
+              fill="none"
+            >
+              <path d="M0 0H1440V305.5L0 583V0Z" fill="#F8F8F9" />
+            </svg>
           </main>
           <Footer />
-          <svg
-            className="absolute top-0 left-0 z-[0]"
-            xmlns="http://www.w3.org/2000/svg"
-            width="1440"
-            height="583"
-            viewBox="0 0 1440 583"
-            fill="none"
-          >
-            <path d="M0 0H1440V305.5L0 583V0Z" fill="#F8F8F9" />
-          </svg>
         </body>
       </html>
     </StoryblokProvider>

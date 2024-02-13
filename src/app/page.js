@@ -1,7 +1,6 @@
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 import Project from "@/app/components/Project";
-import Image1 from "../../public/tempImages/image22.png";
 import Image2 from "../../public/tempImages/Pic02.png";
 import Image3 from "../../public/tempImages/Pic03.png";
 import Image4 from "../../public/tempImages/Pic04.png";
@@ -9,15 +8,6 @@ import Image5 from "../../public/tempImages/Pic05.png";
 import Image6 from "../../public/tempImages/Pic06.png";
 
 const projects = [
-  {
-    title: "Decyzja kobiety - zapowiedź raportu",
-    date: "Grudzień 2023",
-    description:
-      "Najnowsze badanie More in Common Polska wskazuje, że Polki i Polacy decyzję o przerwaniu ciąży chcą przekazać w ręce kobiety.",
-    img: Image1,
-    url: "#",
-    downloadUrl: "#",
-  },
   {
     title: "Zmęczona wspólnota",
     date: "Październik 2023",
@@ -69,18 +59,20 @@ export default async function Home() {
   const { data } = await fetchData();
   return (
     <>
-      <h1 className="text-black text-h1 font-bold mt-2 border-b-4 border-brand-blue inline pr-4 ">
-        Nasze projekty
-        {/* <StoryblokStory story={data.story} /> */}
-      </h1>
-      <p className="text-black max-w-[950px] w-full mt-10">
+      <div className="inline-block heading-underline">
+        <h1 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">
+          Nasze projekty
+          {/* <StoryblokStory story={data.story} /> */}
+        </h1>
+      </div>
+      <p className="text-black max-w-[950px] w-full mt-3 text-bodyRegular">
         Realizujemy projekty mające na celu wspieranie demokracji, przeciwdziałanie polaryzacji
         politycznej i wzmacnianie zdolności społeczeństwa do stawienia czoła najważniejszym
         wyzwaniom naszych czasów. Wcielamy w życie długofalowe inicjatywy oraz reagujemy na
         przełomowe wydarzenia. Współpracujemy z szerokim gronem partnerów, z którymi dzielimy misję
         budowy silnego, spójnego i demokratycznego społeczeństwa.
       </p>
-      <div className="flex gap-10 flex-wrap mt-24 items-stretch">
+      <div className="flex gap-10 flex-wrap mt-[72px] items-stretch">
         {projects.map((project) => (
           <Project key={project.title} project={project} />
         ))}

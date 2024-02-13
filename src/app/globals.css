@@ -20,3 +20,43 @@ body {
   color: rgb(var(--foreground-rgb));
   -webkit-font-smoothing: antialiased;
 }
+
+.heading-underline::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  top: -6px;
+  position: relative;
+  z-index: 0;
+  background-color: theme("colors.brand.blue");
+}
+
+@keyframes slideInFromLeft {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.sliding-border-bottom {
+  position: relative;
+}
+
+.sliding-border-bottom:hover::after {
+  content: "";
+  display: block;
+  bottom: -4px;
+  position: absolute;
+  height: 4px;
+  left: 0;
+  background-color: currentColor;
+  animation: slideInFromLeft 0.5s ease forwards;
+  width: 0;
+}
+
+.svg-stroke {
+  stroke: var(--svg-stroke-color);
+}

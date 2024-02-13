@@ -8,9 +8,9 @@ import { usePathname } from "next/navigation";
 const navigationItems = [
   { title: "O nas", link: "/about" },
   { title: "Co robimy", link: "/blog" },
-  { title: "W mediach", link: "/services" },
-  { title: "Kontakt", link: "/services" },
-  { title: "Siedem Segmentów", link: "/services" },
+  { title: "W mediach", link: "/w" },
+  { title: "Kontakt", link: "/d" },
+  { title: "Siedem Segmentów", link: "/k" },
   { title: "Raport klimatyczny", link: "/" },
 ];
 
@@ -18,7 +18,7 @@ const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
   return (
-    <div className="w-full bg-white fixed top-0 shadow-md z-50">
+    <div className="w-full bg-white fixed top-0 shadow-nav-shadow z-50">
       <div className="max-w-[1440px] m-auto w-full bg-white">
         <div className="flex justify-between items-center px-[100px] ">
           <div className="flex">
@@ -56,10 +56,10 @@ const Navigation = () => {
             {navigationItems.map((item) => (
               <Link
                 key={item.link}
-                className={`pt-8 pb-7 px-4 text-brand-darkBlue text-captionSmall leading-[12px] hover:text-brand-blue transition-colors ${
+                className={`sliding-border-bottom pt-7 pb-6 px-4 text-brand-darkBlue border-b-4 text-captionSmall leading-[20px] transition-colors ${
                   pathname === item.link
-                    ? "border-b-4 border-brand-darkBlue font-bold hover:text-brand-darkBlue"
-                    : ""
+                    ? "border-brand-darkBlue font-bold text-brand-darkBlue"
+                    : "border-transparent"
                 }`}
                 href={item.link}
               >
