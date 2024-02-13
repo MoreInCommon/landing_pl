@@ -1,6 +1,7 @@
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 import Project from "@/app/components/Project";
+import Newsletter from "@/app/components/Newsletter";
 import Image2 from "../../public/tempImages/Pic02.png";
 import Image3 from "../../public/tempImages/Pic03.png";
 import Image4 from "../../public/tempImages/Pic04.png";

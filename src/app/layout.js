@@ -5,6 +5,7 @@ import "./globals.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/app/components/StoryblokProvider";
 
+import Newsletter from "@/app/components/Newsletter";
 import Page from "@/app/components/Page";
 import Teaser from "@/app/components/Teaser";
 import Feature from "@/app/components/Feature";
@@ -86,6 +87,7 @@ export default async function RootLayout({ children }) {
               <path d="M0 0H1440V305.5L0 583V0Z" fill="#F8F8F9" />
             </svg>
           </main>
+          <Newsletter />
           <Footer />
         </body>
       </html>

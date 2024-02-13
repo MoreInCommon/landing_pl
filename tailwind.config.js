@@ -78,6 +78,7 @@ module.exports = {
         bodySmall: ["1rem", "1.625rem"],
         captionRegular: ["1.125rem", "1.75rem"],
         captionSmall: ["1rem", "1.625rem"],
+        inputLabel: ["0.875rem", "1.5rem"],
       },
     },
   },
