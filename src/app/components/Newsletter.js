@@ -21,7 +21,7 @@ const Newsletter = () => {
               type="text"
               id="name"
               placeholder="Twoje imię i nazwisko"
-              className="px-6 py-[10px] text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
+              className="px-6 py-2 text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
             />
           </div>
           <div>
@@ -32,12 +32,12 @@ const Newsletter = () => {
               id="email"
               type="email"
               placeholder="Twój adres e-mail"
-              className="px-6 py-[10px] text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
+              className="px-6 py-2 text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
             />
           </div>
           <Button
             type="submit"
-            classes="py-[14px] px-8 bg-brand-darkBlue text-white text-[21px] leading-[19px!important] ml-4 min-w-[133px]"
+            classes="py-[14px] px-8 bg-brand-darkBlue text-white text-[21px] leading-[16px!important] ml-4 min-w-[133px]"
           >
             <div className="relative top-[1px]">Dołącz</div>
           </Button>
