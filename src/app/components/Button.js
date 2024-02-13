@@ -1,11 +1,13 @@
+import { twMerge } from "tailwind-merge";
+
 const Button = ({ children, classes = "", ...props }) => (
   <button
     {...props}
-    className={
+    className={twMerge(
       "py-[6px] px-4 flex items-center justify-center gap-2 rounded-full text-white text-[18px] bg-brand-blue hover:bg-hover-blue transition-all leading-none" +
-      " " +
-      classes
-    }
+        " " +
+        classes
+    )}
   >
     {children}
   </button>

@@ -14,7 +14,7 @@ const Newsletter = () => {
       <form>
         <div className="flex gap-4 items-end">
           <div>
-            <label htmlFor="name" className="text-inputLabel pl-4">
+            <label htmlFor="name" className="text-inputLabel pl-4 font-medium">
               Imię i nazwisko
             </label>
             <input
@@ -25,7 +25,7 @@ const Newsletter = () => {
             />
           </div>
           <div>
-            <label htmlFor="email" className="text-inputLabel pl-4">
+            <label htmlFor="email" className="text-inputLabel pl-4 font-medium">
               Adres e-mail
             </label>
             <input
@@ -37,7 +37,7 @@ const Newsletter = () => {
           </div>
           <Button
             type="submit"
-            classes="py-[14px] px-8 bg-brand-darkBlue text-white text-[21px] leading-[16px!important] ml-4 min-w-[133px]"
+            classes="py-[14px] px-8 bg-brand-darkBlue text-white text-[21px] leading-[16px] ml-4 min-w-[133px]"
           >
             <div className="relative top-[1px]">Dołącz</div>
           </Button>

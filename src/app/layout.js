@@ -49,6 +49,11 @@ const sailec = localFont({
       style: "normal",
     },
     {
+      path: "/fonts/Sailec_Medium.ttf",
+      weight: "500",
+      style: "normal",
+    },
+    {
       path: "/fonts/Sailec_Bold.ttf",
       weight: "700",
       style: "bold",
