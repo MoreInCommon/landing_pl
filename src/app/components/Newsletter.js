@@ -21,7 +21,7 @@ const Newsletter = () => {
               type="text"
               id="name"
               placeholder="Twoje imię i nazwisko"
-              className="px-6 py-2 text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
+              className="px-6 pt-[10px] pb-[6px] text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
             />
           </div>
           <div>
@@ -32,7 +32,7 @@ const Newsletter = () => {
               id="email"
               type="email"
               placeholder="Twój adres e-mail"
-              className="px-6 py-2 text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
+              className="px-6 pt-[10px] pb-[6px] text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
             />
           </div>
           <Button
