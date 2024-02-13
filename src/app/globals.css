@@ -55,6 +55,10 @@ body {
   background-color: currentColor;
   animation: slideInFromLeft 0.5s ease forwards;
   width: 0;
+  z-index: 0;
+}
+.sliding-border-bottom.active:hover::after {
+  height: 0;
 }
 
 .svg-stroke {

@@ -4,12 +4,9 @@ import Link from "next/link";
 import Image1 from "../../../public/tempImages/image22.png";
 import Button from "@/app/components/Button";
 
-const Project = ({ project }) => {
+const Project = ({ project, classes }) => {
   return (
-    <Link
-      href={project.url}
-      className="bg-white p-6 border-t-4 border-brand-darkBlue flex-[48%] w-1/2 flex flex-col max-w-1/2 hover:shadow-tile-shadow transition-shadow"
-    >
+    <Link href={project.url} className={classes}>
       <div className="h-[350px] relative mb-6">
         <Image
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
@@ -20,6 +17,9 @@ const Project = ({ project }) => {
         />
       </div>
       <p className="text-grey-medium text-captionRegular mb-1">{project.date}</p>
+      <p className="bg-brand-darkBlue text-white inline-block uppercase font-medium font-bodySmall w-fit px-2 pt-[3px] pb-[2px] mb-3 rounded empty:hidden">
+        {project.medium}
+      </p>
       <h4 className="text-h4 text-mono-neutral11 mb-2 font-bold">{project.title}</h4>
       <p className="text-bodyRegular text-mono-neutral11 mb-[30px]">{project.description}</p>
       <div className="flex items-center justify-end gap-2 mt-auto">

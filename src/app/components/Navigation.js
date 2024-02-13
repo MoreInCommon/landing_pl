@@ -59,7 +59,7 @@ const Navigation = () => {
                 key={item.link}
                 className={`sliding-border-bottom pt-7 pb-6 px-4 text-brand-darkBlue border-b-4 text-captionSmall leading-[20px] transition-colors ${
                   pathname === item.link
-                    ? "border-brand-darkBlue font-bold text-brand-darkBlue"
+                    ? "border-brand-darkBlue font-bold text-brand-darkBlue active"
                     : "border-transparent"
                 }`}
                 href={item.link}

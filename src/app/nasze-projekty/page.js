@@ -85,7 +85,11 @@ export default async function Home() {
       </p>
       <div className="flex gap-10 flex-wrap mt-[72px] items-stretch">
         {projects.map((project) => (
-          <Project key={project.title} project={project} />
+          <Project
+            classes="bg-white p-6 border-t-4 border-brand-darkBlue flex-[48%] w-1/2 flex flex-col max-w-1/2 hover:shadow-tile-shadow transition-shadow"
+            key={project.title}
+            project={project}
+          />
         ))}
       </div>
     </>
