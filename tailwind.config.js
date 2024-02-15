@@ -53,6 +53,12 @@ module.exports = {
           medium: "#F5B4C2",
           original: "#ED6C84",
         },
+        red: {
+          dark: "#C11A37",
+          light: "#FBE1DD",
+          medium: "#DB6D78",
+          original: "#CC2D40",
+        },
         brand: {
           darkBlue: "#224099",
           blue: "#10BEE8",
