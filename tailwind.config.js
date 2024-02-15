@@ -75,7 +75,7 @@ module.exports = {
         h3: ["1.75rem", "2.875rem"],
         h4: ["1.375rem", "1.875rem"],
         h5: ["1rem", "1.625rem"],
-        bodyRegular: ["1.125rem", "1.75rem"],
+        bodyRegular: ["1.125rem", "1.625rem"],
         bodySmall: ["1rem", "1.625rem"],
         captionRegular: ["1.125rem", "1.75rem"],
         captionSmall: ["1rem", "1.625rem"],
