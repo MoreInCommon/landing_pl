@@ -11,7 +11,7 @@ const navigationItems = [
   { title: "Co robimy", link: urls.whatWeDo },
   { title: "W mediach", link: urls.media },
   { title: "Kontakt", link: urls.contact },
-  { title: "Siedem Segmentów", link: urls.home },
+  { title: "Siedem Segmentów", link: urls.seven },
   { title: "Raport klimatyczny", link: urls.home },
 ];
 
