@@ -2,7 +2,7 @@ import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 
 export default async function About() {
-  const { data } = await fetchData();
+  // const { data } = await fetchData();
   return (
     <div>
       <StoryblokStory story={data.story} />

@@ -72,7 +72,7 @@ const sailec = localFont({
 });
 
 export default async function RootLayout({ children }) {
-  const { data } = await fetchData();
+  // const { data } = await fetchData();
   return (
     <StoryblokProvider>
       <html lang="pl">

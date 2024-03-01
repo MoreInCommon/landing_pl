@@ -17,7 +17,7 @@ const Project = ({ project, classes }) => {
         />
       </div>
       <p className="text-grey-medium text-captionRegular mb-1">{project.date}</p>
-      <p className="bg-brand-darkBlue text-white inline-block uppercase font-medium font-bodySmall w-fit px-2 pt-[3px] pb-[2px] mb-3 rounded empty:hidden">
+      <p className=" text-brand-darkBlue inline-block uppercase  font-bodySmall w-fit font-bold mb-3 rounded empty:hidden">
         {project.medium}
       </p>
       <h4 className="text-h4 text-mono-neutral11 mb-2 font-bold">{project.title}</h4>

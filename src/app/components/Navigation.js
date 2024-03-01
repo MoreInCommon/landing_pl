@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 import { urls } from "@/app/utils";
 
 const navigationItems = [
-  { title: "O nas", link: urls.home },
+  { title: "O nas", link: urls.about },
   { title: "Co robimy", link: urls.whatWeDo },
   { title: "W mediach", link: urls.media },
   { title: "Kontakt", link: urls.home },

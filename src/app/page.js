@@ -57,7 +57,7 @@ const projects = [
 ];
 
 export default async function Home() {
-  const { data } = await fetchData();
+  // const { data } = await fetchData();
   return (
     <>
       <div className="inline-block heading-underline">

@@ -10,6 +10,7 @@ module.exports = {
       boxShadow: {
         "nav-shadow": "0px 1px 12px 0px rgba(34, 64, 153, 0.10)",
         "tile-shadow": "0px 0px 16px 0px rgba(34, 64, 153, 0.10);",
+        "footer-shadow": "0px 1px 16px 0px rgba(34, 64, 153, 0.10);",
       },
       maxWidth: {
         "1/4": "25%",

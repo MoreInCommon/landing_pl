@@ -3,7 +3,7 @@ import Link from "next/link";
 import Logo from "../../../public/tempImages/image22.png";
 
 const Footer = () => (
-  <footer className="relative bg-white border-t-2 border-gray-100 text-brand-darkBlue">
+  <footer className="relative bg-white shadow-footer-shadow text-brand-darkBlue">
     <div className="max-w-[1440px] m-auto w-full bg-white">
       <div className="flex justify-between py-8 px-[100px] items-stretch">
         <div className="flex flex-col gap-6">
