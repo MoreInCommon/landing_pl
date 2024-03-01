@@ -3,11 +3,7 @@ import StoryblokStory from "@storyblok/react/story";
 
 export default async function About() {
   // const { data } = await fetchData();
-  return (
-    <div>
-      <StoryblokStory story={data.story} />
-    </div>
-  );
+  return <div>{/* <StoryblokStory story={data.story} /> */}</div>;
 }
 
 export async function fetchData() {
