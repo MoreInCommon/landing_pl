@@ -10,7 +10,7 @@ const navigationItems = [
   { title: "O nas", link: urls.about },
   { title: "Co robimy", link: urls.whatWeDo },
   { title: "W mediach", link: urls.media },
-  { title: "Kontakt", link: urls.home },
+  { title: "Kontakt", link: urls.contact },
   { title: "Siedem Segmentów", link: urls.home },
   { title: "Raport klimatyczny", link: urls.home },
 ];

@@ -3,4 +3,5 @@ export const urls = {
   whatWeDo: "/nasze-projekty",
   media: "/w-mediach",
   about: "/o-nas",
+  contact: "/kontakt",
 };
