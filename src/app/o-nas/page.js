@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Adam from "../../../public/tempImages/Adam.jpg";
+import Adam from "../../../public/tempImages/adam.jpg";
 
 export default async function Home() {
   return (
