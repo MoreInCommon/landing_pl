@@ -4,7 +4,8 @@ import localFont from "next/font/local";
 import "./globals.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/app/components/StoryblokProvider";
-
+import "./lib/slick.css";
+import "./lib/slick-theme.css";
 import Newsletter from "@/app/components/Newsletter";
 import Page from "@/app/components/Page";
 import Teaser from "@/app/components/Teaser";

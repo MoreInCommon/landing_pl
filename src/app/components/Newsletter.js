@@ -2,11 +2,17 @@
 import Image from "next/image";
 import Link from "next/link";
 import Image1 from "../../../public/tempImages/image22.png";
+import { usePathname } from "next/navigation";
+import { getIfGreenUrl } from "@/app/utils";
 import Button from "@/app/components/Button";
 
 const Newsletter = () => {
+  const pathname = usePathname();
+  const isGreenUrl = getIfGreenUrl(pathname);
   return (
-    <div className="text-brand-darkBlue  max-w-[1440px] m-auto w-full bg-[#EDF0F7] px-[100px] bg-[url('/newsletter_bg.png')] py-16">
+    <div
+      className={`text-themeableColors-darkBlue  max-w-[1440px] m-auto w-full newsletterBg px-[100px] bg-[url('/newsletter_bg.png')] py-16 ${isGreenUrl}`}
+    >
       <h4 className="text-h4 font-bold mb-2">Bądź na bieżąco!</h4>
       <p className="text-bodyRegular mb-8">
         Zasubskrybuj nasz newsletter, żeby być na biężąco z działaniami More in Common.
@@ -21,7 +27,7 @@ const Newsletter = () => {
               type="text"
               id="name"
               placeholder="Twoje imię i nazwisko"
-              className="px-6 pt-[10px] pb-[6px] text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
+              className="px-6 pt-[10px] pb-[6px] text-captionSmall border-themeableColors-darkBlue border w-full bg-white text-grey-dark rounded-full"
             />
           </div>
           <div>
@@ -32,12 +38,12 @@ const Newsletter = () => {
               id="email"
               type="email"
               placeholder="Twój adres e-mail"
-              className="px-6 pt-[10px] pb-[6px] text-captionSmall border-brand-darkBlue border w-full bg-white text-grey-dark rounded-full"
+              className="px-6 pt-[10px] pb-[6px] text-captionSmall border-themeableColors-darkBlue border w-full bg-white text-grey-dark rounded-full"
             />
           </div>
           <Button
             type="submit"
-            classes="py-[14px] px-8 bg-brand-darkBlue text-white text-[21px] leading-[16px] ml-4 min-w-[133px]"
+            classes="py-[14px] px-8 bg-themeableColors-darkBlue text-white text-[21px] leading-[16px] ml-4 min-w-[133px]"
           >
             <div className="relative top-[1px]">Dołącz</div>
           </Button>

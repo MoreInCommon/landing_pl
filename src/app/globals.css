@@ -13,6 +13,17 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --color-primary: #224099;
+    --color-secondary: #10bee8;
+    --color-ternary: #009e59;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root .bg-themeGreen {
+    --color-primary: #03641b;
+    --color-secondary: yellow;
+    --color-ternary: pink;
   }
 }
 
@@ -30,6 +41,18 @@ body {
   position: relative;
   z-index: 0;
   background-color: theme("colors.brand.blue");
+}
+
+.green-heading-underline::after {
+  background-color: theme("colors.brand.green");
+}
+
+.newsletterBg {
+  background-color: #edf0f7;
+}
+
+.bg-themeGreen.newsletterBg {
+  background-color: #f1f6ea;
 }
 
 @keyframes slideInFromLeft {

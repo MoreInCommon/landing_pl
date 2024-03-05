@@ -65,6 +65,11 @@ module.exports = {
           blue: "#10BEE8",
           green: "#009E59",
         },
+        themeableColors: {
+          darkBlue: "var(--color-primary)",
+          blue: "var(--color-secondary)",
+          green: "var(--color-ternary)",
+        },
         hover: {
           darkBlue: "#101E47",
           blue: "#008DB2",
