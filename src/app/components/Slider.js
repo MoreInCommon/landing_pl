@@ -95,10 +95,9 @@ const contents = [
   },
 ];
 
-export default function CustomSlider({ fade = false }) {
+export default function CustomSlider() {
   var settings = {
     infinite: true,
-    fade,
     slidesToShow: 1,
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
