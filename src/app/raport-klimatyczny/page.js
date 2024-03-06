@@ -9,6 +9,7 @@ export default async function Home() {
   return (
     <>
       <CustomSlider />
+      <CustomSlider fade />
       <div className="inline-block heading-underline green-heading-underline">
         <h1 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">Segmentacja</h1>
       </div>

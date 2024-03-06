@@ -11,6 +11,7 @@ module.exports = {
         "nav-shadow": "0px 1px 12px 0px rgba(34, 64, 153, 0.10)",
         "tile-shadow": "0px 0px 16px 0px rgba(34, 64, 153, 0.10);",
         "footer-shadow": "0px 1px 16px 0px rgba(34, 64, 153, 0.10);",
+        "slider-shadow": "0px 0px 32px 0px rgba(1, 50, 13, 0.10);",
       },
       maxWidth: {
         "1/4": "25%",
@@ -61,6 +62,7 @@ module.exports = {
           original: "#CC2D40",
         },
         brand: {
+          darkGreen: "#03641b",
           darkBlue: "#224099",
           blue: "#10BEE8",
           green: "#009E59",
