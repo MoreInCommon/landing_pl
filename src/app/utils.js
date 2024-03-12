@@ -17,8 +17,10 @@ export const urls = {
 };
 
 const greenUrls = [urls.climate];
+const decorationUrls = [urls.whatWeDo];
 
 export const getIfGreenUrl = (url) => (greenUrls.includes(url) ? "bg-themeGreen" : "");
+export const getIfDecoration = (url) => !!decorationUrls.includes(url);
 
 export const segments = [
   {

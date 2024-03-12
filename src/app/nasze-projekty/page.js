@@ -1,12 +1,14 @@
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
 import Project from "@/app/components/Project";
+import MainHeader from "@/app/components/MainHeader";
 import Newsletter from "@/app/components/Newsletter";
 import Image2 from "../../../public/tempImages/Pic02.png";
 import Image3 from "../../../public/tempImages/Pic03.png";
 import Image4 from "../../../public/tempImages/Pic04.png";
 import Image5 from "../../../public/tempImages/Pic05.png";
 import Image6 from "../../../public/tempImages/Pic06.png";
+import StandardText from "../components/StandardText";
 
 const projects = [
   {
@@ -60,29 +62,14 @@ export default async function Home() {
   // const { data } = await fetchData();
   return (
     <>
-      <svg
-        className="absolute top-0 left-0 z-[-1]"
-        xmlns="http://www.w3.org/2000/svg"
-        width="1440"
-        height="583"
-        viewBox="0 0 1440 583"
-        fill="none"
-      >
-        <path d="M0 0H1440V305.5L0 583V0Z" fill="#F8F8F9" />
-      </svg>
-      <div className="inline-block heading-underline">
-        <h1 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">
-          Nasze projekty
-          {/* <StoryblokStory story={data.story} /> */}
-        </h1>
-      </div>
-      <p className="text-black max-w-[950px] w-full mt-3 text-bodyRegular">
-        Realizujemy projekty mające na celu wspieranie demokracji, przeciwdziałanie polaryzacji
+      <MainHeader text="Nasze projekty" />
+      <StandardText
+        text="Realizujemy projekty mające na celu wspieranie demokracji, przeciwdziałanie polaryzacji
         politycznej i wzmacnianie zdolności społeczeństwa do stawienia czoła najważniejszym
         wyzwaniom naszych czasów. Wcielamy w życie długofalowe inicjatywy oraz reagujemy na
         przełomowe wydarzenia. Współpracujemy z szerokim gronem partnerów, z którymi dzielimy misję
-        budowy silnego, spójnego i demokratycznego społeczeństwa.
-      </p>
+        budowy silnego, spójnego i demokratycznego społeczeństwa."
+      />
       <div className="flex gap-10 flex-wrap mt-[72px] items-stretch">
         {projects.map((project) => (
           <Project

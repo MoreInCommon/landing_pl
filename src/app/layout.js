@@ -12,6 +12,7 @@ import Teaser from "@/app/components/Teaser";
 import Feature from "@/app/components/Feature";
 import Grid from "@/app/components/Grid";
 import Navigation from "@/app/components/Navigation";
+import Decoration from "@/app/components/Decoration";
 import Footer from "@/app/components/Footer";
 import Config from "@/app/components/Config";
 import HeaderMenu from "@/app/components/HeaderMenu";
@@ -78,6 +79,7 @@ export default async function RootLayout({ children }) {
     <StoryblokProvider>
       <html lang="pl">
         <body className={`${sailec.className} bg-white mt-[76px]`}>
+          <Decoration />
           <Navigation />
           <main className="max-w-[1440px] m-auto w-full bg-transparent px-[100px] py-16 relative z-[1]">
             {/* <Config blok={data.story.content} /> */}

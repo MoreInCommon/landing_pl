@@ -3,6 +3,9 @@ import StoryblokStory from "@storyblok/react/story";
 import Project from "@/app/components/Project";
 import Newsletter from "@/app/components/Newsletter";
 import Button from "@/app/components/Button";
+import MainHeader from "@/app/components/MainHeader";
+import Well from "@/app/components/Well";
+import StandardText from "../components/StandardText";
 import SegmentsSvg from "@/app/components/SegmentsSvg";
 import Image2 from "../../../public/tempImages/1.png";
 import CustomSlider from "@/app/components/Slider";
@@ -37,15 +40,13 @@ export default async function Home() {
     <>
       <CustomSlider />
       <div className="text-center">
-        <div className="inline-block heading-underline green-heading-underline">
-          <h1 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">Segmentacja</h1>
-        </div>
-        <p className="text-black max-w-[950px] w-full mt-3 mx-auto text-bodyRegular">
-          Badanie z 2023 roku na temat stosunku Polaków do klimatu, oparte na ankietach wśród 4090
+        <MainHeader className="green-heading-underline" text="Segmentacja" />
+        <StandardText
+          text="Badanie z 2023 roku na temat stosunku Polaków do klimatu, oparte na ankietach wśród 4090
           osób i ponad 100 wywiadach, różni się od innych badań tym, że koncentruje się na
           wartościach moralnych, poczuciu sprawczości, tożsamościach oraz postawach wobec zmian i
-          innych osób, zamiast na demografii.
-        </p>
+          innych osób, zamiast na demografii."
+        />
         <div className="flex gap-4 my-8">
           {contents.map((content, index) => (
             <Link
@@ -115,15 +116,13 @@ export default async function Home() {
             <div className="relative top-[1px]">Przejdz do testu</div>
           </Button>
         </div>
-        <div className="inline-block heading-underline green-heading-underline">
-          <h2 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">7 segmentów</h2>
-        </div>
-        <p className="text-black max-w-[950px] w-full mt-3 mx-auto text-bodyRegular">
-          Polska to społeczeństwo różnorodne, niepodzielone jedynie na skrajności. Możemy być
+        <MainHeader className="green-heading-underline" text="7 segmentów" />
+        <StandardText
+          text="  Polska to społeczeństwo różnorodne, niepodzielone jedynie na skrajności. Możemy być
           klasyfikowani w różne segmenty w zależności od naszych kluczowych przekonań i psychologii.
           W obrębie segmentów mogą występować ogólne tendencje wyborcze, poszczególni członkowie
-          grup mogą podejmować inne decyzje.
-        </p>
+          grup mogą podejmować inne decyzje."
+        />
         <div className="flex gap-4 my-8">
           {segments.map((content, index) => (
             <div

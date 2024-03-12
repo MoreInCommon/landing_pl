@@ -3,6 +3,9 @@ import StoryblokStory from "@storyblok/react/story";
 import Project from "@/app/components/Project";
 import Newsletter from "@/app/components/Newsletter";
 import Button from "@/app/components/Button";
+import MainHeader from "@/app/components/MainHeader";
+import Well from "@/app/components/Well";
+import StandardText from "../components/StandardText";
 import Image2 from "../../../public/tempImages/Pic02.png";
 import Image3 from "../../../public/tempImages/Pic03.png";
 import Image4 from "../../../public/tempImages/Pic04.png";
@@ -63,31 +66,18 @@ const projects = [
 ];
 
 export default async function Home() {
-  // const { data } = await fetchData();
   return (
     <>
-      <div className="inline-block heading-underline">
-        <h1 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">
-          W mediach
-          {/* <StoryblokStory story={data.story} /> */}
-        </h1>
-      </div>
-      <p className="text-black max-w-[950px] w-full mt-3 text-bodyRegular">
-        Wnioskami z naszych badań regularnie dzielimy za pośrednictwem mediów. Poniżej znajduje się
-        lista wybranych publikacji i audycji, w których braliśmy udział.
-      </p>
-      <div className="bg-[#F8F8F9] p-8 mt-12 text-black text-center">
-        <h4 className="text-h4 font-bold mb-2">Zapraszamy do kontaktu</h4>
-        <p className="text-bodyRegular">
-          Jesteś przedstawicielem mediów zainteresowanym naszą pracą?
-        </p>
-        <Button
-          type="submit"
-          classes="py-[14px] px-8 bg-brand-darkBlue text-white text-[21px] leading-[16px] m-auto mt-6"
-        >
-          <div className="relative top-[1px]">Napisz do nas</div>
-        </Button>
-      </div>
+      <MainHeader text="W mediach" />
+      <StandardText
+        text="Wnioskami z naszych badań regularnie dzielimy za pośrednictwem mediów. Poniżej znajduje się
+        lista wybranych publikacji i audycji, w których braliśmy udział."
+      />
+      <Well
+        title="Zapraszamy do kontaktu"
+        text="Jesteś przedstawicielem mediów zainteresowanym naszą pracą?"
+        button="Napisz do nas"
+      />
       <div className="flex gap-4 flex-wrap mt-[72px] items-stretch">
         {projects.map((project) => (
           <Project
@@ -99,10 +89,4 @@ export default async function Home() {
       </div>
     </>
   );
-}
-
-export async function fetchData() {
-  // let sbParams = { version: "draft" };
-  // const storyblokApi = getStoryblokApi();
-  // return storyblokApi.get(`cdn/stories/home`, sbParams);
 }
