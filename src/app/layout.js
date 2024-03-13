@@ -1,6 +1,5 @@
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
-
 import "./globals.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/app/components/StoryblokProvider";
@@ -39,8 +38,15 @@ storyblokInit({
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "More in common",
-  description: "More in common desc",
+  title: "More in Common",
+  description:
+    "More in Common działa na rzecz wzmocnienia demokracji oraz zmniejszania polaryzacji politycznej i światopoglądowej.",
+  openGraph: {
+    images: "/tempImages/adam.jpg",
+  },
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 const sailec = localFont({

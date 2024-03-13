@@ -40,10 +40,10 @@ const Navigation = () => {
               <Image src={Logo} alt="More in common" width={143} height={44} />
             </Link>
           </div>
-          <div className="-mr-2 -my-2 md:hidden">
+          <div className="-mr-2 -my-2 xl:hidden">
             <button
               type="button"
-              onClick={() => setOpenMenu(true)}
+              onClick={() => setOpenMenu(!openMenu)}
               className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
               aria-expanded="false"
             >
@@ -65,7 +65,7 @@ const Navigation = () => {
               </svg>
             </button>
           </div>
-          <div className="hidden md:flex items-center justify-end gap-4">
+          <div className="hidden xl:flex items-center justify-end gap-4">
             {navigationItems.map((item) => (
               <div
                 onMouseEnter={() => setHovered(item.title)}
@@ -98,6 +98,30 @@ const Navigation = () => {
           <SocialMediaIcons />
         </div>
       </div>
+      {openMenu && (
+        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden">
+          {navigationItems.map((item) => (
+            <div key={item.link} className="w-full">
+              <Link href={item.link} className="block p-4 text-gray-700 hover:bg-gray-100">
+                {item.title}
+              </Link>
+              {item.submenu && (
+                <div className="pl-4">
+                  {item.submenu.map((subItem) => (
+                    <Link
+                      key={subItem.link}
+                      href={subItem.link}
+                      className="block p-4 text-gray-600 hover:bg-gray-50"
+                    >
+                      {subItem.title}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };
