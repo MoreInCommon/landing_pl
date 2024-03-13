@@ -14,6 +14,7 @@ export const urls = {
   contact: "/kontakt",
   seven: "/siedem-segmentow",
   climate: "/raport-klimatyczny",
+  workWithUs: "/pracuj-z-nami",
 };
 
 const greenUrls = [urls.climate];

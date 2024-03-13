@@ -12,7 +12,14 @@ const navigationItems = [
   { title: "O nas", link: urls.about },
   { title: "Co robimy", link: urls.whatWeDo },
   { title: "W mediach", link: urls.media },
-  { title: "Kontakt", link: urls.contact },
+  {
+    title: "Kontakt",
+    link: urls.contact,
+    submenu: [
+      { title: "Kontakt", link: urls.contact },
+      { title: "Pracuj z nami", link: urls.workWithUs },
+    ],
+  },
   { title: "Siedem Segmentów", link: urls.seven },
   { title: "Raport klimatyczny", link: urls.climate },
 ];
@@ -20,6 +27,8 @@ const navigationItems = [
 const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
+  const [hovered, setHovered] = useState(null);
+
   const isGreenUrl = getIfGreenUrl(pathname);
   return (
     <div className={`w-full bg-white fixed top-0 shadow-nav-shadow z-50 ${isGreenUrl}`}>
@@ -31,7 +40,7 @@ const Navigation = () => {
               <Image src={Logo} alt="More in common" width={143} height={44} />
             </Link>
           </div>
-          {/* <div className="-mr-2 -my-2 md:hidden">
+          <div className="-mr-2 -my-2 md:hidden">
             <button
               type="button"
               onClick={() => setOpenMenu(true)}
@@ -55,20 +64,35 @@ const Navigation = () => {
                 />
               </svg>
             </button>
-          </div> */}
+          </div>
           <div className="hidden md:flex items-center justify-end gap-4">
             {navigationItems.map((item) => (
-              <Link
+              <div
+                onMouseEnter={() => setHovered(item.title)}
+                onMouseLeave={() => setHovered(null)}
                 key={item.link}
-                className={`sliding-border-bottom pt-7 pb-6 px-4 text-themeableColors-darkBlue border-b-4 text-captionSmall leading-[20px] transition-colors ${
-                  pathname === item.link
-                    ? "border-themeableColors-darkBlue font-bold text-themeableColors-darkBlue active"
-                    : "border-transparent"
-                }`}
-                href={item.link}
+                className="flex flex-col relative"
               >
-                {item.title}
-              </Link>
+                <Link
+                  className={`sliding-border-bottom pt-7 pb-6 px-4 text-themeableColors-darkBlue border-b-4 text-captionSmall leading-[20px] transition-colors ${
+                    pathname === item.link
+                      ? "border-themeableColors-darkBlue font-bold text-themeableColors-darkBlue active"
+                      : "border-transparent"
+                  }`}
+                  href={item.link}
+                >
+                  {item.title}
+                </Link>
+                {item.submenu && hovered === item.title && (
+                  <div className="absolute w-48 bottom-[-75px] bg-white mt-2 shadow-md text-themeableColors-darkBlue">
+                    {item.submenu.map((subItem) => (
+                      <Link key={subItem.link} href={subItem.link} className="block p-2">
+                        {subItem.title}
+                      </Link>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
           </div>
           <SocialMediaIcons />
