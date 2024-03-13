@@ -9,7 +9,14 @@ import { urls } from "@/app/utils";
 import { getIfGreenUrl } from "@/app/utils";
 
 const navigationItems = [
-  { title: "O nas", link: urls.about },
+  {
+    title: "O nas",
+    link: urls.about,
+    submenu: [
+      { title: "Zespół", link: urls.team },
+      { title: "Misja", link: urls.about },
+    ],
+  },
   { title: "Co robimy", link: urls.whatWeDo },
   { title: "W mediach", link: urls.media },
   {
