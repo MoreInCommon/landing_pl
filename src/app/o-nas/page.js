@@ -10,7 +10,7 @@ export default async function Home() {
     <>
       <MainHeader text="Misja" />
       <StandardText text="More in Common działa na rzecz wzmocnienia demokracji oraz zmniejszenia polaryzaji politycznej i światopoglądowej." />
-      <section className="mt-24 flex text-black gap-6 mb-24">
+      <section className="mt-28 flex text-black gap-6 mb-24">
         <HeaderFour text="Budowanie jedności przez wspólnotowość" className="max-w-72" />
         <div className="flex-1 space-y-4 max-w-[715px]">
           <StandardText text="W przestrzeni publicznej na całym świecie obserwujemy pojawianie się antagonizujących narracji, które dzielą społeczeństwa wzdłuż linii „my kontra oni”. W skrajnych przypadkach prowadzą one do przemocy i kwestionowania podstawowych demokratycznych wartości. W Polsce atmosfera nieustannej wojny polsko-polskiej nakręca spiralę wzajemnej nieufności, a nawet pogardy." />
