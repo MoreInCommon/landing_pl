@@ -5,6 +5,7 @@ import Newsletter from "@/app/components/Newsletter";
 import Button from "@/app/components/Button";
 import MainHeader from "@/app/components/MainHeader";
 import Well from "@/app/components/Well";
+import Pagination from "@/app/components/Pagination";
 import StandardText from "../components/StandardText";
 import Image2 from "../../../public/tempImages/Pic02.png";
 import Image3 from "../../../public/tempImages/Pic03.png";
@@ -86,6 +87,9 @@ export default async function Home() {
             project={project}
           />
         ))}
+      </div>
+      <div className="flex justify-center mt-20">
+        <Pagination currentPage={3} totalPages={8} />
       </div>
     </>
   );
