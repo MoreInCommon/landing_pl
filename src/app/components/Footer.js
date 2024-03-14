@@ -22,7 +22,7 @@ const Footer = () => {
               <Image src={Logo} alt="More in common" width={143} height={44} />
             </Link>
             <SocialMediaIcons />
-            <span className="mt-8">
+            <span className="mt-10">
               © 2024 More in Common{" "}
               <a href="#" className="ml-8">
                 <span className="text-themeableColors-darkBlue underline">
@@ -31,7 +31,7 @@ const Footer = () => {
               </a>
             </span>
           </div>
-          <div className="flex gap-[115px] justify-between ">
+          <div className="flex gap-[120px] justify-between mr-[60px]">
             <div className="flex flex-col">
               <h5 className="uppercase font-bold mb-6">Co robimy</h5>
               <Link href="/#" className="mb-4">

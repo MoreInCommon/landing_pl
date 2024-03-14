@@ -1,46 +1,44 @@
-"use client";
-import Image from "next/image";
 import Adam from "../../../public/tempImages/adam.jpg";
 import MainHeader from "@/app/components/MainHeader";
 import StandardText from "@/app/components/StandardText";
+import Team from "@/app/components/Team";
+import Well from "@/app/components/Well";
 import HeaderFour from "@/app/components/HeaderFour";
-import Quote from "@/app/components/Quote";
 
 const team = [
   {
     name: "Adam Traczyk",
     position: "Dyrektor",
     image: Adam,
-    text: "Adam jest politologiem i socjologiem. W swojej pracy naukowej zajmuje się polaryzacją społeczną, demokracją i ruchami społecznymi. Jest autorem książki „Polaryzacja. Jak zrozumieć współczesne spory”.",
+    text: "Adam dołączył do More in Common w listopadzie 2020 roku, a od lipca 2022 kieruje naszym warszawskim biurem. Wcześniej pracował m.in. w German Council on Foreign Relations (DGAP). Był także współzałożycielem i przez kilka lat prezesem warszawskiego think-tanku Global.Lab zajmującego się sprawami międzynarodowymi. Adam studiował stosunki międzynarodowe i nauki polityczne w Warszawie, Bonn i Berlinie. Jego komentarze i analizy ukazały się m.in. na łamach Polityki, Rzeczpospolitej, Gazety Wyborczej, Polski The Times, Super Expressu, Krytyki Politycznej, Klubu Jagiellońskiego, Le Monde, Die Welt, Süddeutsche Zeitung, Wall Street Journal i innych. W kadencji 2019-2023 był członkiem zespołu ekspertów Komisji Spraw Zagranicznych i Unii Europejskiej Senatu RP.",
   },
   {
-    name: "Adam Traczyk",
+    name: "Traczyk Adam",
+    position: "Dyrektor",
+    image: Adam,
+    text: "Adam dołączył do More in Common w listopadzie 2020 roku, a od lipca 2022 kieruje naszym warszawskim biurem. Wcześniej pracował m.in. w German Council on Foreign Relations (DGAP). Był także współzałożycielem i przez kilka lat prezesem warszawskiego think-tanku Global.Lab zajmującego się sprawami międzynarodowymi. Adam studiował stosunki międzynarodowe i nauki polityczne w Warszawie, Bonn i Berlinie. Jego komentarze i analizy ukazały się m.in. na łamach Polityki, Rzeczpospolitej, Gazety Wyborczej, Polski The Times, Super Expressu, Krytyki Politycznej, Klubu Jagiellońskiego, Le Monde, Die Welt, Süddeutsche Zeitung, Wall Street Journal i innych. W kadencji 2019-2023 był członkiem zespołu ekspertów Komisji Spraw Zagranicznych i Unii Europejskiej Senatu RP.",
+  },
+  {
+    name: "Ada Tracz",
     position: "Dyrektor",
     image: Adam,
     text: "Adam jest politologiem i socjologiem. W swojej pracy naukowej zajmuje się polaryzacją społeczną, demokracją i ruchami społecznymi. Jest autorem książki „Polaryzacja. Jak zrozumieć współczesne spory”.",
   },
   {
-    name: "Adam Traczyk",
+    name: "Tracz Ada",
     position: "Dyrektor",
     image: Adam,
     text: "Adam jest politologiem i socjologiem. W swojej pracy naukowej zajmuje się polaryzacją społeczną, demokracją i ruchami społecznymi. Jest autorem książki „Polaryzacja. Jak zrozumieć współczesne spory”.",
   },
   {
-    name: "Adam Traczyk",
-    position: "Dyrektor",
-    image: Adam,
-    text: "Adam jest politologiem i socjologiem. W swojej pracy naukowej zajmuje się polaryzacją społeczną, demokracją i ruchami społecznymi. Jest autorem książki „Polaryzacja. Jak zrozumieć współczesne spory”.",
-  },
-  {
-    name: "Adam Traczyk",
+    name: "Damian Traczyk",
     position: "Dyrektor",
     image: Adam,
     text: "Adam jest politologiem i socjologiem. W swojej pracy naukowej zajmuje się polaryzacją społeczną, demokracją i ruchami społecznymi. Jest autorem książki „Polaryzacja. Jak zrozumieć współczesne spory”.",
   },
 ];
 
-export default function Home() {
-  const handleMore = () => {};
+export default async function Home() {
   return (
     <>
       <MainHeader text="Zespół" />
@@ -49,43 +47,14 @@ export default function Home() {
         <HeaderFour text="Poznaj nas" />
         <StandardText text="Poniżej znajdują się biogramy członków i członkiń naszego zespołu w Polsce. More in Common posiada także zespoły w czterech innych krajach – Stanach Zjednoczonych, Francji, Niemczech oraz Wielkiej Brytanii. Działanie biur krajowych wspiera zespół globalny. Dążymy do tego, aby nasze zespoły odzwierciedlały różnorodność naszych społeczeństw, a poszczególni ich członkowie i członkinie wnosili do naszej pracy perspektywy wynikające z różnych doświadczeń życiowych, zawodowych, zainteresowań i poglądów." />
       </div>
-      <div className="flex gap-5 flex-wrap align-middle justify-start text-black mt-40">
-        {team.map((person) => (
-          <div
-            key={person.name}
-            className="flex justify-center mb-4 p-4 max-w-[400px] border-t-4 border-brand-blue"
-          >
-            <div className="flex gap-4 flex-col">
-              <Image src={person.image} alt={person.name} width={365} height={365} />
-              <div className="mt-4">
-                <p className="text-sm">{person.position}</p>
-                <h3 className="text-xl font-bold">{person.name}</h3>
-                <p
-                  className="text-black flex align-center justify-end cursor-pointer"
-                  onClick={() => handleMore()}
-                >
-                  Więcej{" "}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                  >
-                    <path
-                      d="M3 11H17.17L13.59 7.41L15 6L21 12L15 18L13.59 16.59L17.17 13H3V11Z"
-                      fill="black"
-                      stroke="transparent"
-                      strokeWidth="0.5"
-                    />
-                  </svg>
-                </p>
-                {/* <p className="text-sm">{person.text}</p> */}
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
+      <Team team={team} />
+      <Well
+        title="Zapraszamy do współpracy"
+        text="Jeśli jesteś zainteresowany/a współpracą z nami, a akurat nie prowadzimy otwartej
+          rekrutacji, zachęcamy do wysłania swojego CV i listu motywacyjnego. Stale szukamy
+          utalentowanych osób i skontaktujemy się z Tobą, gdy pojawi się taka możliwość."
+        button="Napisz do nas"
+      />
     </>
   );
 }

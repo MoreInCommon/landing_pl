@@ -70,10 +70,10 @@ export default async function Home() {
         przełomowe wydarzenia. Współpracujemy z szerokim gronem partnerów, z którymi dzielimy misję
         budowy silnego, spójnego i demokratycznego społeczeństwa."
       />
-      <div className="flex gap-10 flex-wrap mt-[72px] items-stretch">
+      <div className="flex gap-10 flex-wrap mt-20 items-stretch">
         {projects.map((project) => (
           <Project
-            classes="bg-white p-6 border-t-4 border-brand-darkBlue flex-[48%] w-1/2 flex flex-col max-w-1/2 hover:shadow-tile-shadow transition-shadow"
+            classes="bg-white p-6 border-t-[6px] border-brand-darkBlue flex-[48%] w-1/2 flex flex-col max-w-1/2 hover:shadow-tile-shadow transition-shadow"
             key={project.title}
             project={project}
           />

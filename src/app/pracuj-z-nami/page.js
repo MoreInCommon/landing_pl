@@ -19,11 +19,9 @@ export default async function Home() {
         />
       </div>
       <Well
-        title="Zapraszamy do współpracy"
-        text="Jeśli jesteś zainteresowany/a współpracą z nami, a akurat nie prowadzimy otwartej
-          rekrutacji, zachęcamy do wysłania swojego CV i listu motywacyjnego. Stale szukamy
-          utalentowanych osób i skontaktujemy się z Tobą, gdy pojawi się taka możliwość."
-        button="Napisz do nas"
+        title="More in Common globalnie"
+        text="Poznaj wszystkich naszych współpracowników i współpracowniczki."
+        button="Przejdź"
       />
     </>
   );

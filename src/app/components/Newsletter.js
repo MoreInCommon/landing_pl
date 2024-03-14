@@ -11,7 +11,7 @@ const Newsletter = () => {
   const isGreenUrl = getIfGreenUrl(pathname);
   return (
     <div
-      className={`text-themeableColors-darkBlue  max-w-[1440px] m-auto w-full newsletterBg px-[100px] bg-[url('/newsletter_bg.png')] py-16 ${isGreenUrl}`}
+      className={`text-themeableColors-darkBlue max-w-[1440px] m-auto w-full newsletterBg px-[100px] bg-[url('/newsletter_bg.png')] py-[4.5rem] ${isGreenUrl}`}
     >
       <h4 className="text-h4 font-bold mb-2">Bądź na bieżąco!</h4>
       <p className="text-bodyRegular mb-8">
@@ -19,7 +19,7 @@ const Newsletter = () => {
       </p>
       <form>
         <div className="flex gap-4 items-end">
-          <div>
+          <div className="max-w-[248px]">
             <label htmlFor="name" className="text-inputLabel pl-4 font-medium">
               Imię i nazwisko
             </label>
@@ -30,7 +30,7 @@ const Newsletter = () => {
               className="px-6 pt-[10px] pb-[6px] text-captionSmall border-themeableColors-darkBlue border w-full bg-white text-grey-dark rounded-full"
             />
           </div>
-          <div>
+          <div className="max-w-[348px] w-full">
             <label htmlFor="email" className="text-inputLabel pl-4 font-medium">
               Adres e-mail
             </label>

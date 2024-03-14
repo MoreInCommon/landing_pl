@@ -72,7 +72,7 @@ const Navigation = () => {
               </svg>
             </button>
           </div>
-          <div className="hidden xl:flex items-center justify-end gap-4">
+          <div className="hidden xl:flex items-center justify-end gap-4 ml-[90px]">
             {navigationItems.map((item) => (
               <div
                 onMouseEnter={() => setHovered(item.title)}
