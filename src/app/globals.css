@@ -69,6 +69,15 @@ body {
   }
 }
 
+@keyframes slideOutFromRight {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
 .sliding-border-bottom {
   position: relative;
 }
@@ -85,9 +94,24 @@ body {
   width: 0;
   z-index: 0;
 }
+
+.animate-out.sliding-border-bottom::after {
+  content: "";
+  display: block;
+  bottom: -4px;
+  position: absolute;
+  left: 0;
+  height: 4px;
+  background-color: currentColor;
+  animation: slideOutFromRight 0.5s ease forwards;
+  z-index: 0;
+}
+
 .sliding-border-bottom.active:hover::after {
   height: 0;
 }
+
+/* // Temp Code */
 
 @keyframes slideInFromBottom {
   from {
@@ -109,6 +133,29 @@ body {
   width: 100%;
   z-index: 0;
 }
+
+@keyframes slideOutToBottom {
+  from {
+    height: 4px;
+  }
+  to {
+    height: 0;
+  }
+}
+
+.bg-themeGreen .animate-out.sliding-border-bottom::after {
+  animation: slideOutToBottom 0.2s ease forwards;
+  content: "";
+  display: block;
+  bottom: -4px;
+  position: absolute;
+  left: 0;
+  background-color: currentColor;
+  width: 100%;
+  z-index: 0;
+}
+
+/* // End temp Code */
 
 .svg-stroke {
   stroke: var(--svg-stroke-color);

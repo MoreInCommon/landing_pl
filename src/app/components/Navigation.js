@@ -36,6 +36,18 @@ const Navigation = () => {
   const pathname = usePathname();
   const [hovered, setHovered] = useState(null);
 
+  const handleMouseEnter = (e, item) => {
+    setHovered(item.title);
+    // e.target.classList.add("animate-in");
+    e.target.classList.remove("animate-out");
+  };
+
+  const handleMouseLeave = (e) => {
+    setHovered(null);
+    e.target.classList.add("animate-out");
+    // e.target.classList.remove("animate-in");
+  };
+
   const isGreenUrl = getIfGreenUrl(pathname);
   return (
     <div className={`w-full bg-white fixed top-0 shadow-nav-shadow z-50 ${isGreenUrl}`}>
@@ -75,8 +87,8 @@ const Navigation = () => {
           <div className="hidden xl:flex items-center justify-end gap-4 ml-[90px]">
             {navigationItems.map((item) => (
               <div
-                onMouseEnter={() => setHovered(item.title)}
-                onMouseLeave={() => setHovered(null)}
+                onMouseEnter={(e) => handleMouseEnter(e, item.title)}
+                onMouseLeave={(e) => handleMouseLeave(e, null)}
                 key={item.link}
                 className="flex flex-col relative"
               >
