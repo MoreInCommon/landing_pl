@@ -3,15 +3,15 @@
 @tailwind utilities;
 
 :root {
-  /* --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255; */
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  --background-end-rgb: 255, 255, 255;
   --color-primary: #224099;
   --color-secondary: #10bee8;
   --color-ternary: #009e59;
+}
+
+:root .bg-themeGreen {
   --color-primary: #03641b;
   --color-secondary: yellow;
   --color-ternary: pink;
@@ -26,14 +26,9 @@
     --color-secondary: #10bee8;
     --color-ternary: #009e59;
   }
-  :root .bg-themeGreen {
-    --color-primary: #03641b;
-    --color-secondary: yellow;
-    --color-ternary: pink;
-  }
-} */
+}
 
-/* @media (prefers-color-scheme: dark) {
+@media (prefers-color-scheme: dark) {
   :root .bg-themeGreen {
     --color-primary: #03641b;
     --color-secondary: yellow;
@@ -116,6 +111,7 @@ body {
   position: absolute;
   left: 0;
   height: 4px;
+  background-color: currentColor;
   animation: slideOutFromRight 0.5s ease forwards;
   z-index: 0;
 }
@@ -141,6 +137,7 @@ body {
   bottom: -4px;
   position: absolute;
   left: 0;
+  background-color: currentColor;
   animation: slideInFromBottom 0.2s ease forwards;
   width: 100%;
   z-index: 0;
@@ -162,6 +159,7 @@ body {
   bottom: -4px;
   position: absolute;
   left: 0;
+  background-color: currentColor;
   width: 100%;
   z-index: 0;
 }
