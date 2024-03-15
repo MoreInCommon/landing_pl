@@ -38,14 +38,12 @@ const Navigation = () => {
 
   const handleMouseEnter = (e, item) => {
     setHovered(item.title);
-    // e.target.classList.add("animate-in");
     e.target.classList.remove("animate-out");
   };
 
   const handleMouseLeave = (e) => {
     setHovered(null);
     e.target.classList.add("animate-out");
-    // e.target.classList.remove("animate-in");
   };
 
   const isGreenUrl = getIfGreenUrl(pathname);
