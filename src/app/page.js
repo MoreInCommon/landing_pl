@@ -62,21 +62,9 @@ export default async function Home() {
     <>
       <div className="inline-block heading-underline">
         <h1 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">
-          Nasze projekty
+          Strona główna w budowie
           {/* <StoryblokStory story={data.story} /> */}
         </h1>
-      </div>
-      <p className="text-black max-w-[950px] w-full mt-3 text-bodyRegular">
-        Realizujemy projekty mające na celu wspieranie demokracji, przeciwdziałanie polaryzacji
-        politycznej i wzmacnianie zdolności społeczeństwa do stawienia czoła najważniejszym
-        wyzwaniom naszych czasów. Wcielamy w życie długofalowe inicjatywy oraz reagujemy na
-        przełomowe wydarzenia. Współpracujemy z szerokim gronem partnerów, z którymi dzielimy misję
-        budowy silnego, spójnego i demokratycznego społeczeństwa.
-      </p>
-      <div className="flex gap-10 flex-wrap mt-[72px] items-stretch">
-        {projects.map((project) => (
-          <Project key={project.title} project={project} />
-        ))}
       </div>
     </>
   );
