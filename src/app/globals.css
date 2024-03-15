@@ -89,6 +89,27 @@ body {
   height: 0;
 }
 
+@keyframes slideInFromBottom {
+  from {
+    height: 0;
+  }
+  to {
+    height: 4px;
+  }
+}
+
+.bg-themeGreen .sliding-border-bottom:hover::after {
+  content: "";
+  display: block;
+  bottom: -4px;
+  position: absolute;
+  left: 0;
+  background-color: currentColor;
+  animation: slideInFromBottom 0.2s ease forwards;
+  width: 100%;
+  z-index: 0;
+}
+
 .svg-stroke {
   stroke: var(--svg-stroke-color);
 }
