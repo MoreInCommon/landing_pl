@@ -44,6 +44,9 @@ const Navigation = () => {
   const handleMouseLeave = (e) => {
     setHovered(null);
     e.target.classList.add("animate-out");
+    setTimeout(() => {
+      e.target.classList.remove("animate-out");
+    }, 500);
   };
 
   const isGreenUrl = getIfGreenUrl(pathname);
