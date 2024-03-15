@@ -23,7 +23,7 @@ const navigationItems = [
     title: "Kontakt",
     link: urls.contact,
     submenu: [
-      { title: "Kontakt", link: urls.contact },
+      { title: "Nasze biuro", link: urls.contact },
       { title: "Pracuj z nami", link: urls.workWithUs },
     ],
   },
@@ -82,7 +82,8 @@ const Navigation = () => {
               >
                 <Link
                   className={`sliding-border-bottom pt-7 pb-6 px-4 text-themeableColors-darkBlue border-b-4 text-captionSmall leading-[20px] transition-colors ${
-                    pathname === item.link
+                    pathname === item.link ||
+                    item.submenu?.some((subItem) => subItem.link === pathname)
                       ? "border-themeableColors-darkBlue font-bold text-themeableColors-darkBlue active"
                       : "border-transparent"
                   }`}
