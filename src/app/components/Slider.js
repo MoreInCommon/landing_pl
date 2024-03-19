@@ -104,7 +104,7 @@ export default function CustomSlider() {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <Slider {...settings} className="mx-6">
+    <Slider {...settings} className="mx-6" autoplay>
       {contents.map((content, index) => (
         <div key={index} className="text-center px-4">
           <div className="flex">
