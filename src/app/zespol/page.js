@@ -41,6 +41,8 @@ const team = [
 export default async function Home() {
   return (
     <>
+      <MainHeader text="W budowie" />
+      <br />
       <MainHeader text="Zespół" />
       <StandardText text="Nasz zespół prowadzi badania na temat demokracji oraz najważniejszych wyzwań społecznych naszych czasów. Angażujemy się też w działania na rzecz zmniejszania polaryzacji społecznej w Polsce. W naszej pracy łączymy doświadczenia i ekspertyzę z zakresu politologii, socjologii, psychologii społecznej i komunikacji." />
       <div className="text-black mt-24 max-w-[820px] m-auto">

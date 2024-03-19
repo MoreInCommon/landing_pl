@@ -35,15 +35,14 @@ const Navigation = () => {
   const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
   const [hovered, setHovered] = useState(null);
-
   const handleMouseEnter = (e, item) => {
-    setHovered(item.title);
+    setHovered(item);
     e.target.classList.remove("animate-out");
   };
 
   const handleMouseLeave = (e) => {
     setHovered(null);
-    e.target.classList.add("animate-out");
+    if (!Array.from(e.target?.classList)?.includes("active")) e.target.classList.add("animate-out");
     setTimeout(() => {
       e.target.classList.remove("animate-out");
     }, 500);

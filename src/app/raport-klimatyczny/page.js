@@ -38,6 +38,8 @@ const contents = [
 export default async function Home() {
   return (
     <>
+      <MainHeader text="W budowie" />
+      <br />
       <CustomSlider />
       <div className="text-center">
         <MainHeader className="green-heading-underline" text="Segmentacja" />

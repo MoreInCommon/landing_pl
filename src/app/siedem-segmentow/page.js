@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Link, Element } from "react-scroll";
 import { segments } from "@/app/utils";
 import SegmentsSvg from "@/app/components/SegmentsSvg";
+import MainHeader from "@/app/components/MainHeader";
 
 const Sidebar = () => {
   return (
@@ -28,6 +29,8 @@ const Sidebar = () => {
 export default function Home() {
   return (
     <>
+      <MainHeader text="W budowie" />
+      <br />
       <div className="text-brand-darkBlue m-auto w-full bg-[#EDF0F7] px-[6.25rem] py-16 text-center relative overflow-hidden">
         <h1 className="text-h1 bold z-1">Siedem segmentów</h1>
         <p className="max-w-[46.875rem] w-full m-auto mt-6 text-bodyRegular z-1">
