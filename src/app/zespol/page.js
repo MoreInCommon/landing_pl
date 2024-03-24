@@ -1,6 +1,8 @@
 import Adam from "../../../public/tempImages/adam.jpg";
 import MainHeader from "@/app/components/MainHeader";
 import StandardText from "@/app/components/StandardText";
+import CenterText from "@/app/components/CenterText";
+import CenterContainer from "@/app/components/CenterContainer";
 import Team from "@/app/components/Team";
 import Well from "@/app/components/Well";
 import HeaderFour from "@/app/components/HeaderFour";
@@ -41,21 +43,21 @@ const team = [
 export default async function Home() {
   return (
     <>
-      <MainHeader text="W budowie" />
-      <br />
       <MainHeader text="Zespół" />
       <StandardText text="Nasz zespół prowadzi badania na temat demokracji oraz najważniejszych wyzwań społecznych naszych czasów. Angażujemy się też w działania na rzecz zmniejszania polaryzacji społecznej w Polsce. W naszej pracy łączymy doświadczenia i ekspertyzę z zakresu politologii, socjologii, psychologii społecznej i komunikacji." />
-      <div className="text-black mt-24 max-w-[820px] m-auto">
-        <HeaderFour text="Poznaj nas" />
-        <StandardText text="Poniżej znajdują się biogramy członków i członkiń naszego zespołu w Polsce. More in Common posiada także zespoły w czterech innych krajach – Stanach Zjednoczonych, Francji, Niemczech oraz Wielkiej Brytanii. Działanie biur krajowych wspiera zespół globalny. Dążymy do tego, aby nasze zespoły odzwierciedlały różnorodność naszych społeczeństw, a poszczególni ich członkowie i członkinie wnosili do naszej pracy perspektywy wynikające z różnych doświadczeń życiowych, zawodowych, zainteresowań i poglądów." />
+      <div className="mt-28">
+        <CenterContainer>
+          <HeaderFour text="Poznaj nas" />
+        </CenterContainer>
+        <CenterContainer>
+          <CenterText text="Poniżej znajdują się biogramy członków i członkiń naszego zespołu w Polsce. More in Common posiada także zespoły w czterech innych krajach – Stanach Zjednoczonych, Francji, Niemczech oraz Wielkiej Brytanii. Działanie biur krajowych wspiera zespół globalny. Dążymy do tego, aby nasze zespoły odzwierciedlały różnorodność naszych społeczeństw, a poszczególni ich członkowie i członkinie wnosili do naszej pracy perspektywy wynikające z różnych doświadczeń życiowych, zawodowych, zainteresowań i poglądów." />
+        </CenterContainer>
+        <Team team={team} />
       </div>
-      <Team team={team} />
       <Well
-        title="Zapraszamy do współpracy"
-        text="Jeśli jesteś zainteresowany/a współpracą z nami, a akurat nie prowadzimy otwartej
-          rekrutacji, zachęcamy do wysłania swojego CV i listu motywacyjnego. Stale szukamy
-          utalentowanych osób i skontaktujemy się z Tobą, gdy pojawi się taka możliwość."
-        button="Napisz do nas"
+        title="More in Common globalnie"
+        text="Poznaj wszystkich naszych współpracowników i współpracowniczki."
+        button="Przejdź"
       />
     </>
   );

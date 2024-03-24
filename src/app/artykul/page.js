@@ -1,5 +1,8 @@
 import Button from "@/app/components/Button";
 import SocialMediaIcons from "@/app/components/SocialMediaIcons";
+import CenterContainer from "@/app/components/CenterContainer";
+import HeaderFour from "@/app/components/HeaderFour";
+import CenterText from "@/app/components/CenterText";
 import MainPhoto from "../../../public/tempImages/image27.png";
 
 export default async function Home() {
@@ -12,19 +15,19 @@ export default async function Home() {
           </h1>
         </div>
       </div>
-      <p className="text-black max-w-[818px] w-full mt-6 font-medium text-bodyRegular mx-auto">
+      <p className="text-black max-w-[818px] w-full mt-6 font-medium text-bodyRegular mx-auto mb-20">
         Rosnące ceny energii, problemy z dostawami niektórych surowców, niespotykana od lat wysoka
         inflacja i spadek realnych wynagrodzeń – to wyzwania, z którymi musiało zmierzyć się tej
         zimy polskie społeczeństwo. Wraz z instytutem badawczym IPSOS sprawdziliśmy, jak Polki i
         Polacy poradzili sobie z tym testem wytrzymałości i czy dzisiejsza ocena przebiegu zimy
         odzwierciedliła społeczne przewidywania.
       </p>
-      <div className="mx-auto flex align-center justify-center gap-16 max-w-[800px]">
+      <div className="mx-auto flex items-center justify-center gap-16 max-w-[800px]">
         <div>
           <span className="font-medium">Data publikacji:</span> Marzec 2023
         </div>
         <div className="flex items-center">
-          <span className="font-medium">Udostępnij:</span>
+          <span className="font-medium mr-2">Udostępnij:</span>
           <SocialMediaIcons>
             <a href="#">
               <span className="sr-only">kopiuj link</span>
@@ -71,7 +74,7 @@ export default async function Home() {
           </SocialMediaIcons>
         </div>
         <div className="flex items-center">
-          <span className="font-medium">Pobierz raport:</span>
+          <span className="font-medium mr-2">Pobierz raport</span>
           <a href="#">
             <span className="sr-only">pobierz</span>
             <svg
@@ -102,17 +105,20 @@ export default async function Home() {
           </a>
         </div>
       </div>
-      <img src={MainPhoto.src} alt="main photo" className="w-full mt-12" />
-      <p className="text-black max-w-[818px] w-full mb-6 text-bodyRegular mx-auto">
-        Jeszcze w lipcu ubiegłego roku, we współpracy z YouGov, spytaliśmy Polki i Polaków o ich
+      <img src={MainPhoto.src} alt="main photo" className="w-full mt-12 mb-12" />
+      <CenterContainer>
+        <CenterText
+          text=" Jeszcze w lipcu ubiegłego roku, we współpracy z YouGov, spytaliśmy Polki i Polaków o ich
         przewidywania dotyczące sytuacji zimą. Badani przez nas respondenci antycypowali ciężki
         przebieg okresu grzewczego. Aż 70% pytanych obawiało się długotrwałych przerw w dostawach
         prądu i ciepła. Z kolei 50% respondentów spodziewało się, że będzie musiało ograniczyć
         ogrzewanie swojego domu lub mieszkania z powodu wysokich kosztów energii. Jedynie 25% było
-        zdania, że do takiej sytuacji nie dojdzie.
-      </p>
-      <p className="text-black max-w-[818px] w-full mb-6 text-bodyRegular mx-auto">
-        Obawy Polek i Polaków wykraczały wówczas poza horyzont sezonowych i przejściowych
+        zdania, że do takiej sytuacji nie dojdzie."
+        />
+      </CenterContainer>
+      <CenterContainer>
+        <CenterText
+          text="Obawy Polek i Polaków wykraczały wówczas poza horyzont sezonowych i przejściowych
         niedogodności związanych z wyzwaniami dla sektora energetycznego. Polacy gremialnie
         deklarowali, że odczuwają skutki rosnących cen (99%). Do tego, zaledwie 12% badanych
         spodziewało się, że koniec kryzysu związanego z rosnącymi kosztami życia nadejdzie jeszcze w
@@ -121,11 +127,15 @@ export default async function Home() {
         respondentów deklarowało, że obawia się, że z powodu wzrostu kosztów życia w nadchodzących
         miesiącach może stracić to, co udało im się wypracować przez ostatnie lata. Polki i Polacy
         nie wykluczali także, że trudna sytuacja ekonomiczna przełoży się na wybuch niepokojów
-        społecznych. Obawiały się tego trzy czwarte badanych.
-      </p>
-      <h4 className="text-h4 font-bold mb-2">Ubóstwo energetyczne i strategie oszczędzania</h4>
-      <p className="text-black max-w-[818px] w-full mb-6 text-bodyRegular mx-auto">
-        Na tym tle Polki i Polacy krytycznie ocenili działania rządu w odpowiedzi na kryzys
+        społecznych. Obawiały się tego trzy czwarte badanych."
+        />
+      </CenterContainer>
+      <CenterContainer>
+        <HeaderFour text="Ubóstwo energetyczne i strategie oszczędzania" />
+      </CenterContainer>
+      <CenterContainer>
+        <CenterText
+          text="Na tym tle Polki i Polacy krytycznie ocenili działania rządu w odpowiedzi na kryzys
         energetyczny. 47% badanych stwierdziło, że rząd niewystarczająco dobrze zadbał o
         przygotowanie do sezonu grzewczego 2022/2023. Przeciwnego zdania była mniej niż jedna
         trzecia respondentów. Negatywna opinia na temat działań rządu w ostatnich miesiącach rzutuje
@@ -133,8 +143,9 @@ export default async function Home() {
         dozą spokoju podchodzą do poziomu przygotowania ich własnego gospodarstwa domowego do
         kolejnej zimy, to ich ocena przygotowania systemowego wypada znacznie gorzej. Aż 72%
         pytanych twierdzi, że ich gospodarstwo domowe jest dobrze przygotowane na nadchodzący sezon
-        grzewczy, ale jedynie 41% podziela podobne przekonanie na poziomie ogólnopolskim.
-      </p>
+        grzewczy, ale jedynie 41% podziela podobne przekonanie na poziomie ogólnopolskim."
+        />
+      </CenterContainer>
     </div>
   );
 }

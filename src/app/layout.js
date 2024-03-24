@@ -84,7 +84,7 @@ export default async function RootLayout({ children }) {
   return (
     <StoryblokProvider>
       <html lang="pl">
-        <body className={`${sailec.className} bg-white mt-[76px]`}>
+        <body className={`${sailec.className} bg-white mt-[76px] overflow-x-hidden`}>
           <Decoration />
           <Navigation />
           <main className="bg-transparent  py-16 relative z-[1]">

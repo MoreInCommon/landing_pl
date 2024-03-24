@@ -4,6 +4,7 @@ import Project from "@/app/components/Project";
 import Newsletter from "@/app/components/Newsletter";
 import Button from "@/app/components/Button";
 import MainHeader from "@/app/components/MainHeader";
+import CenteredSection from "@/app/components/CenteredSection";
 import Image3 from "../../../public/tempImages/s3.png";
 import Well from "@/app/components/Well";
 import StandardText from "../components/StandardText";
@@ -28,6 +29,14 @@ const contents = [
   },
   {
     title: "Wartości",
+    img: Image2,
+  },
+  {
+    title: "Segmenty o zmianach klimatu",
+    img: Image2,
+  },
+  {
+    title: "Segmenty o zmianach klimatu",
     img: Image2,
   },
   {
@@ -64,27 +73,28 @@ const slides = [
 export default async function Home() {
   return (
     <>
-      <MainHeader text="W budowie" />
-      <br />
       <CustomSlider slides={slides} />
-      <div className="text-center">
+      <CenteredSection>
         <MainHeader className="green-heading-underline" text="Segmentacja" />
         <StandardText
           text="Badanie z 2023 roku na temat stosunku Polaków do klimatu, oparte na ankietach wśród 4090
           osób i ponad 100 wywiadach, różni się od innych badań tym, że koncentruje się na
           wartościach moralnych, poczuciu sprawczości, tożsamościach oraz postawach wobec zmian i
           innych osób, zamiast na demografii."
+          className="m-auto"
         />
-        <div className="flex gap-4 my-8">
+      </CenteredSection>
+      <div className="m-auto px-[140px]">
+        <div className="flex gap-4 my-8 mt-10 mb-10 overflow-x-scroll">
           {contents.map((content, index) => (
             <Link
-              className="flex p-6 flex-col align-center gap-2 border-[1px] border-mono-neutral22 min-w-[325px]"
+              className="flex p-6 flex-col items-center gap-2 border-[1px] border-mono-neutral22 min-w-[325px]"
               href="/raport-klimatyczny/segmenty-o-zmianach-klimatu"
               key={index}
             >
               <h4 className="text-h4 text-black text-center min-h-[60px]">{content.title}</h4>
               <img src={content.img.src} alt="img" />
-              <p className="text-black flex align-center self-auto">
+              <p className="text-black flex items-center self-end">
                 Czytaj dalej{" "}
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -104,8 +114,10 @@ export default async function Home() {
             </Link>
           ))}
         </div>
-        <div className="bg-green-light p-8 mt-12 text-black text-center">
-          <h4 className="text-h4 font-bold mb-2 text-brand-darkGreen flex align-center justify-center relative">
+      </div>
+      <div className="max-w-[1440px] m-auto px-[140px]">
+        <div className="bg-green-light p-8 mt-12 text-black text-center mb-10">
+          <h4 className="text-h4 font-bold mb-2 text-brand-darkGreen flex items-center justify-center relative">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="33"
@@ -144,44 +156,44 @@ export default async function Home() {
             <div className="relative top-[1px]">Przejdz do testu</div>
           </Button>
         </div>
+      </div>
+      <CenteredSection>
         <MainHeader className="green-heading-underline" text="7 segmentów" />
         <StandardText
-          text="  Polska to społeczeństwo różnorodne, niepodzielone jedynie na skrajności. Możemy być
+          text="Polska to społeczeństwo różnorodne, niepodzielone jedynie na skrajności. Możemy być
           klasyfikowani w różne segmenty w zależności od naszych kluczowych przekonań i psychologii.
           W obrębie segmentów mogą występować ogólne tendencje wyborcze, poszczególni członkowie
           grup mogą podejmować inne decyzje."
+          className="m-auto"
         />
-        <div className="flex gap-4 my-8">
-          {segments.map((content, index) => (
-            <div
-              className="flex p-6 flex-col align-center gap-2 min-w-[235px] h-[200px]"
-              key={index}
-            >
-              <img src={content.logo.src} alt="img" className="h-3/4 object-contain	" />
-              <p className="text-black flex align-center self-auto">{content.title}</p>
-            </div>
-          ))}
-        </div>
-        <div className="bg-[#F8F8F9] p-8 mt-12 text-black text-left relative overflow-hidden">
-          <SegmentsSvg className="absolute top-[-6.375rem] left-[5rem] z-0" />
-          <div className="max-w-[530px] ml-auto">
-            <div className="inline-block heading-underline green-heading-underline">
-              <h4 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">
-                Quiz 7 segementów
-              </h4>
-            </div>
-            <h3 className="text-h3 mt-2">Sprawdź do której grupy przynależysz</h3>
-            <p className="text-bodyRegular mb-6">
-              Możesz odpowiedzieć na serię pytań (3-5 minut) dotyczących twoich przekonań i
-              wartości, a nasz algorytm wskaże, do której z siedmiu grup najlepiej pasujesz.
-            </p>
-            <Button
-              type="submit"
-              classes="py-[14px] px-8 bg-brand-darkGreen text-white text-[21px] leading-[16px] mt-4 min-w-[133px]"
-            >
-              <div className="relative top-[1px]">Rozwiąż Quiz</div>
-            </Button>
+      </CenteredSection>
+      <div className="flex gap-4 my-10">
+        {segments.map((content, index) => (
+          <div className="flex p-6 flex-col items-center gap-2 min-w-[235px] h-[200px]" key={index}>
+            <img src={content.logo.src} alt="img" className="h-3/4 object-contain	" />
+            <p className="text-black flex items-center self-auto">{content.title}</p>
           </div>
+        ))}
+      </div>
+      <div className="bg-[#F8F8F9] p-8 mt-12 text-black text-left relative overflow-hidden">
+        <SegmentsSvg className="absolute top-[-6.375rem] left-[5rem] z-0" />
+        <div className="max-w-[530px] ml-auto">
+          <div className="inline-block heading-underline green-heading-underline">
+            <h4 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">
+              Quiz 7 segementów
+            </h4>
+          </div>
+          <h3 className="text-h3 mt-2">Sprawdź do której grupy przynależysz</h3>
+          <p className="text-bodyRegular mb-6">
+            Możesz odpowiedzieć na serię pytań (3-5 minut) dotyczących twoich przekonań i wartości,
+            a nasz algorytm wskaże, do której z siedmiu grup najlepiej pasujesz.
+          </p>
+          <Button
+            type="submit"
+            classes="py-[14px] px-8 bg-brand-darkGreen text-white text-[21px] leading-[16px] mt-4 min-w-[133px]"
+          >
+            <div className="relative top-[1px]">Rozwiąż Quiz</div>
+          </Button>
         </div>
       </div>
     </>
