@@ -4,6 +4,7 @@ import Project from "@/app/components/Project";
 import Newsletter from "@/app/components/Newsletter";
 import Button from "@/app/components/Button";
 import MainHeader from "@/app/components/MainHeader";
+import Image3 from "../../../public/tempImages/s3.png";
 import Well from "@/app/components/Well";
 import StandardText from "../components/StandardText";
 import SegmentsSvg from "@/app/components/SegmentsSvg";
@@ -35,12 +36,37 @@ const contents = [
   },
 ];
 
+const slides = [
+  {
+    title: "17%",
+    description:
+      "Polek i Polaków uważa przeciwdziałanie kryzysowi klimatycznemu i zanieczyszczeniu środowiska za jedno z najważniejszych wyzwań stojących przed Polską",
+    img: Image3,
+  },
+  {
+    title: "60%",
+    description: "Polek i Polaków obawia się zmian klimatu",
+    img: Image3,
+  },
+  {
+    title: "17%",
+    description:
+      "Polek i Polaków uważa przeciwdziałanie kryzysowi klimatycznemu i zanieczyszczeniu środowiska za jedno z najważniejszych wyzwań stojących przed Polską",
+    img: Image3,
+  },
+  {
+    title: "60%",
+    description: "Polek i Polaków obawia się zmian klimatu",
+    img: Image3,
+  },
+];
+
 export default async function Home() {
   return (
     <>
       <MainHeader text="W budowie" />
       <br />
-      <CustomSlider />
+      <CustomSlider slides={slides} />
       <div className="text-center">
         <MainHeader className="green-heading-underline" text="Segmentacja" />
         <StandardText

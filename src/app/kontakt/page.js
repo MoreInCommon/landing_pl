@@ -65,7 +65,7 @@ export default function Home() {
                     />
                   </g>
                 </svg>
-                <StandardText text="ul. Sapieżyńska 10a, p. 131 00-215 Warszawa" />
+                <p>ul. Sapieżyńska 10a, p. 131 00-215 Warszawa</p>
               </div>
               <div className="flex gap-2">
                 <svg

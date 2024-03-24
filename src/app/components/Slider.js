@@ -1,6 +1,5 @@
 "use client";
 import Slider from "react-slick";
-import Image2 from "../../../public/tempImages/s3.png";
 import Button from "@/app/components/Button";
 
 function SampleNextArrow(props) {
@@ -70,32 +69,7 @@ function SamplePrevArrow(props) {
   );
 }
 
-const contents = [
-  {
-    title: "17%",
-    description:
-      "Polek i Polaków uważa przeciwdziałanie kryzysowi klimatycznemu i zanieczyszczeniu środowiska za jedno z najważniejszych wyzwań stojących przed Polską",
-    img: Image2,
-  },
-  {
-    title: "60%",
-    description: "Polek i Polaków obawia się zmian klimatu",
-    img: Image2,
-  },
-  {
-    title: "17%",
-    description:
-      "Polek i Polaków uważa przeciwdziałanie kryzysowi klimatycznemu i zanieczyszczeniu środowiska za jedno z najważniejszych wyzwań stojących przed Polską",
-    img: Image2,
-  },
-  {
-    title: "60%",
-    description: "Polek i Polaków obawia się zmian klimatu",
-    img: Image2,
-  },
-];
-
-export default function CustomSlider() {
+export default function CustomSlider({ slides }) {
   var settings = {
     infinite: true,
     slidesToShow: 1,
@@ -104,28 +78,30 @@ export default function CustomSlider() {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <Slider {...settings} className="mx-6" autoplay>
-      {contents.map((content, index) => (
-        <div key={index} className="text-center px-4">
-          <div className="flex">
-            <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left bg-white">
-              <h3 className="text-brand-darkGreen text-[96px] leading-none font-bold">
-                {content.title}
-              </h3>
-              <p className="text-h4 text-black">{content.description}</p>
-              <Button
-                type="submit"
-                classes="py-[14px] px-8 bg-brand-darkGreen text-white text-[21px] leading-[16px] mt-4 min-w-[133px]"
-              >
-                <div className="relative top-[1px]">Sprawdź</div>
-              </Button>
-            </div>
-            <div className="flex-1">
-              <img src={content.img.src} alt="img" className="h-full" />
+    <div className="max-w-[1440px] m-auto px-[100px] mb-28">
+      <Slider {...settings} className="mx-6">
+        {slides.map((content, index) => (
+          <div key={index} className="text-center px-4">
+            <div className="flex">
+              <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left bg-white">
+                <h3 className="text-brand-darkGreen text-[96px] leading-none font-bold">
+                  {content.title}
+                </h3>
+                <p className="text-h4 text-black">{content.description}</p>
+                <Button
+                  type="submit"
+                  classes="py-[14px] px-8 bg-brand-darkGreen text-white text-[21px] leading-[16px] mt-4 min-w-[133px]"
+                >
+                  <div className="relative top-[1px]">Sprawdź</div>
+                </Button>
+              </div>
+              <div className="flex-1">
+                <img src={content.img.src} alt="img" className="h-full" />
+              </div>
             </div>
           </div>
-        </div>
-      ))}
-    </Slider>
+        ))}
+      </Slider>
+    </div>
   );
 }
