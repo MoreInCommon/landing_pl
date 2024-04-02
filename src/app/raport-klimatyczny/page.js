@@ -115,7 +115,7 @@ export default async function Home() {
           ))}
         </div>
       </div>
-      <div className="max-w-[1440px] m-auto px-[140px]">
+      <div className="max-w-full m-auto px-[140px]">
         <div className="bg-green-light p-8 mt-12 text-black text-center mb-10">
           <h4 className="text-h4 font-bold mb-2 text-brand-darkGreen flex items-center justify-center relative">
             <svg
@@ -146,7 +146,7 @@ export default async function Home() {
             </svg>
             Test klimatyczny
           </h4>
-          <p className="text-bodyRegular max-w-[820px] m-auto">
+          <p className="text-bodyRegular max-w-standard m-auto">
             Sprawdź co już wiesz o klimiacie i dowiedz się czegoś nowego
           </p>
           <Button

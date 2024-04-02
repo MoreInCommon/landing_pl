@@ -78,7 +78,7 @@ export default function CustomSlider({ slides }) {
     prevArrow: <SamplePrevArrow />,
   };
   return (
-    <div className="max-w-[1440px] m-auto px-[100px] mb-28">
+    <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile mb-28">
       <Slider {...settings} className="mx-6">
         {slides.map((content, index) => (
           <div key={index} className="text-center px-4">

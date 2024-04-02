@@ -45,7 +45,7 @@ export default async function Home() {
     <>
       <MainHeader text="Zespół" />
       <StandardText text="Nasz zespół prowadzi badania na temat demokracji oraz najważniejszych wyzwań społecznych naszych czasów. Angażujemy się też w działania na rzecz zmniejszania polaryzacji społecznej w Polsce. W naszej pracy łączymy doświadczenia i ekspertyzę z zakresu politologii, socjologii, psychologii społecznej i komunikacji." />
-      <div className="mt-28">
+      <div className="mt-28 max-xl:mt-12">
         <CenterContainer>
           <HeaderFour text="Poznaj nas" />
         </CenterContainer>

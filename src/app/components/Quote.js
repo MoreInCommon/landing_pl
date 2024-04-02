@@ -1,7 +1,7 @@
 export default async function Quote({ text }) {
   return (
-    <div className="mt-28 mb-28 bg-[#EDF0F7] bg-[url('/newsletter_bg.png')]">
-      <div className="text-brand-darkBlue m-auto w-full px-[100px] py-16 max-w-[1440px]">
+    <div className="mt-28 mb-28 max-xl:my-10 bg-[#EDF0F7] bg-[url('/newsletter_bg.png')]">
+      <div className="text-brand-darkBlue m-auto w-full px-full max-xl:px-tablet max-sm:px-mobile py-16 max-w-full">
         <div className="text-h3 mb-2 max-w-[650px] ml-auto flex gap-6">
           <div className="flex flex-col items-center relative w-[30px]">
             <p className="text-[112px] leading-[0px] absolute top-[22px]">“</p>

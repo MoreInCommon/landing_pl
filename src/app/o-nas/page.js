@@ -12,7 +12,7 @@ export default async function Home() {
     <>
       <MainHeader text="Misja" />
       <StandardText text="More in Common działa na rzecz wzmocnienia demokracji oraz zmniejszenia polaryzaji politycznej i światopoglądowej." />
-      <section className="mt-28">
+      <section className="mt-28 max-xl:mt-12">
         <CenterContainer>
           <HeaderFour text="Budowanie jedności przez wspólnotowość" />
         </CenterContainer>

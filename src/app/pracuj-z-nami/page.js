@@ -9,7 +9,7 @@ export default async function Home() {
     <>
       <MainHeader text="Pracuj z nami" />
       <StandardText text="Jesteśmy grupą ludzi z silnym poczuciem misji i entuzjazmem do pracy na rzecz dobra wspólnego. Jeśli ten opis pasuje także do Ciebie, może spotkamy się w More in Common Polska." />
-      <div className="text-black mt-24 max-w-[820px] m-auto">
+      <div className="text-black mt-24 max-w-standard m-auto">
         <HeaderFour text="Współpraca" />
         <StandardText
           text=" Wierzymy, że aby skutecznie realizować naszą misję, nasz zespół musi być równie

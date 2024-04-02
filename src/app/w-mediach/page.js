@@ -79,7 +79,7 @@ export default async function Home() {
         text="Jesteś przedstawicielem mediów zainteresowanym naszą pracą?"
         button="Napisz do nas"
       />
-      <div className="flex gap-4 flex-wrap mt-[72px] items-stretch max-w-[1440px] m-auto px-[100px]">
+      <div className="flex gap-4 flex-wrap mt-[72px] items-stretch max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile">
         {projects.map((project) => (
           <Project
             classes="bg-white p-6 border-t-4 border-brand-darkBlue flex-[31%] w-1/3 flex flex-col max-w-1/3 hover:shadow-tile-shadow transition-shadow"

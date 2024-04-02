@@ -51,8 +51,8 @@ const Navigation = () => {
   const isGreenUrl = getIfGreenUrl(pathname);
   return (
     <div className={`w-full bg-white fixed top-0 shadow-nav-shadow z-50 ${isGreenUrl}`}>
-      <div className="max-w-[1440px] m-auto w-full bg-white">
-        <div className="flex justify-between items-center px-[100px] ">
+      <div className="max-w-full m-auto w-full bg-white">
+        <div className="flex justify-between items-center px-full max-xl:px-tablet max-sm:px-mobile ">
           <div className="flex">
             <Link href="/">
               <span className="sr-only">More in common</span>

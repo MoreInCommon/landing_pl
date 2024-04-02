@@ -18,6 +18,13 @@ module.exports = {
         "1/3": "33%",
         "1/2": "50%",
         "3/4": "75%",
+        standard: "820px",
+        full: "1440px",
+      },
+      spacing: {
+        full: "100px",
+        tablet: "40px",
+        mobile: "20px",
       },
       colors: {
         green: {

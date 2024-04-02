@@ -7,7 +7,6 @@ export default function CustomModal({ children, showModal, setShowModal }) {
       zIndex: "100000",
     },
     content: {
-      width: "90%",
       margin: "auto",
       backgroundColor: "white",
       borderRadius: "5px",

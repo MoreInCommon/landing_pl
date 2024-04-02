@@ -9,12 +9,12 @@ import Modal from "@/app/components/Modal";
 const Team = ({ team }) => {
   const [showModal, setShowModal] = useState(null);
   return (
-    <div className="text-black mt-20 max-w-[1440px] m-auto px-[100px] flex justify-start items-center flex-wrap gap-5">
+    <div className="text-black mt-20 max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile flex justify-start max-lg:justify-center items-center flex-wrap gap-5">
       {team.map((person) => (
         <div
           key={person.name}
           onClick={() => setShowModal(person)}
-          className="flex justify-center mb-4 p-4 max-w-[400px] border-t-4 border-brand-blue cursor-pointer hover:shadow-tile-shadow transition-shadow"
+          className="flex justify-center mb-4 p-4 max-w-[31%] max-lg:max-w-[40%] max-sm:max-w-[80%] border-t-4 border-brand-blue cursor-pointer hover:shadow-tile-shadow transition-shadow"
         >
           <div className="flex gap-4 flex-col">
             <Image src={person.image} alt={person.name} width={365} height={365} />
@@ -58,8 +58,13 @@ const Team = ({ team }) => {
             />
           </svg>
         </div>
-        <div className="flex justify-center mb-4 p-4 border-t-4 border-brand-blue gap-10">
-          <Image src={showModal?.image} alt={showModal?.name} width={365} />
+        <div className="flex justify-center mb-4 p-4 border-t-4 border-brand-blue gap-10 max-lg:flex-col">
+          <Image
+            src={showModal?.image}
+            alt={showModal?.name}
+            width={365}
+            className="max-lg:m-auto h-fit-content"
+          />
           <div>
             <p className="text-sm">{showModal?.position}</p>
             <h3 className="text-xl font-bold">{showModal?.name}</h3>
