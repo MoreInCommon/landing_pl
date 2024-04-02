@@ -40,7 +40,7 @@ function SamplePrevArrow(props) {
   const { className, style, onClick } = props;
   return (
     <div
-      className={`${className} before:hidden`}
+      className={`${className} before:hidden max-sm:slick-hidden`}
       style={{
         ...style,
         display: "flex",
@@ -79,11 +79,11 @@ export default function CustomSlider({ slides }) {
   };
   return (
     <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile mb-28">
-      <Slider {...settings} className="mx-6">
+      <Slider {...settings} className="mx-6 max-lg:mx-0">
         {slides.map((content, index) => (
           <div key={index} className="text-center px-4">
             <div className="flex">
-              <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left bg-white">
+              <div className="flex-1 shadow-slider-shadow relative left-8 max-sm:left-0 my-4 p-14 max-sm:p-6 text-left bg-white">
                 <h3 className="text-brand-darkGreen text-[96px] leading-none font-bold">
                   {content.title}
                 </h3>
@@ -95,7 +95,7 @@ export default function CustomSlider({ slides }) {
                   <div className="relative top-[1px]">Sprawdź</div>
                 </Button>
               </div>
-              <div className="flex-1">
+              <div className="flex-1 max-sm:hidden">
                 <img src={content.img.src} alt="img" className="h-full" />
               </div>
             </div>

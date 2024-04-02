@@ -51,7 +51,7 @@ const Navigation = () => {
   const isGreenUrl = getIfGreenUrl(pathname);
   return (
     <div className={`w-full bg-white fixed top-0 shadow-nav-shadow z-50 ${isGreenUrl}`}>
-      <div className="max-w-full m-auto w-full bg-white">
+      <div className="max-w-full m-auto w-full bg-white max-xl:py-4">
         <div className="flex justify-between items-center px-full max-xl:px-tablet max-sm:px-mobile ">
           <div className="flex">
             <Link href="/">
@@ -63,25 +63,43 @@ const Navigation = () => {
             <button
               type="button"
               onClick={() => setOpenMenu(!openMenu)}
-              className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-              aria-expanded="false"
+              className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none"
+              aria-expanded={openMenu ? "true" : "false"}
             >
-              <span className="sr-only">Open menu</span>
-              <svg
-                className="h-6 w-6"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth="2"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+              <span className="sr-only">{openMenu ? "Zamknij menu" : "Otworz menu"}</span>
+              {openMenu ? (
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16M4 18h16"
+                  />
+                </svg>
+              )}
             </button>
           </div>
           <div className="hidden xl:flex items-center justify-end gap-4 ml-[90px]">
@@ -115,14 +133,19 @@ const Navigation = () => {
               </div>
             ))}
           </div>
-          <SocialMediaIcons />
+          <div className="max-xl:hidden">
+            <SocialMediaIcons />
+          </div>
         </div>
       </div>
       {openMenu && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden">
+        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden px-6 pb-4">
           {navigationItems.map((item) => (
             <div key={item.link} className="w-full">
-              <Link href={item.link} className="block p-4 text-gray-700 hover:bg-gray-100">
+              <Link
+                href={item.link}
+                className={`block p-4 hover:bg-gray-100 font-bold ${pathname === item.link ? "text-themeableColors-darkBlue" : "text-gray-700"}`}
+              >
                 {item.title}
               </Link>
               {item.submenu && (
@@ -131,7 +154,7 @@ const Navigation = () => {
                     <Link
                       key={subItem.link}
                       href={subItem.link}
-                      className="block p-4 text-gray-600 hover:bg-gray-50"
+                      className={`block p-4 hover:bg-gray-50 ${pathname === subItem.link ? "text-themeableColors-darkBlue" : "text-gray-600"}`}
                     >
                       {subItem.title}
                     </Link>

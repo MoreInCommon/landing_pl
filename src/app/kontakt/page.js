@@ -8,8 +8,14 @@ import HeaderFive from "@/app/components/HeaderFive";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
 
 const mapContainerStyle = {
-  width: "700px",
+  width: "80vh",
+  maxWidth: "650px",
   height: "590px",
+};
+
+const mapContainerStyle2 = {
+  width: "300px",
+  height: "300px",
 };
 const center = {
   lat: 52.25390552129795,
@@ -34,12 +40,15 @@ export default function Home() {
       <MainHeader text="Kontakt" />
       <StandardText text="Miło nam będzie poznać Państwa opinie i uwagi dotyczące naszych projektów, odpowiedzieć na pytania dotyczące naszej pracy, a także po prostu się poznać!" />
       <StandardText text="Aby być na bieżąco z naszą pracą, zachęcamy do zapisania się na naszego newslettera albo śledzenia nas na portalu X." />
-      <div className="text-black mt-24 max-w-[1020px] m-auto flex-col flex gap-4">
-        <HeaderFour text="Nasze biuro" />
-        <div className="flex gap-4">
+      <div className="text-black mt-24 max-w-[1020px] m-auto flex-col flex gap-4 max-xl:mt-10 max-xl:px-tablet max-sm:px-mobile">
+        <HeaderFour text="Nasze biuro" className="max-xl:px-0 max-sm:px-0" />
+        <div className="flex gap-4 max-lg:flex-col">
           <div>
             <div className="max-w-[285px]">
-              <HeaderFive text="Fundacja More in Common Polska" />
+              <HeaderFive
+                text="Fundacja More in Common Polska"
+                className="max-xl:px-0 max-sm:px-0"
+              />
               <div className="flex gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
@@ -104,9 +113,24 @@ export default function Home() {
             language="pl"
             loadingElement={<div className="text-transparent">ładowanie mapy</div>}
           >
-            <div className="border border-[#DADDE1]">
+            <div className="border border-[#DADDE1] w-fit">
               <GoogleMap
                 mapContainerStyle={mapContainerStyle}
+                mapContainerClassName={"max-sm:hidden"}
+                center={center}
+                zoom={16}
+                options={mapOptions}
+              >
+                <Marker
+                  position={center}
+                  icon={{
+                    url: "/pin.svg",
+                  }}
+                />
+              </GoogleMap>
+              <GoogleMap
+                mapContainerStyle={mapContainerStyle2}
+                mapContainerClassName={"sm:hidden"}
                 center={center}
                 zoom={16}
                 options={mapOptions}
