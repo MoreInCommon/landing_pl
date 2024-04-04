@@ -58,7 +58,6 @@ const projects = [
 
 export default async function Home() {
   const { data } = await fetchData();
-  // console.log(data);
   return (
     <>
       <StoryblokStory story={data.story} />
