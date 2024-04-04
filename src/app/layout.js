@@ -35,7 +35,7 @@ storyblokInit({
   components,
   cache: {
     clear: "auto",
-    type: "memory",
+    type: "none",
   },
 });
 
