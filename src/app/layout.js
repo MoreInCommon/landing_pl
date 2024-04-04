@@ -16,7 +16,6 @@ import Config from "@/app/components/Config";
 import HeaderMenu from "@/app/components/HeaderMenu";
 import MenuLink from "@/app/components/MenuLink";
 import Hero from "@/app/components/Hero";
-import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 import { components } from "@/app/utils";
 
 storyblokInit({
@@ -79,7 +78,6 @@ export default async function RootLayout({ children }) {
           </main>
           <Newsletter />
           <Footer />
-          <StoryblokBridgeLoader options={{}} />
         </body>
       </html>
     </StoryblokProvider>
