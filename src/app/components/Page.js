@@ -1,11 +1,16 @@
+import React from "react";
 import { storyblokEditable, StoryblokComponent } from "@storyblok/react/rsc";
+import MainHeader from "@/app/components/MainHeader";
 
 const Page = ({ blok }) => (
-  <main className="text-center mt-4" {...storyblokEditable(blok)}>
-    {blok.body.map((nestedBlok) => (
-      <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />
-    ))}
-  </main>
+  <React.Fragment {...storyblokEditable(blok)}>
+    {blok.body.map((nestedBlok) => {
+      if (nestedBlok.component === "Page title") {
+        return <MainHeader text={nestedBlok.title} key={nestedBlok._uid} />;
+      }
+      return <StoryblokComponent blok={nestedBlok} key={nestedBlok._uid} />;
+    })}
+  </React.Fragment>
 );
 
 export default Page;

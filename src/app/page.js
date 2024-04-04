@@ -61,12 +61,7 @@ export default async function Home() {
   // console.log(data);
   return (
     <>
-      <div className="inline-block heading-underline">
-        <h1 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">
-          Strona główna w budowie
-          <StoryblokStory story={data.story} />
-        </h1>
-      </div>
+      <StoryblokStory story={data.story} />
     </>
   );
 }

@@ -17,26 +17,12 @@ import HeaderMenu from "@/app/components/HeaderMenu";
 import MenuLink from "@/app/components/MenuLink";
 import Hero from "@/app/components/Hero";
 import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
-
-const components = {
-  feature: Feature,
-  grid: Grid,
-  teaser: Teaser,
-  page: Page,
-  // config: Config,
-  // header_menu: HeaderMenu,
-  // menu_link: MenuLink,
-  // hero: Hero,
-};
+import { components } from "@/app/utils";
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
   use: [apiPlugin],
   components,
-  cache: {
-    clear: "auto",
-    type: "none",
-  },
 });
 
 export const metadata = {
