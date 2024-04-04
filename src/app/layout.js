@@ -16,12 +16,13 @@ import Config from "@/app/components/Config";
 import HeaderMenu from "@/app/components/HeaderMenu";
 import MenuLink from "@/app/components/MenuLink";
 import Hero from "@/app/components/Hero";
+import StoryblokBridgeLoader from "@storyblok/react/bridge-loader";
 
 const components = {
-  // feature: Feature,
-  // grid: Grid,
-  // teaser: Teaser,
-  // page: Page,
+  feature: Feature,
+  grid: Grid,
+  teaser: Teaser,
+  page: Page,
   // config: Config,
   // header_menu: HeaderMenu,
   // menu_link: MenuLink,
@@ -31,6 +32,7 @@ const components = {
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
   use: [apiPlugin],
+  components,
 });
 
 export const metadata = {
@@ -87,6 +89,7 @@ export default async function RootLayout({ children }) {
           </main>
           <Newsletter />
           <Footer />
+          <StoryblokBridgeLoader options={{}} />
         </body>
       </html>
     </StoryblokProvider>
