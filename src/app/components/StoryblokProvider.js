@@ -16,10 +16,10 @@ const components = {
   grid: Grid,
   teaser: Teaser,
   page: Page,
-  config: Config,
-  header_menu: HeaderMenu,
-  menu_link: MenuLink,
-  hero: Hero,
+  // config: Config,
+  // header_menu: HeaderMenu,
+  // menu_link: MenuLink,
+  // hero: Hero,
 };
 
 storyblokInit({

@@ -1,4 +1,3 @@
-import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 import "./globals.css";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react/rsc";
@@ -19,23 +18,20 @@ import MenuLink from "@/app/components/MenuLink";
 import Hero from "@/app/components/Hero";
 
 const components = {
-  feature: Feature,
-  grid: Grid,
-  teaser: Teaser,
-  page: Page,
-  config: Config,
-  header_menu: HeaderMenu,
-  menu_link: MenuLink,
-  hero: Hero,
+  // feature: Feature,
+  // grid: Grid,
+  // teaser: Teaser,
+  // page: Page,
+  // config: Config,
+  // header_menu: HeaderMenu,
+  // menu_link: MenuLink,
+  // hero: Hero,
 };
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
   use: [apiPlugin],
-  components,
 });
-
-const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "More in Common",
@@ -80,7 +76,6 @@ const sailec = localFont({
 });
 
 export default async function RootLayout({ children }) {
-  // const { data } = await fetchData();
   return (
     <StoryblokProvider>
       <html lang="pl">
@@ -88,7 +83,6 @@ export default async function RootLayout({ children }) {
           <Decoration />
           <Navigation />
           <main className="bg-transparent py-16 max-xl:py-12 max-sm:py-12 relative z-[1]">
-            {/* <Config blok={data.story.content} /> */}
             {children}
           </main>
           <Newsletter />
@@ -97,11 +91,4 @@ export default async function RootLayout({ children }) {
       </html>
     </StoryblokProvider>
   );
-}
-
-export async function fetchData() {
-  let sbParams = { version: "draft" };
-
-  const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/config`, sbParams);
 }
