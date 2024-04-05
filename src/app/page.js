@@ -69,10 +69,9 @@ export async function fetchData() {
   const sbParams = {
     version: "draft",
   };
-
   const storyblokApi = getStoryblokApi();
 
   return storyblokApi.get(`cdn/stories/home`, sbParams, {
-    cache: "no-cache", // Directs the browser to bypass the cache
+    cache: "no-cache",
   });
 }
