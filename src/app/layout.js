@@ -25,6 +25,10 @@ storyblokInit({
 });
 
 export const metadata = {
+  metadataBase: new URL("https://more-in-common.vercel.app/"),
+  alternates: {
+    canonical: "/",
+  },
   title: "More in Common",
   description:
     "More in Common działa na rzecz wzmocnienia demokracji oraz zmniejszania polaryzacji politycznej i światopoglądowej.",
