@@ -6,6 +6,9 @@ storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
   use: [apiPlugin],
   components,
+  apiOptions: {
+    cache: { type: "none" },
+  },
 });
 
 export default function StoryblokProvider({ children }) {
