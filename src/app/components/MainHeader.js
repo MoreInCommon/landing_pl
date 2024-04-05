@@ -1,4 +1,3 @@
-"use client";
 import { storyblokEditable } from "@storyblok/react/rsc";
 
 export default async function MainHeader({ blok, text, className = null }) {

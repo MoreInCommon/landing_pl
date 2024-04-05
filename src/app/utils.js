@@ -7,7 +7,7 @@ import Config from "@/app/components/Config";
 import HeaderMenu from "@/app/components/HeaderMenu";
 import MenuLink from "@/app/components/MenuLink";
 import Hero from "@/app/components/Hero";
-import MainHeader from "@/app/components/MainHeader";
+import MainHeader from "@/app/components/MainHeaderStoryblok";
 
 import Avatar1 from "../../public/tempImages/Avatar_1.png";
 import Avatar2 from "../../public/tempImages/Avatar_2.png";
