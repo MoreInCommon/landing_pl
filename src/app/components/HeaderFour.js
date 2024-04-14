@@ -1,4 +1,6 @@
-export default async function HeaderFour({ text, className = {}, ...rest }) {
+"use client";
+
+export default function HeaderFour({ text, className = {}, ...rest }) {
   return (
     <h4
       className={`text-h4 text-black mb-3 max-xl:px-tablet max-sm:px-mobile font-bold ${className}`}
