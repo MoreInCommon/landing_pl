@@ -2,7 +2,7 @@
 const SocialMediaIcons = ({ children, xUrl, linkedinUrl }) => {
   return (
     <div className="flex gap-3">
-      <a href={xUrl} target="_blank" rel="noreferrer">
+      <a href={xUrl} target="_blank" rel="noopener noreferrer">
         <span className="sr-only">X</span>
         <svg
           width="36"
@@ -25,7 +25,7 @@ const SocialMediaIcons = ({ children, xUrl, linkedinUrl }) => {
           </defs>
         </svg>
       </a>
-      <a href={linkedinUrl} target="_blank" rel="noreferrer">
+      <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
         <span className="sr-only">linkedin</span>
         <svg
           width="36"

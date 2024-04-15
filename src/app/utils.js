@@ -6,6 +6,7 @@ import MenuLink from "@/app/components/MenuLink";
 import Hero from "@/app/components/Hero";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
 import StandardText from "@/app/components/StandardText";
+import Media from "@/app/components/Media";
 import LongText from "@/app/components/LongText";
 import MainInfo from "@/app/components/MainInfo";
 import Slider from "@/app/components/SliderStoryblok";
@@ -111,6 +112,7 @@ export const components = {
   team: Team,
   well: Well,
   statut: Statut,
+  "media container": Media,
   // config: Config,
   // header_menu: HeaderMenu,
   // menu_link: MenuLink,

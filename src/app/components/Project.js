@@ -6,18 +6,25 @@ import Button from "@/app/components/Button";
 import ButtonText from "@/app/components/ButtonText";
 
 const Project = ({ project, classes }) => {
+  const formatter = new Intl.DateTimeFormat("pl", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
   return (
-    <Link href={project.url} className={classes}>
+    <a href={project.url.url} target="_blank" rel="noopener noreferrer" className={classes}>
       <div className="h-[350px] relative mb-6">
-        <Image
+        <img
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          src={project.img}
+          src={project.img.filename}
           alt=""
           fill={true}
           style={{ objectFit: "contain" }}
         />
       </div>
-      <p className="text-grey-medium text-captionRegular mb-1">{project.date}</p>
+      <p className="text-grey-medium text-captionRegular mb-1">
+        {formatter.format(new Date(project.date))}
+      </p>
       <p className=" text-brand-darkBlue inline-block uppercase  font-bodySmall w-fit font-bold mb-3 rounded empty:hidden">
         {project.medium}
       </p>
@@ -72,7 +79,7 @@ const Project = ({ project, classes }) => {
           </svg>
         </Button>
       </div>
-    </Link>
+    </a>
   );
 };
 
