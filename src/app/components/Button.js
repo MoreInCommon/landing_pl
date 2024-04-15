@@ -1,5 +1,5 @@
+"use client";
 import { twMerge } from "tailwind-merge";
-
 const Button = ({ children, classes = "", ...props }) => (
   <button
     {...props}

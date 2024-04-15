@@ -20,6 +20,7 @@ export default function LongText({ blok }) {
       {render(blok.text, {
         nodeResolvers: {
           [NODE_PARAGRAPH]: (props) => {
+            if (props[0].type !== "span") return <div>{props}</div>;
             return (
               <CenterContainer>
                 <CenterText text={props} />
@@ -27,9 +28,7 @@ export default function LongText({ blok }) {
             );
           },
           [NODE_IMAGE]: (props, { src, alt, title }) => {
-            return (
-              <ImageComponent src={props || src} width={900} height={460} alt={alt} title={title} />
-            );
+            return <ImageComponent src={src} width={900} height={460} alt={alt} title={title} />;
           },
           [NODE_HEADING]: (props, { level }) => {
             if (level === 4)

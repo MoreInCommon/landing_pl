@@ -7,7 +7,7 @@ import Hero from "@/app/components/Hero";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
 import LongText from "@/app/components/LongText";
 import MainInfo from "@/app/components/MainInfo";
-import { RichTextSchema } from "@storyblok/js";
+import Slider from "@/app/components/SliderStoryblok";
 import Avatar1 from "../../public/tempImages/Avatar_1.png";
 import Avatar2 from "../../public/tempImages/Avatar_2.png";
 import Avatar3 from "../../public/tempImages/Avatar_3.png";
@@ -98,8 +98,7 @@ export const components = {
   "page title": MainHeader,
   "main page info": MainInfo,
   "long text": LongText,
-  slide: MainHeader,
-  slider: MainHeader,
+  slider: Slider,
   // config: Config,
   // header_menu: HeaderMenu,
   // menu_link: MenuLink,
