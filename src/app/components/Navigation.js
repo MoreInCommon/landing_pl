@@ -11,10 +11,11 @@ import { getIfGreenUrl } from "@/app/utils";
 const navigationItems = [
   {
     title: "O nas",
-    link: urls.about,
+    link: urls.team,
     submenu: [
       { title: "Zespół", link: urls.team },
-      { title: "Misja", link: urls.about },
+      { title: "Misja", link: urls.mission },
+      { title: "Status", link: urls.statut },
     ],
   },
   { title: "Co robimy", link: urls.whatWeDo },
@@ -122,9 +123,13 @@ const Navigation = () => {
                   {item.title}
                 </Link>
                 {item.submenu && hovered === item.title && (
-                  <div className="absolute w-48 bottom-[-75px] bg-white mt-2 shadow-md text-themeableColors-darkBlue">
+                  <div className="absolute w-48 z-10 top-[60px] left-4 bg-white mt-2 shadow-md text-themeableColors-darkBlue">
                     {item.submenu.map((subItem) => (
-                      <Link key={subItem.link} href={subItem.link} className="block p-2">
+                      <Link
+                        key={subItem.link}
+                        href={subItem.link}
+                        className="block p-2 border-b mx-2 border-[#E1E3E6]"
+                      >
                         {subItem.title}
                       </Link>
                     ))}

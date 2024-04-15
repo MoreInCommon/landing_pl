@@ -1,4 +1,4 @@
-import Adam from "../../../public/tempImages/adam.jpg";
+import Adam from "../../../../public/tempImages/adam.jpg";
 import MainHeader from "@/app/components/MainHeader";
 import StandardText from "@/app/components/StandardText";
 import CenterText from "@/app/components/CenterText";

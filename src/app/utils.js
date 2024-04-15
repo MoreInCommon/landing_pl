@@ -5,6 +5,7 @@ import HeaderMenu from "@/app/components/HeaderMenu";
 import MenuLink from "@/app/components/MenuLink";
 import Hero from "@/app/components/Hero";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
+import StandardText from "@/app/components/StandardText";
 import LongText from "@/app/components/LongText";
 import MainInfo from "@/app/components/MainInfo";
 import Slider from "@/app/components/SliderStoryblok";
@@ -20,12 +21,14 @@ export const urls = {
   home: "/",
   whatWeDo: "/nasze-projekty",
   media: "/w-mediach",
-  about: "/o-nas",
+  about: "/o-nas/zespol",
   contact: "/kontakt",
   seven: "/siedem-segmentow",
   climate: "/raport-klimatyczny",
   workWithUs: "/pracuj-z-nami",
-  team: "/zespol",
+  team: "/o-nas/zespol",
+  mission: "/o-nas/misja",
+  statut: "/o-nas/statut",
 };
 
 const greenUrls = [urls.climate];
@@ -96,6 +99,7 @@ export const segments = [
 export const components = {
   page: Page,
   "page title": MainHeader,
+  "page lead": StandardText,
   "main page info": MainInfo,
   "long text": LongText,
   slider: Slider,

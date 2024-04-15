@@ -1,13 +1,22 @@
-import Adam from "../../../public/tempImages/adam.jpg";
+import Adam from "../../../../public/tempImages/adam.jpg";
 import MainHeader from "@/app/components/MainHeader";
 import ImageComponent from "@/app/components/ImageComponent";
 import StandardText from "@/app/components/StandardText";
 import CenterText from "@/app/components/CenterText";
 import CenterContainer from "@/app/components/CenterContainer";
+import { getStoryblokApi } from "@storyblok/react/rsc";
+import StoryblokStory from "@storyblok/react/story";
 import HeaderFour from "@/app/components/HeaderFour";
 import Quote from "@/app/components/Quote";
 
 export default async function Home() {
+  const { data } = await fetchData();
+  console.log("DUPA", data.story);
+  return (
+    <>
+      <StoryblokStory story={data.story} />
+    </>
+  );
   return (
     <>
       <MainHeader text="Misja" />
@@ -67,4 +76,15 @@ export default async function Home() {
       </section>
     </>
   );
+}
+
+export async function fetchData() {
+  const sbParams = {
+    version: "draft",
+  };
+  const storyblokApi = getStoryblokApi();
+
+  return storyblokApi.get(`cdn/stories/o-nas/misja`, sbParams, {
+    cache: "no-cache",
+  });
 }

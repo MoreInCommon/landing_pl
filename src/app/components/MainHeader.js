@@ -1,6 +1,7 @@
+"use client";
 import { storyblokEditable } from "@storyblok/react/rsc";
 
-export default async function MainHeader({ blok, text, className = null }) {
+export default function MainHeader({ blok, text, className = null }) {
   return (
     <div
       className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile"
