@@ -15,7 +15,7 @@ const navigationItems = [
     submenu: [
       { title: "Zespół", link: urls.team },
       { title: "Misja", link: urls.mission },
-      { title: "Status", link: urls.statut },
+      { title: "Statut", link: urls.statut },
     ],
   },
   { title: "Co robimy", link: urls.whatWeDo },

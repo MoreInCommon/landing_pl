@@ -9,6 +9,10 @@ import StandardText from "@/app/components/StandardText";
 import LongText from "@/app/components/LongText";
 import MainInfo from "@/app/components/MainInfo";
 import Slider from "@/app/components/SliderStoryblok";
+import Statut from "@/app/components/Statut";
+import Well from "@/app/components/WellStoryblok";
+import Team from "@/app/components/TeamStoryblok";
+import Quote from "@/app/components/Quote";
 import Avatar1 from "../../public/tempImages/Avatar_1.png";
 import Avatar2 from "../../public/tempImages/Avatar_2.png";
 import Avatar3 from "../../public/tempImages/Avatar_3.png";
@@ -103,6 +107,10 @@ export const components = {
   "main page info": MainInfo,
   "long text": LongText,
   slider: Slider,
+  quote: Quote,
+  team: Team,
+  well: Well,
+  statut: Statut,
   // config: Config,
   // header_menu: HeaderMenu,
   // menu_link: MenuLink,

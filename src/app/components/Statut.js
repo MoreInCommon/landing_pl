@@ -16,45 +16,43 @@ import HeaderFive from "@/app/components/HeaderFive";
 import Quote from "@/app/components/Quote";
 import MainHeader from "@/app/components/MainHeader";
 
-export default function LongText({ blok }) {
+export default function Statut({ blok }) {
   return (
-    <div>
+    <div className="text-center">
       {render(blok.text, {
         nodeResolvers: {
           [NODE_PARAGRAPH]: (props) => {
             if (!props?.[0]?.type) return null;
             if (props[0].type === "span" || props[0].type === "paragraph") {
               return (
-                <CenterContainer>
+                <CenterContainer className="mt-2">
                   <CenterText text={props} />
                 </CenterContainer>
               );
             }
             return <div>{props}</div>;
           },
-          [NODE_IMAGE]: (props, { src, alt, title }) => {
-            return <ImageComponent src={src} width={900} height={460} alt={alt} title={title} />;
-          },
           [NODE_HEADING]: (props, { level }) => {
-            if (level === 1) return <MainHeader text={props} />;
+            if (level === 3)
+              return (
+                <h4 className="text-h4 text-brand-darkBlue leading-[24px] mt-10 mb-10 max-xl:px-tablet max-sm:px-mobile font-bold">
+                  {props}
+                </h4>
+              );
             if (level === 4)
               return (
                 <CenterContainer>
-                  <HeaderFour text={props} />
+                  <h4 className="text-h5 text-black leading-[24px] mt-10 mb-10 max-xl:px-tablet max-sm:px-mobile font-bold">
+                    {props}
+                  </h4>
                 </CenterContainer>
               );
             return (
-              <CenterContainer>
-                <HeaderFive text={props} />
-              </CenterContainer>
+              <h6 className="text-h5 text-black mt-2 max-xl:px-tablet max-sm:px-mobile font-bold">
+                {props}
+              </h6>
             );
           },
-        },
-        blokResolvers: {
-          ["page lead"]: (props) => (
-            <StandardText text={props.text} className="mb-[72px] max-xl:mb-12" />
-          ),
-          ["quote"]: (props) => <Quote text={props.text} />,
         },
       })}
     </div>
