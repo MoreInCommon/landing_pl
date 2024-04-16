@@ -1,21 +1,14 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react/rsc";
+import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/app/components/StoryblokProvider";
 import "./lib/slick.css";
 import "./lib/slick-theme.css";
 import Newsletter from "@/app/components/Newsletter";
-import Page from "@/app/components/Page";
-import Teaser from "@/app/components/Teaser";
-import Feature from "@/app/components/Feature";
-import Grid from "@/app/components/Grid";
+import CookieConsentBanner from "@/app/components/CookieConsentBanner";
 import Navigation from "@/app/components/Navigation";
 import Decoration from "@/app/components/Decoration";
 import Footer from "@/app/components/Footer";
-import Config from "@/app/components/Config";
-import HeaderMenu from "@/app/components/HeaderMenu";
-import MenuLink from "@/app/components/MenuLink";
-import Hero from "@/app/components/Hero";
 import { components } from "@/app/utils";
 
 storyblokInit({
@@ -95,6 +88,7 @@ export default async function RootLayout({ children }) {
           </main>
           <Newsletter />
           <Footer />
+          <CookieConsentBanner />
         </body>
       </html>
     </StoryblokProvider>
