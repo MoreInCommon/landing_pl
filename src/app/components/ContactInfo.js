@@ -1,8 +1,4 @@
 "use client";
-import Button from "@/app/components/Button";
-import MainHeader from "@/app/components/MainHeader";
-import Well from "@/app/components/Well";
-import StandardText from "@/app/components/StandardText";
 import HeaderFour from "@/app/components/HeaderFour";
 import HeaderFive from "@/app/components/HeaderFive";
 import { GoogleMap, LoadScript, Marker } from "@react-google-maps/api";
@@ -34,12 +30,9 @@ const mapOptions = {
   zoomControl: false, // Optionally, explicitly disable zoom controls
 };
 
-export default function Home() {
+export default function ContactInfo() {
   return (
     <>
-      <MainHeader text="Kontakt" />
-      <StandardText text="Miło nam będzie poznać Państwa opinie i uwagi dotyczące naszych projektów, odpowiedzieć na pytania dotyczące naszej pracy, a także po prostu się poznać!" />
-      <StandardText text="Aby być na bieżąco z naszą pracą, zachęcamy do zapisania się na naszego newslettera albo śledzenia nas na portalu X." />
       <div className="text-black mt-24 max-w-[1020px] m-auto flex-col flex gap-4 max-xl:mt-10 max-xl:px-tablet max-sm:px-mobile">
         <HeaderFour text="Nasze biuro" className="max-xl:px-0 max-sm:px-0" />
         <div className="flex gap-4 max-lg:flex-col">

@@ -16,7 +16,7 @@ export async function fetchData() {
   };
   const storyblokApi = getStoryblokApi();
 
-  return storyblokApi.get(`cdn/stories/nasze-projekty`, sbParams, {
+  return storyblokApi.get(`cdn/stories/kontakt/pracuj-z-nami`, sbParams, {
     cache: "no-cache",
   });
 }

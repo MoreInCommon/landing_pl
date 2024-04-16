@@ -7,6 +7,7 @@ import Hero from "@/app/components/Hero";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
 import StandardText from "@/app/components/StandardText";
 import Media from "@/app/components/Media";
+import Projects from "@/app/components/Projects";
 import LongText from "@/app/components/LongText";
 import MainInfo from "@/app/components/MainInfo";
 import Slider from "@/app/components/SliderStoryblok";
@@ -27,10 +28,10 @@ export const urls = {
   whatWeDo: "/nasze-projekty",
   media: "/w-mediach",
   about: "/o-nas/zespol",
-  contact: "/kontakt",
+  contact: "/kontakt/nasze-biuro",
   seven: "/siedem-segmentow",
   climate: "/raport-klimatyczny",
-  workWithUs: "/pracuj-z-nami",
+  workWithUs: "/kontakt/pracuj-z-nami",
   team: "/o-nas/zespol",
   mission: "/o-nas/misja",
   statut: "/o-nas/statut",
@@ -113,6 +114,7 @@ export const components = {
   well: Well,
   statut: Statut,
   "media container": Media,
+  projects: Projects,
   // config: Config,
   // header_menu: HeaderMenu,
   // menu_link: MenuLink,

@@ -1,11 +1,13 @@
 import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
+import ContactInfo from "@/app/components/ContactInfo";
 
 export default async function Home() {
   const { data } = await fetchData();
   return (
     <>
       <StoryblokStory story={data.story} />
+      <ContactInfo />
     </>
   );
 }
@@ -16,7 +18,7 @@ export async function fetchData() {
   };
   const storyblokApi = getStoryblokApi();
 
-  return storyblokApi.get(`cdn/stories/nasze-projekty`, sbParams, {
+  return storyblokApi.get(`cdn/stories/kontakt/nasze-biuro`, sbParams, {
     cache: "no-cache",
   });
 }

@@ -22,8 +22,12 @@ export default function LongText({ blok }) {
       {render(blok.text, {
         nodeResolvers: {
           [NODE_PARAGRAPH]: (props) => {
-            if (!props?.[0]?.type) return null;
-            if (props[0].type === "span" || props[0].type === "paragraph") {
+            if (!props?.[0]?.type && typeof props?.[0] !== "string") return null;
+            if (
+              props[0].type === "span" ||
+              props[0].type === "paragraph" ||
+              typeof props?.[0] === "string"
+            ) {
               return (
                 <CenterContainer>
                   <CenterText text={props} />
