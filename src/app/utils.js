@@ -5,6 +5,7 @@ import HeaderMenu from "@/app/components/HeaderMenu";
 import MenuLink from "@/app/components/MenuLink";
 import Hero from "@/app/components/Hero";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
+import ArticleHeader from "@/app/components/ArticleHeader";
 import StandardText from "@/app/components/StandardText";
 import Media from "@/app/components/Media";
 import Projects from "@/app/components/Projects";
@@ -115,6 +116,7 @@ export const components = {
   statut: Statut,
   "media container": Media,
   projects: Projects,
+  "article header": ArticleHeader,
   // config: Config,
   // header_menu: HeaderMenu,
   // menu_link: MenuLink,
