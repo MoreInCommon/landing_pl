@@ -29,7 +29,7 @@ const CookieConsentBanner = () => {
   }
 
   return (
-    <div className="fixed bottom-6 left-[50%] translate-x-[-50%] w-[90%] max-w-[1170px] bg-white rounded-[5px] shadow-tile-shadow border-1 border-[rgba(231, 231, 231, 1)] p-5 z-50">
+    <div className="fixed text-black bottom-6 left-[50%] translate-x-[-50%] w-[90%] max-w-[1170px] bg-white rounded-[5px] shadow-tile-shadow border-1 border-[rgba(231, 231, 231, 1)] p-5 z-50">
       <div className="cursor-pointer absolute top-4 right-4 bg-white pl-4">
         <svg
           xmlns="http://www.w3.org/2000/svg"
