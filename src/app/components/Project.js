@@ -27,16 +27,16 @@ const Project = ({ project, classes }) => {
         />
       </div>
       <p className="text-grey-medium text-captionRegular mb-1">
-        {formatter.format(new Date(project.date))}
+        {formatter.format(new Date(project?.date))}
       </p>
       <p className=" text-brand-darkBlue inline-block uppercase  font-bodySmall w-fit font-bold mb-3 rounded empty:hidden">
-        {project.medium}
+        {project?.medium}
       </p>
-      <h4 className="text-h4 text-mono-neutral11 mb-2 font-bold">{project.title}</h4>
-      <p className="text-bodyRegular text-mono-neutral11 mb-[44px]">{project.description}</p>
+      <h4 className="text-h4 text-mono-neutral11 mb-2 font-bold">{project?.title}</h4>
+      <p className="text-bodyRegular text-mono-neutral11 mb-[44px]">{project?.description}</p>
       <div className="flex items-center justify-end gap-2 mt-auto">
         {project?.downloadUrl?.filename && (
-          <ButtonText onClick={() => download(project.downloadUrl.filename)}>
+          <ButtonText onClick={() => download(project?.downloadUrl?.filename)}>
             <div className="relative top-[2px]">Raport</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"

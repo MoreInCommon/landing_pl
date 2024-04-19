@@ -28,7 +28,14 @@ const navigationItems = [
       { title: "Pracuj z nami", link: urls.workWithUs },
     ],
   },
-  { title: "Siedem Segmentów", link: urls.seven },
+  {
+    title: "Siedem Segmentów",
+    link: urls.seven,
+    submenu: [
+      { title: "Segmentacja", link: urls.seven },
+      { title: "Quiz", link: urls.seven },
+    ],
+  },
   { title: "Raport klimatyczny", link: urls.climate },
 ];
 

@@ -9,7 +9,7 @@ const Media = ({ blok }) => {
         {blok.media.map((project) => (
           <Project
             classes="bg-white p-6 border-t-4 border-brand-darkBlue flex-[31%] max-lg:max-w-[46%] max-sm:max-w-[95%] flex flex-col max-w-[31%] hover:shadow-tile-shadow transition-shadow"
-            key={project.title}
+            key={project?.title}
             project={project}
           />
         ))}
