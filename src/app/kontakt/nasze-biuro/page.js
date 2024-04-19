@@ -16,5 +16,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/kontakt/nasze-biuro`);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/nasze-projekty/polska-po-zimie`);
+  return fetchMetadata(`cdn/stories/kontakt/nasze-biuro`);
 }

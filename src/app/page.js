@@ -14,5 +14,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/home`);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/nasze-projekty/polska-po-zimie`);
+  return fetchMetadata(`cdn/stories/home`);
 }
