@@ -1,9 +1,5 @@
 /** Import your components */
 import Page from "@/app/components/Page";
-import Config from "@/app/components/Config";
-import HeaderMenu from "@/app/components/HeaderMenu";
-import MenuLink from "@/app/components/MenuLink";
-import Hero from "@/app/components/Hero";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
 import ArticleHeader from "@/app/components/ArticleHeader";
 import StandardText from "@/app/components/StandardText";
@@ -125,10 +121,6 @@ export const components = {
   "article header": ArticleHeader,
   "global newsletter": Newsletter,
   seo: Seo,
-  // config: Config,
-  // header_menu: HeaderMenu,
-  // menu_link: MenuLink,
-  // hero: Hero,
 };
 
 export const fetchPageData = async (url) => {
