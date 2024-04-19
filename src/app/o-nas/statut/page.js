@@ -15,8 +15,9 @@ export async function fetchData() {
     version: "draft",
   };
   const storyblokApi = getStoryblokApi();
+  console.log("test", storyblokApi);
 
-  return storyblokApi.get(`cdn/stories/o-nas/statut`, sbParams, {
+  return storyblokApi?.get(`cdn/stories/o-nas/statut`, sbParams, {
     cache: "no-cache",
   });
 }

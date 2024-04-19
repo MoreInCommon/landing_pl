@@ -17,8 +17,9 @@ export async function fetchData() {
     version: "draft",
   };
   const storyblokApi = getStoryblokApi();
+  console.log("test", storyblokApi);
 
-  return storyblokApi.get(`cdn/stories/kontakt/nasze-biuro`, sbParams, {
+  return storyblokApi?.get(`cdn/stories/kontakt/nasze-biuro`, sbParams, {
     cache: "no-cache",
   });
 }

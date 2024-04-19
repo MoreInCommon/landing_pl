@@ -1,4 +1,6 @@
-export default async function Quote({ text }) {
+"use client";
+
+export default function Quote({ text }) {
   return (
     <div className="mt-28 mb-28 max-xl:my-10 bg-[#EDF0F7] bg-[url('/newsletter_bg.png')]">
       <div className="text-brand-darkBlue m-auto w-full px-full max-xl:px-tablet max-sm:px-mobile py-16 max-w-full">

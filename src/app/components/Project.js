@@ -23,7 +23,6 @@ const Project = ({ project, classes }) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           src={project.img.filename}
           alt=""
-          fill={true}
           style={{ objectFit: "contain" }}
         />
       </div>

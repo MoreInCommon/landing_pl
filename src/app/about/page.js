@@ -10,5 +10,6 @@ export async function fetchData() {
   let sbParams = { version: "draft" };
 
   const storyblokApi = getStoryblokApi();
-  return storyblokApi.get(`cdn/stories/about`, sbParams);
+  console.log("test", storyblokApi);
+  return storyblokApi?.get(`cdn/stories/about`, sbParams);
 }

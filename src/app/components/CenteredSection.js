@@ -1,3 +1,4 @@
-export default async function CenteredSection({ children }) {
+"use client";
+export default function CenteredSection({ children }) {
   return <div className="text-center">{children}</div>;
 }

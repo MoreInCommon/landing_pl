@@ -16,8 +16,9 @@ export async function fetchData() {
     version: "draft",
   };
   const storyblokApi = getStoryblokApi();
+  console.log("test", storyblokApi);
 
-  return storyblokApi.get(`cdn/stories/nasze-projekty/polska-po-zimie`, sbParams, {
+  return storyblokApi?.get(`cdn/stories/nasze-projekty/polska-po-zimie`, sbParams, {
     cache: "no-cache",
   });
 }

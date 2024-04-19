@@ -1,14 +1,32 @@
 "use client";
-import SocialMediaIcons from "@/app/components/SocialMediaIcons";
+import { useState } from "react";
 import { storyblokEditable } from "@storyblok/react";
+import Notification from "@/app/components/Notification";
+import { TwitterShareButton, LinkedinShareButton } from "next-share";
 
 export default function ArticleHeader({ blok }) {
   const formatter = new Intl.DateTimeFormat("pl", {
     month: "long",
     year: "numeric",
   });
+  const [showSuccess, setShowSuccess] = useState(false);
+  const currentUrl = window.location.toString();
+  const copyToClipboard = (e) => {
+    e.preventDefault();
+    navigator.clipboard.writeText(currentUrl);
+    setShowSuccess(true);
+    setTimeout(() => {
+      setShowSuccess(false);
+    }, 5000);
+    return () => {
+      clearTimeout();
+    };
+  };
   return (
     <div className="text-black text-bodyRegular" {...storyblokEditable(blok)}>
+      {showSuccess && (
+        <Notification message={"Pomyślnie skopiowano link!"} setShowSuccess={setShowSuccess} />
+      )}
       <div className="text-center">
         <div className="inline-block heading-underline">
           <h1 className="text-black text-h1 font-bold text-[64px] mt-2 relative z-[1] leading-[4.5rem]">
@@ -26,8 +44,63 @@ export default function ArticleHeader({ blok }) {
         </div>
         <div className="flex items-center">
           <span className="font-medium mr-2">Udostępnij:</span>
-          <SocialMediaIcons>
-            <a href="#">
+          <div className="flex gap-3">
+            <TwitterShareButton url={currentUrl} title={`${blok.title}`} via={`moreincommon_pl`}>
+              <a href={""} className="pointer" target="_blank" rel="noopener noreferrer">
+                <span className="sr-only">X</span>
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#clip0_308_1948)">
+                    <path
+                      className="fill-themeableColors-darkBlue"
+                      d="M19.4767 16.6218L26.0302 9H24.4772L18.7869 15.6179L14.242 9H9L15.8727 19.0074L9 27H10.553L16.5622 20.0113L21.3619 27H26.6039L19.4763 16.6218H19.4767ZM17.3496 19.0956L16.6533 18.0991L11.1126 10.1697H13.498L17.9694 16.5689L18.6657 17.5655L24.4779 25.8835H22.0926L17.3496 19.096V19.0956Z"
+                    />
+                    <circle className="stroke-themeableColors-darkBlue" cx="18" cy="18" r="17.5" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_308_1948">
+                      <rect width="36" height="36" fill="white" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </TwitterShareButton>
+            <LinkedinShareButton url={currentUrl}>
+              <a href={""} className="pointer" target="_blank" rel="noopener noreferrer">
+                <span className="sr-only">linkedin</span>
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <g clipPath="url(#clip0_308_1952)">
+                    <g clipPath="url(#clip1_308_1952)">
+                      <path
+                        d="M13.82 11.5046C13.82 12.4252 13.08 13.1712 12.1667 13.1712C11.2533 13.1712 10.5133 12.4252 10.5133 11.5046C10.5133 10.5846 11.2533 9.83789 12.1667 9.83789C13.08 9.83789 13.82 10.5846 13.82 11.5046ZM13.8333 14.5046H10.5V25.1712H13.8333V14.5046ZM19.1547 14.5046H15.8427V25.1712H19.1553V19.5719C19.1553 16.4586 23.1747 16.2039 23.1747 19.5719V25.1712H26.5V18.4172C26.5 13.1639 20.552 13.3552 19.1547 15.9412V14.5046Z"
+                        className="fill-themeableColors-darkBlue"
+                      />
+                    </g>
+                    <circle cx="18" cy="18" r="17.5" className="stroke-themeableColors-darkBlue" />
+                  </g>
+                  <defs>
+                    <clipPath id="clip0_308_1952">
+                      <rect width="36" height="36" fill="white" />
+                    </clipPath>
+                    <clipPath id="clip1_308_1952">
+                      <rect width="16" height="16" fill="white" transform="translate(10.5 9.5)" />
+                    </clipPath>
+                  </defs>
+                </svg>
+              </a>
+            </LinkedinShareButton>
+            <a href="#" onClick={copyToClipboard} className="pointer">
               <span className="sr-only">kopiuj link</span>
               <svg
                 width="36"
@@ -36,7 +109,7 @@ export default function ArticleHeader({ blok }) {
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
               >
-                <g clip-path="url(#clip0_1711_11975)">
+                <g clipPath="url(#clip0_1711_11975)">
                   <mask
                     id="mask0_1711_11975"
                     maskUnits="userSpaceOnUse"
@@ -69,39 +142,41 @@ export default function ArticleHeader({ blok }) {
                 </defs>
               </svg>
             </a>
-          </SocialMediaIcons>
+          </div>
         </div>
-        <div className="flex items-center">
-          <span className="font-medium mr-2">Pobierz raport</span>
-          <a href="#">
-            <span className="sr-only">pobierz</span>
-            <svg
-              width="36"
-              height="36"
-              viewBox="0 0 36 36"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <rect width="36" height="36" rx="18" fill="#224099" />
-              <mask
-                id="mask0_1712_12654"
-                maskUnits="userSpaceOnUse"
-                x="6"
-                y="6"
-                width="24"
-                height="24"
+        {blok?.report?.filename && (
+          <div className="flex items-center">
+            <span className="font-medium mr-2">Pobierz raport</span>
+            <a href="#">
+              <span className="sr-only">pobierz</span>
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <rect x="6" y="6" width="24" height="24" fill="#D9D9D9" />
-              </mask>
-              <g mask="url(#mask0_1712_12654)">
-                <path
-                  d="M18 21.7884L13.7308 17.5193L14.7846 16.4347L17.25 18.9V10.5H18.7499V18.9L21.2153 16.4347L22.2692 17.5193L18 21.7884ZM12.3077 25.5C11.8026 25.5 11.375 25.325 11.025 24.975C10.675 24.625 10.5 24.1974 10.5 23.6923V20.9808H12V23.6923C12 23.7692 12.032 23.8397 12.0961 23.9038C12.1602 23.9679 12.2308 24 12.3077 24H23.6922C23.7692 24 23.8397 23.9679 23.9038 23.9038C23.9679 23.8397 24 23.7692 24 23.6923V20.9808H25.5V23.6923C25.5 24.1974 25.325 24.625 24.975 24.975C24.625 25.325 24.1974 25.5 23.6922 25.5H12.3077Z"
-                  fill="white"
-                />
-              </g>
-            </svg>
-          </a>
-        </div>
+                <rect width="36" height="36" rx="18" fill="#224099" />
+                <mask
+                  id="mask0_1712_12654"
+                  maskUnits="userSpaceOnUse"
+                  x="6"
+                  y="6"
+                  width="24"
+                  height="24"
+                >
+                  <rect x="6" y="6" width="24" height="24" fill="#D9D9D9" />
+                </mask>
+                <g mask="url(#mask0_1712_12654)">
+                  <path
+                    d="M18 21.7884L13.7308 17.5193L14.7846 16.4347L17.25 18.9V10.5H18.7499V18.9L21.2153 16.4347L22.2692 17.5193L18 21.7884ZM12.3077 25.5C11.8026 25.5 11.375 25.325 11.025 24.975C10.675 24.625 10.5 24.1974 10.5 23.6923V20.9808H12V23.6923C12 23.7692 12.032 23.8397 12.0961 23.9038C12.1602 23.9679 12.2308 24 12.3077 24H23.6922C23.7692 24 23.8397 23.9679 23.9038 23.9038C23.9679 23.8397 24 23.7692 24 23.6923V20.9808H25.5V23.6923C25.5 24.1974 25.325 24.625 24.975 24.975C24.625 25.325 24.1974 25.5 23.6922 25.5H12.3077Z"
+                    fill="white"
+                  />
+                </g>
+              </svg>
+            </a>
+          </div>
+        )}
       </div>
       <img src={blok.image.filename} alt="main photo" className="w-full mt-12 mb-12" />
     </div>
