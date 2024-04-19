@@ -21,7 +21,6 @@ const Newsletter = ({ blok }) => {
       clearTimeout();
     };
   };
-  console.log(blok);
   return (
     <div
       className={`text-themeableColors-darkBlue w-full newsletterBg bg-[url('/newsletter_bg.png')] py-[4.5rem] max-sm:py-10 ${isGreenUrl}`}

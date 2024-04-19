@@ -6,7 +6,6 @@ import {
   NODE_HEADING,
   NODE_IMAGE,
 } from "storyblok-rich-text-react-renderer";
-import { storyblokEditable } from "@storyblok/react/rsc";
 import StandardText from "@/app/components/StandardText";
 import CenterContainer from "@/app/components/CenterContainer";
 import HeaderFour from "@/app/components/HeaderFour";
