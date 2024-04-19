@@ -103,6 +103,10 @@ export const segments = [
   },
 ];
 
+const Seo = () => {
+  return null;
+};
+
 export const components = {
   page: Page,
   "page title": MainHeader,
@@ -117,6 +121,7 @@ export const components = {
   "media container": Media,
   projects: Projects,
   "article header": ArticleHeader,
+  seo: Seo,
   // config: Config,
   // header_menu: HeaderMenu,
   // menu_link: MenuLink,

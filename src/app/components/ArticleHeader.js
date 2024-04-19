@@ -10,7 +10,12 @@ export default function ArticleHeader({ blok }) {
     year: "numeric",
   });
   const [showSuccess, setShowSuccess] = useState(false);
-  const currentUrl = window.location.toString();
+  let currentUrl;
+
+  if (typeof window !== "undefined") {
+    currentUrl = window?.location?.toString();
+  }
+
   const copyToClipboard = (e) => {
     e.preventDefault();
     navigator.clipboard.writeText(currentUrl);
@@ -45,7 +50,11 @@ export default function ArticleHeader({ blok }) {
         <div className="flex items-center">
           <span className="font-medium mr-2">Udostępnij:</span>
           <div className="flex gap-3">
-            <TwitterShareButton url={currentUrl} title={`${blok.title}`} via={`moreincommon_pl`}>
+            <TwitterShareButton
+              url={currentUrl || ""}
+              title={`${blok.title}`}
+              via={`moreincommon_pl`}
+            >
               <a href={""} className="pointer" target="_blank" rel="noopener noreferrer">
                 <span className="sr-only">X</span>
                 <svg
@@ -70,7 +79,7 @@ export default function ArticleHeader({ blok }) {
                 </svg>
               </a>
             </TwitterShareButton>
-            <LinkedinShareButton url={currentUrl}>
+            <LinkedinShareButton url={currentUrl || ""}>
               <a href={""} className="pointer" target="_blank" rel="noopener noreferrer">
                 <span className="sr-only">linkedin</span>
                 <svg
