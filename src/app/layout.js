@@ -82,6 +82,7 @@ export default async function RootLayout({ children }) {
   const blocks = data?.story?.content?.blocks;
   const newsletter = blocks?.find((blok) => blok?.component === "global newsletter");
   const navigation = blocks?.find((blok) => blok?.component === "global navigation");
+  const footer = blocks?.find((blok) => blok?.component === "global footer");
   return (
     <StoryblokProvider>
       <html lang="pl">
@@ -92,7 +93,7 @@ export default async function RootLayout({ children }) {
             {children}
           </main>
           <StoryblokComponent blok={newsletter} key={newsletter._uid} />
-          <Footer />
+          <StoryblokComponent blok={footer} key={footer._uid} />
           <CookieConsentBanner />
         </body>
       </html>

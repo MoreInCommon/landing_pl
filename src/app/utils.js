@@ -7,6 +7,9 @@ import Media from "@/app/components/Media";
 import Projects from "@/app/components/Projects";
 import LongText from "@/app/components/LongText";
 import MainInfo from "@/app/components/MainInfo";
+import FooterItem from "@/app/components/FooterItem";
+import FooterNavLink from "@/app/components/FooterNavLink";
+import Footer from "@/app/components/Footer";
 import Slider from "@/app/components/SliderStoryblok";
 import Statut from "@/app/components/Statut";
 import NavItem from "@/app/components/NavItem";
@@ -122,8 +125,11 @@ export const components = {
   "article header": ArticleHeader,
   "global newsletter": Newsletter,
   "global navigation": Navigation,
+  "global footer": Footer,
   "navigation item": NavItem,
   "mobile navigation item": MobileNavItem,
+  "footer items": FooterItem,
+  "footer navigation item": FooterNavLink,
   seo: Seo,
 };
 
