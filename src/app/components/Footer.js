@@ -4,12 +4,11 @@ import SocialMediaIcons from "@/app/components/SocialMediaIcons";
 import Image from "next/image";
 import Link from "next/link";
 import { urls } from "@/app/utils";
-import { getIfGreenUrl } from "@/app/utils";
 import Logo from "../../../public/tempImages/image22.png";
 
 const Footer = () => {
   const pathname = usePathname();
-  const isGreenUrl = getIfGreenUrl(pathname);
+  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
 
   return (
     <footer

@@ -3,60 +3,22 @@ import Image from "next/image";
 import { useState } from "react";
 import SocialMediaIcons from "@/app/components/SocialMediaIcons";
 import Logo from "../../../public/tempImages/image22.png";
+import { StoryblokComponent } from "@storyblok/react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { urls } from "@/app/utils";
-import { getIfGreenUrl } from "@/app/utils";
 
-const navigationItems = [
-  {
-    title: "O nas",
-    link: urls.team,
-    submenu: [
-      { title: "Zespół", link: urls.team },
-      { title: "Misja", link: urls.mission },
-      { title: "Statut", link: urls.statut },
-    ],
-  },
-  { title: "Co robimy", link: urls.whatWeDo },
-  { title: "W mediach", link: urls.media },
-  {
-    title: "Kontakt",
-    link: urls.contact,
-    submenu: [
-      { title: "Nasze biuro", link: urls.contact },
-      { title: "Pracuj z nami", link: urls.workWithUs },
-    ],
-  },
-  {
-    title: "Siedem Segmentów",
-    link: urls.seven,
-    submenu: [
-      { title: "Segmentacja", link: urls.seven },
-      { title: "Quiz", link: urls.seven },
-    ],
-  },
-  { title: "Raport klimatyczny", link: urls.climate },
-];
-
-const Navigation = () => {
+const Navigation = ({ blok }) => {
   const [openMenu, setOpenMenu] = useState(false);
   const pathname = usePathname();
-  const [hovered, setHovered] = useState(null);
-  const handleMouseEnter = (e, item) => {
-    setHovered(item);
-    e.target.classList.remove("animate-out");
-  };
-
-  const handleMouseLeave = (e) => {
-    setHovered(null);
-    if (!Array.from(e.target?.classList)?.includes("active")) e.target.classList.add("animate-out");
-    setTimeout(() => {
-      e.target.classList.remove("animate-out");
-    }, 500);
-  };
-
-  const isGreenUrl = getIfGreenUrl(pathname);
+  const navItems = blok.blocks.filter((block) => block.component === "navigation item");
+  const socialMediaLink = blok.blocks.filter((block) => block.component === "social media link");
+  const twitter = socialMediaLink.find((block) => block.type === "twitter").url.url;
+  const linkedin = socialMediaLink.find((block) => block.type === "linkedin").url.url;
+  const mobileNavigationItems = navItems.map((block) => ({
+    ...block,
+    component: "mobile navigation item",
+  }));
+  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
   return (
     <div className={`w-full bg-white fixed top-0 shadow-nav-shadow z-50 ${isGreenUrl}`}>
       <div className="max-w-full m-auto w-full bg-white max-xl:py-4">
@@ -111,69 +73,19 @@ const Navigation = () => {
             </button>
           </div>
           <div className="hidden xl:flex items-center justify-end gap-4 ml-[90px]">
-            {navigationItems.map((item) => (
-              <div
-                onMouseEnter={(e) => handleMouseEnter(e, item.title)}
-                onMouseLeave={(e) => handleMouseLeave(e, null)}
-                key={item.link}
-                className="flex flex-col relative"
-              >
-                <Link
-                  className={`sliding-border-bottom pt-7 pb-6 px-4 text-themeableColors-darkBlue border-b-4 text-captionSmall leading-[20px] transition-colors ${
-                    pathname === item.link ||
-                    item.submenu?.some((subItem) => subItem.link === pathname)
-                      ? "border-themeableColors-darkBlue font-bold text-themeableColors-darkBlue active"
-                      : "border-transparent"
-                  }`}
-                  href={item.link}
-                >
-                  {item.title}
-                </Link>
-                {item.submenu && hovered === item.title && (
-                  <div className="absolute w-48 z-10 top-[60px] left-4 bg-white mt-2 shadow-md text-themeableColors-darkBlue">
-                    {item.submenu.map((subItem) => (
-                      <Link
-                        key={subItem.link}
-                        href={subItem.link}
-                        className="block p-2 border-b mx-2 border-[#E1E3E6]"
-                      >
-                        {subItem.title}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+            {navItems.map((item) => (
+              <StoryblokComponent blok={item} key={item._uid} />
             ))}
           </div>
           <div className="max-xl:hidden">
-            <SocialMediaIcons />
+            <SocialMediaIcons xUrl={twitter} linkedinUrl={linkedin} />
           </div>
         </div>
       </div>
       {openMenu && (
         <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden px-6 pb-4">
-          {navigationItems.map((item) => (
-            <div key={item.link} className="w-full">
-              <Link
-                href={item.link}
-                className={`block p-4 hover:bg-gray-100 font-bold ${pathname === item.link ? "text-themeableColors-darkBlue" : "text-gray-700"}`}
-              >
-                {item.title}
-              </Link>
-              {item.submenu && (
-                <div className="pl-4">
-                  {item.submenu.map((subItem) => (
-                    <Link
-                      key={subItem.link}
-                      href={subItem.link}
-                      className={`block p-4 hover:bg-gray-50 ${pathname === subItem.link ? "text-themeableColors-darkBlue" : "text-gray-600"}`}
-                    >
-                      {subItem.title}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
+          {mobileNavigationItems.map((item) => (
+            <StoryblokComponent blok={item} key={item._uid} />
           ))}
         </div>
       )}

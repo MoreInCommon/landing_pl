@@ -4,7 +4,6 @@ import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/app/components/StoryblokProvider";
 import "./lib/slick.css";
 import "./lib/slick-theme.css";
-import Newsletter from "@/app/components/Newsletter";
 import { fetchPageData } from "@/app/utils";
 import CookieConsentBanner from "@/app/components/CookieConsentBanner";
 import Navigation from "@/app/components/Navigation";
@@ -80,15 +79,15 @@ const sailec = localFont({
 
 export default async function RootLayout({ children }) {
   const { data } = await fetchData();
-  const newsletter = data?.story?.content?.blocks?.find(
-    (blok) => blok?.component === "global newsletter"
-  );
+  const blocks = data?.story?.content?.blocks;
+  const newsletter = blocks?.find((blok) => blok?.component === "global newsletter");
+  const navigation = blocks?.find((blok) => blok?.component === "global navigation");
   return (
     <StoryblokProvider>
       <html lang="pl">
         <body className={`${sailec.className} bg-white mt-[76px] max-xl:mt-12 overflow-x-hidden`}>
           <Decoration />
-          <Navigation />
+          <StoryblokComponent blok={navigation} key={navigation._uid} />
           <main className="bg-transparent py-16 max-xl:py-12 max-sm:py-12 relative z-[1]">
             {children}
           </main>

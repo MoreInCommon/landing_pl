@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { usePathname } from "next/navigation";
-import { getIfGreenUrl } from "@/app/utils";
 import { storyblokEditable } from "@storyblok/react";
 import Markdown from "react-markdown";
 import Button from "@/app/components/Button";
@@ -9,7 +8,9 @@ import Notification from "@/app/components/Notification";
 
 const Newsletter = ({ blok }) => {
   const pathname = usePathname();
-  const isGreenUrl = getIfGreenUrl(pathname);
+
+  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
+
   const [showSuccess, setShowSuccess] = useState(false);
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -44,11 +45,12 @@ const Newsletter = ({ blok }) => {
             </div>
             <div className="max-w-[348px] w-full max-lg:w-[248px] max-md:w-[400px] max-md:max-w-full max-sm:w-auto">
               <label htmlFor="email" className="text-inputLabel pl-4 font-medium">
-                Adres e-mail
+                Adres e-mail*
               </label>
               <input
                 id="email"
                 type="email"
+                required
                 placeholder="Twój adres e-mail"
                 className="px-6 pt-[10px] pb-[6px] text-captionSmall border-themeableColors-darkBlue border w-full bg-white text-grey-dark rounded-full"
               />

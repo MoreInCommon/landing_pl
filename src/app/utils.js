@@ -9,10 +9,13 @@ import LongText from "@/app/components/LongText";
 import MainInfo from "@/app/components/MainInfo";
 import Slider from "@/app/components/SliderStoryblok";
 import Statut from "@/app/components/Statut";
+import NavItem from "@/app/components/NavItem";
+import MobileNavItem from "@/app/components/MobileNavItem";
 import Well from "@/app/components/WellStoryblok";
 import Team from "@/app/components/TeamStoryblok";
 import Quote from "@/app/components/Quote";
 import Newsletter from "@/app/components/Newsletter";
+import Navigation from "@/app/components/Navigation";
 import Avatar1 from "../../public/tempImages/Avatar_1.png";
 import Avatar2 from "../../public/tempImages/Avatar_2.png";
 import Avatar3 from "../../public/tempImages/Avatar_3.png";
@@ -36,10 +39,8 @@ export const urls = {
   statut: "/o-nas/statut",
 };
 
-const greenUrls = [urls.climate];
 const decorationUrls = [urls.whatWeDo];
 
-export const getIfGreenUrl = (url) => (greenUrls.includes(url) ? "bg-themeGreen" : "");
 export const getIfDecoration = (url) => !!decorationUrls.includes(url);
 
 export const segments = [
@@ -120,6 +121,9 @@ export const components = {
   projects: Projects,
   "article header": ArticleHeader,
   "global newsletter": Newsletter,
+  "global navigation": Navigation,
+  "navigation item": NavItem,
+  "mobile navigation item": MobileNavItem,
   seo: Seo,
 };
 
@@ -129,7 +133,7 @@ export const fetchPageData = async (url) => {
   };
   const storyblokApi = getStoryblokApi();
 
-  return storyblokApi?.get(url, sbParams, {
+  return await storyblokApi?.get(url, sbParams, {
     cache: "no-cache",
   });
 };
@@ -138,7 +142,7 @@ export const fetchMetadata = async (url) => {
     version: "draft",
   };
   const storyblokApi = getStoryblokApi();
-  const data = await storyblokApi?.get(`cdn/stories/nasze-projekty/polska-po-zimie`, sbParams, {
+  const data = await storyblokApi?.get(url, sbParams, {
     cache: "no-cache",
   });
 
