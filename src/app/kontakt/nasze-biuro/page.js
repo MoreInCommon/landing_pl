@@ -1,5 +1,5 @@
-import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
+import { fetchPageData, fetchMetadata } from "@/app/utils";
 import ContactInfo from "@/app/components/ContactInfo";
 
 export default async function Home() {
@@ -13,13 +13,8 @@ export default async function Home() {
 }
 
 export async function fetchData() {
-  const sbParams = {
-    version: "draft",
-  };
-  const storyblokApi = getStoryblokApi();
-  console.log("test", storyblokApi);
-
-  return storyblokApi?.get(`cdn/stories/kontakt/nasze-biuro`, sbParams, {
-    cache: "no-cache",
-  });
+  return fetchPageData(`cdn/stories/kontakt/nasze-biuro`);
+}
+export async function generateMetadata() {
+  return fetchMetadata(`cdn/stories/nasze-projekty/polska-po-zimie`);
 }

@@ -1,4 +1,4 @@
-import { getStoryblokApi } from "@storyblok/react/rsc";
+import { fetchPageData, fetchMetadata } from "@/app/utils";
 import StoryblokStory from "@storyblok/react/story";
 
 export default async function Home() {
@@ -11,13 +11,8 @@ export default async function Home() {
 }
 
 export async function fetchData() {
-  const sbParams = {
-    version: "draft",
-  };
-  const storyblokApi = getStoryblokApi();
-  console.log("test", storyblokApi);
-
-  return storyblokApi?.get(`cdn/stories/home`, sbParams, {
-    cache: "no-cache",
-  });
+  return fetchPageData(`cdn/stories/home`);
+}
+export async function generateMetadata() {
+  return fetchMetadata(`cdn/stories/nasze-projekty/polska-po-zimie`);
 }

@@ -23,6 +23,7 @@ import Avatar4 from "../../public/tempImages/Avatar_4.png";
 import Avatar5 from "../../public/tempImages/Avatar_5.png";
 import Avatar6 from "../../public/tempImages/Avatar_6.png";
 import Avatar7 from "../../public/tempImages/Avatar_7.png";
+import { getStoryblokApi } from "@storyblok/react/rsc";
 
 export const urls = {
   home: "/",
@@ -126,4 +127,41 @@ export const components = {
   // header_menu: HeaderMenu,
   // menu_link: MenuLink,
   // hero: Hero,
+};
+
+export const fetchPageData = async (url) => {
+  const sbParams = {
+    version: "draft",
+  };
+  const storyblokApi = getStoryblokApi();
+
+  return storyblokApi?.get(url, sbParams, {
+    cache: "no-cache",
+  });
+};
+export const fetchMetadata = async (url) => {
+  const sbParams = {
+    version: "draft",
+  };
+  const storyblokApi = getStoryblokApi();
+  const data = await storyblokApi?.get(`cdn/stories/nasze-projekty/polska-po-zimie`, sbParams, {
+    cache: "no-cache",
+  });
+
+  const seoData = data?.data?.story?.content?.body?.find((blok) => blok?.component === "seo") || {};
+
+  return {
+    title: seoData?.title,
+    description: seoData?.description,
+    openGraph: {
+      title: seoData?.title,
+      description: seoData?.description,
+      images: [
+        {
+          url: seoData?.image?.filename,
+          alt: seoData?.title,
+        },
+      ],
+    },
+  };
 };

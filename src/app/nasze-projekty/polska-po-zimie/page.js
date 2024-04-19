@@ -1,5 +1,5 @@
-import { getStoryblokApi } from "@storyblok/react/rsc";
 import StoryblokStory from "@storyblok/react/story";
+import { fetchPageData, fetchMetadata } from "@/app/utils";
 
 export default async function Home() {
   const { data } = await fetchData();
@@ -12,37 +12,8 @@ export default async function Home() {
 }
 
 export async function fetchData() {
-  const sbParams = {
-    version: "draft",
-  };
-  const storyblokApi = getStoryblokApi();
-
-  return storyblokApi?.get(`cdn/stories/nasze-projekty/polska-po-zimie`, sbParams, {
-    cache: "no-cache",
-  });
+  return fetchPageData(`cdn/stories/nasze-projekty/polska-po-zimie`);
 }
-
 export async function generateMetadata() {
-  const sbParams = {
-    version: "draft",
-  };
-  const storyblokApi = getStoryblokApi();
-  const data = await storyblokApi?.get(`cdn/stories/nasze-projekty/polska-po-zimie`, sbParams, {
-    cache: "no-cache",
-  });
-
-  const seoData = data?.data?.story?.content?.body?.find((blok) => blok?.component === "seo") || {};
-
-  return {
-    title: seoData?.title,
-    description: seoData?.description,
-    openGraph: {
-      images: [
-        {
-          url: seoData?.image?.filename,
-          alt: seoData?.title,
-        },
-      ],
-    },
-  };
+  return fetchMetadata(`cdn/stories/nasze-projekty/polska-po-zimie`);
 }
