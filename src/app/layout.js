@@ -5,10 +5,12 @@ import StoryblokProvider from "@/app/components/StoryblokProvider";
 import "./lib/slick.css";
 import "./lib/slick-theme.css";
 import Newsletter from "@/app/components/Newsletter";
+import { fetchPageData } from "@/app/utils";
 import CookieConsentBanner from "@/app/components/CookieConsentBanner";
 import Navigation from "@/app/components/Navigation";
 import Decoration from "@/app/components/Decoration";
 import Footer from "@/app/components/Footer";
+import { StoryblokComponent } from "@storyblok/react";
 import { components } from "@/app/utils";
 
 storyblokInit({
@@ -77,6 +79,10 @@ const sailec = localFont({
 });
 
 export default async function RootLayout({ children }) {
+  const { data } = await fetchData();
+  const newsletter = data?.story?.content?.blocks?.find(
+    (blok) => blok?.component === "global newsletter"
+  );
   return (
     <StoryblokProvider>
       <html lang="pl">
@@ -86,11 +92,15 @@ export default async function RootLayout({ children }) {
           <main className="bg-transparent py-16 max-xl:py-12 max-sm:py-12 relative z-[1]">
             {children}
           </main>
-          <Newsletter />
+          <StoryblokComponent blok={newsletter} key={newsletter._uid} />
           <Footer />
           <CookieConsentBanner />
         </body>
       </html>
     </StoryblokProvider>
   );
+}
+
+export async function fetchData() {
+  return fetchPageData(`cdn/stories/global`);
 }

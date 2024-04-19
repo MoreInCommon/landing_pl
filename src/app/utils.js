@@ -16,6 +16,7 @@ import Statut from "@/app/components/Statut";
 import Well from "@/app/components/WellStoryblok";
 import Team from "@/app/components/TeamStoryblok";
 import Quote from "@/app/components/Quote";
+import Newsletter from "@/app/components/Newsletter";
 import Avatar1 from "../../public/tempImages/Avatar_1.png";
 import Avatar2 from "../../public/tempImages/Avatar_2.png";
 import Avatar3 from "../../public/tempImages/Avatar_3.png";
@@ -122,6 +123,7 @@ export const components = {
   "media container": Media,
   projects: Projects,
   "article header": ArticleHeader,
+  "global newsletter": Newsletter,
   seo: Seo,
   // config: Config,
   // header_menu: HeaderMenu,

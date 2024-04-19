@@ -2,10 +2,12 @@
 import { useState } from "react";
 import { usePathname } from "next/navigation";
 import { getIfGreenUrl } from "@/app/utils";
+import { storyblokEditable } from "@storyblok/react";
+import Markdown from "react-markdown";
 import Button from "@/app/components/Button";
 import Notification from "@/app/components/Notification";
 
-const Newsletter = () => {
+const Newsletter = ({ blok }) => {
   const pathname = usePathname();
   const isGreenUrl = getIfGreenUrl(pathname);
   const [showSuccess, setShowSuccess] = useState(false);
@@ -19,15 +21,15 @@ const Newsletter = () => {
       clearTimeout();
     };
   };
+  console.log(blok);
   return (
     <div
       className={`text-themeableColors-darkBlue w-full newsletterBg bg-[url('/newsletter_bg.png')] py-[4.5rem] max-sm:py-10 ${isGreenUrl}`}
+      {...storyblokEditable(blok)}
     >
       <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile">
-        <h4 className="text-h4 font-bold mb-2">Bądź na bieżąco!</h4>
-        <p className="text-bodyRegular mb-8 max-md:mb-4">
-          Zasubskrybuj nasz newsletter, żeby być na biężąco z działaniami More in Common.
-        </p>
+        <h4 className="text-h4 font-bold mb-2">{blok.title}</h4>
+        <p className="text-bodyRegular mb-8 max-md:mb-4">{blok.description}</p>
         <form>
           <div className="flex gap-4 items-end max-md:flex-col max-md:items-start">
             <div className="max-w-[248px] max-lg:w-[248px] max-md:w-[400px] max-md:max-w-full max-sm:w-auto">
@@ -56,16 +58,11 @@ const Newsletter = () => {
               onClick={handleSubmit}
               classes="py-[14px] px-8 bg-themeableColors-darkBlue text-white text-[21px] leading-[16px] ml-4 min-w-[133px] max-md:ml-0"
             >
-              <div className="relative top-[1px]">Dołącz</div>
+              <div className="relative top-[1px]">{blok.button_text}</div>
             </Button>
           </div>
-          <div className="text-captionSmall mt-4">
-            *Zapisując się do newslettera, akceptujesz warunki{" "}
-            <a href="/" className="underline">
-              {" "}
-              Polityki prywatności
-            </a>
-            .
+          <div className="text-captionSmall mt-4 [&_a]:underline">
+            <Markdown>{blok.terms}</Markdown>
           </div>
         </form>
       </div>
