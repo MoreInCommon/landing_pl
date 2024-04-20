@@ -120,52 +120,6 @@ body {
   height: 0;
 }
 
-/* // Temp Code */
-
-@keyframes slideInFromBottom {
-  from {
-    height: 0;
-  }
-  to {
-    height: 4px;
-  }
-}
-
-.bg-themeGreen .sliding-border-bottom:hover::after {
-  content: "";
-  display: block;
-  bottom: -4px;
-  position: absolute;
-  left: 0;
-  background-color: currentColor;
-  animation: slideInFromBottom 0.2s ease forwards;
-  width: 100%;
-  z-index: 0;
-}
-
-@keyframes slideOutToBottom {
-  from {
-    height: 4px;
-  }
-  to {
-    height: 0;
-  }
-}
-
-.bg-themeGreen .animate-out.sliding-border-bottom::after {
-  animation: slideOutToBottom 0.2s ease forwards;
-  content: "";
-  display: block;
-  bottom: -4px;
-  position: absolute;
-  left: 0;
-  background-color: currentColor;
-  width: 100%;
-  z-index: 0;
-}
-
-/* // End temp Code */
-
 .svg-stroke {
   stroke: var(--svg-stroke-color);
 }
