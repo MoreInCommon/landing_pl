@@ -6,9 +6,7 @@ import "./lib/slick.css";
 import "./lib/slick-theme.css";
 import { fetchPageData } from "@/app/utils";
 import CookieConsentBanner from "@/app/components/CookieConsentBanner";
-import Navigation from "@/app/components/Navigation";
 import Decoration from "@/app/components/Decoration";
-import Footer from "@/app/components/Footer";
 import { StoryblokComponent } from "@storyblok/react";
 import { components } from "@/app/utils";
 

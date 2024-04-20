@@ -121,9 +121,11 @@ export const fetchPageData = async (url) => {
   };
   const storyblokApi = await getStoryblokApi();
 
-  return await storyblokApi?.get(url, sbParams, {
+  const data = await storyblokApi?.get(url, sbParams, {
     cache: "no-cache",
   });
+  console.log(data, storyblokApi);
+  return data;
 };
 export const fetchMetadata = async (url) => {
   const sbParams = {
