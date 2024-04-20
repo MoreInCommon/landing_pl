@@ -1,10 +1,9 @@
 "use client";
 import { usePathname } from "next/navigation";
-import { getIfDecoration } from "@/app/utils";
 
 const Decoration = () => {
   const pathname = usePathname();
-  const isDecorationUrl = getIfDecoration(pathname);
+  const isDecorationUrl = true;
   if (!isDecorationUrl) return null;
   return (
     <svg

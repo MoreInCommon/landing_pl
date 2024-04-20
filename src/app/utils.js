@@ -28,24 +28,6 @@ import Avatar6 from "../../public/tempImages/Avatar_6.png";
 import Avatar7 from "../../public/tempImages/Avatar_7.png";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 
-export const urls = {
-  home: "/",
-  whatWeDo: "/nasze-projekty",
-  media: "/w-mediach",
-  about: "/o-nas/zespol",
-  contact: "/kontakt/nasze-biuro",
-  seven: "/siedem-segmentow",
-  climate: "/raport-klimatyczny",
-  workWithUs: "/kontakt/pracuj-z-nami",
-  team: "/o-nas/zespol",
-  mission: "/o-nas/misja",
-  statut: "/o-nas/statut",
-};
-
-const decorationUrls = [urls.whatWeDo];
-
-export const getIfDecoration = (url) => !!decorationUrls.includes(url);
-
 export const segments = [
   {
     title: "Postępowi zapaleńcy",
@@ -137,7 +119,7 @@ export const fetchPageData = async (url) => {
   const sbParams = {
     version: "draft",
   };
-  const storyblokApi = getStoryblokApi();
+  const storyblokApi = await getStoryblokApi();
 
   return await storyblokApi?.get(url, sbParams, {
     cache: "no-cache",
@@ -147,7 +129,7 @@ export const fetchMetadata = async (url) => {
   const sbParams = {
     version: "draft",
   };
-  const storyblokApi = getStoryblokApi();
+  const storyblokApi = await getStoryblokApi();
   const data = await storyblokApi?.get(url, sbParams, {
     cache: "no-cache",
   });

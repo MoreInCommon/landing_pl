@@ -38,34 +38,6 @@ const Footer = ({ blok }) => {
             {navItems.map((item) => (
               <StoryblokComponent blok={item} key={item._uid} />
             ))}
-            {/* <div className="flex flex-col">
-              <h5 className="uppercase font-bold mb-6">Co robimy</h5>
-              <Link href={urls.whatWeDo} className="mb-4">
-                Nasze projekty
-              </Link>
-              <Link href={urls.media} className="mb-4">
-                W mediach
-              </Link>
-            </div>
-            <div className="flex flex-col">
-              <h5 className="uppercase font-bold mb-6">Kontakt</h5>
-              <Link href={urls.contact} className="mb-4">
-                Nasze biuro
-              </Link>
-              <Link href={urls.workWithUs} className="mb-4">
-                Pracuj z nami
-              </Link>
-            </div>
-            <div className="flex flex-col">
-              <h5 className="uppercase font-bold mb-6">O nas</h5>
-              <Link href={urls.mission} className="mb-4">
-                Misja
-              </Link>
-              <Link href={urls.team} className="mb-4">
-                Zespół
-              </Link>
-              <Link href={urls.statut}>Statut</Link>
-            </div> */}
           </div>
         </div>
       </div>
