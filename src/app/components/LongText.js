@@ -23,7 +23,9 @@ export default function LongText({ blok }) {
           [NODE_PARAGRAPH]: (props) => {
             if (!props?.[0]?.type && typeof props?.[0] !== "string") return null;
             if (
+              props[0].type === "a" ||
               props[0].type === "span" ||
+              props[0].type === "b" ||
               props[0].type === "paragraph" ||
               typeof props?.[0] === "string"
             ) {
@@ -40,7 +42,7 @@ export default function LongText({ blok }) {
           },
           [NODE_HEADING]: (props, { level }) => {
             if (level === 1) return <MainHeader text={props} />;
-            if (level === 4)
+            if (level === 4 || level === 3)
               return (
                 <CenterContainer>
                   <HeaderFour text={props} />

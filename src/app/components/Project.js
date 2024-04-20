@@ -1,7 +1,4 @@
 "use client";
-import Image from "next/image";
-import Link from "next/link";
-import Image1 from "../../../public/tempImages/image22.png";
 import Button from "@/app/components/Button";
 import ButtonText from "@/app/components/ButtonText";
 
@@ -17,13 +14,18 @@ const Project = ({ project, classes }) => {
   };
 
   return (
-    <a href={project.url.url} target="_blank" rel="noopener noreferrer" className={classes}>
-      <div className="h-[350px] relative mb-6">
+    <a
+      href={project.url.url || project.url.cached_url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className={classes}
+    >
+      <div className="h-[350px] relative mb-6 flex">
         <img
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           src={project.img.filename}
           alt=""
-          style={{ objectFit: "contain" }}
+          style={{ objectFit: "contain", maxHeight: 300, margin: "auto" }}
         />
       </div>
       <p className="text-grey-medium text-captionRegular mb-1">
@@ -64,10 +66,7 @@ const Project = ({ project, classes }) => {
             </svg>
           </ButtonText>
         )}
-        <Button
-          onClick={() => console.log(project.url)}
-          classes="bg-brand-green hover:bg-hover-green"
-        >
+        <Button onClick={() => console.log()} classes="bg-brand-green hover:bg-hover-green">
           <div className="relative top-[1px]">Czytaj dalej</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"

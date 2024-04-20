@@ -19,7 +19,7 @@ storyblokInit({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://more-in-common.vercel.app/"),
+  metadataBase: new URL("https://www.moreincommon.pl/"),
   alternates: {
     canonical: "/",
   },

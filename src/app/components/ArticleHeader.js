@@ -42,7 +42,7 @@ export default function ArticleHeader({ blok }) {
       <p className="text-black max-w-[818px] w-full mt-6 font-medium text-bodyRegular mx-auto mb-20">
         {blok.text}
       </p>
-      <div className="mx-auto flex items-center justify-center gap-16 max-w-[800px]">
+      <div className="mx-auto flex items-center justify-center gap-8 max-w-[800px]">
         <div>
           <span className="font-medium">Data publikacji:</span>{" "}
           {formatter.format(new Date(blok.date))}
