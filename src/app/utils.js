@@ -5,9 +5,13 @@ import ArticleHeader from "@/app/components/ArticleHeader";
 import StandardText from "@/app/components/StandardText";
 import Media from "@/app/components/Media";
 import Projects from "@/app/components/Projects";
+import Segment from "@/app/components/Segment";
+import Trivia from "@/app/components/Trivia";
 import LongText from "@/app/components/LongText";
+import SegmentationContent from "@/app/components/SegmentationContent";
 import MainInfo from "@/app/components/MainInfo";
 import FooterItem from "@/app/components/FooterItem";
+import SegmentationHeader from "@/app/components/SegmentationHeader";
 import FooterNavLink from "@/app/components/FooterNavLink";
 import Footer from "@/app/components/Footer";
 import Slider from "@/app/components/SliderStoryblok";
@@ -17,6 +21,7 @@ import MobileNavItem from "@/app/components/MobileNavItem";
 import Well from "@/app/components/WellStoryblok";
 import Team from "@/app/components/TeamStoryblok";
 import Quote from "@/app/components/Quote";
+import SegmentsQuiz from "@/app/components/SegmentsQuiz";
 import Newsletter from "@/app/components/Newsletter";
 import Navigation from "@/app/components/Navigation";
 import Avatar1 from "../../public/tempImages/Avatar_1.png";
@@ -112,6 +117,11 @@ export const components = {
   "mobile navigation item": MobileNavItem,
   "footer items": FooterItem,
   "footer navigation item": FooterNavLink,
+  "segmentation header": SegmentationHeader,
+  "segmentation content": SegmentationContent,
+  "segmentats quiz": SegmentsQuiz,
+  trivia: Trivia,
+  segment: Segment,
   seo: Seo,
 };
 
