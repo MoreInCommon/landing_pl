@@ -20,7 +20,7 @@ const Sidebar = ({ segments }) => {
           offset={-170}
           duration={500}
           className="block cursor-pointer pl-4 border-l-4 border-transparent font-medium	 p-2 text-[#858D9C] text-[18px]"
-          activeClass="text-[#224099] border-[#224099]"
+          activeClass="text-[#224099!important] border-[#224099!important]"
         >
           {item.title}
         </Link>
