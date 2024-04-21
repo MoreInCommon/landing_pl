@@ -131,11 +131,19 @@ export const fetchPageData = async (url) => {
   };
   const storyblokApi = await getStoryblokApi();
 
-  const data = await storyblokApi?.get(url, sbParams, {
-    cache: "no-cache",
-  });
-  console.log(data, storyblokApi);
-  return data;
+  // const data = await storyblokApi?.get(url, sbParams, {
+  //   cache: "no-cache",
+  // });
+
+  try {
+    const data = await storyblokApi.get(url, sbParams, { cache: "no-cache" });
+    if (!data) {
+      console.error("No data returned from the API.");
+    }
+    return data;
+  } catch (error) {
+    console.error("Error fetching data from Storyblok API:", error);
+  }
 };
 export const fetchMetadata = async (url) => {
   const sbParams = {

@@ -1,6 +1,6 @@
 import localFont from "next/font/local";
 import "./globals.css";
-import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+import { storyblokInit, apiPlugin, StoryblokBridgeLoader } from "@storyblok/react/rsc";
 import StoryblokProvider from "@/app/components/StoryblokProvider";
 import "./lib/slick.css";
 import "./lib/slick-theme.css";
@@ -84,6 +84,7 @@ export default async function RootLayout({ children }) {
   return (
     <StoryblokProvider>
       <html lang="pl">
+        <StoryblokBridgeLoader />
         <body className={`${sailec.className} bg-white mt-[76px] max-xl:mt-12 overflow-x-hidden`}>
           <Decoration />
           <StoryblokComponent blok={navigation} key={navigation._uid} />
