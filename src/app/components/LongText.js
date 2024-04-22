@@ -59,7 +59,7 @@ export default function LongText({ blok }) {
           ["page lead"]: (props) => (
             <StandardText text={props.text} className="mb-[72px] max-xl:mb-12" />
           ),
-          ["quote"]: (props) => <Quote text={props.text} />,
+          ["quote"]: (props) => <Quote blok={props} />,
           ["iframe"]: (props) => {
             return (
               <div className="mt-10 mb-4">

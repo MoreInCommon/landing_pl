@@ -3,7 +3,7 @@ import { usePathname } from "next/navigation";
 
 const Decoration = () => {
   const pathname = usePathname();
-  const isDecorationUrl = true;
+  const isDecorationUrl = false;
   if (!isDecorationUrl) return null;
   return (
     <svg

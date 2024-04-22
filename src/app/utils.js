@@ -6,6 +6,7 @@ import StandardText from "@/app/components/StandardText";
 import Media from "@/app/components/Media";
 import Projects from "@/app/components/Projects";
 import Segment from "@/app/components/Segment";
+import SegmentContent from "@/app/components/SegmentContent";
 import Trivia from "@/app/components/Trivia";
 import LongText from "@/app/components/LongText";
 import SegmentationContent from "@/app/components/SegmentationContent";
@@ -54,6 +55,7 @@ export const components = {
   "segmentation header": SegmentationHeader,
   "segmentation content": SegmentationContent,
   "segments quiz": SegmentsQuiz,
+  "segment content": SegmentContent,
   trivia: Trivia,
   segment: Segment,
   seo: Seo,

@@ -8,8 +8,6 @@ import CenterContainer from "@/app/components/CenterContainer";
 import CenterText from "@/app/components/CenterText";
 import ImageComponent from "@/app/components/ImageComponent";
 import Button from "@/app/components/Button";
-import HeaderFour from "@/app/components/HeaderFour";
-import LongText from "@/app/components/LongText";
 
 const SegmentationHeader = ({ blok }) => {
   return (
