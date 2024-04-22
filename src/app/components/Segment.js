@@ -2,8 +2,13 @@
 import { storyblokEditable } from "@storyblok/react";
 import { Element } from "react-scroll";
 import Button from "@/app/components/Button";
+import { useRouter } from "next/navigation";
 
 const Segment = ({ blok }) => {
+  const { push } = useRouter();
+  const changePage = (url) => {
+    push(`/${url}`);
+  };
   return (
     <Element name={blok.title} className="section" {...storyblokEditable(blok)}>
       <div className="flex gap-20 pb-20">
@@ -13,7 +18,7 @@ const Segment = ({ blok }) => {
           </h2>
           <p>{blok.description}</p>
           <Button
-            onClick={() => console.log()}
+            onClick={() => changePage(blok.button_url.cached_url)}
             classes={`mr-auto mt-2 self-start`}
             style={{ background: blok?.color?.color }}
           >

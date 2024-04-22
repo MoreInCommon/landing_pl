@@ -168,7 +168,7 @@ export default async function Home() {
         />
       </CenteredSection>
       <div className="flex gap-4 my-10">
-        {segments.map((content, index) => (
+        {[].map((content, index) => (
           <div className="flex p-6 flex-col items-center gap-2 min-w-[235px] h-[200px]" key={index}>
             <img src={content.logo.src} alt="img" className="h-3/4 object-contain	" />
             <p className="text-black flex items-center self-auto">{content.title}</p>
