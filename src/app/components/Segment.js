@@ -4,20 +4,20 @@ import { Element } from "react-scroll";
 import Button from "@/app/components/Button";
 
 const Segment = ({ blok }) => {
-  const item = blok;
   return (
-    <Element name={item.title} className="section" {...storyblokEditable(blok)}>
+    <Element name={blok.title} className="section" {...storyblokEditable(blok)}>
       <div className="flex gap-20 pb-20">
         <div className="flex flex-col gap-4">
-          <h2 className="text-xl font-bold uppercase" style={{ color: item.color }}>
-            {item.title}
+          <h2 className="text-xl font-bold uppercase" style={{ color: blok?.color?.color }}>
+            {blok.title}
           </h2>
-          <p>{item.description}</p>
+          <p>{blok.description}</p>
           <Button
             onClick={() => console.log()}
-            classes="bg-[#D3405B] mr-auto mt-2 self-start hover:bg-[#D3405B]"
+            classes={`mr-auto mt-2 self-start`}
+            style={{ background: blok?.color?.color }}
           >
-            <div className="relative top-[1px]">Czytaj dalej</div>
+            <div className="relative top-[1px]">{blok.button_text}</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -35,9 +35,8 @@ const Segment = ({ blok }) => {
           </Button>
         </div>
         <img
-          src={item.logo.src}
-          alt={item.title}
-          width={395}
+          src={blok?.image?.filename}
+          alt={blok.title}
           className="min-w-[195px] max-h-[200px] object-contain"
         />
       </div>

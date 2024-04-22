@@ -2,10 +2,9 @@
 import { storyblokEditable } from "@storyblok/react";
 import MainHeader from "@/app/components/MainHeader";
 import CenteredSection from "@/app/components/CenteredSection";
+import { StoryblokComponent } from "@storyblok/react";
 import { Link } from "react-scroll";
-import { segments } from "@/app/utils";
 import CenterContainer from "@/app/components/CenterContainer";
-import Segment from "@/app/components/Segment";
 import CenterText from "@/app/components/CenterText";
 
 const Sidebar = ({ segments }) => {
@@ -31,24 +30,20 @@ const Sidebar = ({ segments }) => {
 
 const SegmentationContent = ({ blok }) => {
   return (
-    <div {...storyblokEditable}>
+    <div {...storyblokEditable(blok)}>
       <CenteredSection>
-        <MainHeader text={"Siedem segmentów zamiast dwóch plemion"} className="mt-[72px] mb-10" />
+        <MainHeader text={blok.title} className="mt-[72px] mb-10" />
       </CenteredSection>
       <CenterContainer className="text-center">
-        <CenterText
-          text={
-            "Badania przeprowadzone przez More in Common zawierające elementy socjologii, psychologii i politologii. Analizie poddane zostały wyznawane wartości, fundamenty moralne i stosunek do świata zewnętrznego."
-          }
-        />
+        <CenterText text={blok.subtitle} />
       </CenterContainer>
       <div className={`max-w-full m-auto w-full flex gap-10`}>
         <div className="overflow-visible">
-          <Sidebar segments={segments} />
+          <Sidebar segments={blok.segments} />
         </div>
         <div className="p-5 text-mono-neutral11">
-          {segments.map((item, index) => (
-            <Segment key={index} blok={item} />
+          {blok.segments.map((item) => (
+            <StoryblokComponent key={item._uid} blok={item} />
           ))}
         </div>
       </div>

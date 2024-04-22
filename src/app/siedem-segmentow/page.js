@@ -1,13 +1,18 @@
-import SegmentationHeader from "@/app/components/SegmentationHeader";
-import SegmentationContent from "../components/SegmentationContent";
-import SegmentsQuiz from "../components/SegmentsQuiz";
+import { fetchPageData, fetchMetadata } from "@/app/utils";
+import StoryblokStory from "@storyblok/react/story";
 
-export default function Home() {
+export default async function Home() {
+  const { data } = await fetchData();
   return (
     <>
-      <SegmentationHeader />
-      <SegmentationContent />
-      <SegmentsQuiz />
+      <StoryblokStory story={data.story} />
     </>
   );
+}
+
+export async function fetchData() {
+  return fetchPageData(`cdn/stories/siedem-segmentow`);
+}
+export async function generateMetadata() {
+  return fetchMetadata(`cdn/stories/siedem-segmentow`);
 }

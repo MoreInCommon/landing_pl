@@ -18,7 +18,7 @@ import MainHeader from "@/app/components/MainHeader";
 
 export default function Statut({ blok }) {
   return (
-    <div className="text-center">
+    <div className="text-center" {...storyblokEditable(blok)}>
       {render(blok.text, {
         nodeResolvers: {
           [NODE_PARAGRAPH]: (props) => {
