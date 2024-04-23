@@ -49,6 +49,16 @@ body {
   margin-right: 24px !important;
 }
 
+.progress-bar::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: calc(var(--progress) * 100%);
+  background-color: var(--color-primary);
+}
+
 @keyframes slideInFromLeft {
   from {
     width: 0%;
