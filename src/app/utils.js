@@ -1,10 +1,12 @@
 /** Import your components */
 import Page from "@/app/components/Page";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
+import MediaProject from "@/app/components/MediaProject";
 import ArticleHeader from "@/app/components/ArticleHeader";
 import StandardText from "@/app/components/StandardText";
 import Media from "@/app/components/Media";
 import Projects from "@/app/components/Projects";
+import Project from "@/app/components/Project";
 import Segment from "@/app/components/Segment";
 import SegmentContent from "@/app/components/SegmentContent";
 import Trivia from "@/app/components/Trivia";
@@ -43,6 +45,8 @@ export const components = {
   well: Well,
   statut: Statut,
   "media container": Media,
+  media: MediaProject,
+  project: Project,
   projects: Projects,
   "article header": ArticleHeader,
   "global newsletter": Newsletter,

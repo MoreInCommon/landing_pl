@@ -19,7 +19,7 @@ const Project = ({ blok }) => {
       href={blok.url.url || blok.url.cached_url}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-white p-6 border-t-[6px] border-brand-darkBlue flex-[47%] max-md:flex-[75%] w-1/2 flex flex-col max-w-1/2 max-md:max-w-[100%] hover:shadow-tile-shadow transition-shadow"
+      className="bg-white p-6 border-t-4 border-brand-darkBlue flex-[31%] max-lg:max-w-[46%] max-sm:max-w-[95%] flex flex-col max-w-[31%] hover:shadow-tile-shadow transition-shadow"
       {...storyblokEditable(blok)}
     >
       <div className="h-[350px] relative mb-6 flex">
