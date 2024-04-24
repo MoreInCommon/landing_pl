@@ -15,6 +15,7 @@ import {
   calculateResult7,
   matchMaxIndex,
 } from "@/app/quizUtils";
+import Link from "next/link";
 
 const p = [
   {
@@ -147,7 +148,10 @@ export default function QuizStart() {
             Britains Choice. W procesie wypełniania tego quizu nie są zbierane żadne dane
             umożliwiające identyfikację osobistą (PII). Dane użytkowników nie są sprzedawane przez
             More in Common czy YouGov, ani nie będą przekazywane żadnym stronom trzecim. Kliknij
-            tutaj, aby zapoznać się z naszą Polityką Prywatności.
+            tutaj, aby zapoznać się z naszą{" "}
+            <Link className="underline" href="/polityka-prywatnosci">
+              Polityką Prywatności.
+            </Link>
           </p>
         </CenterContainer>
       </CenteredSection>
