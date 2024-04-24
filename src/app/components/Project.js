@@ -31,7 +31,7 @@ const Project = ({ blok }) => {
         />
       </div>
       <p className="text-grey-medium text-captionRegular mb-1">
-        {formatter.format(new Date(blok?.date))}
+        {formatter?.format(blok?.date ? new Date(blok?.date) : new Date())}
       </p>
       <p className=" text-brand-darkBlue inline-block uppercase  font-bodySmall w-fit font-bold mb-3 rounded empty:hidden">
         {blok?.medium}

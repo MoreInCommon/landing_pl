@@ -45,7 +45,7 @@ export default function ArticleHeader({ blok }) {
       <div className="mx-auto flex items-center justify-center gap-8 max-w-[800px]">
         <div>
           <span className="font-medium">Data publikacji:</span>{" "}
-          {formatter.format(new Date(blok.date))}
+          {formatter?.format(blok?.date ? new Date(blok?.date) : new Date())}
         </div>
         <div className="flex items-center">
           <span className="font-medium mr-2">Udostępnij:</span>
