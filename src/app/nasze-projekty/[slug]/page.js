@@ -1,6 +1,14 @@
 import StoryblokStory from "@storyblok/react/story";
 import { fetchPageData, fetchMetadata } from "@/app/utils";
 
+import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
+import { components } from "@/app/utils";
+
+storyblokInit({
+  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
+  use: [apiPlugin],
+  components,
+});
 export default async function Home({ params }) {
   const response = await fetchData(params.slug);
   // Show 404 if page is not published
