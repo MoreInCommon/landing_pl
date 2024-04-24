@@ -38,61 +38,66 @@ const AgreementPage = ({ questions, setAnswer, errors }) => {
             <div
               onMouseEnter={() => handleMouseEnter(i)}
               onMouseLeave={() => handleMouseLeave(null)}
-              className={`flex items-center justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+              onClick={() => handleAnswer(0, i)}
+              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
             >
               <input
                 checked={q.value === 0}
                 onChange={() => handleAnswer(0, i)}
                 type="radio"
-                className="h-6 w-6"
+                className="h-6 w-6 cursor-pointer"
               />
             </div>
             <div
               onMouseEnter={() => handleMouseEnter(i)}
               onMouseLeave={() => handleMouseLeave(null)}
-              className={`flex items-center justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+              onClick={() => handleAnswer(1, i)}
+              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
             >
               <input
                 checked={q.value === 1}
                 onChange={() => handleAnswer(1, i)}
                 type="radio"
-                className="h-6 w-6"
+                className="h-6 w-6 cursor-pointer"
               />
             </div>
             <div
               onMouseEnter={() => handleMouseEnter(i)}
               onMouseLeave={() => handleMouseLeave(null)}
-              className={`flex items-center justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+              onClick={() => handleAnswer(2, i)}
+              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
             >
               <input
                 checked={q.value === 2}
                 onChange={() => handleAnswer(2, i)}
                 type="radio"
-                className="h-6 w-6"
+                className="h-6 w-6 cursor-pointer"
               />
             </div>
             <div
               onMouseEnter={() => handleMouseEnter(i)}
               onMouseLeave={() => handleMouseLeave(null)}
-              className={`flex items-center justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+              onClick={() => handleAnswer(3, i)}
+              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
             >
               <input
                 checked={q.value === 3}
                 onChange={() => handleAnswer(3, i)}
                 type="radio"
-                className="h-6 w-6"
+                className="h-6 w-6 cursor-pointer"
               />
             </div>
             <div
               onMouseEnter={() => handleMouseEnter(i)}
               onMouseLeave={() => handleMouseLeave(null)}
-              className={`flex items-center justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+              onClick={() => handleAnswer(4, i)}
+              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
             >
               <input
                 checked={q.value === 4}
                 onChange={() => handleAnswer(4, i)}
                 type="radio"
-                className="h-6 w-6"
+                className="h-6 w-6 cursor-pointer"
               />
             </div>
           </>

@@ -57,6 +57,7 @@ body {
   height: 100%;
   width: calc(var(--progress) * 100%);
   background-color: var(--color-primary);
+  transition: all 0.5s;
 }
 
 @keyframes slideInFromLeft {
