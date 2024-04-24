@@ -78,6 +78,8 @@ export default function QuizStart() {
   // console.log(calculateResult1(Array(20).fill(2)));
   // console.log(calculateResult6(Array(20).fill(1)));
 
+  // pamietac zeby na koniec dodac + 1 do wszystkich odpowiedzi
+
   const allQuestionsAnswered = currentPage.questions.every((question) => question.value !== null);
   const totalQuestionsNumber = pages.reduce((acc, page) => acc + page.questions.length, 0);
   const totalAnsweredQuestionsNumber = pages.reduce((acc, page) => {
