@@ -6,7 +6,7 @@ import CenterContainer from "@/app/components/CenterContainer";
 import SegmentsSvg from "@/app/components/SegmentsSvg";
 import AgreementPage from "@/app/components/AgreementPage";
 
-const pages = [
+const p = [
   {
     type: "agreement",
     questions: [
@@ -45,7 +45,10 @@ const pages = [
 
 export default function QuizStart() {
   const [currentPageIndex, setCurrentPageIndex] = useState(null);
+  const [pages, setPages] = useState(p);
   const currentPage = pages[currentPageIndex || 0];
+  const [errors, setErrors] = useState([]);
+
   const allQuestionsAnswered = currentPage.questions.every((question) => question.value !== null);
   const totalQuestionsNumber = pages.reduce((acc, page) => acc + page.questions.length, 0);
   const totalAnsweredQuestionsNumber = pages.reduce((acc, page) => {
@@ -55,8 +58,26 @@ export default function QuizStart() {
   const isFinalPage = currentPageIndex === pages.length - 1;
   const isFirstPage = currentPageIndex === 0;
 
-  const setAnswer = (index, value) => {
-    console.log(index);
+  const setAnswer = (index, qIndex) => {
+    setErrors([]);
+    const newPages = [...pages];
+    newPages[currentPageIndex].questions[qIndex].value = index;
+    setPages(newPages);
+  };
+
+  const setNextPage = () => {
+    if (allQuestionsAnswered) {
+      setCurrentPageIndex(currentPageIndex + 1);
+    }
+    if (!allQuestionsAnswered) {
+      // set errors and find all indexes
+      setErrors([
+        ...errors,
+        ...currentPage.questions
+          .map((q, index) => (q.value === null ? index : -1))
+          .filter((index) => index !== -1),
+      ]);
+    }
   };
 
   if (currentPageIndex === null) {
@@ -92,7 +113,7 @@ export default function QuizStart() {
           </Button>
           <p>
             * Wyniki quizu są najlepszym przybliżeniem na podstawie skróconej wersji ankiety
-            Britain's Choice. W procesie wypełniania tego quizu nie są zbierane żadne dane
+            Britains Choice. W procesie wypełniania tego quizu nie są zbierane żadne dane
             umożliwiające identyfikację osobistą (PII). Dane użytkowników nie są sprzedawane przez
             More in Common czy YouGov, ani nie będą przekazywane żadnym stronom trzecim. Kliknij
             tutaj, aby zapoznać się z naszą Polityką Prywatności.
@@ -114,8 +135,34 @@ export default function QuizStart() {
           />
         </div>
       </CenterContainer>
-      <div className="max-w-[1200px] m-auto w-full">
-        <AgreementPage questions={currentPage.questions} setAnswer={setAnswer} />
+      <div className="max-w-[1200px] m-auto w-full pt-20">
+        {errors.length > 0 && (
+          <div className="bg-[#FDF7E7] p-6 flex gap-6 items-center mb-6">
+            <svg
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <g clipPath="url(#clip0_2040_16840)">
+                <circle cx="12" cy="12" r="12" fill="#F2AD0E" />
+                <path
+                  d="M10.844 14.352L10.716 6.032H13.452L13.308 14.352H10.844ZM12.076 15.344C12.4707 15.344 12.8067 15.4827 13.084 15.76C13.3613 16.0267 13.5 16.3627 13.5 16.768C13.5 17.1627 13.3613 17.4987 13.084 17.776C12.8067 18.0427 12.4707 18.176 12.076 18.176C11.6813 18.176 11.3453 18.0427 11.068 17.776C10.8013 17.4987 10.668 17.1627 10.668 16.768C10.668 16.3627 10.8013 16.0267 11.068 15.76C11.3453 15.4827 11.6813 15.344 12.076 15.344Z"
+                  fill="white"
+                />
+              </g>
+              <defs>
+                <clipPath id="clip0_2040_16840">
+                  <rect width="24" height="24" fill="white" />
+                </clipPath>
+              </defs>
+            </svg>
+
+            <span>Prosimy o zaznaczenie wszystkich odpowiedzi</span>
+          </div>
+        )}
+        <AgreementPage questions={currentPage.questions} setAnswer={setAnswer} errors={errors} />
         <div className="flex justify-between items-center mt-10">
           {!isFirstPage && (
             <Button
@@ -142,7 +189,7 @@ export default function QuizStart() {
           )}
           {!isFinalPage && (
             <Button
-              onClick={() => setCurrentPageIndex(currentPageIndex + 1)}
+              onClick={() => setNextPage()}
               classes="bg-brand-darkBlue hover:bg-hover-blue ml-auto"
             >
               <div className="relative top-[1px]">Następne pytanie</div>

@@ -113,3 +113,7 @@ body {
 .svg-stroke {
   stroke: var(--svg-stroke-color);
 }
+
+input[type="radio"] {
+  accent-color: var(--color-primary);
+}
