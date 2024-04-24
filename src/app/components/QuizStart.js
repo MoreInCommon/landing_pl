@@ -5,6 +5,16 @@ import CenteredSection from "@/app/components/CenteredSection";
 import CenterContainer from "@/app/components/CenterContainer";
 import SegmentsSvg from "@/app/components/SegmentsSvg";
 import AgreementPage from "@/app/components/AgreementPage";
+import {
+  calculateResult1,
+  calculateResult2,
+  calculateResult3,
+  calculateResult4,
+  calculateResult5,
+  calculateResult6,
+  calculateResult7,
+  matchMaxIndex,
+} from "@/app/quizUtils";
 
 const p = [
   {
@@ -48,6 +58,25 @@ export default function QuizStart() {
   const [pages, setPages] = useState(p);
   const currentPage = pages[currentPageIndex || 0];
   const [errors, setErrors] = useState([]);
+
+  // const res1 = calculateResult1([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  // const res2 = calculateResult2([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  // const res3 = calculateResult3([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  // const res4 = calculateResult4([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  // const res5 = calculateResult5([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  // const res6 = calculateResult6([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  // const res7 = calculateResult7([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
+  const res1 = calculateResult1(Array(20).fill(1));
+  const res2 = calculateResult2(Array(20).fill(1));
+  const res3 = calculateResult3(Array(20).fill(1));
+  const res4 = calculateResult4(Array(20).fill(1));
+  const res5 = calculateResult5(Array(20).fill(1));
+  const res6 = calculateResult6(Array(20).fill(1));
+  const res7 = calculateResult7(Array(20).fill(1));
+  console.log(matchMaxIndex([res1, res2, res3, res4, res5, res6, res7]));
+  // console.log(calculateResult5([1, 1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]));
+  // console.log(calculateResult1(Array(20).fill(2)));
+  // console.log(calculateResult6(Array(20).fill(1)));
 
   const allQuestionsAnswered = currentPage.questions.every((question) => question.value !== null);
   const totalQuestionsNumber = pages.reduce((acc, page) => acc + page.questions.length, 0);
