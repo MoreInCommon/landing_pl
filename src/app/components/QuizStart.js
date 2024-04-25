@@ -211,7 +211,7 @@ const p = [
 ];
 
 export default function QuizStart() {
-  const [currentPageIndex, setCurrentPageIndex] = useState(7);
+  const [currentPageIndex, setCurrentPageIndex] = useState(null);
   const [pages, setPages] = useState(p);
   const currentPage = pages[currentPageIndex || 0];
   const [errors, setErrors] = useState([]);
