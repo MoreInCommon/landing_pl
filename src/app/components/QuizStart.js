@@ -5,6 +5,8 @@ import CenteredSection from "@/app/components/CenteredSection";
 import CenterContainer from "@/app/components/CenterContainer";
 import SegmentsSvg from "@/app/components/SegmentsSvg";
 import AgreementPage from "@/app/components/AgreementPage";
+import StandardPage from "@/app/components/StandardPage";
+import ScalePage from "@/app/components/ScalePage";
 import {
   calculateResult1,
   calculateResult2,
@@ -19,35 +21,189 @@ import Link from "next/link";
 
 const p = [
   {
-    type: "agreement",
+    type: "scale",
+    pageText: null,
     questions: [
       {
-        text: "Młodzi ludzie dzisiaj nie mają wystarczającego szacunku dla tradycyjnych brytyjskich wartości.",
+        text: "Na skali 1 do 6 proszę ocenić, na ile następujące stwierdzenie pasuje do Pana/Pani: Na bieżąco śledzę wiadomości ze świata polityki.",
+        answers: ["Wcale", "Bardzo"],
         value: null,
       },
       {
-        text: "Osoby łamiące prawo powinny otrzymywać surowsze kary.",
+        text: "Proszę na skali od 1 do 6 ocenić w jakim stopniu zgadza się Pan/Pani z następującym stwierdzeniem: Wiele razy miałem/miałam poczucie, że ludzie, którzy podzielają te samo przekonania polityczne, co ja, są lepszymi ludźmi od innych. ",
+        answers: ["Nie zgadzam się w ogóle", "Zgadzam się w pełni"],
         value: null,
       },
       {
-        text: "Rząd powinien przeprowadzać redystrybucję dochodów od osób lepiej sytuowanych do tych, którzy mają gorzej.",
+        text: "Czy określił(a)by Pan(i) siebie jako osobę wierzącą?",
+        answers: ["Zdecydowanie nie", "Zdecydowanie tak"],
         value: null,
       },
     ],
   },
   {
     type: "agreement",
+    answersOrder: [
+      "Zdecydowanie się nie zgadzam",
+      "Nie zgadzam się",
+      "Raczej się nie zgadzam",
+      "Raczej się zgadzam",
+      "Zgadzam się",
+      "Zdecydowanie się zgadzam",
+    ],
     questions: [
       {
-        text: "Młodzi ludzie dzisiaj nie mają wystarczającego szacunku dla tradycyjnych brytyjskich wartości.",
+        text: "Aby uporządkować sytuację w Polsce, potrzebujemy silnego przywódcy, który jest gotowy łamać istniejące zasady.",
         value: null,
       },
       {
-        text: "Osoby łamiące prawo powinny otrzymywać surowsze kary.",
+        text: "Grupy lepsze powinny dominować nad grupami gorszymi. ",
+        value: null,
+      },
+    ],
+  },
+  {
+    type: "scale",
+    pageText:
+      "Na skali od 1 do 6 proszę zaznaczyć, która z poniższych wypowiedzi jest Panu(i) bliższa. ",
+    questions: [
+      {
+        text: null,
+        answers: [
+          "Wśród istniejących partii politycznych jest taka, która dobrze reprezentuje moje poglądy i interesy.",
+          "Wśród istniejących partii politycznych nie ma takiej, która dobrze reprezentuje moje poglądy i interesy.",
+        ],
         value: null,
       },
       {
-        text: "Rząd powinien przeprowadzać redystrybucję dochodów od osób lepiej sytuowanych do tych, którzy mają gorzej.",
+        text: null,
+        answers: [
+          "Patrzę z obawą na zachodzące na świecie zmiany.",
+          "Patrzę z nadzieją na zachodzące na świecie zmiany.",
+        ],
+        value: null,
+      },
+      {
+        text: null,
+        answers: [
+          "Nie mam żadnej kontroli nad tym jak przebiega moje życie.",
+          "Mam pełną kontrolę nad tym jak przebiega moje życie.",
+        ],
+        value: null,
+      },
+      {
+        text: null,
+        answers: [
+          "Ogólnie rzecz biorąc, czuję się nieszanowany/a i niedoceniany/a za to, co osiągnąłem/osiągnęłam w życiu.",
+          "Ogólnie rzecz biorąc, czuję się szanowany/a i odpowiednio doceniany/a za to, co osiągnąłem/osiągnęłam w życiu.",
+        ],
+        value: null,
+      },
+    ],
+  },
+  {
+    type: "scale",
+    pageText: null,
+    questions: [
+      {
+        text: "Ludzie różnią się swoimi poglądami na gospodarkę. Który z poniższych modeli jest Panu/Pani bliższy? ",
+        answers: [
+          "Model indywidualny. Model indywidualny zakłada, że obywatel płaci niższe podatki i we własnym zakresie opłaca opiekę lekarską, edukację i inne świadczenia (np. emerytalne).",
+          "Model wspólnotowy. Model wspólnotowy zakłada zaś, że obywatel płaci państwu wyższe podatki i w zamian ma bezpłatną edukację, opiekę lekarską i inne świadczenia (np. emerytalne).",
+        ],
+        value: null,
+      },
+    ],
+  },
+  {
+    type: "agreement",
+    answersOrder: [
+      "Zdecydowanie się zgadzam",
+      "Zgadzam się",
+      "Raczej się zgadzam",
+      "Raczej się nie zgadzam",
+      "Nie zgadzam się",
+      "Zdecydowanie się nie zgadzam",
+    ],
+    questions: [
+      {
+        text: "Należy być lojalnym w stosunku do członków rodziny, nawet gdy zrobili coś złego.",
+        value: null,
+      },
+      {
+        text: "Uważam, że jest to moralnie złe, że dzieci bogatych ludzi mają znacząco lepszy start w życiu niż dzieci biednych ludzi.",
+        value: null,
+      },
+      {
+        text: "Czystość seksualna to ważna i cenna cnota człowieka.",
+        value: null,
+      },
+    ],
+  },
+  {
+    type: "agreement",
+    answersOrder: [
+      "Zdecydowanie się nie zgadzam",
+      "Raczej się nie zgadzam",
+      "Ani się zgadzam, ani się nie zgadzam",
+      "Raczej się zgadzam",
+      "Zdecydowanie się zgadzam",
+    ],
+    questions: [
+      {
+        text: "Nie spocznę, dopóki Polacy nie spotkają się z uznaniem, na jakie zasługują.",
+        value: null,
+      },
+      {
+        text: "Sądzę, że istnieją tajne układy, mające ogromny wpływ na decyzje polityczne.",
+        value: null,
+      },
+    ],
+  },
+  {
+    type: "agreement",
+    answersOrder: [
+      "Zdecydowanie tak",
+      "Raczej tak",
+      "Ani tak, ani nie",
+      "Raczej nie",
+      "Zdecydowanie nie",
+    ],
+    questions: [
+      {
+        text: "Różne cechy określają to kim się czujemy i jak o sobie myślimy. Czy czuje się Pan/Pani dumny/dumna z swojej europejskości?",
+        value: null,
+      },
+    ],
+  },
+  {
+    type: "standard",
+    pageText: null,
+    questions: [
+      {
+        text: "Wiek",
+        answers: ["18-24", "25-30", "31-39", "40-49", "50-60", "61-70", "71-85"],
+        value: null,
+      },
+      {
+        text: "Miejsce zamieszkania",
+        answers: [
+          "Wieś",
+          "Miasto do 19 999 m.",
+          "Miasto między 20 000 a 99 999 m.",
+          "Miasto między 100 000 a 499 999 m.",
+          "Miasto powyżej 500 000 m.",
+        ],
+        value: null,
+      },
+      {
+        text: "Liczba osób w gospodarstwie",
+        answers: ["1 osoba.", "2 osoby.", "3 osoby.", "4 osoby.", "5 osób i więcej."],
+        value: null,
+      },
+      {
+        text: "Wykształcenie",
+        answers: ["Podstawowe", "Zawodowe", "Średnie", "Wyższe"],
         value: null,
       },
     ],
@@ -55,11 +211,11 @@ const p = [
 ];
 
 export default function QuizStart() {
-  const [currentPageIndex, setCurrentPageIndex] = useState(null);
+  const [currentPageIndex, setCurrentPageIndex] = useState(7);
   const [pages, setPages] = useState(p);
   const currentPage = pages[currentPageIndex || 0];
   const [errors, setErrors] = useState([]);
-
+  console.log(pages);
   // const res1 = calculateResult1([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   // const res2 = calculateResult2([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   // const res3 = calculateResult3([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
@@ -74,7 +230,7 @@ export default function QuizStart() {
   const res5 = calculateResult5(Array(20).fill(1));
   const res6 = calculateResult6(Array(20).fill(1));
   const res7 = calculateResult7(Array(20).fill(1));
-  console.log(matchMaxIndex([res1, res2, res3, res4, res5, res6, res7]));
+  // console.log(matchMaxIndex([res1, res2, res3, res4, res5, res6, res7]));
   // console.log(calculateResult5([1, 1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]));
   // console.log(calculateResult1(Array(20).fill(2)));
   // console.log(calculateResult6(Array(20).fill(1)));
@@ -102,7 +258,6 @@ export default function QuizStart() {
       setCurrentPageIndex(currentPageIndex + 1);
     }
     if (!allQuestionsAnswered) {
-      // set errors and find all indexes
       setErrors([
         ...errors,
         ...currentPage.questions
@@ -115,10 +270,10 @@ export default function QuizStart() {
   if (currentPageIndex === null) {
     return (
       <CenteredSection>
-        <SegmentsSvg className="absolute top-[-5.375rem] right-[8rem] z-0" />
+        <SegmentsSvg className="absolute top-[-86px] right-[128px] z-0" />
         <CenterContainer className="my-32">
           <h1 className="mb-6 text-h1 font-bold text-brand-darkBlue">QUIZ 7 segmentów</h1>
-          <p className="text-[18px] text-brand-darkBlue">
+          <p className="text-[1.125rem] text-brand-darkBlue">
             Przycisk poniżej przeniesie Cię do anonimowej ankiety, gdzie możesz odpowiedzieć na
             serię pytań (3-5 minut) na temat twoich przekonań i wartości, a nasz algorytm wskaże, do
             której z siedmiu grup najlepiej pasujesz.
@@ -127,7 +282,7 @@ export default function QuizStart() {
             onClick={() => setCurrentPageIndex(0)}
             classes="bg-brand-darkBlue hover:bg-hover-blue m-auto mt-12 mb-20"
           >
-            <div className="relative top-[1px]">Rozpocznij</div>
+            <div className="relative top-[.063rem]">Rozpocznij</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="24"
@@ -157,6 +312,26 @@ export default function QuizStart() {
       </CenteredSection>
     );
   }
+
+  const questionType = {
+    agreement: (
+      <AgreementPage
+        questions={currentPage.questions}
+        setAnswer={setAnswer}
+        errors={errors}
+        answersOrder={currentPage.answersOrder}
+      />
+    ),
+    scale: (
+      <ScalePage
+        questions={currentPage.questions}
+        setAnswer={setAnswer}
+        pageText={currentPage.pageText}
+      />
+    ),
+    standard: <StandardPage questions={currentPage.questions} setAnswer={setAnswer} />,
+  };
+
   return (
     <>
       <CenterContainer>
@@ -170,7 +345,7 @@ export default function QuizStart() {
           />
         </div>
       </CenterContainer>
-      <div className="max-w-[1200px] m-auto w-full pt-20">
+      <div className="max-w-[75rem] m-auto w-full pt-20">
         {errors.length > 0 && (
           <div className="bg-[#FDF7E7] p-6 flex gap-6 items-center mb-6">
             <svg
@@ -197,7 +372,8 @@ export default function QuizStart() {
             <span>Prosimy o zaznaczenie wszystkich odpowiedzi</span>
           </div>
         )}
-        <AgreementPage questions={currentPage.questions} setAnswer={setAnswer} errors={errors} />
+
+        {questionType[currentPage.type]}
         <div className="flex justify-between items-center mt-10">
           {!isFirstPage && (
             <Button
@@ -219,7 +395,7 @@ export default function QuizStart() {
                   strokeWidth="0.5"
                 />
               </svg>
-              <div className="relative top-[1px]">Poprzednie pytanie</div>
+              <div className="relative top-[.063rem]">Poprzednie pytanie</div>
             </Button>
           )}
           {!isFinalPage && (
@@ -227,7 +403,7 @@ export default function QuizStart() {
               onClick={() => setNextPage()}
               classes="bg-brand-darkBlue hover:bg-hover-blue ml-auto"
             >
-              <div className="relative top-[1px]">Następne pytanie</div>
+              <div className="relative top-[.063rem]">Następne pytanie</div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="24"

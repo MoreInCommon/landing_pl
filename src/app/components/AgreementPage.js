@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 
-const AgreementPage = ({ questions, setAnswer, errors }) => {
+const AgreementPage = ({ questions, setAnswer, errors, answersOrder }) => {
   const [hovered, setHovered] = useState(null);
 
   const handleMouseEnter = (index) => {
@@ -13,21 +13,21 @@ const AgreementPage = ({ questions, setAnswer, errors }) => {
   const handleAnswer = (index, qIndex) => {
     setAnswer(index, qIndex);
   };
-
+  console.log(answersOrder.length + 2);
   return (
     <div className="mt-4">
       <h4 className="text-[18px] font-bold mb-10">
-        W jakim stopniu zgadzasz się lub nie zgadzasz z następującymi stwierdzeniami?
+        W jakim stopniu zgadza się Pan/i lub nie zgadza z poniższymi stwierdzeniami?
       </h4>
-      <div className="w-full grid grid-cols-7 mt-2">
+      <div className={`w-full grid grid-cols-${answersOrder.length + 2} mt-2`}>
         <div className="col-span-2 border-b b-[#E4E4E4]"></div>
-        <div className="p-4 text-center border-b b-[#E4E4E4]">Zdecydowanie zgadzam się</div>
-        <div className="p-4 text-center border-b b-[#E4E4E4]">Raczej zgadzam się</div>
-        <div className="p-4 text-center border-b b-[#E4E4E4]">Ani się zgadzam, ani nie zgadzam</div>
-        <div className="p-4 text-center border-b b-[#E4E4E4]">Raczej się nie zgadzam</div>
-        <div className="p-4 text-center border-b b-[#E4E4E4]">Zdecydowanie się nie zgadzam</div>
+        {answersOrder.map((a, i) => (
+          <div key={i} className="p-4 text-center border-b b-[#E4E4E4]">
+            {a}
+          </div>
+        ))}
         {questions.map((q, i) => (
-          <>
+          <React.Fragment key={i}>
             <div
               onMouseEnter={() => handleMouseEnter(i)}
               onMouseLeave={() => handleMouseLeave(null)}
@@ -35,72 +35,23 @@ const AgreementPage = ({ questions, setAnswer, errors }) => {
             >
               {q.text}
             </div>
-            <div
-              onMouseEnter={() => handleMouseEnter(i)}
-              onMouseLeave={() => handleMouseLeave(null)}
-              onClick={() => handleAnswer(0, i)}
-              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
-            >
-              <input
-                checked={q.value === 0}
-                onChange={() => handleAnswer(0, i)}
-                type="radio"
-                className="h-6 w-6 cursor-pointer"
-              />
-            </div>
-            <div
-              onMouseEnter={() => handleMouseEnter(i)}
-              onMouseLeave={() => handleMouseLeave(null)}
-              onClick={() => handleAnswer(1, i)}
-              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
-            >
-              <input
-                checked={q.value === 1}
-                onChange={() => handleAnswer(1, i)}
-                type="radio"
-                className="h-6 w-6 cursor-pointer"
-              />
-            </div>
-            <div
-              onMouseEnter={() => handleMouseEnter(i)}
-              onMouseLeave={() => handleMouseLeave(null)}
-              onClick={() => handleAnswer(2, i)}
-              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
-            >
-              <input
-                checked={q.value === 2}
-                onChange={() => handleAnswer(2, i)}
-                type="radio"
-                className="h-6 w-6 cursor-pointer"
-              />
-            </div>
-            <div
-              onMouseEnter={() => handleMouseEnter(i)}
-              onMouseLeave={() => handleMouseLeave(null)}
-              onClick={() => handleAnswer(3, i)}
-              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
-            >
-              <input
-                checked={q.value === 3}
-                onChange={() => handleAnswer(3, i)}
-                type="radio"
-                className="h-6 w-6 cursor-pointer"
-              />
-            </div>
-            <div
-              onMouseEnter={() => handleMouseEnter(i)}
-              onMouseLeave={() => handleMouseLeave(null)}
-              onClick={() => handleAnswer(4, i)}
-              className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
-            >
-              <input
-                checked={q.value === 4}
-                onChange={() => handleAnswer(4, i)}
-                type="radio"
-                className="h-6 w-6 cursor-pointer"
-              />
-            </div>
-          </>
+            {answersOrder.map((a, index) => (
+              <div
+                key={index}
+                onMouseEnter={() => handleMouseEnter(i)}
+                onMouseLeave={() => handleMouseLeave(null)}
+                onClick={() => handleAnswer(index, i)}
+                className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+              >
+                <input
+                  checked={q.value === index}
+                  onChange={() => handleAnswer(index, i)}
+                  type="radio"
+                  className="h-6 w-6 cursor-pointer"
+                />
+              </div>
+            ))}
+          </React.Fragment>
         ))}
       </div>
     </div>
