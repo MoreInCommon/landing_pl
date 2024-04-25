@@ -1,5 +1,6 @@
 "use client";
 import { useState } from "react";
+import { redirect } from "next/navigation";
 import Button from "@/app/components/Button";
 import CenteredSection from "@/app/components/CenteredSection";
 import CenterContainer from "@/app/components/CenterContainer";
@@ -28,16 +29,19 @@ const p = [
         text: "Na skali 1 do 6 proszę ocenić, na ile następujące stwierdzenie pasuje do Pana/Pani: Na bieżąco śledzę wiadomości ze świata polityki.",
         answers: ["Wcale", "Bardzo"],
         value: null,
+        realNumber: 10,
       },
       {
         text: "Proszę na skali od 1 do 6 ocenić w jakim stopniu zgadza się Pan/Pani z następującym stwierdzeniem: Wiele razy miałem/miałam poczucie, że ludzie, którzy podzielają te samo przekonania polityczne, co ja, są lepszymi ludźmi od innych. ",
         answers: ["Nie zgadzam się w ogóle", "Zgadzam się w pełni"],
         value: null,
+        realNumber: 1,
       },
       {
         text: "Czy określił(a)by Pan(i) siebie jako osobę wierzącą?",
         answers: ["Zdecydowanie nie", "Zdecydowanie tak"],
         value: null,
+        realNumber: 7,
       },
     ],
   },
@@ -55,10 +59,12 @@ const p = [
       {
         text: "Aby uporządkować sytuację w Polsce, potrzebujemy silnego przywódcy, który jest gotowy łamać istniejące zasady.",
         value: null,
+        realNumber: 2,
       },
       {
         text: "Grupy lepsze powinny dominować nad grupami gorszymi. ",
         value: null,
+        realNumber: 20,
       },
     ],
   },
@@ -74,6 +80,7 @@ const p = [
           "Wśród istniejących partii politycznych nie ma takiej, która dobrze reprezentuje moje poglądy i interesy.",
         ],
         value: null,
+        realNumber: 3,
       },
       {
         text: null,
@@ -82,6 +89,7 @@ const p = [
           "Patrzę z nadzieją na zachodzące na świecie zmiany.",
         ],
         value: null,
+        realNumber: 4,
       },
       {
         text: null,
@@ -90,6 +98,7 @@ const p = [
           "Mam pełną kontrolę nad tym jak przebiega moje życie.",
         ],
         value: null,
+        realNumber: 5,
       },
       {
         text: null,
@@ -98,6 +107,7 @@ const p = [
           "Ogólnie rzecz biorąc, czuję się szanowany/a i odpowiednio doceniany/a za to, co osiągnąłem/osiągnęłam w życiu.",
         ],
         value: null,
+        realNumber: 8,
       },
     ],
   },
@@ -112,6 +122,7 @@ const p = [
           "Model wspólnotowy. Model wspólnotowy zakłada zaś, że obywatel płaci państwu wyższe podatki i w zamian ma bezpłatną edukację, opiekę lekarską i inne świadczenia (np. emerytalne).",
         ],
         value: null,
+        realNumber: 16,
       },
     ],
   },
@@ -129,14 +140,17 @@ const p = [
       {
         text: "Należy być lojalnym w stosunku do członków rodziny, nawet gdy zrobili coś złego.",
         value: null,
+        realNumber: 17,
       },
       {
         text: "Uważam, że jest to moralnie złe, że dzieci bogatych ludzi mają znacząco lepszy start w życiu niż dzieci biednych ludzi.",
         value: null,
+        realNumber: 18,
       },
       {
         text: "Czystość seksualna to ważna i cenna cnota człowieka.",
         value: null,
+        realNumber: 6,
       },
     ],
   },
@@ -153,10 +167,12 @@ const p = [
       {
         text: "Nie spocznę, dopóki Polacy nie spotkają się z uznaniem, na jakie zasługują.",
         value: null,
+        realNumber: 19,
       },
       {
         text: "Sądzę, że istnieją tajne układy, mające ogromny wpływ na decyzje polityczne.",
         value: null,
+        realNumber: 9,
       },
     ],
   },
@@ -173,6 +189,7 @@ const p = [
       {
         text: "Różne cechy określają to kim się czujemy i jak o sobie myślimy. Czy czuje się Pan/Pani dumny/dumna z swojej europejskości?",
         value: null,
+        realNumber: 11,
       },
     ],
   },
@@ -184,6 +201,7 @@ const p = [
         text: "Wiek",
         answers: ["18-24", "25-30", "31-39", "40-49", "50-60", "61-70", "71-85"],
         value: null,
+        realNumber: 12,
       },
       {
         text: "Miejsce zamieszkania",
@@ -195,16 +213,19 @@ const p = [
           "Miasto powyżej 500 000 m.",
         ],
         value: null,
+        realNumber: 13,
       },
       {
         text: "Liczba osób w gospodarstwie",
         answers: ["1 osoba.", "2 osoby.", "3 osoby.", "4 osoby.", "5 osób i więcej."],
         value: null,
+        realNumber: 14,
       },
       {
         text: "Wykształcenie",
         answers: ["Podstawowe", "Zawodowe", "Średnie", "Wyższe"],
         value: null,
+        realNumber: 15,
       },
     ],
   },
@@ -215,7 +236,24 @@ export default function QuizStart() {
   const [pages, setPages] = useState(p);
   const currentPage = pages[currentPageIndex || 0];
   const [errors, setErrors] = useState([]);
-  console.log(pages);
+
+  const answersOrderedByRealNumber = pages
+    .map((pg) => {
+      return pg.questions;
+    })
+    .flat()
+    .sort((a, b) => a.realNumber - b.realNumber)
+    .map((p) => p.value + 1);
+
+  const res1 = calculateResult1(answersOrderedByRealNumber);
+  const res2 = calculateResult2(answersOrderedByRealNumber);
+  const res3 = calculateResult3(answersOrderedByRealNumber);
+  const res4 = calculateResult4(answersOrderedByRealNumber);
+  const res5 = calculateResult5(answersOrderedByRealNumber);
+  const res6 = calculateResult6(answersOrderedByRealNumber);
+  const res7 = calculateResult7(answersOrderedByRealNumber);
+  console.log(matchMaxIndex([res1, res2, res3, res4, res5, res6, res7]));
+
   // const res1 = calculateResult1([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   // const res2 = calculateResult2([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   // const res3 = calculateResult3([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
@@ -223,13 +261,13 @@ export default function QuizStart() {
   // const res5 = calculateResult5([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   // const res6 = calculateResult6([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
   // const res7 = calculateResult7([6, 1, 1, 1, 6, 1, 6, 6, 1, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]);
-  const res1 = calculateResult1(Array(20).fill(1));
-  const res2 = calculateResult2(Array(20).fill(1));
-  const res3 = calculateResult3(Array(20).fill(1));
-  const res4 = calculateResult4(Array(20).fill(1));
-  const res5 = calculateResult5(Array(20).fill(1));
-  const res6 = calculateResult6(Array(20).fill(1));
-  const res7 = calculateResult7(Array(20).fill(1));
+  // const res1 = calculateResult1(Array(20).fill(1));
+  // const res2 = calculateResult2(Array(20).fill(1));
+  // const res3 = calculateResult3(Array(20).fill(1));
+  // const res4 = calculateResult4(Array(20).fill(1));
+  // const res5 = calculateResult5(Array(20).fill(1));
+  // const res6 = calculateResult6(Array(20).fill(1));
+  // const res7 = calculateResult7(Array(20).fill(1));
   // console.log(matchMaxIndex([res1, res2, res3, res4, res5, res6, res7]));
   // console.log(calculateResult5([1, 1, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6, 6]));
   // console.log(calculateResult1(Array(20).fill(2)));
@@ -267,6 +305,19 @@ export default function QuizStart() {
     }
   };
 
+  if (totalAnsweredQuestionsNumber === totalQuestionsNumber) {
+    const urls = {
+      1: "/siedem-segmentow/postepowi-zapalency?result",
+      2: "/siedem-segmentow/pasywni-liberalowie?result",
+      3: "/siedem-segmentow/zawiedzeni-samotnicy?result",
+      4: "/siedem-segmentow/niezaangazowani-normalsi?result",
+      5: "/siedem-segmentow/spelnieni-lokalisci?result",
+      6: "/siedem-segmentow/dumni-patrioci?result",
+      7: "/siedem-segmentow/oddani-tradycjonalisci?result",
+    };
+    const result = matchMaxIndex([res1, res2, res3, res4, res5, res6, res7]);
+    redirect(urls[result]);
+  }
   if (currentPageIndex === null) {
     return (
       <CenteredSection>

@@ -13,7 +13,7 @@ const AgreementPage = ({ questions, setAnswer, errors, answersOrder }) => {
   const handleAnswer = (index, qIndex) => {
     setAnswer(index, qIndex);
   };
-  console.log(answersOrder.length + 2);
+
   return (
     <div className="mt-4">
       <h4 className="text-[18px] font-bold mb-10">

@@ -25,6 +25,7 @@ export default async function Home({ params }) {
 export async function fetchData(slug) {
   return fetchPageData(`cdn/stories/siedem-segmentow/${slug}`);
 }
-export async function generateMetadata() {
+export async function generateMetadata({ params }) {
+  const slug = params.slug;
   return fetchMetadata(`cdn/stories/siedem-segmentow/${slug}`);
 }
