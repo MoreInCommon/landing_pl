@@ -15,12 +15,10 @@ export async function GET(req) {
   // Enable Preview Mode by setting the cookies
   const res = NextResponse.next();
   res.cookies.set("Next.js", "preview mode", { path: "/", sameSite: "none", secure: true });
-  res.setPreviewData({});
 
   // Construct absolute URL for redirection
   const host = req.headers.get("host");
   const protocol = req.headers.get("x-forwarded-proto") || "http";
   const redirectUrl = `${protocol}://${host}/${slug}?${params[1]}`;
-
-  return NextResponse.redirect(redirectUrl, 307);
+  return NextResponse.redirect(redirectUrl);
 }

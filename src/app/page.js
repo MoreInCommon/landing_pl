@@ -11,6 +11,8 @@ storyblokInit({
 });
 
 export default async function Home() {
+  const { isEnabled } = draftMode();
+  console.log("DUPSKO", isEnabled);
   const { data } = await fetchData();
   return (
     <>
