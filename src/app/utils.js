@@ -72,7 +72,13 @@ export const fetchPageData = async (url, preview) => {
   const storyblokApi = await getStoryblokApi();
 
   try {
-    const data = await storyblokApi.get(url, sbParams, { cache: "no-cache" });
+    const data = await storyblokApi.get(url, sbParams, {
+      cache: preview ? "no-cache" : undefined,
+      next: {
+        revalidate: preview ? undefined : 3600,
+      },
+    });
+
     if (!data) {
       console.error("No data returned from the API.");
     }

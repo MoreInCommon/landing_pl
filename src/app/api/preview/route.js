@@ -20,5 +20,5 @@ export async function GET(req) {
   const host = req.headers.get("host");
   const protocol = req.headers.get("x-forwarded-proto") || "http";
   const redirectUrl = `${protocol}://${host}/${slug}?${params[1]}`;
-  return NextResponse.redirect(redirectUrl);
+  return NextResponse.redirect(redirectUrl, 307);
 }
