@@ -10,7 +10,9 @@ storyblokInit({
   components,
 });
 
-export default async function Home() {
+export default async function Home(a) {
+  console.log(a);
+
   const { data } = await fetchData();
   return (
     <>
@@ -19,7 +21,7 @@ export default async function Home() {
   );
 }
 
-export async function fetchData() {
+export async function fetchData(a) {
   return fetchPageData(`cdn/stories/home`);
 }
 export async function generateMetadata() {

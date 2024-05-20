@@ -65,9 +65,9 @@ export const components = {
   seo: Seo,
 };
 
-export const fetchPageData = async (url) => {
+export const fetchPageData = async (url, preview) => {
   const sbParams = {
-    version: "draft",
+    version: preview ? "draft" : "published",
   };
   const storyblokApi = await getStoryblokApi();
 
@@ -83,7 +83,7 @@ export const fetchPageData = async (url) => {
 };
 export const fetchMetadata = async (url) => {
   const sbParams = {
-    version: "draft",
+    version: "published",
   };
   const storyblokApi = await getStoryblokApi();
   const data = await storyblokApi?.get(url, sbParams, {
