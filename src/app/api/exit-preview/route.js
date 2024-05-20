@@ -1,6 +1,6 @@
-// route handler enabling draft mode
 import { draftMode } from "next/headers";
 import { NextResponse } from "next/server";
+
 export async function GET(req) {
   draftMode().enable();
   let res = NextResponse.next();
@@ -9,13 +9,13 @@ export async function GET(req) {
   // Exit the current user from "Preview Mode". This function accepts no args.
   res.clearPreviewData();
 
-  // set the cookies to None
-  const cookies = res.getHeader("Set-Cookie");
-  res.setHeader(
-    "Set-Cookie",
-    cookies.map((cookie) => cookie.replace("SameSite=Lax", "SameSite=None;Secure"))
-  );
+  // Set the cookies to None
+  res.cookies.set("Next.js", "preview mode", { path: "/", sameSite: "none", secure: true });
 
-  // Redirect the user back to the index page.
-  res.redirect(`/${slug}`);
+  // Construct absolute URL for redirection
+  const host = req.headers.get("host");
+  const protocol = req.headers.get("x-forwarded-proto") || "http";
+  const redirectUrl = `${protocol}://${host}/${slug}`;
+
+  return NextResponse.redirect(redirectUrl, 307);
 }

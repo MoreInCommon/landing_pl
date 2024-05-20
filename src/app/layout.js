@@ -9,6 +9,7 @@ import CookieConsentBanner from "@/app/components/CookieConsentBanner";
 import Decoration from "@/app/components/Decoration";
 import { StoryblokComponent } from "@storyblok/react";
 import { components } from "@/app/utils";
+import { draftMode } from "next/headers";
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
@@ -101,5 +102,7 @@ export default async function RootLayout({ children }) {
 }
 
 export async function fetchData() {
-  return fetchPageData(`cdn/stories/global`);
+  const { isEnabled } = draftMode();
+
+  return fetchPageData(`cdn/stories/global`, isEnabled);
 }

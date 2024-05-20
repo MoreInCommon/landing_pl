@@ -3,6 +3,7 @@ import StoryblokStory from "@storyblok/react/story";
 
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import { components } from "@/app/utils";
+import { draftMode } from "next/headers";
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
@@ -23,7 +24,9 @@ export default async function Home({ params }) {
 }
 
 export async function fetchData(slug) {
-  return fetchPageData(`cdn/stories/siedem-segmentow/${slug}`);
+  const { isEnabled } = draftMode();
+
+  return fetchPageData(`cdn/stories/siedem-segmentow/${slug}`, isEnabled);
 }
 export async function generateMetadata({ params }) {
   const slug = params.slug;

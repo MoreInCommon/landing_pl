@@ -4,6 +4,7 @@ import QuizStart from "@/app/components/QuizStart";
 
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import { components } from "@/app/utils";
+import { draftMode } from "next/headers";
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
@@ -21,7 +22,9 @@ export default async function Home() {
 }
 
 // export async function fetchData() {
-//   return fetchPageData(`cdn/stories/nasze-projekty`);
+// const { isEnabled } = draftMode();
+
+//   return fetchPageData(`cdn/stories/nasze-projekty`, isEnabled);
 // }
 export async function generateMetadata() {
   return fetchMetadata(`cdn/stories/quiz`);
