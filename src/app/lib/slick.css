@@ -83,3 +83,18 @@
 .slick-arrow.slick-hidden {
   display: none;
 } /*# sourceMappingURL=slick.min.css.map */
+
+.slick-dots {
+  /* bottom: -40px !important; */
+}
+
+.slick-dots li {
+  height: 8px !important;
+  width: 8px !important;
+  background: #dadde1;
+  border-radius: 50%;
+}
+
+.slick-dots li.slick-active {
+  background: var(--color-primary);
+}

@@ -77,14 +77,27 @@ export default function CustomSlider({ blok }) {
     slidesToScroll: 1,
     nextArrow: <SampleNextArrow />,
     prevArrow: <SamplePrevArrow />,
+    appendDots: (dots) => (
+      <div>
+        <ul> {dots} </ul>
+      </div>
+    ),
+    responsive: [
+      {
+        breakpoint: 768,
+        settings: {
+          dots: true,
+        },
+      },
+    ],
   };
   return (
     <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile mb-20">
       <Slider {...settings} className="mx-6 max-lg:mx-0">
         {blok.slide.map((content, index) => (
-          <div key={index} className="text-center px-4" {...storyblokEditable(content)}>
-            <div className="flex">
-              <div className="flex-1 shadow-slider-shadow relative left-8 max-sm:left-0 my-4 p-14 max-sm:p-6 text-left bg-white">
+          <div key={index} className="text-center px-4 max-lg:px-0" {...storyblokEditable(content)}>
+            <div className="flex max-md:flex-col-reverse">
+              <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left z-10 bg-white max-md:left-0 max-md:mx-5">
                 <h3 className="text-themeableColors-darkBlue text-[28px] leading-none font-bold mb-4">
                   {content.title}
                 </h3>
@@ -96,7 +109,7 @@ export default function CustomSlider({ blok }) {
                   <div className="relative top-[1px]">Sprawdź</div>
                 </Button>
               </div>
-              <div className="flex-1 max-sm:hidden">
+              <div className="flex-1 max-md:top-10 relative">
                 <img src={content.image.filename} alt="img" className="h-full object-cover" />
               </div>
             </div>

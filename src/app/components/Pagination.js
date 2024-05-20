@@ -1,7 +1,7 @@
 "use client";
 import ReactPaginate from "react-paginate";
 
-const Pagination = ({ currentPage, totalPages }) => {
+const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
   return (
     <ReactPaginate
       className="text-brand-darkBlue flex gap-4 relative"
@@ -13,11 +13,12 @@ const Pagination = ({ currentPage, totalPages }) => {
       pageLinkClassName="relative top-[2px] text-[18px]"
       previousClassName="self-center relative top-[2px]"
       nextClassName="self-center relative top-[2px]"
-      onPageChange={() => console.log("onPageChange")}
+      onPageChange={({ selected }) => setCurrentPage(selected)}
       pageRangeDisplayed={5}
       pageCount={totalPages}
       previousLabel="<"
       renderOnZeroPageCount={null}
+      forcePage={currentPage}
     />
   );
 };

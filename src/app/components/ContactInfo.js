@@ -34,14 +34,13 @@ export default function ContactInfo() {
   return (
     <>
       <div className="text-black mt-24 max-w-[1020px] m-auto flex-col flex gap-4 max-xl:mt-10 max-xl:px-tablet max-sm:px-mobile">
-        <HeaderFour text="Nasze biuro" className="max-xl:px-0 max-sm:px-0" />
+        <h4 className={`text-h4 text-black mb-3 max-xl:px-0 max-sm:px-0 font-bold`}>Nasze biuro</h4>
         <div className="flex gap-4 max-lg:flex-col">
           <div>
             <div className="max-w-[285px]">
-              <HeaderFive
-                text="Fundacja More in Common Polska"
-                className="max-xl:px-0 max-sm:px-0"
-              />
+              <h5 className={`text-h5 text-black mb-2 max-xl:px-0 max-sm:px-0 font-bold`}>
+                Fundacja More in Common Polska
+              </h5>
               <div className="flex gap-2">
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
