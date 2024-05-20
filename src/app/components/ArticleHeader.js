@@ -27,8 +27,15 @@ export default function ArticleHeader({ blok }) {
       clearTimeout();
     };
   };
+
+  const download = (url) => {
+    window.open(url, "_blank");
+  };
+
+  const report = blok?.report?.filename;
+
   return (
-    <div className="text-black text-bodyRegular" {...storyblokEditable(blok)}>
+    <div className="text-black text-bodyRegular px-6" {...storyblokEditable(blok)}>
       {showSuccess && (
         <Notification message={"Pomyślnie skopiowano link!"} setShowSuccess={setShowSuccess} />
       )}
@@ -39,10 +46,10 @@ export default function ArticleHeader({ blok }) {
           </h1>
         </div>
       </div>
-      <p className="text-black max-w-[818px] w-full mt-6 font-medium text-bodyRegular mx-auto mb-20">
+      <p className="text-black max-w-[818px] w-full mt-6 font-medium text-bodyRegular mx-auto mb-20 max-md:mb-8">
         {blok.text}
       </p>
-      <div className="mx-auto flex items-center justify-center gap-8 max-w-[800px]">
+      <div className="mx-auto flex items-center justify-center gap-8 max-w-[800px] max-md:flex-col max-md:items-baseline max-md:gap-4">
         <div>
           <span className="font-medium">Data publikacji:</span>{" "}
           {formatter?.format(blok?.date ? new Date(blok?.date) : new Date())}
@@ -153,10 +160,10 @@ export default function ArticleHeader({ blok }) {
             </a>
           </div>
         </div>
-        {blok?.report?.filename && (
+        {report && (
           <div className="flex items-center">
             <span className="font-medium mr-2">Pobierz raport</span>
-            <a href="#">
+            <a href={report} target="_blank" rel="noopener noreferrer">
               <span className="sr-only">pobierz</span>
               <svg
                 width="36"
