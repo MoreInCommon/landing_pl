@@ -92,24 +92,31 @@ export const fetchMetadata = async (url) => {
     version: "published",
   };
   const storyblokApi = await getStoryblokApi();
-  const data = await storyblokApi?.get(url, sbParams, {
-    cache: "no-cache",
-  });
 
-  const seoData = data?.data?.story?.content?.body?.find((blok) => blok?.component === "seo") || {};
+  try {
+    const data = await storyblokApi.get(url, sbParams, {
+      cache: "no-cache",
+    });
 
-  return {
-    title: seoData?.title,
-    description: seoData?.description,
-    openGraph: {
+    const seoData =
+      data?.data?.story?.content?.body?.find((blok) => blok?.component === "seo") || {};
+
+    return {
       title: seoData?.title,
       description: seoData?.description,
-      images: [
-        {
-          url: seoData?.image?.filename,
-          alt: seoData?.title,
-        },
-      ],
-    },
-  };
+      openGraph: {
+        title: seoData?.title,
+        description: seoData?.description,
+        images: [
+          {
+            url: seoData?.image?.filename,
+            alt: seoData?.title,
+          },
+        ],
+      },
+    };
+  } catch (error) {
+    console.error("Error fetching metadata from Storyblok API:", error);
+    return {};
+  }
 };

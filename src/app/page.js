@@ -11,7 +11,6 @@ storyblokInit({
 });
 
 export default async function Home() {
-  const { isEnabled } = draftMode();
   const { data } = await fetchData();
   return (
     <>
