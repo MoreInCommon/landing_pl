@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 export async function GET(req) {
   const slug = req.nextUrl.searchParams.get("slug");
   const secret = req.nextUrl.searchParams.get("secret");
-  draftMode().enable();
   const params = req.url.split("?");
 
   // Check the secret and next parameters
@@ -20,5 +19,7 @@ export async function GET(req) {
   const host = req.headers.get("host");
   const protocol = req.headers.get("x-forwarded-proto") || "http";
   const redirectUrl = `${protocol}://${host}/${slug}?${params[1]}`;
+  draftMode().enable();
+
   return NextResponse.redirect(redirectUrl, 307);
 }

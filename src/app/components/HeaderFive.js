@@ -1,12 +1,9 @@
 "use client";
-import { twMerge } from "tailwind-merge";
 
-export default function HeaderFive({ text, className = {}, ...rest }) {
+export default function HeaderFive({ text, ...rest }) {
   return (
     <h5
-      className={twMerge(
-        `text-h5 text-black mb-2 max-xl:px-tablet max-sm:px-mobile font-bold ${className}`
-      )}
+      className={`text-h5 text-black mb-2 max-xl:px-tablet max-sm:px-mobile font-bold `}
       {...rest}
     >
       {text}
