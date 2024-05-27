@@ -27,7 +27,7 @@ const Project = ({ blok }) => {
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           src={blok.img.filename}
           alt=""
-          style={{ objectFit: "contain", maxHeight: 300, margin: "auto" }}
+          style={{ objectFit: "contain", maxHeight: 300, marginLeft: "auto" }}
         />
       </div>
       <p className="text-grey-medium text-captionRegular mb-1">

@@ -1,9 +1,10 @@
 "use client";
 import { usePathname } from "next/navigation";
 
-const Decoration = () => {
+const Decoration = ({ blok }) => {
   const pathname = usePathname();
-  const isDecorationUrl = false;
+  const urls = blok.decoratedUrls.map((url) => `/${url.full_slug}`);
+  const isDecorationUrl = urls.includes(pathname);
   if (!isDecorationUrl) return null;
   return (
     <svg

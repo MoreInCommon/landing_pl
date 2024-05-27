@@ -6,6 +6,7 @@ import ArticleHeader from "@/app/components/ArticleHeader";
 import StandardText from "@/app/components/StandardText";
 import Media from "@/app/components/Media";
 import Projects from "@/app/components/Projects";
+import Decoration from "@/app/components/Decoration";
 import Project from "@/app/components/Project";
 import Segment from "@/app/components/Segment";
 import SegmentContent from "@/app/components/SegmentContent";
@@ -52,6 +53,7 @@ export const components = {
   "global newsletter": Newsletter,
   "global navigation": Navigation,
   "global footer": Footer,
+  "decoration urls": Decoration,
   "navigation item": NavItem,
   "mobile navigation item": MobileNavItem,
   "footer items": FooterItem,
@@ -65,9 +67,10 @@ export const components = {
   seo: Seo,
 };
 
-export const fetchPageData = async (url, preview) => {
+export const fetchPageData = async (url, preview, resolve_relations = "") => {
   const sbParams = {
     version: preview ? "draft" : "published",
+    resolve_relations,
   };
   const storyblokApi = await getStoryblokApi();
 

@@ -82,12 +82,13 @@ export default async function RootLayout({ children }) {
   const newsletter = blocks?.find((blok) => blok?.component === "global newsletter");
   const navigation = blocks?.find((blok) => blok?.component === "global navigation");
   const footer = blocks?.find((blok) => blok?.component === "global footer");
+  const decoration = blocks?.find((blok) => blok?.component === "decoration urls");
   return (
     <StoryblokProvider>
       <html lang="pl">
         <StoryblokBridgeLoader />
         <body className={`${sailec.className} bg-white mt-[76px] max-xl:mt-12 overflow-x-hidden`}>
-          <Decoration />
+          <StoryblokComponent blok={decoration} key={decoration._uid} />
           <StoryblokComponent blok={navigation} key={navigation._uid} />
           <main className="bg-transparent py-16 max-xl:py-12 max-sm:py-12 relative z-[1]">
             {children}
@@ -104,5 +105,5 @@ export default async function RootLayout({ children }) {
 export async function fetchData() {
   const { isEnabled } = draftMode();
 
-  return fetchPageData(`cdn/stories/global`, isEnabled);
+  return fetchPageData(`cdn/stories/global`, isEnabled, "decoration urls.decoratedUrls");
 }

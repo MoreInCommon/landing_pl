@@ -92,19 +92,19 @@ export default function CustomSlider({ blok }) {
     ],
   };
   return (
-    <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile mb-20">
+    <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile mb-20 m-t-[-40px]">
       <Slider {...settings} className="mx-6 max-lg:mx-0">
         {blok.slide.map((content, index) => (
           <div key={index} className="text-center px-4 max-lg:px-0" {...storyblokEditable(content)}>
             <div className="flex max-md:flex-col-reverse">
-              <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left z-10 bg-white max-md:left-0 max-md:mx-5">
+              <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left z-10 bg-white max-md:left-0 max-md:mx-5 min-h-[420px] content-center">
                 <h3 className="text-themeableColors-darkBlue text-[28px] leading-none font-bold mb-4">
                   {content.title}
                 </h3>
                 <p className="text-h4 text-black">{content.description}</p>
                 <Button
                   type="submit"
-                  classes="py-[14px] px-8 bg-themeableColors-darkBlue text-white text-[21px] leading-[16px] mt-4 min-w-[133px]"
+                  classes="py-[14px] px-8 bg-themeableColors-darkBlue text-white text-[21px] leading-[16px] mt-12 min-w-[133px]"
                 >
                   <div className="relative top-[1px]">Sprawdź</div>
                 </Button>

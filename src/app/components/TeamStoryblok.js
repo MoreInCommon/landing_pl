@@ -12,7 +12,7 @@ const Team = ({ blok }) => {
         <div
           key={person.name}
           onClick={() => setShowModal(person)}
-          className="flex justify-center mb-4 p-4 max-w-[31%] max-lg:max-w-[40%] max-sm:max-w-[80%] border-t-4 border-brand-blue cursor-pointer hover:shadow-tile-shadow transition-shadow"
+          className="flex justify-center mb-4 p-4 max-w-[31%] max-lg:max-w-[40%] max-sm:max-w-[80%] border-t-4 border-brand-darkBlue cursor-pointer hover:shadow-tile-shadow transition-shadow"
         >
           <div className="flex gap-4 flex-col">
             <img
@@ -62,7 +62,7 @@ const Team = ({ blok }) => {
             />
           </svg>
         </div>
-        <div className="flex justify-center mb-4 p-4 border-t-4 border-brand-blue gap-10 max-lg:flex-col">
+        <div className="flex justify-center items-start mb-4 p-4 border-t-4 border-brand-darkBlue gap-10 max-lg:flex-col">
           <img
             src={showModal?.photo?.filename}
             alt={showModal?.photo?.alt}
@@ -72,10 +72,11 @@ const Team = ({ blok }) => {
           <div>
             <p className="text-sm">{showModal?.position}</p>
             <h3 className="text-xl font-bold">{showModal?.name}</h3>
-            <p className="mt-4 mb-6">{showModal?.description}</p>
+            <p className="mt-4 mb-8">{showModal?.description}</p>
             <SocialMediaIcons
               xUrl={showModal?.twitter?.url}
               linkedinUrl={showModal?.linkedin?.url}
+              inverted
             />
           </div>
         </div>
