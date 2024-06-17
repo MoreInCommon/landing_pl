@@ -19,7 +19,7 @@ const Project = ({ blok }) => {
       href={blok.url.url || blok.url.cached_url}
       target="_blank"
       rel="noopener noreferrer"
-      className="bg-white p-6 border-t-4 border-brand-darkBlue flex-[31%] max-lg:max-w-[46%] max-sm:max-w-[95%] flex flex-col max-w-[31%] hover:shadow-tile-shadow transition-shadow"
+      className="bg-white p-6 border-t-4 border-brand-darkBlue flex-[30%] max-lg:max-w-[46%] max-sm:max-w-[95%] flex flex-col max-w-[31%] hover:shadow-tile-shadow transition-shadow"
       {...storyblokEditable(blok)}
     >
       <div className="h-[350px] relative mb-6 flex">
@@ -33,7 +33,7 @@ const Project = ({ blok }) => {
       <p className="text-grey-medium text-captionRegular mb-1">
         {formatter?.format(blok?.date ? new Date(blok?.date) : new Date())}
       </p>
-      <p className=" text-brand-darkBlue inline-block uppercase  font-bodySmall w-fit font-bold mb-3 rounded empty:hidden">
+      <p className=" text-brand-darkBlue inline-block uppercase  font-bodySmall w-fit font-bold mb-2 rounded empty:hidden">
         {blok?.medium}
       </p>
       <h4 className="text-h4 text-mono-neutral11 mb-2 font-bold">{blok?.title}</h4>
@@ -69,7 +69,7 @@ const Project = ({ blok }) => {
           </ButtonText>
         )}
         <Button onClick={() => console.log()} classes="bg-brand-green hover:bg-hover-green">
-          <div className="relative top-[1px]">Czytaj dalej</div>
+          <div className="relative top-[1px]">Zobacz</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="24"

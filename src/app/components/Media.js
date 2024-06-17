@@ -16,14 +16,14 @@ const Media = ({ blok }) => {
   return (
     <>
       <div
-        className="flex gap-4 flex-wrap mt-[72px] items-stretch max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile max-lg:justify-center"
+        className="flex gap-10 flex-wrap mt-[72px] items-stretch max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile max-lg:justify-center"
         {...storyblokEditable(blok)}
       >
         {currentItems.map((item) => (
           <StoryblokComponent key={item._uid} blok={item} />
         ))}
       </div>
-      <div className="flex justify-center mt-20">
+      <div className="flex justify-center mt-[64px]">
         <Pagination
           currentPage={currentPage}
           totalPages={totalPages}
