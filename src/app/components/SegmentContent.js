@@ -1,3 +1,4 @@
+"use client";
 import { StoryblokComponent } from "@storyblok/react";
 import { storyblokEditable } from "@storyblok/react";
 import SegmentsSvg from "@/app/components/SegmentsSvg";

@@ -10,6 +10,7 @@ import Decoration from "@/app/components/Decoration";
 import { StoryblokComponent } from "@storyblok/react";
 import { components } from "@/app/utils";
 import { draftMode } from "next/headers";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
@@ -83,9 +84,11 @@ export default async function RootLayout({ children }) {
   const navigation = blocks?.find((blok) => blok?.component === "global navigation");
   const footer = blocks?.find((blok) => blok?.component === "global footer");
   const decoration = blocks?.find((blok) => blok?.component === "decoration urls");
+
   return (
     <StoryblokProvider>
       <html lang="pl">
+        <GoogleAnalytics gaId="G-7RYKX332PZ" />
         <StoryblokBridgeLoader />
         <body className={`${sailec.className} bg-white mt-[76px] max-xl:mt-12 overflow-x-hidden`}>
           <StoryblokComponent blok={decoration} key={decoration._uid} />
