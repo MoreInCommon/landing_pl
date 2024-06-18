@@ -30,6 +30,7 @@ import Newsletter from "@/app/components/Newsletter";
 import Navigation from "@/app/components/Navigation";
 import JobAds from "@/app/components/JobAds";
 import JobAd from "@/app/components/JobAd";
+import QuoteContainer from "@/app/components/QuoteContainer";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 
 const Seo = () => {
@@ -69,6 +70,7 @@ export const components = {
   seo: Seo,
   "job ads": JobAds,
   "job adv": JobAd,
+  "quote container": QuoteContainer,
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {
@@ -77,7 +79,6 @@ export const fetchPageData = async (url, preview, resolve_relations = "") => {
     resolve_relations,
   };
   const storyblokApi = await getStoryblokApi();
-
   try {
     const data = await storyblokApi.get(url, sbParams, {
       cache: preview ? "no-cache" : undefined,

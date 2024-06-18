@@ -1,5 +1,6 @@
 import { fetchPageData, fetchMetadata } from "@/app/utils";
 import StoryblokStory from "@storyblok/react/story";
+import { redirect } from "next/navigation";
 
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import { components } from "@/app/utils";
@@ -11,15 +12,14 @@ storyblokInit({
   components,
 });
 export default async function Home({ params }) {
-  const response = await fetchData(params.slug);
-  // Show 404 if page is not published
-  if (!response?.data?.story) {
-    return null;
+  const { data } = await fetchData(params.slug);
+  if (!data?.story) {
+    redirect(`/404`);
   }
   return (
-    <>
-      <StoryblokStory story={response.data.story} />
-    </>
+    <div className="mt-[-64px] max-sm:mt-[-48px] max-xl:mt-[-48px]">
+      <StoryblokStory story={data.story} />
+    </div>
   );
 }
 

@@ -52,10 +52,10 @@ const SegmentContent = ({ blok }) => {
         >
           <div className="relative top-[1px]">Poznaj pozostałe segmenty</div>
         </Button>
-        <div class="flex items-center justify-center relative top-1">
-          <div class="w-[115px] h-px bg-black"></div>
-          <div class="px-2 text-[14px] leading-[14px]">LUB</div>
-          <div class="w-[115px] h-px bg-black"></div>
+        <div className="flex items-center justify-center relative top-1">
+          <div className="w-[115px] h-px bg-black"></div>
+          <div className="px-2 text-[14px] leading-[14px]">LUB</div>
+          <div className="w-[115px] h-px bg-black"></div>
         </div>
         <Link
           className="text-[20px] text-themeableColors-darkBlue underline"
