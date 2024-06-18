@@ -28,6 +28,8 @@ import Quote from "@/app/components/Quote";
 import SegmentsQuiz from "@/app/components/SegmentsQuiz";
 import Newsletter from "@/app/components/Newsletter";
 import Navigation from "@/app/components/Navigation";
+import JobAds from "@/app/components/JobAds";
+import JobAd from "@/app/components/JobAd";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 
 const Seo = () => {
@@ -65,6 +67,8 @@ export const components = {
   trivia: Trivia,
   segment: Segment,
   seo: Seo,
+  "job ads": JobAds,
+  "job adv": JobAd,
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {
