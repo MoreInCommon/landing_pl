@@ -118,3 +118,13 @@ body {
 input[type="radio"] {
   accent-color: var(--color-primary);
 }
+
+.quoteSlick .slick-list {
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+.quoteSlick .slick-dots {
+  bottom: 63px;
+  left: 149px;
+  width: auto;
+}

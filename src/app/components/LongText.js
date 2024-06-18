@@ -14,6 +14,7 @@ import ImageComponent from "@/app/components/ImageComponent";
 import HeaderFive from "@/app/components/HeaderFive";
 import Quote from "@/app/components/Quote";
 import MainHeader from "@/app/components/MainHeader";
+import QuoteContainer from "@/app/components/QuoteContainer";
 
 export default function LongText({ blok }) {
   return (
@@ -59,6 +60,7 @@ export default function LongText({ blok }) {
           ["page lead"]: (props) => (
             <StandardText text={props.text} className="mb-[72px] max-xl:mb-12" />
           ),
+          ["quote container"]: (props) => <QuoteContainer blok={props} />,
           ["quote"]: (props) => <Quote blok={props} />,
           ["iframe"]: (props) => {
             return (
