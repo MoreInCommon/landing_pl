@@ -11,23 +11,23 @@ import Button from "@/app/components/Button";
 
 const SegmentationHeader = ({ blok }) => {
   return (
-    <>
+    <div className="max-xl:px-4 ">
       <div
-        className="text-brand-darkBlue m-auto w-full bg-[#EDF0F7] px-[6.25rem] py-16 text-center relative overflow-hidden"
+        className="text-brand-darkBlue m-auto w-full bg-[#EDF0F7] px-[6.25rem] max-md:px-4 py-16 text-center relative overflow-hidden"
         {...storyblokEditable(blok)}
       >
         <h1 className="text-h1 bold z-1">{blok.title}</h1>
-        <p className="max-w-[46.875rem] w-full m-auto mt-6 text-bodyRegular z-1">
+        <p className="max-w-[46.875rem] max-md:max-w-[80rem] w-full m-auto mt-6 text-bodyRegular z-1">
           {blok.description}
         </p>
         <SegmentsSvg className="absolute top-[-9.375rem] right-[-5rem] z-0" />
       </div>
       <CenteredSection>
-        <MainHeader text={blok.subtitle} className="mt-[72px] mb-10" />
+        <MainHeader text={blok.subtitle} childClassname="pr-0" className="mt-[72px] mb-10" />
       </CenteredSection>
       <CenterContainer className="text-center">
         <CenterText text={blok.subtitle_description} />
-        <div className="grid grid-cols-3 gap-6 mb-12">
+        <div className="grid grid-cols-3 gap-6 mb-12 max-sm:grid-cols-2">
           {blok.trivia.map((trivia) => {
             return <StoryblokComponent blok={trivia} key={trivia._uid} />;
           })}
@@ -54,10 +54,10 @@ const SegmentationHeader = ({ blok }) => {
         </Button>
       </CenterContainer>
       <ImageComponent src={blok.image.filename} />
-      <div className="bg-[#EDF0F7] p-8">
+      <div className="bg-[#EDF0F7] p-8 max-sm:p-4">
         <StoryblokComponent blok={blok.long_text[0]} />
       </div>
-    </>
+    </div>
   );
 };
 

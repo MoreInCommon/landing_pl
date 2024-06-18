@@ -9,7 +9,7 @@ import CenterText from "@/app/components/CenterText";
 
 const Sidebar = ({ segments }) => {
   return (
-    <div className="sticky top-[90px] min-w-[20rem] text-black p-5">
+    <div className="sticky top-[90px] min-w-[20rem] max-lg:min-w-[14rem] text-black p-5">
       {segments.map((item, index) => (
         <Link
           key={index}
@@ -32,13 +32,13 @@ const SegmentationContent = ({ blok }) => {
   return (
     <div {...storyblokEditable(blok)}>
       <CenteredSection>
-        <MainHeader text={blok.title} className="mt-[72px] mb-10" />
+        <MainHeader text={blok.title} className="mt-[72px] mb-10" childClassname="pr-0" />
       </CenteredSection>
       <CenterContainer className="text-center">
         <CenterText text={blok.subtitle} />
       </CenterContainer>
-      <div className={`max-w-full m-auto w-full flex gap-10`}>
-        <div className="overflow-visible">
+      <div className={`max-w-full m-auto w-full flex gap-4 mt-10`}>
+        <div className="overflow-visible max-md:hidden">
           <Sidebar segments={blok.segments} />
         </div>
         <div className="p-5 text-mono-neutral11">

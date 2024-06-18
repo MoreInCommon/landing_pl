@@ -5,12 +5,12 @@ import SegmentsSvg from "@/app/components/SegmentsSvg";
 
 const SegmentsQuiz = ({ blok }) => {
   return (
-    <div className="max-w-full m-auto mt-20 px-[140px]">
+    <div className="max-w-full m-auto mt-20 px-[140px] max-lg:px-10 max-sm:px-4 max-sm:mt-0">
       <div
-        className="bg-[#F8F8F9] p-8 mt-12 text-black text-left relative overflow-hidden"
+        className="bg-[#F8F8F9] p-8 mt-12 max-sm:mt-0 text-black text-left relative overflow-hidden"
         {...storyblokEditable(blok)}
       >
-        <SegmentsSvg className="absolute top-[-6.375rem] left-[5rem] z-0" />
+        <SegmentsSvg className="absolute top-[-6.375rem] left-[5rem] z-0 max-sm:hidden" />
         <div className="max-w-[530px] ml-auto">
           <div className="inline-block heading-underline">
             <h4 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">{blok.title}</h4>

@@ -11,7 +11,7 @@ const Segment = ({ blok }) => {
   };
   return (
     <Element name={blok.title} className="section" {...storyblokEditable(blok)}>
-      <div className="flex gap-20 pb-20">
+      <div className="flex gap-20 pb-20 max-lg:gap-4 max-sm:flex-col-reverse max-sm:pb-10">
         <div className="flex flex-col gap-4">
           <h2 className="text-xl font-bold uppercase" style={{ color: blok?.color?.color }}>
             {blok.title}
