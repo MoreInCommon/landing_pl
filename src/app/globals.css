@@ -124,7 +124,9 @@ input[type="radio"] {
   margin-right: 0 !important;
 }
 .quoteSlick .slick-dots {
-  bottom: 63px;
-  left: 149px;
+  bottom: 60px;
+  left: 120px;
   width: auto;
+  display: flex;
+  align-items: center;
 }
