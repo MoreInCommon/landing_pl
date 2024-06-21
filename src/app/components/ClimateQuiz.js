@@ -1,9 +1,10 @@
 import Button from "@/app/components/Button";
+import { storyblokEditable } from "@storyblok/react";
 import Image from "next/image";
 
 const ClimateQuiz = ({ blok }) => {
   return (
-    <div className="max-w-full m-auto px-[140px]">
+    <div className="max-w-full m-auto px-[140px]" {...storyblokEditable(blok)}>
       <div className="bg-green-light p-8 mt-12 text-black text-center mb-10 relative">
         <Image
           src={"/MIC_ikona.png"}

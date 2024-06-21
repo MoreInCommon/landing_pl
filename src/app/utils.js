@@ -33,6 +33,7 @@ import JobAds from "@/app/components/JobAds";
 import JobAd from "@/app/components/JobAd";
 import QuoteContainer from "@/app/components/QuoteContainer";
 import ClimateQuiz from "@/app/components/ClimateQuiz";
+import ClimateSlides from "@/app/components/ClimateSlides";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 
 const Seo = () => {
@@ -75,6 +76,7 @@ export const components = {
   "job adv": JobAd,
   "quote container": QuoteContainer,
   "climate quiz": ClimateQuiz,
+  "climate slides": ClimateSlides,
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {
