@@ -10,6 +10,7 @@ import Decoration from "@/app/components/Decoration";
 import Project from "@/app/components/Project";
 import Segment from "@/app/components/Segment";
 import SegmentContent from "@/app/components/SegmentContent";
+import ClimateContent from "@/app/components/ClimateContent";
 import Trivia from "@/app/components/Trivia";
 import LongText from "@/app/components/LongText";
 import SegmentationContent from "@/app/components/SegmentationContent";
@@ -31,6 +32,7 @@ import Navigation from "@/app/components/Navigation";
 import JobAds from "@/app/components/JobAds";
 import JobAd from "@/app/components/JobAd";
 import QuoteContainer from "@/app/components/QuoteContainer";
+import ClimateQuiz from "@/app/components/ClimateQuiz";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 
 const Seo = () => {
@@ -65,25 +67,28 @@ export const components = {
   "segmentation content": SegmentationContent,
   "segments quiz": SegmentsQuiz,
   "segment content": SegmentContent,
+  "climate content": ClimateContent,
   trivia: Trivia,
   segment: Segment,
   seo: Seo,
   "job ads": JobAds,
   "job adv": JobAd,
   "quote container": QuoteContainer,
+  "climate quiz": ClimateQuiz,
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {
+  const tempPreview = true;
   const sbParams = {
-    version: preview ? "draft" : "published",
+    version: tempPreview ? "draft" : "published",
     resolve_relations,
   };
   const storyblokApi = await getStoryblokApi();
   try {
     const data = await storyblokApi.get(url, sbParams, {
-      cache: preview ? "no-cache" : undefined,
+      cache: tempPreview ? "no-cache" : undefined,
       next: {
-        revalidate: preview ? undefined : 3600,
+        revalidate: tempPreview ? undefined : 3600,
       },
     });
 

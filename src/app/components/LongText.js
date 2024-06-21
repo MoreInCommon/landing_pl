@@ -15,6 +15,7 @@ import HeaderFive from "@/app/components/HeaderFive";
 import Quote from "@/app/components/Quote";
 import MainHeader from "@/app/components/MainHeader";
 import QuoteContainer from "@/app/components/QuoteContainer";
+import ChartEmbed from "@/app/components/ChartEmbed";
 
 export default function LongText({ blok }) {
   return (
@@ -63,11 +64,7 @@ export default function LongText({ blok }) {
           ["quote container"]: (props) => <QuoteContainer blok={props} />,
           ["quote"]: (props) => <Quote blok={props} />,
           ["iframe"]: (props) => {
-            return (
-              <div className="mt-10 mb-4">
-                <iframe className="w-[90%] max-w-[950px] m-auto h-[620px]" src={props.url.url} />
-              </div>
-            );
+            return <ChartEmbed src={props.url.url} />;
           },
         },
       })}

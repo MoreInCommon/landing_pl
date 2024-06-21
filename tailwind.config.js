@@ -78,6 +78,7 @@ module.exports = {
           darkBlue: "var(--color-primary)",
           blue: "var(--color-secondary)",
           green: "var(--color-ternary)",
+          buttonHover: "var(--button-hover)",
         },
         hover: {
           darkBlue: "#101E47",

@@ -9,12 +9,14 @@
   --color-primary: #224099;
   --color-secondary: #10bee8;
   --color-ternary: #009e59;
+  --button-hover: #101e47;
 }
 
 :root .bg-themeGreen {
   --color-primary: #03641b;
   --color-secondary: yellow;
   --color-ternary: pink;
+  --button-hover: #006b3c;
 }
 
 body {

@@ -1,26 +1,30 @@
 "use client";
 import { storyblokEditable } from "@storyblok/react";
 import Button from "@/app/components/Button";
-import SegmentsSvg from "@/app/components/SegmentsSvg";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 const SegmentsQuiz = ({ blok }) => {
+  const router = useRouter();
+  const handleClick = () => {
+    const url = `/${blok?.button_url?.cached_url}`;
+    router.push(url);
+  };
   return (
     <div className="max-w-full m-auto mt-20 px-[140px] max-lg:px-10 max-sm:px-4 max-sm:mt-0">
       <div
-        className="bg-[#F8F8F9] p-8 mt-12 max-sm:mt-0 text-black text-left relative overflow-hidden"
+        className="bg-[#F8F8F9] p-8 mt-12 max-sm:mt-0 text-black flex flex-col items-center relative overflow-hidden"
         {...storyblokEditable(blok)}
       >
-        <SegmentsSvg className="absolute top-[-6.375rem] left-[5rem] z-0 max-sm:hidden" />
-        <div className="max-w-[530px] ml-auto">
-          <div className="inline-block heading-underline">
-            <h4 className="text-black text-h1 font-bold mt-2 pr-4 relative z-[1]">{blok.title}</h4>
-          </div>
-          <h3 className="text-h3 mt-2">{blok.subtitle}</h3>
-          <p className="text-bodyRegular mb-6">{blok.description}</p>
+        <Image src={"/Segments.png"} alt="" width={467} height={65} />
+        <div className="max-w-[530px] text-center mt-2">
+          <h4 className="text-themeableColors-darkBlue text-[28px] font-bold mt-2 mb-[18px] pr-4 relative z-[1]">
+            {blok.title}
+          </h4>
+          <p className="text-bodyRegular mb-[32px]">{blok.description}</p>
           <Button
-            onClick={() => console.log()}
-            type="submit"
-            classes="py-[14px] px-8 bg-themeableColors-darkBlue  text-white text-[21px] leading-[16px] mt-4 min-w-[133px]"
+            onClick={handleClick}
+            classes="py-[14px] m-auto px-8 bg-themeableColors-darkBlue text-white text-[21px] leading-[16px] mt-4 min-w-[133px]"
           >
             <div className="relative top-[1px]">{blok.button_text}</div>
           </Button>

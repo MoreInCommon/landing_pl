@@ -11,6 +11,7 @@ import { StoryblokComponent } from "@storyblok/react";
 import { components } from "@/app/utils";
 import { draftMode } from "next/headers";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import Script from "next/script";
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
@@ -100,6 +101,7 @@ export default async function RootLayout({ children }) {
           <StoryblokComponent blok={footer} key={footer._uid} />
           <CookieConsentBanner />
         </body>
+        <Script src="https://public.flourish.studio/resources/embed.js" />
       </html>
     </StoryblokProvider>
   );
