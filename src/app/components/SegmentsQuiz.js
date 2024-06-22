@@ -2,18 +2,22 @@
 import { storyblokEditable } from "@storyblok/react";
 import Button from "@/app/components/Button";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const SegmentsQuiz = ({ blok }) => {
   const router = useRouter();
+  const pathname = usePathname();
+  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
   const handleClick = () => {
     const url = `/${blok?.button_url?.cached_url}`;
     router.push(url);
   };
   return (
-    <div className="max-w-full m-auto mt-20 px-[140px] max-lg:px-10 max-sm:px-4 max-sm:mt-0">
+    <div
+      className={`max-w-full m-auto mt-20 px-[140px] max-lg:px-10 max-sm:px-4 max-sm:mt-0 ${isGreenUrl}`}
+    >
       <div
-        className="bg-[#F8F8F9] p-8 mt-12 max-sm:mt-0 text-black flex flex-col items-center relative overflow-hidden"
+        className={`bg-[#F8F8F9] p-8 mt-12 max-sm:mt-0 text-black flex flex-col items-center relative overflow-hidden border-b-4 border-[${isGreenUrl ? "#75C05C" : "transparent"}] border-solid`}
         {...storyblokEditable(blok)}
       >
         <Image src={"/Segments.png"} alt="" width={467} height={65} />

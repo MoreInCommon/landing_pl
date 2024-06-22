@@ -374,7 +374,7 @@ export default function QuizStart() {
           />
         </div>
       </CenterContainer>
-      <div className="max-w-[75rem] m-auto w-full pt-20">
+      <div className="max-w-[65rem] m-auto w-full pt-20 px-10">
         {errors.length > 0 && (
           <div className="bg-[#FDF7E7] p-6 flex gap-6 items-center mb-6">
             <svg

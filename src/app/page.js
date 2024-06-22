@@ -13,9 +13,9 @@ storyblokInit({
 export default async function Home() {
   const { data } = await fetchData();
   return (
-    <>
+    <div className="mt-[-32px] max-sm:mt-[-16px] max-xl:mt-[-16px]">
       <StoryblokStory story={data.story} />
-    </>
+    </div>
   );
 }
 

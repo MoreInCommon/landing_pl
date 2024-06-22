@@ -4,14 +4,17 @@ import Image from "next/image";
 
 const ClimateQuiz = ({ blok }) => {
   return (
-    <div className="max-w-full m-auto px-[140px]" {...storyblokEditable(blok)}>
+    <div
+      className="max-w-full m-auto px-[140px] max-md:px-6 max-sm:px-4"
+      {...storyblokEditable(blok)}
+    >
       <div className="bg-green-light p-8 mt-12 text-black text-center mb-10 relative">
         <Image
           src={"/MIC_ikona.png"}
           width={117}
           height={114}
           alt=""
-          className="absolute top-10 left-12"
+          className="absolute top-10 left-12 max-md:hidden"
         />
         <h4 className="text-h4 font-bold mb-2 text-brand-darkGreen flex items-center justify-center relative">
           {blok.title}
