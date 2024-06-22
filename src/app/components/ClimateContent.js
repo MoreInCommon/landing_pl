@@ -63,7 +63,7 @@ const ClimateContent = ({ blok }) => {
         </CenteredSection>
       </div>
       {hasSegments && (
-        <div className="relative m-auto px-[140px] max-w-full max-md:px-6 max-sm:px-4">
+        <div className="relative m-auto px-[140px] max-lg:px-10 max-w-full max-md:px-6 max-sm:px-4">
           <ScrollLeftButton />
           <div ref={containerRef} className="flex gap-4 my-8 mt-16 mb-10 overflow-x-scroll">
             {segments.map((content, index) => (

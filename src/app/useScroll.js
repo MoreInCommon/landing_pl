@@ -36,7 +36,7 @@ const useScroll = () => {
     return (
       <button
         onClick={scrollRight}
-        className="absolute top-1/2 transform -translate-y-1/2 p-1 right-[180px] bg-black rounded-full"
+        className="absolute top-1/2 transform -translate-y-1/2 p-1 right-[180px] max-lg:right-[80px] bg-black rounded-full"
       >
         <svg
           width="24"
@@ -62,7 +62,7 @@ const useScroll = () => {
     return (
       <button
         onClick={scrollLeft}
-        className="absolute top-1/2 transform -translate-y-1/2 p-1 left-[180px] rotate-180 bg-black rounded-full"
+        className="absolute top-1/2 transform -translate-y-1/2 p-1 left-[180px] max-lg:left-[80px] rotate-180 bg-black rounded-full"
       >
         <svg
           width="24"

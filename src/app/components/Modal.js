@@ -1,6 +1,7 @@
+import { useEffect } from "react";
 import Modal from "react-modal";
 
-export default function CustomModal({ children, showModal, setShowModal }) {
+export default function CustomModal({ children, showModal, setShowModal, style = {} }) {
   const customStyles = {
     overlay: {
       backgroundColor: "rgba(0,0,0,0.5)",
@@ -15,8 +16,18 @@ export default function CustomModal({ children, showModal, setShowModal }) {
       padding: "20px",
       height: "fit-content",
       zIndex: "1000",
+      ...style,
     },
   };
+
+  useEffect(() => {
+    const appElement = document.getElementById("modal-root");
+    if (appElement) {
+      Modal.setAppElement(appElement);
+    } else {
+      console.error("No element found for selector #modal-root.");
+    }
+  }, []);
 
   if (!showModal) return null;
   return (

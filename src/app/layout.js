@@ -100,6 +100,7 @@ export default async function RootLayout({ children }) {
           <StoryblokComponent blok={newsletter} key={newsletter._uid} />
           <StoryblokComponent blok={footer} key={footer._uid} />
           <CookieConsentBanner />
+          <div id="modal-root" />
         </body>
         <Script src="https://public.flourish.studio/resources/embed.js" />
       </html>

@@ -57,7 +57,7 @@ const ClimateSlides = ({ blok }) => {
 
   return (
     <div
-      className="relative m-auto px-[140px] max-w-full max-md:px-6 max-sm:px-4"
+      className="relative m-auto px-[140px] max-lg:px-10 max-w-full max-md:px-6 max-sm:px-4"
       {...storyblokEditable(blok)}
     >
       <ScrollLeftButton />
