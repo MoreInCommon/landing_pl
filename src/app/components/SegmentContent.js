@@ -4,11 +4,14 @@ import { storyblokEditable } from "@storyblok/react";
 import SegmentsSvg from "@/app/components/SegmentsSvg";
 import SegmentBar from "@/app/components/SegmentBar";
 import Button from "@/app/components/Button";
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import Link from "next/link";
 
 const SegmentContent = ({ blok }) => {
   const { push } = useRouter();
+  const searchParams = useSearchParams();
+  const result = searchParams.get("result");
+  const isResult = result !== null;
   const changePage = (url) => {
     push(`/${url}`);
   };
@@ -22,9 +25,11 @@ const SegmentContent = ({ blok }) => {
             className="w-[235px] max-h-[245px] object-contain absolute left-0"
           />
           <div className="my-[100px]">
-            <h4 className="text-center mb-5 text-[24px] text-themeableColors-darkBlue font-bold">
-              Grupa, którą reprezentujesz to:
-            </h4>
+            {isResult && (
+              <h4 className="text-center mb-5 text-[24px] text-themeableColors-darkBlue font-bold">
+                Grupa, którą reprezentujesz to:
+              </h4>
+            )}
             <h1 className="text-[32px] font-bold uppercase" style={{ color: blok?.color?.color }}>
               {blok.title}
             </h1>
@@ -45,25 +50,27 @@ const SegmentContent = ({ blok }) => {
       </div>
       <SegmentBar number={blok.number} color={blok?.color?.color} />
       <StoryblokComponent blok={blok.long_text[0]} />
-      <div className="mt-10 flex flex-col gap-6 text-center">
-        <Button
-          onClick={() => changePage(blok.button_url.cached_url)}
-          classes="bg-brand-darkBlue hover:bg-hover-blue m-auto pr-6 py-[12px]"
-        >
-          <div className="relative top-[1px]">Poznaj pozostałe segmenty</div>
-        </Button>
-        <div className="flex items-center justify-center relative top-1">
-          <div className="w-[115px] h-px bg-black"></div>
-          <div className="px-2 text-[14px] leading-[14px]">LUB</div>
-          <div className="w-[115px] h-px bg-black"></div>
+      {isResult && (
+        <div className="mt-10 flex flex-col gap-6 text-center">
+          <Button
+            onClick={() => changePage(blok.button_url.cached_url)}
+            classes="bg-brand-darkBlue hover:bg-hover-blue m-auto pr-6 py-[12px]"
+          >
+            <div className="relative top-[1px]">Poznaj pozostałe segmenty</div>
+          </Button>
+          <div className="flex items-center justify-center relative top-1">
+            <div className="w-[115px] h-px bg-black"></div>
+            <div className="px-2 text-[14px] leading-[14px]">LUB</div>
+            <div className="w-[115px] h-px bg-black"></div>
+          </div>
+          <Link
+            className="text-[20px] text-themeableColors-darkBlue underline"
+            href={`/${blok.back_url.cached_url}`}
+          >
+            Wróć do quizu
+          </Link>
         </div>
-        <Link
-          className="text-[20px] text-themeableColors-darkBlue underline"
-          href={`/${blok.back_url.cached_url}`}
-        >
-          Wróć do quizu
-        </Link>
-      </div>
+      )}
     </div>
   );
 };
