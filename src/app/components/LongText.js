@@ -26,6 +26,7 @@ export default function LongText({ blok }) {
             if (!props?.[0]?.type && typeof props?.[0] !== "string") return null;
             if (
               props[0].type === "a" ||
+              props[0].type === "sup" ||
               props[0].type === "span" ||
               props[0].type === "b" ||
               props[0].type === "paragraph" ||

@@ -3,6 +3,7 @@ import Page from "@/app/components/Page";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
 import MediaProject from "@/app/components/MediaProject";
 import ArticleHeader from "@/app/components/ArticleHeader";
+import ClimateArticleHeader from "@/app/components/ClimateArticleHeader";
 import StandardText from "@/app/components/StandardText";
 import Media from "@/app/components/Media";
 import Projects from "@/app/components/Projects";
@@ -56,6 +57,7 @@ export const components = {
   project: Project,
   projects: Projects,
   "article header": ArticleHeader,
+  "climate article header": ClimateArticleHeader,
   "global newsletter": Newsletter,
   "global navigation": Navigation,
   "global footer": Footer,

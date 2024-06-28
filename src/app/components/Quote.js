@@ -21,7 +21,7 @@ export default function Quote({ blok }) {
   const { bg, text, lineBg } = getColors(blok.color);
   return (
     <div
-      className={`mt-28 mb-28 max-xl:my-10 ${bg} bg-[url('/newsletter_bg.png')]`}
+      className={`mt-14 mb-14 max-xl:my-10 ${bg} bg-[url('/newsletter_bg.png')]`}
       {...storyblokEditable(blok)}
     >
       <div
