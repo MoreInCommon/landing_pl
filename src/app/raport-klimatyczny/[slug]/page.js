@@ -27,9 +27,9 @@ export default async function Home({ params }) {
 export async function fetchData(slug) {
   const { isEnabled } = draftMode();
 
-  return fetchPageData(`cdn/stories/siedem-segmentow/${slug}`, isEnabled);
+  return fetchPageData(`cdn/stories/raport-klimatyczny/${slug}`, isEnabled);
 }
 export async function generateMetadata({ params }) {
   const slug = params.slug;
-  return fetchMetadata(`cdn/stories/siedem-segmentow/${slug}`);
+  return fetchMetadata(`cdn/stories/raport-klimatyczny/${slug}`);
 }
