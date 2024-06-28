@@ -1,8 +1,9 @@
 "use client";
+import { useEffect, useState } from "react";
 import { storyblokEditable } from "@storyblok/react";
 import Button from "@/app/components/Button";
 import Image from "next/image";
-import { useRouter, usePathname, useSearchParams } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 const SegmentsQuiz = ({ blok }) => {
   const router = useRouter();
@@ -12,8 +13,14 @@ const SegmentsQuiz = ({ blok }) => {
     const url = `/${blok?.button_url?.cached_url}`;
     router.push(url);
   };
-  const searchParams = useSearchParams();
-  const result = searchParams.get("result");
+  const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const resultParam = searchParams.get("result");
+    setResult(resultParam);
+  }, []);
+
   const isResult = result !== null;
 
   if (isResult) return null;

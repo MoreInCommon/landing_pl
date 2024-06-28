@@ -1,21 +1,27 @@
 "use client";
+import { useEffect, useState } from "react";
 import { StoryblokComponent } from "@storyblok/react";
 import { storyblokEditable } from "@storyblok/react";
 import SegmentsSvg from "@/app/components/SegmentsSvg";
 import SegmentBar from "@/app/components/SegmentBar";
 import Button from "@/app/components/Button";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 const SegmentContent = ({ blok }) => {
   const { push } = useRouter();
-  const searchParams = useSearchParams();
-  const result = searchParams.get("result");
+  const [result, setResult] = useState(null);
+
+  useEffect(() => {
+    const searchParams = new URLSearchParams(window.location.search);
+    const resultParam = searchParams.get("result");
+    setResult(resultParam);
+  }, []);
+
   const isResult = result !== null;
   const changePage = (url) => {
     push(`/${url}`);
   };
-  console.log(blok);
   return (
     <div {...storyblokEditable(blok)}>
       <div style={{ background: blok?.background_color?.color }}>
