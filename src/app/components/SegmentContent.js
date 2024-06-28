@@ -15,6 +15,7 @@ const SegmentContent = ({ blok }) => {
   const changePage = (url) => {
     push(`/${url}`);
   };
+  console.log(blok);
   return (
     <div {...storyblokEditable(blok)}>
       <div style={{ background: blok?.background_color?.color }}>

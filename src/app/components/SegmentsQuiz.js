@@ -2,7 +2,7 @@
 import { storyblokEditable } from "@storyblok/react";
 import Button from "@/app/components/Button";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import { useRouter, usePathname, useSearchParams } from "next/navigation";
 
 const SegmentsQuiz = ({ blok }) => {
   const router = useRouter();
@@ -12,6 +12,11 @@ const SegmentsQuiz = ({ blok }) => {
     const url = `/${blok?.button_url?.cached_url}`;
     router.push(url);
   };
+  const searchParams = useSearchParams();
+  const result = searchParams.get("result");
+  const isResult = result !== null;
+
+  if (isResult) return null;
   return (
     <div
       className={`max-w-full m-auto mt-20 px-[140px] max-lg:px-10 max-sm:px-4 max-sm:mt-0 ${isGreenUrl}`}
