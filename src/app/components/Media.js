@@ -8,7 +8,7 @@ const Media = ({ blok }) => {
   const itemsPerPage = 9;
   const [currentPage, setCurrentPage] = useState(0);
   const copiedMedia = [...blok.media];
-  const sortedMedia = copiedMedia.reverse();
+  const sortedMedia = copiedMedia.sort((a, b) => new Date(b.date) - new Date(a.date));
   const startIndex = currentPage * itemsPerPage;
   const endIndex = startIndex + itemsPerPage;
   const currentItems = sortedMedia.slice(startIndex, endIndex);
