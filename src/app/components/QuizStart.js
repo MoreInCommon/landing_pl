@@ -285,12 +285,12 @@ export default function QuizStart() {
 
   if (totalAnsweredQuestionsNumber === totalQuestionsNumber) {
     const urls = {
-      1: "/siedem-segmentow/postepowi-zapalency?result",
-      2: "/siedem-segmentow/pasywni-liberalowie?result",
+      1: "/siedem-segmentow/niezaangazowani-normalsi?result",
+      2: "/siedem-segmentow/spelnieni-lokalisci?result",
       3: "/siedem-segmentow/zawiedzeni-samotnicy?result",
-      4: "/siedem-segmentow/niezaangazowani-normalsi?result",
-      5: "/siedem-segmentow/spelnieni-lokalisci?result",
-      6: "/siedem-segmentow/dumni-patrioci?result",
+      4: "/siedem-segmentow/pasywni-liberalowie?result",
+      5: "/siedem-segmentow/dumni-patrioci?result",
+      6: "/siedem-segmentow/postepowi-zapalency?result",
       7: "/siedem-segmentow/oddani-tradycjonalisci?result",
     };
     const result = matchMaxIndex([res1, res2, res3, res4, res5, res6, res7]);
