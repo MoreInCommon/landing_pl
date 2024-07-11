@@ -8,8 +8,10 @@ import CenterContainer from "@/app/components/CenterContainer";
 import CenterText from "@/app/components/CenterText";
 import ImageComponent from "@/app/components/ImageComponent";
 import Button from "@/app/components/Button";
+import { useRouter } from "next/navigation";
 
 const SegmentationHeader = ({ blok }) => {
+  const router = useRouter();
   return (
     <div className="max-xl:px-4 ">
       <div
@@ -32,7 +34,10 @@ const SegmentationHeader = ({ blok }) => {
             return <StoryblokComponent blok={trivia} key={trivia._uid} />;
           })}
         </div>
-        <Button onClick={() => console.log()} classes="bg-brand-darkBlue m-auto">
+        <Button
+          onClick={() => router.push(`/${blok.button_link.cached_url}`)}
+          classes="bg-brand-darkBlue m-auto"
+        >
           <div className="relative top-[1px]">{blok.button_text}</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
