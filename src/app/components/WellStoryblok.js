@@ -8,7 +8,9 @@ export default function Well({ blok }) {
         <h4 className="text-h4 font-bold mb-2">{blok.title}</h4>
         <p className="text-bodyRegular">{blok.text}</p>
         <Button
-          type="submit"
+          onClick={() => {
+            location.href = blok.button.cached_url;
+          }}
           classes="py-[14px] px-8 bg-brand-darkBlue text-white text-[21px] leading-[16px] m-auto mt-6"
         >
           <div className="relative top-[1px]">{blok.button_text}</div>

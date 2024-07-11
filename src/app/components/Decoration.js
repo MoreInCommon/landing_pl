@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 const Decoration = ({ blok }) => {
   const pathname = usePathname();
   const urls = blok.decoratedUrls.map((url) => `/${url.full_slug}`);
-  const isDecorationUrl = urls.includes(pathname);
+  const isDecorationUrl = urls.includes(pathname) || urls.includes(pathname + "/");
   if (!isDecorationUrl) return null;
   return (
     <svg
