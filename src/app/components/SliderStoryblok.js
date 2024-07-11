@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import Button from "@/app/components/Button";
 import { storyblokEditable } from "@storyblok/react/rsc";
 import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 
 function SampleNextArrow(props) {
   const { className, style, onClick } = props;
@@ -95,7 +96,7 @@ export default function CustomSlider({ blok }) {
 
   const pathname = usePathname();
   const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
-
+  const router = useRouter();
   return (
     <div
       className={`max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile mb-20 m-t-[-40px] ${isGreenUrl}`}
@@ -112,7 +113,7 @@ export default function CustomSlider({ blok }) {
                 </h3>
                 <p className="text-h4 text-black">{content.description}</p>
                 <Button
-                  type="submit"
+                  onClick={() => router.push(`/${content.button?.cached_url}`)}
                   classes="py-[14px] px-8 bg-themeableColors-darkBlue text-white text-[21px] leading-[16px] mt-12 min-w-[133px]"
                 >
                   <div className="relative top-[1px]">Sprawdź</div>
