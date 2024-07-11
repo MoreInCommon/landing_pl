@@ -61,7 +61,7 @@ const SegmentContent = ({ blok }) => {
         <div className="mt-10 flex flex-col gap-6 text-center">
           <Button
             onClick={() => changePage(blok.button_url.cached_url)}
-            classes="bg-brand-darkBlue hover:bg-hover-blue m-auto pr-6 py-[12px]"
+            classes="bg-brand-darkBlue m-auto pr-6 py-[12px]"
           >
             <div className="relative top-[1px]">Poznaj pozostałe segmenty</div>
           </Button>

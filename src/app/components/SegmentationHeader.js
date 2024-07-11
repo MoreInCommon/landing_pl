@@ -32,10 +32,7 @@ const SegmentationHeader = ({ blok }) => {
             return <StoryblokComponent blok={trivia} key={trivia._uid} />;
           })}
         </div>
-        <Button
-          onClick={() => console.log()}
-          classes="bg-brand-darkBlue hover:bg-hover-blue m-auto"
-        >
+        <Button onClick={() => console.log()} classes="bg-brand-darkBlue m-auto">
           <div className="relative top-[1px]">{blok.button_text}</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"

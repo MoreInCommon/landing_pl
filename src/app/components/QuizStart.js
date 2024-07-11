@@ -309,7 +309,7 @@ export default function QuizStart() {
           </p>
           <Button
             onClick={() => setCurrentPageIndex(0)}
-            classes="bg-brand-darkBlue hover:bg-hover-blue m-auto mt-12 mb-20"
+            classes="bg-brand-darkBlue m-auto mt-12 mb-20"
           >
             <div className="relative top-[.063rem]">Rozpocznij</div>
             <svg
@@ -428,10 +428,7 @@ export default function QuizStart() {
             </Button>
           )}
           {!isFinalPage && (
-            <Button
-              onClick={() => setNextPage()}
-              classes="bg-brand-darkBlue hover:bg-hover-blue ml-auto"
-            >
+            <Button onClick={() => setNextPage()} classes="bg-brand-darkBlue ml-auto">
               <div className="relative top-[.063rem]">Następne pytanie</div>
               <svg
                 xmlns="http://www.w3.org/2000/svg"
