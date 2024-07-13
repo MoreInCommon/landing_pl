@@ -137,3 +137,20 @@ export const fetchMetadata = async (url) => {
     return {};
   }
 };
+
+const colors = {
+  blue: {
+    bg: "bg-[#EDF0F7]",
+    text: "text-brand-darkBlue",
+    lineBg: "bg-brand-darkBlue",
+  },
+};
+export const getColors = (color) => {
+  if (!color)
+    return {
+      bg: "bg-[#EDF0F7]",
+      text: "text-brand-darkBlue",
+      lineBg: "bg-brand-darkBlue",
+    };
+  return colors[color];
+};

@@ -3,6 +3,7 @@ import { useRef } from "react";
 import { storyblokEditable } from "@storyblok/react";
 import { StoryblokComponent } from "@storyblok/react";
 import Slider from "react-slick";
+import { getColors } from "@/app/utils";
 
 const QuoteContainer = ({ blok }) => {
   const currentItems = blok?.quote || [];
@@ -77,8 +78,14 @@ const QuoteContainer = ({ blok }) => {
       </div>
     ),
   };
+
+  const { bg, text, lineBg } = getColors(blok?.[currentItems]?.[0]?.color);
+
   return (
-    <div {...storyblokEditable(blok)} className="quoteSlick">
+    <div
+      {...storyblokEditable(blok)}
+      className={`quoteSlick ${bg} bg-[url('/newsletter_bg.png')] my-20`}
+    >
       <Slider
         ref={(slider) => {
           sliderRef = slider;
@@ -87,7 +94,7 @@ const QuoteContainer = ({ blok }) => {
         className="mx-6 max-lg:mx-0"
       >
         {currentItems.map((item) => (
-          <StoryblokComponent key={item._uid} blok={item} />
+          <StoryblokComponent key={item._uid} blok={item} multiple />
         ))}
       </Slider>
     </div>
