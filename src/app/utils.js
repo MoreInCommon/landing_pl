@@ -144,6 +144,101 @@ const colors = {
     text: "text-brand-darkBlue",
     lineBg: "bg-brand-darkBlue",
   },
+  light_maritime: {
+    bg: "bg-[#ECF7F6]",
+    text: "#197D9A",
+    lineBg: "#197D9A",
+  },
+  dark_maritime: {
+    bg: "bg-[#2EA598]",
+    text: "#FFF",
+    lineBg: "#FFF",
+  },
+  light_magenta: {
+    bg: "bg-[#F0D8E7]",
+    text: "#B62C7C",
+    lineBg: "#B62C7C",
+  },
+  dark_magenta: {
+    bg: "bg-[#B62C7C]",
+    text: "#FFF",
+    lineBg: "#FFF",
+  },
+  light_violet: {
+    bg: "bg-[#EDE5F2]",
+    text: "#572F8B",
+    lineBg: "#572F8B",
+  },
+  dark_violet: {
+    bg: "bg-[#572F8B]",
+    text: "#FFF",
+    lineBg: "#FFF",
+  },
+  light_lemon: {
+    bg: "bg-[#F4F2C8]",
+    text: "#A9A623",
+    lineBg: "#A9A623",
+  },
+  light_green: {
+    bg: "bg-[#D0ECDB]",
+    text: "#1C6E3B",
+    lineBg: "#1C6E3B",
+  },
+  dark_green: {
+    bg: "bg-[#19A54F]",
+    text: "#FFF",
+    lineBg: "#FFF",
+  },
+  light_celadon: {
+    bg: "bg-[#E3EFF2]",
+    text: "#197D9A",
+    lineBg: "#197D9A",
+  },
+  dark_celadon: {
+    bg: "bg-[#197D9A]",
+    text: "#1C6E3B",
+    lineBg: "#1C6E3B",
+  },
+  light_orange: {
+    bg: "bg-[#FEF3E3]",
+    text: "#CE6C09",
+    lineBg: "#CE6C09",
+  },
+  dark_orange: {
+    bg: "bg-[#DC7C0F]",
+    text: "#FFF",
+    lineBg: "#FFF",
+  },
+  light_red: {
+    bg: "bg-[#F7D1D2]",
+    text: "#C41737",
+    lineBg: "#C41737",
+  },
+  dark_red: {
+    bg: "bg-[#E7686C]",
+    text: "#FFF",
+    lineBg: "#FFF",
+  },
+  light_pink: {
+    bg: "bg-[#FCEBF4]",
+    text: "#E6536E",
+    lineBg: "#E6536E",
+  },
+  dark_pink: {
+    bg: "bg-[#EB5873]",
+    text: "#FFF",
+    lineBg: "#FFF",
+  },
+  light_navy: {
+    bg: "bg-[#DDE8F6]",
+    text: "#445170",
+    lineBg: "#445170",
+  },
+  dark_navy: {
+    bg: "bg-[#445170]",
+    text: "#FFF",
+    lineBg: "#FFF",
+  },
 };
 export const getColors = (color) => {
   if (!color)
