@@ -4,56 +4,60 @@ import MainHeader from "@/app/components/MainHeader";
 import CenteredSection from "@/app/components/CenteredSection";
 import useScroll from "@/app/useScroll";
 import Button from "@/app/components/Button";
+import { useRouter } from "next/navigation";
 
 const segments = [
   {
     title: "Postępowi Zapaleńcy",
     color: "#D3405B",
     image: "/tempImages/Avatar_1.png",
-    url: "/siedem-segmentow/postepowi-zapalency",
+    url: "/raport-klimatyczny/postepowi-zapalency",
   },
   {
     title: "Pasywni Liberałowie",
     color: "#D87108",
     image: "/tempImages/Avatar_2.png",
-    url: "/siedem-segmentow/pasywni-liberalowie",
+    url: "/raport-klimatyczny/pasywni-liberalowie",
   },
   {
     title: "Zawiedzenie Samotnicy",
     color: "#3A7F8E",
     image: "/tempImages/Avatar_3.png",
-    url: "/siedem-segmentow/zawiedzenie-samotnicy",
+    url: "/raport-klimatyczny/zawiedzenie-samotnicy",
   },
   {
     title: "Niezaangażowani Normalsi",
     color: "#445170",
     image: "/tempImages/Avatar_4.png",
-    url: "/siedem-segmentow/niezaangazowani-normalsi",
+    url: "/raport-klimatyczny/niezaangazowani-normalsi",
   },
   {
     title: "Spełnieni Lokaliści",
     color: "#37821E",
     image: "/tempImages/Avatar_5.png",
-    url: "/siedem-segmentow/spelnieni-lokalisci",
+    url: "/raport-klimatyczny/spelnieni-lokalisci",
   },
   {
     title: "Dumni patrioci",
     color: "#C11A37",
     image: "/tempImages/Avatar_6.png",
-    url: "/siedem-segmentow/dumni-patrioci",
+    url: "/raport-klimatyczny/dumni-patrioci",
   },
   {
     title: "Oddani Tradycjonaliści",
     color: "#77539E",
     image: "/tempImages/Avatar_7.png",
-    url: "/siedem-segmentow/oddani-tradycjonaliści",
+    url: "/raport-klimatyczny/oddani-tradycjonaliści",
   },
 ];
 
 const ClimateContent = ({ blok }) => {
   const hasSegments = blok.segment;
   const { containerRef, ScrollRightButton, ScrollLeftButton } = useScroll();
-
+  const { push } = useRouter();
+  const changePage = (url) => {
+    push(`${url}`);
+  };
   return (
     <>
       <div className="max-xl:px-4 ">

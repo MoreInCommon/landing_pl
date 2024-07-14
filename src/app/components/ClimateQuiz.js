@@ -7,7 +7,7 @@ import CenterContainer from "@/app/components/CenterContainer";
 import Image from "next/image";
 import Modal from "@/app/components/Modal";
 
-const questionsBe = [
+const questionsBe2 = [
   {
     question: "What is the most common greenhouse gas?",
     answers: [
@@ -47,7 +47,28 @@ const questionsBe = [
 ];
 
 const ClimateQuiz = ({ blok }) => {
-  const [questions, setQuestions] = useState(questionsBe);
+  const [questions, setQuestions] = useState(() =>
+    blok.questions.map((q) => ({
+      question: q.question,
+      answers: [
+        {
+          text: q.answer_1,
+          correct: q.correct_answer === "1",
+        },
+        {
+          text: q.answer_2,
+          correct: q.correct_answer === "2",
+        },
+        {
+          text: q.answer_3,
+          correct: q.correct_answer === "3",
+        },
+      ],
+      commentIncorrect: q.comment,
+      commentCorrect: q.comment,
+      selectedAnswer: null,
+    }))
+  );
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const isFirstPage = currentPageIndex === 0;
