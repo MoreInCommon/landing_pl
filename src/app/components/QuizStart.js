@@ -281,6 +281,10 @@ export default function QuizStart() {
           .filter((index) => index !== -1),
       ]);
     }
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
   if (totalAnsweredQuestionsNumber === totalQuestionsNumber) {

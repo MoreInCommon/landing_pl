@@ -85,6 +85,7 @@ const SocialMedia = ({ blok }) => {
   };
 
   const report = blok?.report?.filename;
+  console.log(blok);
   return (
     <div
       className={`mx-auto flex items-center ${isClimate ? "justify-start" : "justify-center"} gap-8 max-w-[800px] max-md:flex-col max-md:items-baseline max-md:gap-4`}
