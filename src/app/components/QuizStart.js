@@ -332,14 +332,15 @@ export default function QuizStart() {
             </svg>
           </Button>
           <p>
-            * Wyniki quizu są najlepszym przybliżeniem na podstawie skróconej wersji ankiety
-            Britains Choice. W procesie wypełniania tego quizu nie są zbierane żadne dane
-            umożliwiające identyfikację osobistą (PII). Dane użytkowników nie są sprzedawane przez
-            More in Common czy YouGov, ani nie będą przekazywane żadnym stronom trzecim. Kliknij
-            tutaj, aby zapoznać się z naszą{" "}
+            * Wyniki quizu pokazują najbardziej prawdopodobne dopasowanie do segmentu na podstawie
+            skróconej wersji modelu segmentacji More in Common. Od użytkowników quizu nie są
+            zbieramy żadnych danych umożliwiających identyfikację osobistą (PII). Dane użytkowników
+            nie są sprzedawane przez More in Common, ani nie będą przekazywane żadnym stronom
+            trzecim. Kliknij tutaj, aby zapoznać się z naszą{" "}
             <Link className="underline" href="/polityka-prywatnosci">
               Polityką Prywatności.
             </Link>
+            .
           </p>
         </CenterContainer>
       </CenteredSection>

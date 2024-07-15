@@ -68,7 +68,7 @@ const Project = ({ blok }) => {
             </svg>
           </ButtonText>
         )}
-        <Button onClick={() => console.log()} classes="bg-brand-green hover:bg-hover-green">
+        <Button onClick={() => console.log()} classes="bg-themeableColors-darkBlue">
           <div className="relative top-[1px]">Czytaj dalej</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"

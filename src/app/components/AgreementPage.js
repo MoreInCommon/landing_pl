@@ -19,7 +19,10 @@ const AgreementPage = ({ questions, setAnswer, errors, answersOrder }) => {
       <h4 className="text-[18px] font-bold mb-10">
         W jakim stopniu zgadza się Pan/i lub nie zgadza z poniższymi stwierdzeniami?
       </h4>
-      <div className={`w-full grid grid-cols-${answersOrder.length + 2} mt-2`}>
+      <div
+        className={`w-full grid grid-cols-${answersOrder.length + 2} mt-2`}
+        style={{ gridTemplateColumns: `repeat(${answersOrder.length + 2}, minmax(0, 1fr))` }}
+      >
         <div className="col-span-2 border-b b-[#E4E4E4]"></div>
         {answersOrder.map((a, i) => (
           <div key={i} className="p-4 text-center border-b b-[#E4E4E4]">
