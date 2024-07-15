@@ -14,6 +14,9 @@ const QuoteContainer = ({ blok }) => {
   const previous = () => {
     sliderRef.slickPrev();
   };
+
+  const { bg, text, lineBg } = getColors(blok?.quote?.[0]?.color);
+
   var settings = {
     infinite: true,
     dots: true,
@@ -78,8 +81,6 @@ const QuoteContainer = ({ blok }) => {
       </div>
     ),
   };
-
-  const { bg, text, lineBg } = getColors(blok?.[currentItems]?.[0]?.color);
 
   return (
     <div
