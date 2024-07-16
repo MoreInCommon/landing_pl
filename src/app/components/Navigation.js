@@ -12,8 +12,9 @@ const Navigation = ({ blok }) => {
   const pathname = usePathname();
   const navItems = blok.blocks.filter((block) => block.component === "navigation item");
   const socialMediaLink = blok.blocks.filter((block) => block.component === "social media link");
-  const twitter = socialMediaLink.find((block) => block.type === "twitter").url.url;
-  const linkedin = socialMediaLink.find((block) => block.type === "linkedin").url.url;
+  const twitter = socialMediaLink.find((block) => block.type === "twitter")?.url?.url;
+  const linkedin = socialMediaLink.find((block) => block.type === "linkedin")?.url?.url;
+  const facebook = socialMediaLink.find((block) => block.type === "facebook")?.url?.url;
   const mobileNavigationItems = navItems.map((block) => ({
     ...block,
     component: "mobile navigation item",

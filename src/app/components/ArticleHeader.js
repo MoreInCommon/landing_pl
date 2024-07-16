@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { storyblokEditable } from "@storyblok/react";
 import Notification from "@/app/components/Notification";
-import { TwitterShareButton, LinkedinShareButton } from "next-share";
+import { TwitterShareButton, LinkedinShareButton, FacebookShareButton } from "next-share";
 import { usePathname } from "next/navigation";
 
 export default function ArticleHeader({ blok }) {
@@ -129,6 +129,31 @@ const SocialMedia = ({ blok }) => {
               </svg>
             </a>
           </TwitterShareButton>
+          <FacebookShareButton url={"https://github.com/next-share"}>
+            <a href={""} className="pointer" target="_blank" rel="noopener noreferrer">
+              <span className="sr-only">facebook</span>
+              <svg
+                width="36"
+                height="36"
+                viewBox="0 0 36 36"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <g clip-path="url(#clip0_2480_13927)">
+                  <circle cx="18" cy="18" r="17.5" className="stroke-themeableColors-darkBlue" />
+                  <path
+                    d="M22.9345 19.165L23.4854 15.5728H20.0388V13.2417C20.0388 12.2589 20.5203 11.301 22.064 11.301H23.6311V8.24273C23.6311 8.24273 22.2089 8 20.8493 8C18.0106 8 16.1554 9.72039 16.1554 12.835V15.5728H13V19.165H16.1554V27.849C16.788 27.9483 17.4365 28 18.0971 28C18.7577 28 19.4061 27.9483 20.0388 27.849V19.165H22.9345Z"
+                    className="fill-themeableColors-darkBlue"
+                  />
+                </g>
+                <defs>
+                  <clipPath id="clip0_2480_13927">
+                    <rect width="36" height="36" fill="white" />
+                  </clipPath>
+                </defs>
+              </svg>
+            </a>
+          </FacebookShareButton>
           <LinkedinShareButton url={currentUrl || ""}>
             <a href={""} className="pointer" target="_blank" rel="noopener noreferrer">
               <span className="sr-only">linkedin</span>
