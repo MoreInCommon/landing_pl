@@ -79,7 +79,7 @@ const Navigation = ({ blok }) => {
             ))}
           </div>
           <div className="max-xl:hidden">
-            <SocialMediaIcons xUrl={twitter} linkedinUrl={linkedin} />
+            <SocialMediaIcons xUrl={twitter} linkedinUrl={linkedin} facebookUrl={facebook} />
           </div>
         </div>
       </div>
