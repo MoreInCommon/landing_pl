@@ -18,7 +18,7 @@ export default function Quote({ blok, multiple }) {
             <span className={`w-[2px] ${lineBg} h-[92%] m-auto`} />
             <p className="text-[112px] leading-[0px] absolute bottom-[22px] rotate-180">“</p>
           </div>
-          <h3 className="text-[22px] font-medium flex-1 leading-[30px] relative">
+          <div className="text-[22px] font-medium flex-1 leading-[30px] relative">
             {blok.text}
             {blok?.author && (
               <h4 className="text-[22px] font-medium flex-1 leading-[30px] absolute right-0 bottom-[-45px]">
@@ -26,7 +26,7 @@ export default function Quote({ blok, multiple }) {
                 - {blok.author}
               </h4>
             )}
-          </h3>
+          </div>
         </div>
       </div>
     </div>

@@ -15,7 +15,8 @@ import HeaderFive from "@/app/components/HeaderFive";
 import Quote from "@/app/components/Quote";
 import MainHeader from "@/app/components/MainHeader";
 import QuoteContainer from "@/app/components/QuoteContainer";
-import ChartEmbed from "@/app/components/ChartEmbed";
+import dynamic from "next/dynamic";
+const ChartEmbed = dynamic(() => import("@/app/components/ChartEmbed"), { ssr: false });
 
 export default function LongText({ blok }) {
   return (
