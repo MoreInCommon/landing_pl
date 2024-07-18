@@ -23,7 +23,7 @@ const segments = [
     title: "Zawiedzenie Samotnicy",
     color: "#3A7F8E",
     image: "/tempImages/Avatar_3.png",
-    url: "/raport-klimatyczny/zawiedzenie-samotnicy",
+    url: "/raport-klimatyczny/zawiedzeni-samotnicy",
   },
   {
     title: "Niezaangażowani Normalsi",
