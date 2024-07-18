@@ -85,7 +85,6 @@ const SocialMedia = ({ blok }) => {
   };
 
   const report = blok?.report?.filename;
-  console.log(blok);
   return (
     <div
       className={`mx-auto flex items-center ${isClimate ? "justify-start" : "justify-center"} gap-8 max-w-[800px] max-md:flex-col max-md:items-baseline max-md:gap-4`}
@@ -129,7 +128,7 @@ const SocialMedia = ({ blok }) => {
               </svg>
             </a>
           </TwitterShareButton>
-          <FacebookShareButton url={"https://github.com/next-share"}>
+          <FacebookShareButton url={currentUrl}>
             <a href={""} className="pointer" target="_blank" rel="noopener noreferrer">
               <span className="sr-only">facebook</span>
               <svg
