@@ -1,5 +1,7 @@
 "use client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
+import { useCallback } from "react";
 import { storyblokEditable } from "@storyblok/react";
 import MainHeader from "@/app/components/MainHeader";
 import CenteredSection from "@/app/components/CenteredSection";
@@ -8,6 +10,18 @@ import useScroll from "@/app/useScroll";
 const ClimateSlides = ({ blok }) => {
   const contents = blok.slide;
   const { containerRef, ScrollRightButton, ScrollLeftButton } = useScroll();
+  const router = useRouter();
+  const currentUrl = window.location.href;
+
+  const handleNavigation = useCallback(
+    (event, url) => {
+      event.preventDefault();
+      router.push(url);
+      window.location.href = url;
+      window.history.replaceState(null, "", currentUrl);
+    },
+    [router, currentUrl]
+  );
 
   if (contents.length === 1) {
     return (
@@ -22,6 +36,7 @@ const ClimateSlides = ({ blok }) => {
                 className="flex max-lg:flex-col p-8 m-auto items-center gap-8 bg-white w-full max-w-[1000px]"
                 href={`/${content?.url?.cached_url}`}
                 key={index}
+                onClick={(event) => handleNavigation(event, `/${content?.url?.cached_url}`)}
               >
                 <div className="flex-1">
                   <img src={content?.image?.filename} alt="img" />
@@ -67,6 +82,7 @@ const ClimateSlides = ({ blok }) => {
             className="flex p-6 flex-col items-center gap-2 border-[1px] border-mono-neutral22 min-w-[325px]"
             href={`/${content?.url?.cached_url}`}
             key={index}
+            onClick={(event) => handleNavigation(event, `/${content?.url?.cached_url}`)}
           >
             <h4 className="text-h4 text-black text-center min-h-[60px]">{content.title}</h4>
             <img src={content?.image?.filename} alt="img" />

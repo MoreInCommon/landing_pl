@@ -97,6 +97,8 @@ export default function CustomSlider({ blok }) {
   const pathname = usePathname();
   const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
   const router = useRouter();
+  const currentUrl = window.location.href;
+
   return (
     <div
       className={`max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile mb-20 m-t-[-40px] ${isGreenUrl}`}
@@ -113,7 +115,11 @@ export default function CustomSlider({ blok }) {
                 </h3>
                 <p className="text-h4 text-black">{content.description}</p>
                 <Button
-                  onClick={() => router.push(`/${content.button?.cached_url}`)}
+                  onClick={() => {
+                    router.push(`/${content.button?.cached_url}`);
+                    window.location.href = url;
+                    window.history.replaceState(null, "", currentUrl);
+                  }}
                   classes="py-[14px] px-8 bg-themeableColors-darkBlue text-white text-[21px] leading-[16px] mt-12 min-w-[133px]"
                 >
                   <div className="relative top-[1px]">Sprawdź</div>

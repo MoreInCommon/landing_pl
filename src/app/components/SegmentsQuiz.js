@@ -8,10 +8,13 @@ import { useRouter, usePathname } from "next/navigation";
 const SegmentsQuiz = ({ blok }) => {
   const router = useRouter();
   const pathname = usePathname();
+  const currentUrl = window.location.href;
   const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
   const handleClick = () => {
     const url = `/${blok?.button_url?.cached_url}`;
     router.push(url);
+    window.location.href = url;
+    window.history.replaceState(null, "", currentUrl);
   };
   const [result, setResult] = useState(null);
 
