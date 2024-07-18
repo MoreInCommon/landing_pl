@@ -1,19 +1,40 @@
-import Script from "next/script";
+import { useEffect } from "react";
+
 const ChartEmbed = ({ src }) => {
   // Extract visualization ID from the URL
-  function extractVisualizationId(url) {
+  const extractVisualizationId = (url) => {
     const regex = /visualisation\/(\d+)/;
     const match = url.match(regex);
     return match ? match[1] : null;
-  }
+  };
 
   const visualizationId = extractVisualizationId(src || "");
 
+  useEffect(() => {
+    const scriptId = "flourish-embed-script";
+    if (!document.getElementById(scriptId)) {
+      const script = document.createElement("script");
+      script.id = scriptId;
+      script.src = "https://public.flourish.studio/resources/embed.js";
+      script.async = true;
+      document.body.appendChild(script);
+    }
+    return () => {
+      const script = document.getElementById(scriptId);
+      if (script) {
+        document.body.removeChild(script);
+      }
+    };
+  }, [visualizationId]);
+
+  if (!visualizationId) return null;
+
   return (
     <div className="mt-10 mb-4 w-[90%] max-w-[950px] m-auto">
-      <div className="flourish-embed flourish-chart" data-src={`story/${visualizationId}`}>
-        <Script src="https://public.flourish.studio/resources/embed.js"></Script>
-      </div>
+      <div
+        className="flourish-embed flourish-chart"
+        data-src={`visualisation/${visualizationId}`}
+      />
     </div>
   );
 };

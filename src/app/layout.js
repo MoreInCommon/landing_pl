@@ -102,7 +102,6 @@ export default async function RootLayout({ children }) {
           <CookieConsentBanner />
           <div id="modal-root" />
         </body>
-        <Script src="https://public.flourish.studio/resources/embed.js" />
       </html>
     </StoryblokProvider>
   );
