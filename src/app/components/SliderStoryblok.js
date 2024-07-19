@@ -97,7 +97,6 @@ export default function CustomSlider({ blok }) {
   const pathname = usePathname();
   const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
   const router = useRouter();
-  const currentUrl = window.location.href;
 
   return (
     <div
@@ -116,6 +115,7 @@ export default function CustomSlider({ blok }) {
                 <p className="text-h4 text-black">{content.description}</p>
                 <Button
                   onClick={() => {
+                    const currentUrl = window.location.href;
                     router.push(`/${content.button?.cached_url}`);
                     window.location.href = url;
                     window.history.replaceState(null, "", currentUrl);

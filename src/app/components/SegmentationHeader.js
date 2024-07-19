@@ -12,8 +12,6 @@ import { useRouter } from "next/navigation";
 
 const SegmentationHeader = ({ blok }) => {
   const router = useRouter();
-  const currentUrl = window.location.href;
-
   return (
     <div className="max-xl:px-4 ">
       <div
@@ -38,6 +36,7 @@ const SegmentationHeader = ({ blok }) => {
         </div>
         <Button
           onClick={() => {
+            const currentUrl = window.location.href;
             router.push(`/${blok.button_link.cached_url}`);
             window.location.href = url;
             window.history.replaceState(null, "", currentUrl);

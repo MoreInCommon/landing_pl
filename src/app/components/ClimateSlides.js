@@ -11,16 +11,16 @@ const ClimateSlides = ({ blok }) => {
   const contents = blok.slide;
   const { containerRef, ScrollRightButton, ScrollLeftButton } = useScroll();
   const router = useRouter();
-  const currentUrl = window.location.href;
 
   const handleNavigation = useCallback(
     (event, url) => {
       event.preventDefault();
+      const currentUrl = window.location.href;
       router.push(url);
       window.location.href = url;
       window.history.replaceState(null, "", currentUrl);
     },
-    [router, currentUrl]
+    [router]
   );
 
   if (contents.length === 1) {
