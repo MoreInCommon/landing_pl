@@ -46,6 +46,16 @@ export default function LongText({ blok }) {
           },
           [NODE_HEADING]: (props, { level }) => {
             if (level === 1) return <MainHeader text={props} />;
+            if (level === 6)
+              return (
+                <CenterContainer>
+                  <h6
+                    className={`text-[12px] text-black font-normal mt-4 mb-2 max-xl:px-tablet max-sm:px-mobile`}
+                  >
+                    {props}
+                  </h6>
+                </CenterContainer>
+              );
             if (level === 4 || level === 3)
               return (
                 <CenterContainer>
