@@ -71,10 +71,19 @@ const ClimateContent = ({ blok }) => {
       </div>
       {hasSegments && (
         <div className="relative m-auto px-[140px] max-lg:px-10 max-w-full max-md:px-6 max-sm:px-4">
-          <ScrollLeftButton />
-          <div ref={containerRef} className="flex gap-4 my-8 mt-16 mb-10 overflow-x-scroll">
+          <div className="overflow-auto">
+            <ScrollLeftButton />
+          </div>
+          <div
+            ref={containerRef}
+            className="flex gap-4 my-8 mt-16 mb-10 overflow-x-scroll pb-[20px]"
+          >
             {segments.map((content, index) => (
-              <div className="flex flex-col gap-4 min-w-[300px]" key={index}>
+              <div
+                className="flex flex-col gap-4 min-w-[300px] cursor-pointer"
+                key={index}
+                onClick={() => changePage(content.url)}
+              >
                 <img src={content.image} alt={content.title} className="h-[205px] object-contain" />
                 <Button
                   onClick={() => changePage(content.url)}
@@ -86,7 +95,9 @@ const ClimateContent = ({ blok }) => {
               </div>
             ))}
           </div>
-          <ScrollRightButton />
+          <div className="overflow-auto">
+            <ScrollRightButton />
+          </div>
         </div>
       )}
     </>

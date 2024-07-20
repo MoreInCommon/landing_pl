@@ -240,7 +240,7 @@ const ClimateQuiz = ({ blok }) => {
                   </filter>
                 </defs>
               </svg>
-              <h4 className="font-bold text-[32px]">Gratulacje!</h4>
+              {totalCorrectAnswers >= 4 && <h4 className="font-bold text-[32px]">Gratulacje!</h4>}
               <p className="font-medium text-[24px] mb-1 ">Twój wynik testu to:</p>
               <div
                 className={`mb-8 p-3 mt-1 text-center mx-[-64px] font-bold text-[44px] w-full bg-[${colors.background}]`}
@@ -413,7 +413,7 @@ const ClimateQuiz = ({ blok }) => {
                 }}
                 classes="py-[6px] px-8 bg-themeableColors-darkBlue text-white text-[16px] leading-[16px] min-w-[133px] cursor-pointer disabled:cursor-not-allowed disabled:bg-[#858D9C] disabled:text-[#FFFFFF] disabled:hover:bg-[#858D9C] disabled:hover:text-[#FFFFFF]"
               >
-                <span className="relative ">Zakończ</span>
+                <span className="relative top-[1px]">Zakończ</span>
               </Button>
             ) : (
               <ButtonText
