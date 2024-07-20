@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 
 const Button = ({ children, classes = "", ...props }) => {
   const pathname = usePathname();
-  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
+  const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
 
   return (
     <div className={`${isGreenUrl}`}>

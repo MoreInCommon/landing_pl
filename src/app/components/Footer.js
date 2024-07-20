@@ -8,7 +8,7 @@ import Logo from "../../../public/tempImages/image22.png";
 
 const Footer = ({ blok }) => {
   const pathname = usePathname();
-  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
+  const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
   const navItems = blok.blocks.filter((block) => block.component === "footer items");
   const socialMediaLink = blok.blocks.filter((block) => block.component === "social media link");
   const twitter = socialMediaLink.find((block) => block.type === "twitter").url.url;

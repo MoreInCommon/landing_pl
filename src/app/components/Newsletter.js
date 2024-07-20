@@ -9,7 +9,7 @@ import Notification from "@/app/components/Notification";
 const Newsletter = ({ blok }) => {
   const pathname = usePathname();
 
-  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
+  const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
 
   const [showSuccess, setShowSuccess] = useState(false);
   const handleSubmit = (e) => {

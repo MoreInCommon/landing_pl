@@ -95,7 +95,7 @@ export default function CustomSlider({ blok }) {
   };
 
   const pathname = usePathname();
-  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
+  const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
   const router = useRouter();
 
   return (

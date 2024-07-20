@@ -8,7 +8,7 @@ import { useRouter, usePathname } from "next/navigation";
 const SegmentsQuiz = ({ blok }) => {
   const router = useRouter();
   const pathname = usePathname();
-  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
+  const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
   const handleClick = () => {
     const currentUrl = window.location.href;
     const url = `/${blok?.button_url?.cached_url}`;

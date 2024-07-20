@@ -13,7 +13,7 @@ export default function ClimateArticleHeader({ blok }) {
   const [showSuccess, setShowSuccess] = useState(false);
   let currentUrl;
   const pathname = usePathname();
-  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
+  const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
   if (typeof window !== "undefined") {
     currentUrl = window?.location?.toString();
   }

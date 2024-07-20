@@ -19,7 +19,7 @@ const Navigation = ({ blok }) => {
     ...block,
     component: "mobile navigation item",
   }));
-  const isGreenUrl = pathname?.includes("klimatyczny") ? "bg-themeGreen" : "";
+  const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
   return (
     <div className={`w-full bg-white fixed top-0 shadow-nav-shadow z-50 ${isGreenUrl}`}>
       <div className="max-w-full m-auto w-full bg-white max-xl:py-4">
