@@ -144,7 +144,7 @@ const ClimateQuiz = ({ blok }) => {
       <Modal showModal={showModal} setShowModal={setShowModal} style={{ maxWidth: 850 }}>
         <div className="bg-themeGreen">
           <div className="bg-white flex items-center justify-between border-solid border-b border-[#DADDE1] mx-[-20px] px-8 pb-4">
-            <span className="text-black text-[20px]">Test wiedzy o zmianach klimatu</span>
+            <span className="text-black text-[20px]">Test: Co Polki i Polacy myślą o klimacie</span>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="14"
