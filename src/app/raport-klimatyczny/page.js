@@ -22,8 +22,8 @@ export default async function Home() {
 export async function fetchData() {
   const { isEnabled } = draftMode();
 
-  return fetchPageData(`cdn/stories/raport-klimatyczny`, isEnabled);
+  return fetchPageData(`cdn/stories/fokus-na-klimat`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/raport-klimatyczny`);
+  return fetchMetadata(`cdn/stories/fokus-na-klimat`);
 }

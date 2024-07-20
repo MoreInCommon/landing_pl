@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export default function ArticleHeader({ blok }) {
   const pathname = usePathname();
-  const isClimate = pathname?.includes("raport-klimatyczny/artykuly");
+  const isClimate = pathname?.includes("fokus-na-klimat/artykuly");
 
   if (isClimate) {
     return (
@@ -58,7 +58,7 @@ export default function ArticleHeader({ blok }) {
 const SocialMedia = ({ blok }) => {
   const [showSuccess, setShowSuccess] = useState(false);
   const pathname = usePathname();
-  const isClimate = pathname?.includes("raport-klimatyczny/artykuly");
+  const isClimate = pathname?.includes("fokus-na-klimat/artykuly");
   const formatter = new Intl.DateTimeFormat("pl", {
     month: "long",
     year: "numeric",
