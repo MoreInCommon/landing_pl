@@ -7,6 +7,7 @@ import ClimateArticleHeader from "@/app/components/ClimateArticleHeader";
 import StandardText from "@/app/components/StandardText";
 import Media from "@/app/components/Media";
 import Projects from "@/app/components/Projects";
+import SimilarArticles from "@/app/components/SimilarArticles";
 import Decoration from "@/app/components/Decoration";
 import Project from "@/app/components/Project";
 import Segment from "@/app/components/Segment";
@@ -79,6 +80,7 @@ export const components = {
   "quote container": QuoteContainer,
   "climate quiz": ClimateQuiz,
   "climate slides": ClimateSlides,
+  "similar articles": SimilarArticles,
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {

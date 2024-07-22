@@ -85,12 +85,12 @@ export default async function RootLayout({ children }) {
   const navigation = blocks?.find((blok) => blok?.component === "global navigation");
   const footer = blocks?.find((blok) => blok?.component === "global footer");
   const decoration = blocks?.find((blok) => blok?.component === "decoration urls");
-
+  const bridgeOptions = { resolveRelations: ["similar articles.urls"] };
   return (
     <StoryblokProvider>
       <html lang="pl">
         <GoogleAnalytics gaId="G-7RYKX332PZ" />
-        <StoryblokBridgeLoader />
+        <StoryblokBridgeLoader options={bridgeOptions} />
         <body className={`${sailec.className} bg-white mt-[76px] max-xl:mt-12 overflow-x-hidden`}>
           <StoryblokComponent blok={decoration} key={decoration._uid} />
           <StoryblokComponent blok={navigation} key={navigation._uid} />
