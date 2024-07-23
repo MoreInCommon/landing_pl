@@ -5,6 +5,7 @@ import {
   NODE_PARAGRAPH,
   NODE_HEADING,
   NODE_IMAGE,
+  NODE_UL,
 } from "storyblok-rich-text-react-renderer";
 import StandardText from "@/app/components/StandardText";
 import CenterContainer from "@/app/components/CenterContainer";
@@ -19,6 +20,7 @@ import dynamic from "next/dynamic";
 const ChartEmbed = dynamic(() => import("@/app/components/ChartEmbed"), { ssr: false });
 
 export default function LongText({ blok }) {
+  const color = blok?.decoration_color?.color;
   return (
     <div>
       {render(blok.text, {
@@ -67,6 +69,26 @@ export default function LongText({ blok }) {
                 <HeaderFive text={props} />
               </CenterContainer>
             );
+          },
+          [NODE_UL]: (props) => {
+            return (
+              <CenterContainer>
+                <ul className="space-y-4 mt-8 mb-12">
+                  {props.map((child, i) => {
+                    return (
+                      <li class="flex space-x-4 items-baseline" key={i}>
+                        <div
+                          class={`w-[6px] h-[6px] rounded-full flex items-center justify-center relative left-10 top-[-3px]`}
+                          style={{ backgroundColor: color }}
+                        />
+                        <span>{child}</span>
+                      </li>
+                    );
+                  })}
+                </ul>
+              </CenterContainer>
+            );
+            return <ul class="space-y-4 my-8"></ul>;
           },
         },
         blokResolvers: {
