@@ -78,7 +78,7 @@ export default function LongText({ blok }) {
                     return (
                       <li class="flex space-x-4 items-baseline" key={i}>
                         <div
-                          class={`w-[6px] h-[6px] rounded-full flex items-center justify-center relative left-10 top-[-3px]`}
+                          class={`w-[6px] h-[6px] rounded-full flex items-center justify-center relative top-[-3px]`}
                           style={{ backgroundColor: color }}
                         />
                         <span>{child}</span>
