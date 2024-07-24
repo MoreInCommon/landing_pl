@@ -18,7 +18,7 @@ export default async function Home({ params }) {
     redirect(`/404`);
   }
   return (
-    <div className="mt-[-64px] max-sm:mt-[-48px] max-xl:mt-[-48px]">
+    <div>
       <StoryblokStory story={data.story} />
     </div>
   );
