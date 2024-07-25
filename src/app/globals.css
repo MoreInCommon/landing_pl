@@ -27,6 +27,10 @@ img {
   width: auto;
 }
 
+li p {
+  margin-bottom: 4px !important;
+}
+
 .heading-underline::after {
   content: "";
   display: block;
