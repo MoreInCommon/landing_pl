@@ -74,7 +74,7 @@ const ClimateContent = ({ blok }) => {
           <div className="overflow-auto">
             <ScrollLeftButton />
           </div>
-          <div ref={containerRef} className="flex gap-4 my-8 mt-16 overflow-x-scroll pb-[20px]">
+          <div ref={containerRef} className="flex gap-4 mt-16 overflow-x-scroll pb-[20px]">
             {segments.map((content, index) => (
               <div
                 className="flex flex-col gap-4 min-w-[300px] cursor-pointer"
