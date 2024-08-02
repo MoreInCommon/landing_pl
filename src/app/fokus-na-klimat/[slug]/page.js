@@ -27,7 +27,7 @@ export default async function Home({ params }) {
 export async function fetchData(slug) {
   const { isEnabled } = draftMode();
 
-  return fetchPageData(`cdn/stories/fokus-na-klimat/${slug}`, isEnabled);
+  return fetchPageData(`cdn/stories/fokus-na-klimat/${slug}`, isEnabled, "similar articles.urls");
 }
 export async function generateMetadata({ params }) {
   const slug = params.slug;
