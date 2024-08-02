@@ -13,7 +13,6 @@ const SimilarArticles = ({ blok }) => {
     window.location.href = url;
     window.history.replaceState(null, "", currentUrl);
   };
-  console.log(articles);
   return (
     <CenterContainer>
       <h2 className="text-[32px] mt-10 font-bold">Powiązane artykuły</h2>
