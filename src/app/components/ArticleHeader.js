@@ -38,7 +38,7 @@ export default function ArticleHeader({ blok }) {
   }
 
   return (
-    <div className="text-black text-bodyRegular px-6" {...storyblokEditable(blok)}>
+    <div className="text-black text-bodyRegular px-6 mb-20" {...storyblokEditable(blok)}>
       <div className="text-center">
         <div className="inline-block heading-underline">
           <h1 className="text-black text-h1 font-bold text-[64px] mt-2 relative z-[1] leading-[4.5rem]">
@@ -50,7 +50,9 @@ export default function ArticleHeader({ blok }) {
         {blok.text}
       </p>
       <SocialMedia blok={blok} />
-      <img src={blok.image.filename} alt="main photo" className="w-full mt-12 mb-12" />
+      {blok.image.filename && (
+        <img src={blok.image.filename} alt="main photo" className="w-full mt-12" />
+      )}
     </div>
   );
 }
