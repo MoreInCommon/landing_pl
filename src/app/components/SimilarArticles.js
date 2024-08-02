@@ -27,9 +27,11 @@ const SimilarArticles = ({ blok }) => {
           >
             <h4 className="text-h4 text-black text-center min-h-[60px]">{article.name}</h4>
             <img
+              className="min-h-[180px] object-contain"
               src={
                 article?.content?.body?.find((c) => c.component === "article header")?.image
-                  ?.filename
+                  ?.filename ||
+                article?.content?.body?.find((c) => c.component === "seo")?.image?.filename
               }
               alt="img"
             />
