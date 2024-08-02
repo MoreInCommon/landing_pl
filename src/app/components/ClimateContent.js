@@ -47,7 +47,7 @@ const segments = [
     title: "Oddani Tradycjonaliści",
     color: "#77539E",
     image: "/tempImages/Avatar_7.png",
-    url: "/fokus-na-klimat/oddani-tradycjonaliści",
+    url: "/fokus-na-klimat/oddani-tradycjonalisci",
   },
 ];
 
