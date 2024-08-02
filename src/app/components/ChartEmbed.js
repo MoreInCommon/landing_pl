@@ -9,9 +9,14 @@ const ChartEmbed = ({ src }) => {
     const match = url.match(regex);
     return match ? match[1] : null;
   };
+  const extractStoryId = (url) => {
+    const regex = /story\/(\d+)/;
+    const match = url.match(regex);
+    return match ? match[1] : null;
+  };
 
   const visualizationId = extractVisualizationId(src || "");
-
+  const storyId = extractStoryId(src || "");
   useEffect(() => {
     const scriptId = "flourish-embed-script";
     const embedScriptUrl = "https://public.flourish.studio/resources/embed.js";
@@ -45,7 +50,7 @@ const ChartEmbed = ({ src }) => {
     <div className="mt-10 mb-4 w-[90%] max-w-[950px] m-auto">
       <div
         className="flourish-embed flourish-chart"
-        data-src={`visualisation/${visualizationId}`}
+        data-src={visualizationId ? `visualisation/${visualizationId}` : `story/${storyId}`}
       />
     </div>
   );
