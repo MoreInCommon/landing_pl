@@ -16,6 +16,7 @@ import HeaderFive from "@/app/components/HeaderFive";
 import Quote from "@/app/components/Quote";
 import MainHeader from "@/app/components/MainHeader";
 import QuoteContainer from "@/app/components/QuoteContainer";
+import Button from "@/app/components/ButtonStoryblok";
 import dynamic from "next/dynamic";
 const ChartEmbed = dynamic(() => import("@/app/components/ChartEmbed"), { ssr: false });
 
@@ -97,6 +98,7 @@ export default function LongText({ blok }) {
           ),
           ["quote container"]: (props) => <QuoteContainer blok={props} />,
           ["quote"]: (props) => <Quote blok={props} />,
+          ["button"]: (props) => <Button blok={props} />,
           ["iframe"]: (props) => {
             return <ChartEmbed src={props.url.url} />;
           },

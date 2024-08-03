@@ -36,6 +36,7 @@ import JobAd from "@/app/components/JobAd";
 import QuoteContainer from "@/app/components/QuoteContainer";
 import ClimateQuiz from "@/app/components/ClimateQuiz";
 import ClimateSlides from "@/app/components/ClimateSlides";
+import Button from "@/app/components/ButtonStoryblok";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 
 const Seo = () => {
@@ -81,6 +82,7 @@ export const components = {
   "climate quiz": ClimateQuiz,
   "climate slides": ClimateSlides,
   "similar articles": SimilarArticles,
+  button: Button,
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {
