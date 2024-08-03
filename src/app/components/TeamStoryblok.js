@@ -66,8 +66,7 @@ const Team = ({ blok }) => {
           <img
             src={showModal?.photo?.filename}
             alt={showModal?.photo?.alt}
-            width={365}
-            className="max-lg:m-auto h-fit-content object-contain"
+            className="max-lg:m-auto h-fit-content object-contain w-[365px]"
           />
           <div>
             <p className="text-sm">{showModal?.position}</p>
