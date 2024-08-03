@@ -3,8 +3,6 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useCallback } from "react";
 import { storyblokEditable } from "@storyblok/react";
-import MainHeader from "@/app/components/MainHeader";
-import CenteredSection from "@/app/components/CenteredSection";
 import useScroll from "@/app/useScroll";
 
 const ClimateSlides = ({ blok }) => {
