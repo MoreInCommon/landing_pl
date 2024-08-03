@@ -340,7 +340,6 @@ export default function QuizStart() {
             <Link className="underline" href="/polityka-prywatnosci">
               Polityką Prywatności.
             </Link>
-            .
           </p>
         </CenterContainer>
       </CenteredSection>
