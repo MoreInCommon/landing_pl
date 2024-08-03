@@ -85,7 +85,9 @@ export default async function RootLayout({ children }) {
   const navigation = blocks?.find((blok) => blok?.component === "global navigation");
   const footer = blocks?.find((blok) => blok?.component === "global footer");
   const decoration = blocks?.find((blok) => blok?.component === "decoration urls");
-  const bridgeOptions = { resolveRelations: ["similar articles.urls"] };
+  const bridgeOptions = {
+    resolveRelations: ["similar articles.urls", "automatic climate slides.articles"],
+  };
   return (
     <StoryblokProvider>
       <html lang="pl">

@@ -8,7 +8,21 @@ import CenteredSection from "@/app/components/CenteredSection";
 import useScroll from "@/app/useScroll";
 
 const ClimateSlides = ({ blok }) => {
-  const contents = blok.slide;
+  const formattedArticles = blok?.articles
+    ? blok.articles.map((a) => {
+        return {
+          image: {
+            filename: a?.content?.body?.find((b) => b.component === "article header")?.image
+              ?.filename,
+          },
+          title: a?.name,
+          url: {
+            cached_url: a?.full_slug,
+          },
+        };
+      })
+    : null;
+  const contents = formattedArticles || blok.slide;
   const { containerRef, ScrollRightButton, ScrollLeftButton } = useScroll();
   const router = useRouter();
 
@@ -23,12 +37,9 @@ const ClimateSlides = ({ blok }) => {
     [router]
   );
 
-  if (contents.length === 1) {
+  if (contents?.length === 1) {
     return (
       <div className="bg-[#F8F8F9] max-sm:p-6 p-[72px] mt-[72px]">
-        <CenteredSection>
-          <MainHeader className="green-heading-underline" text={"ABC komunikacji klimatycznej"} />
-        </CenteredSection>
         <div className="relative m-auto max-w-full" {...storyblokEditable(blok)}>
           <div className="flex gap-4 my-8 mt-10 mb-10 overflow-x-scroll">
             {contents.map((content, index) => (
@@ -77,7 +88,7 @@ const ClimateSlides = ({ blok }) => {
     >
       <ScrollLeftButton />
       <div ref={containerRef} className="flex gap-4 my-8 mt-10 mb-10 overflow-x-scroll">
-        {contents.map((content, index) => (
+        {contents?.map((content, index) => (
           <Link
             className="flex p-6 flex-col items-center gap-2 border-[1px] border-mono-neutral22 min-w-[325px]"
             href={`/${content?.url?.cached_url}`}

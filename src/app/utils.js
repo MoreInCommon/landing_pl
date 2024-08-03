@@ -82,6 +82,7 @@ export const components = {
   "climate quiz": ClimateQuiz,
   "climate slides": ClimateSlides,
   "similar articles": SimilarArticles,
+  "automatic climate slides": ClimateSlides,
   button: Button,
 };
 
