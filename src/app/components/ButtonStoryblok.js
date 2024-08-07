@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 
 const Button = ({ blok }) => {
   const url = blok?.url?.cached_url || blok?.url?.url;
+  const pdf = blok?.pdf?.filename;
   const { push } = useRouter();
   const color = {
     blue: "bg-brand-darkBlue hover:bg-hover-darkBlue",
@@ -12,6 +13,10 @@ const Button = ({ blok }) => {
     lightblue: "bg-brand-blue hover:bg-hover-blue",
   };
   const changePage = () => {
+    if (pdf) {
+      window.open(pdf);
+      return;
+    }
     const currentUrl = window.location.href;
     push(`${url}`);
     window.location.href = url;
