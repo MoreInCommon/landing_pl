@@ -29,11 +29,11 @@ const SimilarArticles = ({ blok }) => {
               key={article.id}
               href={`/${article.full_slug}`}
               onClick={(e) => changePage(e, `/${article.full_slug}`)}
-              className="flex p-6 flex-col items-center gap-2 border-[1px] border-mono-neutral22 min-w-[225px]"
+              className="flex p-6 flex-col items-center gap-2 border-[1px] border-mono-neutral22 min-w-[225px] flex-1"
             >
               <h4 className="text-h4 text-black text-center min-h-[60px]">{article.name}</h4>
               <img
-                className="min-h-[180px] object-contain max-h-[330px]"
+                className="min-h-[180px] object-contain max-h-[330px] w-auto"
                 src={
                   article?.content?.body?.find((c) => c.component === "article header")?.image
                     ?.filename ||
