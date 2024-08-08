@@ -20,10 +20,7 @@ const SegmentContent = ({ blok }) => {
 
   const isResult = result !== null;
   const changePage = (url) => {
-    const currentUrl = window.location.href;
-    push(`${url}`);
     window.location.href = url;
-    window.history.replaceState(null, "", currentUrl);
   };
   return (
     <div {...storyblokEditable(blok)}>
@@ -74,8 +71,8 @@ const SegmentContent = ({ blok }) => {
             <div className="w-[115px] h-px bg-black"></div>
           </div>
           <a
-            className="text-[20px] text-themeableColors-darkBlue underline"
-            onClick={changePage(`/${blok.back_url.cached_url}`)}
+            className="text-[20px] text-themeableColors-darkBlue underline cursor-pointer"
+            onClick={() => changePage(`/${blok.back_url.cached_url}`)}
           >
             Wróć do quizu
           </a>
