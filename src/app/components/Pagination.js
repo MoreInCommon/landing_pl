@@ -2,6 +2,7 @@
 import ReactPaginate from "react-paginate";
 
 const Pagination = ({ currentPage, totalPages, setCurrentPage }) => {
+  if (totalPages === 1) return null;
   return (
     <ReactPaginate
       className="text-brand-darkBlue flex gap-4 relative"

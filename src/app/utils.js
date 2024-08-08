@@ -6,6 +6,8 @@ import ArticleHeader from "@/app/components/ArticleHeader";
 import ClimateArticleHeader from "@/app/components/ClimateArticleHeader";
 import StandardText from "@/app/components/StandardText";
 import Media from "@/app/components/Media";
+import MediaMentions from "@/app/components/MediaMentions";
+import MediaMention from "@/app/components/MediaMention";
 import Projects from "@/app/components/Projects";
 import SimilarArticles from "@/app/components/SimilarArticles";
 import Decoration from "@/app/components/Decoration";
@@ -55,6 +57,8 @@ export const components = {
   well: Well,
   statut: Statut,
   "media container": Media,
+  "Media Mention Container": MediaMentions,
+  "Media Mention": MediaMention,
   media: MediaProject,
   project: Project,
   projects: Projects,
