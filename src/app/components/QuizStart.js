@@ -245,12 +245,12 @@ export default function QuizStart() {
     .sort((a, b) => a.realNumber - b.realNumber)
     .map((p) => p.value + 1);
 
-  const res1 = calculateResult5(answersOrderedByRealNumber); // postepowi zapalency
+  const res1 = calculateResult1(answersOrderedByRealNumber); // postepowi zapalency
   const res2 = calculateResult2(answersOrderedByRealNumber); // pasywni liberałowie
   const res3 = calculateResult3(answersOrderedByRealNumber); // zawiedzeni samotnicy
-  const res4 = calculateResult6(answersOrderedByRealNumber); // niezaangażowani normalsi
-  const res5 = calculateResult1(answersOrderedByRealNumber); // spełnieni lokalisci
-  const res6 = calculateResult4(answersOrderedByRealNumber); // dumni patrioci
+  const res4 = calculateResult4(answersOrderedByRealNumber); // niezaangażowani normalsi
+  const res5 = calculateResult5(answersOrderedByRealNumber); // spełnieni lokalisci
+  const res6 = calculateResult6(answersOrderedByRealNumber); // dumni patrioci
   const res7 = calculateResult7(answersOrderedByRealNumber); // oddani tradycjonaliści
 
   const allQuestionsAnswered = currentPage.questions.every((question) => question.value !== null);
