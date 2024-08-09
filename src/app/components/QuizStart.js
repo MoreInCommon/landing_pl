@@ -245,13 +245,104 @@ export default function QuizStart() {
     .sort((a, b) => a.realNumber - b.realNumber)
     .map((p) => p.value + 1);
 
-  const res1 = calculateResult1(answersOrderedByRealNumber); // postepowi zapalency
-  const res2 = calculateResult2(answersOrderedByRealNumber); // pasywni liberałowie
-  const res3 = calculateResult3(answersOrderedByRealNumber); // zawiedzeni samotnicy
-  const res4 = calculateResult4(answersOrderedByRealNumber); // niezaangażowani normalsi
-  const res5 = calculateResult5(answersOrderedByRealNumber); // spełnieni lokalisci
-  const res6 = calculateResult6(answersOrderedByRealNumber); // dumni patrioci
-  const res7 = calculateResult7(answersOrderedByRealNumber); // oddani tradycjonaliści
+  const test = () => {
+    const urls = {
+      1: "/siedem-segmentow/niezaangazowani-normalsi?result",
+      2: "/siedem-segmentow/spelnieni-lokalisci?result",
+      3: "/siedem-segmentow/zawiedzeni-samotnicy?result",
+      4: "/siedem-segmentow/pasywni-liberalowie?result",
+      5: "/siedem-segmentow/dumni-patrioci?result",
+      6: "/siedem-segmentow/postepowi-zapalency?result",
+      7: "/siedem-segmentow/oddani-tradycjonalisci?result",
+    };
+
+    const pz1 = [3, 3, 3, 1, 6, 6, 1, 5, 2, 5, 1, 1, 5, 2, 4, 5, 5, 2, 1, 1]; // 6
+    const pz2 = [4, 2, 2, 1, 2, 4, 1, 6, 2, 6, 1, 2, 5, 2, 4, 3, 2, 2, 1, 1]; // 6
+    const pz3 = [2, 2, 2, 2, 5, 5, 2, 4, 1, 5, 2, 3, 5, 1, 4, 5, 6, 1, 3, 2]; // 6
+    const pz4 = [5, 3, 4, 2, 5, 2, 1, 5, 1, 5, 1, 2, 5, 1, 4, 6, 5, 1, 2, 1]; // 6
+    const pz5 = [3, 1, 3, 1, 6, 4, 2, 4, 3, 6, 2, 1, 4, 4, 3, 4, 5, 2, 1, 2]; // 6
+    const dp1 = [5, 6, 2, 1, 4, 1, 3, 4, 5, 5, 3, 3, 4, 3, 4, 1, 1, 3, 5, 6]; // 5
+    const dp2 = [5, 6, 3, 2, 5, 1, 4, 4, 4, 5, 3, 4, 2, 3, 3, 2, 2, 3, 5, 4]; // 5
+    const dp3 = [6, 5, 2, 1, 4, 2, 3, 5, 4, 6, 4, 3, 3, 4, 3, 1, 1, 3, 4, 6]; // 5
+    const dp4 = [5, 4, 2, 1, 5, 2, 5, 4, 5, 5, 3, 2, 4, 3, 3, 2, 1, 4, 5, 5]; // 5
+    const dp5 = [6, 6, 1, 2, 6, 1, 5, 5, 4, 4, 4, 4, 2, 4, 4, 1, 1, 3, 5, 6]; // 5
+    const ot1 = [2, 5, 1, 3, 4, 1, 6, 2, 3, 6, 4, 6, 3, 2, 3, 6, 1, 1, 3, 2]; // 7
+    const ot2 = [1, 4, 2, 2, 3, 2, 5, 4, 2, 5, 3, 6, 1, 1, 2, 6, 1, 1, 3, 3]; // 7
+    const ot3 = [3, 6, 1, 1, 5, 1, 5, 5, 4, 5, 2, 5, 2, 2, 1, 5, 2, 1, 4, 2]; // 7
+    const pl1 = [4, 3, 3, 3, 6, 6, 1, 6, 2, 1, 2, 3, 5, 2, 4, 1, 5, 5, 2, 4]; // 4
+    const pl2 = [4, 1, 4, 2, 6, 5, 2, 5, 2, 2, 1, 2, 4, 1, 4, 2, 6, 6, 1, 6]; // 4
+    const pl3 = [3, 2, 5, 1, 5, 6, 1, 5, 3, 3, 1, 1, 5, 2, 4, 1, 4, 5, 2, 5]; // 4
+    const zs1 = [2, 3, 5, 1, 1, 4, 4, 1, 3, 1, 3, 4, 4, 4, 3, 3, 3, 2, 1, 1]; // 3
+    const zs2 = [3, 3, 6, 2, 2, 3, 2, 2, 4, 2, 3, 3, 3, 3, 2, 4, 2, 2, 1, 2]; // 3
+    const zs3 = [1, 1, 5, 3, 3, 3, 3, 3, 5, 1, 4, 4, 2, 4, 3, 2, 2, 3, 2, 1]; // 3
+    const sl1 = [3, 2, 3, 3, 6, 3, 5, 6, 2, 4, 2, 4, 2, 5, 4, 4, 2, 2, 3, 2]; // 2
+    const sl2 = [2, 1, 2, 2, 5, 4, 6, 5, 1, 5, 1, 5, 3, 4, 4, 5, 1, 3, 1, 1]; // 2
+    const sl3 = [1, 1, 1, 1, 5, 3, 5, 6, 3, 3, 1, 4, 1, 4, 2, 3, 2, 1, 2, 1]; // 2
+    const nn1 = [1, 2, 4, 4, 3, 2, 3, 3, 3, 1, 2, 3, 4, 4, 4, 2, 2, 3, 2, 1]; // 1
+    const nn2 = [2, 3, 3, 3, 4, 1, 3, 4, 4, 2, 3, 4, 3, 3, 3, 1, 3, 2, 1, 1]; // 1
+    const nn3 = [3, 1, 5, 2, 3, 2, 2, 3, 3, 1, 2, 1, 4, 3, 1, 1, 1, 2, 1, 1]; // 1
+
+    const tempAnswers = [
+      { answers: pz1, correctAnswer: 6, propertyName: "pz1" },
+      { answers: pz2, correctAnswer: 6, propertyName: "pz2" },
+      { answers: pz3, correctAnswer: 6, propertyName: "pz3" },
+      { answers: pz4, correctAnswer: 6, propertyName: "pz4" },
+      { answers: pz5, correctAnswer: 6, propertyName: "pz5" },
+      { answers: dp1, correctAnswer: 5, propertyName: "dp1" },
+      { answers: dp2, correctAnswer: 5, propertyName: "dp2" },
+      { answers: dp3, correctAnswer: 5, propertyName: "dp3" },
+      { answers: dp4, correctAnswer: 5, propertyName: "dp4" },
+      { answers: dp5, correctAnswer: 5, propertyName: "dp5" },
+      { answers: ot1, correctAnswer: 7, propertyName: "ot1" },
+      { answers: ot2, correctAnswer: 7, propertyName: "ot2" },
+      { answers: ot3, correctAnswer: 7, propertyName: "ot3" },
+      { answers: pl1, correctAnswer: 4, propertyName: "pl1" },
+      { answers: pl2, correctAnswer: 4, propertyName: "pl2" },
+      { answers: pl3, correctAnswer: 4, propertyName: "pl3" },
+      { answers: zs1, correctAnswer: 3, propertyName: "zs1" },
+      { answers: zs2, correctAnswer: 3, propertyName: "zs2" },
+      { answers: zs3, correctAnswer: 3, propertyName: "zs3" },
+      { answers: sl1, correctAnswer: 2, propertyName: "sl1" },
+      { answers: sl2, correctAnswer: 2, propertyName: "sl2" },
+      { answers: sl3, correctAnswer: 2, propertyName: "sl3" },
+      { answers: nn1, correctAnswer: 1, propertyName: "nn1" },
+      { answers: nn2, correctAnswer: 1, propertyName: "nn2" },
+      { answers: nn3, correctAnswer: 1, propertyName: "nn3" },
+    ];
+    for (const tempAnswer of tempAnswers) {
+      const tempRes1 = calculateResult1(tempAnswer.answers);
+      const tempRes2 = calculateResult2(tempAnswer.answers);
+      const tempRes3 = calculateResult3(tempAnswer.answers);
+      const tempRes4 = calculateResult4(tempAnswer.answers);
+      const tempRes5 = calculateResult5(tempAnswer.answers);
+      const tempRes6 = calculateResult6(tempAnswer.answers);
+      const tempRes7 = calculateResult7(tempAnswer.answers);
+      const result = matchMaxIndex([
+        tempRes1,
+        tempRes2,
+        tempRes3,
+        tempRes4,
+        tempRes5,
+        tempRes6,
+        tempRes7,
+      ]);
+      if (result !== tempAnswer.correctAnswer) {
+        console.log(
+          `Error in ${tempAnswer.propertyName}. Answer is ${result}. Correct answer is ${tempAnswer.correctAnswer}`
+        );
+      } else {
+        console.log(`OK`);
+      }
+    }
+  };
+
+  const res1 = calculateResult1(answersOrderedByRealNumber);
+  const res2 = calculateResult2(answersOrderedByRealNumber);
+  const res3 = calculateResult3(answersOrderedByRealNumber);
+  const res4 = calculateResult4(answersOrderedByRealNumber);
+  const res5 = calculateResult5(answersOrderedByRealNumber);
+  const res6 = calculateResult6(answersOrderedByRealNumber);
+  const res7 = calculateResult7(answersOrderedByRealNumber);
 
   const allQuestionsAnswered = currentPage.questions.every((question) => question.value !== null);
   const totalQuestionsNumber = pages.reduce((acc, page) => acc + page.questions.length, 0);
@@ -303,6 +394,9 @@ export default function QuizStart() {
   if (currentPageIndex === null) {
     return (
       <CenteredSection>
+        {/* <button style={{ background: "red" }} onClick={() => test()}>
+          Test
+        </button> */}
         <SegmentsSvg className="absolute top-[-86px] right-[128px] z-0" />
         <CenterContainer className="my-32">
           <h1 className="mb-6 text-h1 font-bold text-brand-darkBlue">QUIZ 7 segmentów</h1>
