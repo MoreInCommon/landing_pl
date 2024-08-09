@@ -94,7 +94,7 @@ export default function LongText({ blok }) {
         },
         blokResolvers: {
           ["page lead"]: (props) => (
-            <StandardText text={props.text} className="mb-[72px] max-xl:mb-12" />
+            <StandardText blok={props} className="mb-[72px] max-xl:mb-12" />
           ),
           ["quote container"]: (props) => <QuoteContainer blok={props} />,
           ["quote"]: (props) => <Quote blok={props} />,
