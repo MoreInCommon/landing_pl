@@ -394,9 +394,9 @@ export default function QuizStart() {
   if (currentPageIndex === null) {
     return (
       <CenteredSection>
-        {/* <button style={{ background: "red" }} onClick={() => test()}>
+        <button style={{ background: "red", display: "none" }} onClick={() => test()}>
           Test
-        </button> */}
+        </button>
         <SegmentsSvg className="absolute top-[-86px] right-[128px] z-0" />
         <CenterContainer className="my-32">
           <h1 className="mb-6 text-h1 font-bold text-brand-darkBlue">QUIZ 7 segmentów</h1>
