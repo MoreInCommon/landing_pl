@@ -12,7 +12,6 @@ storyblokInit({
 });
 export default async function Home() {
   const { data } = await fetchData();
-  console.log(data.story.content.body);
   return (
     <>
       <StoryblokStory story={data.story} />
