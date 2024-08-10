@@ -31,7 +31,9 @@ const SimilarArticles = ({ blok }) => {
               onClick={(e) => changePage(e, `/${article.full_slug}`)}
               className={`flex p-6 flex-col items-center gap-2 ${noBorder ? "" : "border border-mono-neutral22"} min-w-[225px] flex-1`}
             >
-              <h4 className="text-h4 text-black text-center min-h-[60px]">{article.name}</h4>
+              <h4 className="text-h4 text-black text-center min-h-[60px] ellipsis">
+                {article.name}
+              </h4>
               <img
                 className="min-h-[180px] object-contain max-h-[330px] w-auto"
                 src={

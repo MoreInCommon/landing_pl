@@ -136,3 +136,12 @@ input[type="radio"] {
   display: flex;
   align-items: center;
 }
+
+.ellipsis {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: normal;
+}

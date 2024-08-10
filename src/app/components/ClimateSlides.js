@@ -93,7 +93,9 @@ const ClimateSlides = ({ blok }) => {
             key={index}
             onClick={(event) => handleNavigation(event, `/${content?.url?.cached_url}`)}
           >
-            <h4 className="text-h4 text-black text-center min-h-[60px]">{content.title}</h4>
+            <h4 className="text-h4 text-black text-center min-h-[60px] ellipsis">
+              {content.title}
+            </h4>
             <img src={content?.image?.filename} alt="img" className="min-h-[330px]" />
             <p className="text-black flex items-center self-end mt-2">
               Czytaj dalej{" "}
