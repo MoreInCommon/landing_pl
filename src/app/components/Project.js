@@ -2,6 +2,7 @@
 import Button from "@/app/components/Button";
 import ButtonText from "@/app/components/ButtonText";
 import { storyblokEditable } from "@storyblok/react";
+import { useRouter } from "next/navigation";
 
 const Project = ({ blok }) => {
   const formatter = new Intl.DateTimeFormat("pl", {
@@ -14,30 +15,44 @@ const Project = ({ blok }) => {
     window.open(url, "_blank");
   };
 
+  const { push } = useRouter();
+  const changePage = (e, url) => {
+    e.preventDefault();
+    const currentUrl = window.location.href;
+    push(`${url}`);
+    window.location.href = url;
+    window.history.replaceState(null, "", currentUrl);
+  };
+
   return (
-    <a
-      href={blok.url.url || blok.url.cached_url}
-      target="_blank"
+    <div
       rel="noopener noreferrer"
       className="bg-white p-6 border-t-[6px] border-brand-darkBlue flex-[47%] max-md:flex-[75%] w-1/2 flex flex-col max-w-1/2 max-md:max-w-[100%] hover:shadow-tile-shadow transition-shadow"
       {...storyblokEditable(blok)}
     >
-      <div className="relative mb-6 flex">
-        <img
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          src={blok.img.filename}
-          alt=""
-          style={{ objectFit: "contain", maxHeight: 300, marginLeft: "auto", marginRight: "auto" }}
-        />
-      </div>
-      <p className="text-grey-medium text-captionRegular mb-1">
-        {formatter?.format(blok?.date ? new Date(blok?.date) : new Date())}
-      </p>
-      <p className=" text-brand-darkBlue inline-block uppercase  font-bodySmall w-fit font-bold mb-3 rounded empty:hidden">
-        {blok?.medium}
-      </p>
-      <h4 className="text-h4 text-mono-neutral11 mb-2 font-bold">{blok?.title}</h4>
-      <p className="text-bodyRegular text-mono-neutral11 mb-[44px]">{blok?.description}</p>
+      <a href={blok.url.url || blok.url.cached_url} target="_blank">
+        <div className="relative mb-6 flex">
+          <img
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            src={blok.img.filename}
+            alt=""
+            style={{
+              objectFit: "contain",
+              maxHeight: 300,
+              marginLeft: "auto",
+              marginRight: "auto",
+            }}
+          />
+        </div>
+        <p className="text-grey-medium text-captionRegular mb-1">
+          {formatter?.format(blok?.date ? new Date(blok?.date) : new Date())}
+        </p>
+        <p className=" text-brand-darkBlue inline-block uppercase  font-bodySmall w-fit font-bold mb-3 rounded empty:hidden">
+          {blok?.medium}
+        </p>
+        <h4 className="text-h4 text-mono-neutral11 mb-2 font-bold">{blok?.title}</h4>
+        <p className="text-bodyRegular text-mono-neutral11 mb-[44px]">{blok?.description}</p>
+      </a>
       <div className="flex items-center justify-end gap-2 mt-auto">
         {blok?.downloadUrl?.filename && (
           <ButtonText onClick={() => download(blok?.downloadUrl?.filename)}>
@@ -68,7 +83,10 @@ const Project = ({ blok }) => {
             </svg>
           </ButtonText>
         )}
-        <Button onClick={() => console.log()} classes="bg-themeableColors-darkBlue">
+        <Button
+          onClick={(e) => changePage(e, `/${blok.url.url || blok.url.cached_url}`)}
+          classes="bg-themeableColors-darkBlue"
+        >
           <div className="relative top-[1px]">Czytaj dalej</div>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -86,7 +104,7 @@ const Project = ({ blok }) => {
           </svg>
         </Button>
       </div>
-    </a>
+    </div>
   );
 };
 

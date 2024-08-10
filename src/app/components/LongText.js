@@ -77,9 +77,9 @@ export default function LongText({ blok }) {
                 <ul className="space-y-4 mt-8 mb-12">
                   {props.map((child, i) => {
                     return (
-                      <li class="flex space-x-4 items-baseline mt-0" key={i}>
+                      <li className="flex space-x-4 items-baseline mt-0" key={i}>
                         <div
-                          class={`w-[6px] h-[6px] rounded-full flex items-center justify-center relative top-[-3px]`}
+                          className={`w-[6px] h-[6px] rounded-full flex items-center justify-center relative top-[-3px]`}
                           style={{ backgroundColor: color }}
                         />
                         <span>{child}</span>

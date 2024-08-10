@@ -15,7 +15,7 @@ const SimilarArticles = ({ blok }) => {
     window.history.replaceState(null, "", currentUrl);
   };
   const { containerRef, ScrollRightButton, ScrollLeftButton } = useScroll();
-
+  const noBorder = blok.no_boder;
   return (
     <>
       <CenterContainer>
@@ -29,7 +29,7 @@ const SimilarArticles = ({ blok }) => {
               key={article.id}
               href={`/${article.full_slug}`}
               onClick={(e) => changePage(e, `/${article.full_slug}`)}
-              className="flex p-6 flex-col items-center gap-2 border-mono-neutral22 min-w-[225px] flex-1"
+              className={`flex p-6 flex-col items-center gap-2 ${noBorder ? "" : "border border-mono-neutral22"} min-w-[225px] flex-1`}
             >
               <h4 className="text-h4 text-black text-center min-h-[60px]">{article.name}</h4>
               <img

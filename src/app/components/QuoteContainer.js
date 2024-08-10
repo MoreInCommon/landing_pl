@@ -1,5 +1,5 @@
 "use client";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import { storyblokEditable } from "@storyblok/react";
 import { StoryblokComponent } from "@storyblok/react";
 import Slider from "react-slick";
@@ -16,6 +16,11 @@ const QuoteContainer = ({ blok }) => {
   };
 
   const { bg, text, lineBg } = getColors(blok?.quote?.[0]?.color);
+  const cleanColor = text.replace(/text-\[|\]/g, "");
+
+  useEffect(() => {
+    // find slick-a
+  }, []);
 
   var settings = {
     infinite: true,
@@ -44,11 +49,11 @@ const QuoteContainer = ({ blok }) => {
           >
             <path
               d="M20.9425 9.88L19.0625 8L11.0625 16L19.0625 24L20.9425 22.12L14.8358 16L20.9425 9.88Z"
-              fill="#1D2330"
+              fill={cleanColor}
             />
           </svg>
         </div>
-        <div className="relative top-[3px]">
+        <div className={`relative top-[3px] ${text}`}>
           <ul> {dots} </ul>
         </div>
         <div
@@ -73,7 +78,7 @@ const QuoteContainer = ({ blok }) => {
               <path
                 id="Vector"
                 d="M11.0575 9.88L12.9375 8L20.9375 16L12.9375 24L11.0575 22.12L17.1642 16L11.0575 9.88Z"
-                fill="#1D2330"
+                fill={cleanColor}
               />
             </g>
           </svg>

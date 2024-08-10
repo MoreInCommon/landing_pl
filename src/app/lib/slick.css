@@ -96,5 +96,5 @@
 }
 
 .slick-dots li.slick-active {
-  background: var(--color-primary);
+  background: currentColor;
 }

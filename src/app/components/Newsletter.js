@@ -48,6 +48,7 @@ const Newsletter = ({ blok }) => {
 
   return (
     <div
+      style={{ display: "none" }}
       className={`text-themeableColors-darkBlue w-full newsletterBg bg-[url('/newsletter_bg.png')] py-[4.5rem] max-sm:py-10 ${isGreenUrl}`}
       {...storyblokEditable(blok)}
     >
