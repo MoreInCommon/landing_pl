@@ -32,6 +32,7 @@ export default function LongText({ blok }) {
               props[0].type === "a" ||
               props[0].type === "sup" ||
               props[0].type === "span" ||
+              props[0].type === "i" ||
               props[0].type === "b" ||
               props[0].type === "paragraph" ||
               typeof props?.[0] === "string"
