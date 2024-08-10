@@ -10,15 +10,12 @@ const MediaMention = ({ blok }) => {
   });
   const { push } = useRouter();
   const url = blok?.url?.url || blok?.url?.cached_url;
+  console.log(url);
   const changePage = (e) => {
     e.preventDefault();
-    if (pdf) {
-      window.open(pdf);
-      return;
-    }
     const currentUrl = window.location.href;
-    push(`${url}`);
-    window.location.href = url;
+    push(`/${url}`);
+    window.location.href = `/${url}`;
     window.history.replaceState(null, "", currentUrl);
   };
   return (
