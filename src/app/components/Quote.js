@@ -21,7 +21,7 @@ export default function Quote({ blok, multiple }) {
           <div className="text-[22px] font-medium flex-1 leading-[30px] relative">
             {blok.text}
             {blok?.author && (
-              <h4 className="text-[22px] font-medium flex-1 leading-[30px] absolute right-0 bottom-[-45px]">
+              <h4 className="text-[22px] font-medium flex-1 leading-[30px] relative right-0 pt-6 text-right">
                 {" "}
                 - {blok.author}
               </h4>

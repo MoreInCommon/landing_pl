@@ -90,7 +90,7 @@ const QuoteContainer = ({ blok }) => {
   return (
     <div
       {...storyblokEditable(blok)}
-      className={`quoteSlick ${bg} bg-[url('/newsletter_bg.png')] my-20`}
+      className={`quoteSlick ${bg} bg-[url('/newsletter_bg.png')] my-20 max-[1100px]:pb-10`}
     >
       <Slider
         ref={(slider) => {

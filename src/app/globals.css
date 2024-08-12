@@ -145,3 +145,13 @@ input[type="radio"] {
   text-overflow: ellipsis;
   white-space: normal;
 }
+
+li p {
+  padding: 0 !important;
+}
+
+@media (max-width: 1100px) {
+  .quoteSlick .slick-dots {
+    bottom: -20px;
+  }
+}

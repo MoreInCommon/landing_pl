@@ -24,20 +24,23 @@ const SegmentContent = ({ blok }) => {
   };
   return (
     <div {...storyblokEditable(blok)}>
-      <div style={{ background: blok?.background_color?.color }} className="overflow-y-hidden">
+      <div style={{ background: blok?.background_color?.color }} className="overflow-y-hidden px-4">
         <div className="py-20 max-w-[1000px] m-auto relative flex items-center justify-center">
           <SegmentsSvg className="absolute top-[-4.375rem] right-[-9.5rem] z-0 max-sm:hidden" />
           <img
             src={blok?.image?.filename}
-            className="w-[235px] max-h-[245px] object-contain absolute left-0"
+            className="w-[235px] max-h-[245px] object-contain absolute left-0 max-lg:hidden"
           />
-          <div className="my-[100px]">
+          <div className="my-[100px] max-lg:mb-0 max-lg:mt-10">
             {isResult && (
               <h4 className="text-center mb-5 text-[24px] text-themeableColors-darkBlue font-bold">
                 Grupa, którą reprezentujesz to:
               </h4>
             )}
-            <h1 className="text-[32px] font-bold uppercase" style={{ color: blok?.color?.color }}>
+            <h1
+              className="text-[32px] font-bold uppercase max-sm:text-[24px] max-sm:text-center"
+              style={{ color: blok?.color?.color }}
+            >
               {blok.title}
             </h1>
           </div>

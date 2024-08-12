@@ -12,18 +12,18 @@ export default function ArticleHeader({ blok }) {
   if (isClimate) {
     return (
       <div
-        className="text-black text-bodyRegular bg-themeGreen mb-16 flex items-center max-w-full m-auto pl-[100px] pr-[60px] max-lg:px-10 max-md:px-6 max-sm:px-4"
+        className="text-black text-bodyRegular bg-themeGreen mb-16 flex items-center max-w-full m-auto pl-[100px] pr-[60px] max-lg:px-10 max-md:px-6 max-sm:px-4 max-lg:flex-col gap-10"
         {...storyblokEditable(blok)}
       >
         <img
           src={blok.image.filename}
           alt="main photo"
-          className="max-w-[500px] max-h-[640px] flex-1"
+          className="max-w-[500px] max-h-[640px] flex-1 max-lg:hidden"
         />
-        <div className="p-10 shadow-tile-shadow relative left-[-40px] z-1 bg-white">
+        <div className="p-10 shadow-tile-shadow relative left-[-40px] max-lg:left-0 z-1 bg-white">
           <div>
             <div className="inline-block heading-underline green-heading-underline">
-              <h1 className="text-black text-h1 font-bold text-[64px] mt-2 relative z-[1] leading-[4.5rem]">
+              <h1 className="text-black text-h1 font-bold text-[64px] mt-2 relative z-[1] leading-[4.5rem] max-sm:leading-[3rem]">
                 {blok.title}
               </h1>
             </div>
@@ -38,10 +38,13 @@ export default function ArticleHeader({ blok }) {
   }
 
   return (
-    <div className="text-black text-bodyRegular px-6 mb-20" {...storyblokEditable(blok)}>
+    <div
+      className="text-black text-bodyRegular px-6 mb-20 max-sm:px-2"
+      {...storyblokEditable(blok)}
+    >
       <div className="text-center">
         <div className="inline-block heading-underline">
-          <h1 className="text-black text-h1 font-bold text-[64px] mt-2 relative z-[1] leading-[4.5rem]">
+          <h1 className="text-black text-h1 font-bold text-[64px] mt-2 relative z-[1] leading-[4.5rem] max-sm:leading-[3rem]">
             {blok.title}
           </h1>
         </div>

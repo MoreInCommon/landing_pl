@@ -75,12 +75,12 @@ export default function LongText({ blok }) {
           [NODE_UL]: (props) => {
             return (
               <CenterContainer>
-                <ul className="space-y-4 mt-8 mb-12">
+                <ul className="space-y-4 mt-8 mb-12 max-xl:px-tablet max-sm:px-0">
                   {props.map((child, i) => {
                     return (
                       <li className="flex space-x-4 items-baseline mt-0" key={i}>
                         <div
-                          className={`w-[6px] h-[6px] rounded-full flex items-center justify-center relative top-[-3px]`}
+                          className={`w-[6px] h-[6px] min-w-[6px] rounded-full flex items-center justify-center relative top-[-3px]`}
                           style={{ backgroundColor: color }}
                         />
                         <span>{child}</span>
@@ -90,7 +90,6 @@ export default function LongText({ blok }) {
                 </ul>
               </CenterContainer>
             );
-            return <ul class="space-y-4 my-8"></ul>;
           },
         },
         blokResolvers: {
