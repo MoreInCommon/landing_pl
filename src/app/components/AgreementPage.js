@@ -25,7 +25,7 @@ const AgreementPage = ({ questions, setAnswer, errors, answersOrder }) => {
       >
         <div className="col-span-2 border-b b-[#E4E4E4]"></div>
         {answersOrder.map((a, i) => (
-          <div key={i} className="p-4 text-center border-b b-[#E4E4E4]">
+          <div key={i} className="p-4 text-center border-b b-[#E4E4E4] max-sm:p-2">
             {a}
           </div>
         ))}

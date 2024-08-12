@@ -22,7 +22,7 @@ const SegmentationHeader = ({ blok }) => {
         <p className="max-w-[46.875rem] max-md:max-w-[80rem] w-full m-auto mt-6 text-bodyRegular z-1">
           {blok.description}
         </p>
-        <SegmentsSvg className="absolute top-[-9.375rem] right-[-5rem] z-0" />
+        <SegmentsSvg className="absolute top-[-9.375rem] right-[-5rem] z-0 max-sm:hidden" />
       </div>
       <CenteredSection>
         <MainHeader text={blok.subtitle} childClassname="pr-0" className="mt-[72px] mb-10" />

@@ -397,8 +397,8 @@ export default function QuizStart() {
         <button style={{ background: "red", display: "none" }} onClick={() => test()}>
           Test
         </button>
-        <SegmentsSvg className="absolute top-[-86px] right-[128px] z-0" />
-        <CenterContainer className="my-32">
+        <SegmentsSvg className="absolute top-[-86px] right-[128px] z-0 max-sm:hidden" />
+        <CenterContainer className="my-32 max-sm:my-16">
           <h1 className="mb-6 text-h1 font-bold text-brand-darkBlue">QUIZ 7 segmentów</h1>
           <p className="text-[1.125rem] text-brand-darkBlue">
             Przycisk poniżej przeniesie Cię do anonimowej ankiety, gdzie możesz odpowiedzieć na
@@ -472,7 +472,7 @@ export default function QuizStart() {
           />
         </div>
       </CenterContainer>
-      <div className="max-w-[70rem] m-auto w-full pt-20 px-10">
+      <div className="max-w-[70rem] m-auto w-full pt-20 px-10 max-sm:px-0 max-sm:pt-10 min-w-[600px] max-sm:break-words	">
         {errors.length > 0 && (
           <div className="bg-[#FDF7E7] p-6 flex gap-6 items-center mb-6">
             <svg

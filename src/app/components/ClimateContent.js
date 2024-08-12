@@ -70,7 +70,7 @@ const ClimateContent = ({ blok }) => {
         </CenteredSection>
       </div>
       {hasSegments && (
-        <div className="relative m-auto px-[140px] max-lg:px-10 max-w-full max-md:px-6 max-sm:px-4">
+        <div className="relative m-auto px-[140px] max-lg:px-10 max-w-full max-md:px-6 max-sm:px-4 max-sm:mb-14">
           <div className="overflow-auto">
             <ScrollLeftButton />
           </div>

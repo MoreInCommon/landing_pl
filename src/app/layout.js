@@ -96,7 +96,7 @@ export default async function RootLayout({ children }) {
         <body className={`${sailec.className} bg-white mt-[76px] max-xl:mt-12 overflow-x-hidden`}>
           <StoryblokComponent blok={decoration} key={decoration._uid} />
           <StoryblokComponent blok={navigation} key={navigation._uid} />
-          <main className="bg-transparent py-16 max-xl:py-12 max-sm:py-12 relative z-[1]">
+          <main className="bg-transparent py-16 max-xl:py-12 max-sm:py-12 relative z-[1] max-sm:px-4">
             {children}
           </main>
           <StoryblokComponent blok={newsletter} key={newsletter._uid} />

@@ -22,7 +22,7 @@ const Project = ({ blok }) => {
       className="bg-white p-6 border-t-4 border-brand-darkBlue flex-[30%] max-lg:max-w-[46%] max-sm:max-w-[95%] flex flex-col max-w-[31%] hover:shadow-tile-shadow transition-shadow"
       {...storyblokEditable(blok)}
     >
-      <div className="h-[350px] relative mb-6 flex">
+      <div className="h-[350px] relative mb-6 flex max-sm:h-[200px]">
         <img
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           src={blok.img.filename}

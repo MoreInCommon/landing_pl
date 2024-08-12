@@ -1,11 +1,23 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import SocialMediaIcons from "@/app/components/SocialMediaIcons";
 import Modal from "@/app/components/Modal";
 
 const Team = ({ blok }) => {
   const [showModal, setShowModal] = useState(null);
+
+  useEffect(() => {
+    if (showModal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [showModal]);
   return (
     <div className="text-black mt-20 max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile flex justify-start max-lg:justify-center items-center flex-wrap gap-5">
       {blok.member.map((person) => (
@@ -62,7 +74,7 @@ const Team = ({ blok }) => {
             />
           </svg>
         </div>
-        <div className="flex justify-center items-start mb-4 p-4 border-t-4 border-brand-darkBlue gap-10 max-lg:flex-col">
+        <div className="flex justify-center items-start mb-4 p-4 border-t-4 border-brand-darkBlue gap-10 max-lg:flex-col max-lg:mb-0 max-sm:gap-6">
           <img
             src={showModal?.photo?.filename}
             alt={showModal?.photo?.alt}

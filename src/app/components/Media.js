@@ -13,6 +13,12 @@ const Media = ({ blok }) => {
   const endIndex = startIndex + itemsPerPage;
   const currentItems = sortedMedia.slice(startIndex, endIndex);
   const totalPages = Math.ceil(sortedMedia.length / itemsPerPage);
+
+  const changePage = (page) => {
+    setCurrentPage(page);
+    window.scrollTo(0, 0);
+  };
+
   return (
     <>
       <div
@@ -24,11 +30,7 @@ const Media = ({ blok }) => {
         ))}
       </div>
       <div className="flex justify-center mt-[64px]">
-        <Pagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          setCurrentPage={setCurrentPage}
-        />
+        <Pagination currentPage={currentPage} totalPages={totalPages} setCurrentPage={changePage} />
       </div>
     </>
   );

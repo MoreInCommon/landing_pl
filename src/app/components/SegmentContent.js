@@ -26,7 +26,7 @@ const SegmentContent = ({ blok }) => {
     <div {...storyblokEditable(blok)}>
       <div style={{ background: blok?.background_color?.color }} className="overflow-y-hidden">
         <div className="py-20 max-w-[1000px] m-auto relative flex items-center justify-center">
-          <SegmentsSvg className="absolute top-[-4.375rem] right-[-9.5rem] z-0" />
+          <SegmentsSvg className="absolute top-[-4.375rem] right-[-9.5rem] z-0 max-sm:hidden" />
           <img
             src={blok?.image?.filename}
             className="w-[235px] max-h-[245px] object-contain absolute left-0"

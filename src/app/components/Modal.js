@@ -15,6 +15,7 @@ export default function CustomModal({ children, showModal, setShowModal, style =
       border: "1px solid rgba(231, 231, 231, 1)",
       padding: "20px",
       height: "fit-content",
+      maxHeight: "90vh",
       zIndex: "1000",
       ...style,
     },

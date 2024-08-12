@@ -32,7 +32,7 @@ const SegmentsQuiz = ({ blok }) => {
       className={`max-w-full m-auto mt-20 px-[140px] max-lg:px-10 max-sm:px-4 max-sm:mt-0 ${isGreenUrl}`}
     >
       <div
-        className={`bg-[#F8F8F9] p-8 mt-12 max-sm:mt-0 text-black flex flex-col items-center relative overflow-hidden border-b-4 border-[${isGreenUrl ? "#75C05C" : "transparent"}] border-solid`}
+        className={`bg-[#F8F8F9] p-8 mt-12 max-sm:mt-0 text-black flex flex-col items-center relative overflow-hidden border-b-4 border-[${isGreenUrl ? "#75C05C" : "transparent"}] border-solid max-sm:p-5`}
         {...storyblokEditable(blok)}
       >
         <Image src={"/Segments.png"} alt="" width={467} height={65} />

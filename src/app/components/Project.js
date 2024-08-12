@@ -53,7 +53,7 @@ const Project = ({ blok }) => {
         <h4 className="text-h4 text-mono-neutral11 mb-2 font-bold">{blok?.title}</h4>
         <p className="text-bodyRegular text-mono-neutral11 mb-[44px]">{blok?.description}</p>
       </a>
-      <div className="flex items-center justify-end gap-2 mt-auto">
+      <div className="flex items-center justify-end gap-2 mt-auto max-sm:flex-col-reverse">
         {blok?.downloadUrl?.filename && (
           <ButtonText onClick={() => download(blok?.downloadUrl?.filename)}>
             <div className="relative top-[2px]">Raport</div>

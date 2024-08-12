@@ -100,15 +100,15 @@ export default function CustomSlider({ blok }) {
 
   return (
     <div
-      className={`max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile mb-20 m-t-[-40px] ${isGreenUrl}`}
+      className={`max-w-full m-auto px-full max-xl:px-tablet mb-20 m-t-[-40px] ${isGreenUrl} max-sm:p-0`}
     >
       <Slider {...settings} className="mx-6 max-lg:mx-0">
         {blok.slide.map((content, index) => (
           <div key={index} className="text-center px-4 max-lg:px-0" {...storyblokEditable(content)}>
             <div className="flex max-md:flex-col-reverse">
-              <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left z-10 bg-white max-md:left-0 max-md:mx-5 min-h-[420px] content-center">
+              <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left z-10 bg-white max-md:left-0 max-md:mx-5 min-h-[420px] content-center max-sm:p-5">
                 <h3
-                  className={`text-themeableColors-darkBlue ${isGreenUrl ? "text-[96px]" : "text-[28px]"} leading-none font-bold mb-4`}
+                  className={`text-themeableColors-darkBlue ${isGreenUrl ? "text-[96px]" : "text-[28px]"} leading-none font-bold mb-4 max-sm:text-[28px]`}
                 >
                   {content.title}
                 </h3>

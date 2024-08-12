@@ -121,7 +121,7 @@ const ClimateQuiz = ({ blok }) => {
       className="max-w-full m-auto px-[140px] max-lg:px-10 max-md:px-6 max-sm:px-4"
       {...storyblokEditable(blok)}
     >
-      <div className="bg-green-light p-8 mt-12 text-black text-center mb-10 relative">
+      <div className="bg-green-light p-8 mt-12 text-black text-center mb-10 relative max-sm:p-5">
         <Image
           src={"/MIC_ikona.png"}
           width={117}
@@ -132,7 +132,7 @@ const ClimateQuiz = ({ blok }) => {
         <h4 className="text-h4 font-bold mb-2 text-brand-darkGreen flex items-center justify-center relative">
           {blok.title}
         </h4>
-        <p className="text-bodyRegular m-auto max-w-[600px] px-10">{blok.desc}</p>
+        <p className="text-bodyRegular m-auto max-w-[600px] px-10 max-sm:px-0">{blok.desc}</p>
         <Button
           type="submit"
           onClick={() => setShowModal(true)}

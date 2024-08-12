@@ -96,7 +96,7 @@ export default function ContactInfo() {
             language="pl"
             loadingElement={<div className="text-transparent">ładowanie mapy</div>}
           >
-            <div className="border border-[#DADDE1] w-fit">
+            <div className="border border-[#DADDE1] w-fit max-sm:m-auto">
               <GoogleMap
                 mapContainerStyle={mapContainerStyle}
                 mapContainerClassName={"max-sm:hidden"}
