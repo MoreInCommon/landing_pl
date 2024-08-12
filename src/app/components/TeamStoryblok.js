@@ -6,7 +6,6 @@ import Modal from "@/app/components/Modal";
 
 const Team = ({ blok }) => {
   const [showModal, setShowModal] = useState(null);
-
   useEffect(() => {
     if (showModal) {
       document.body.style.overflow = "hidden";
@@ -87,6 +86,7 @@ const Team = ({ blok }) => {
             <SocialMediaIcons
               xUrl={showModal?.twitter?.url}
               linkedinUrl={showModal?.linkedin?.url}
+              emailUrl={showModal?.email?.url}
               inverted
             />
           </div>

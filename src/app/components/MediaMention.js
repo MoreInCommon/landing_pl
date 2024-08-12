@@ -10,7 +10,6 @@ const MediaMention = ({ blok }) => {
   });
   const { push } = useRouter();
   const url = blok?.url?.url || blok?.url?.cached_url;
-  console.log(url);
   const changePage = (e) => {
     e.preventDefault();
     const currentUrl = window.location.href;
