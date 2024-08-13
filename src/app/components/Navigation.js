@@ -96,7 +96,7 @@ const Navigation = ({ blok }) => {
         </div>
       </div>
       {openMenu && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden px-6 pb-4 overflow-scroll max-h-[100vh]">
+        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden px-6 pb-4 overflow-scroll max-h-[calc(100vh-78px)]">
           {mobileNavigationItems.map((item) => (
             <StoryblokComponent blok={item} key={item._uid} callback={() => setOpenMenu(false)} />
           ))}
