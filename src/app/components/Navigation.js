@@ -34,6 +34,9 @@ const Navigation = ({ blok }) => {
   const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
   return (
     <div className={`w-full bg-white fixed top-0 shadow-nav-shadow z-50 ${isGreenUrl}`}>
+      {openMenu && (
+        <div className="fixed left-0 top-[95px] right-0 h-[100vh] z-0 bg-black opacity-20" />
+      )}
       <div className="max-w-full m-auto w-full bg-white max-xl:py-4">
         <div className="flex justify-between items-center px-full max-xl:px-tablet max-sm:px-mobile ">
           <div className="flex">
@@ -96,7 +99,7 @@ const Navigation = ({ blok }) => {
         </div>
       </div>
       {openMenu && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden px-6 pb-4 overflow-scroll max-h-[calc(100vh-78px)]">
+        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden px-6 pb-4 overflow-scroll max-h-[calc(100vh-150px)]">
           {mobileNavigationItems.map((item) => (
             <StoryblokComponent blok={item} key={item._uid} callback={() => setOpenMenu(false)} />
           ))}
