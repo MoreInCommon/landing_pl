@@ -8,13 +8,14 @@ function removeTrailingSlash(str) {
   }
   return str;
 }
-const Navblok = ({ blok }) => {
+const Navblok = ({ blok, callback }) => {
   const pathname = usePathname();
   const url = removeTrailingSlash(blok.urls.cached_url);
 
   return (
     <div key={url} className="w-full">
       <Link
+        onClick={callback}
         href={`/${url}`}
         className={`block p-4 hover:bg-gray-100 font-bold ${pathname === `/${url}` ? "text-themeableColors-darkBlue" : "text-gray-700"}`}
       >
@@ -24,6 +25,7 @@ const Navblok = ({ blok }) => {
         <div className="pl-4">
           {blok.subitem.map((subblok) => (
             <Link
+              onClick={callback}
               key={subblok.urls.cached_url}
               href={`/${subblok.urls.cached_url}`}
               className={`block p-4 hover:bg-gray-50 ${pathname.includes(subblok.urls.cached_url) ? "text-themeableColors-darkBlue" : "text-gray-600"}`}
