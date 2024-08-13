@@ -39,7 +39,7 @@ export default function ClimateArticleHeader({ blok }) {
       )}
       <div className="text-center">
         <h1
-          className="font-bold text-[64px] mt-2 relative z-[1] leading-[84px]"
+          className="font-bold text-[64px] mt-2 relative z-[1] leading-[84px] max-sm:text-[36px] max-sm:leading-[46px]"
           style={{ color: blok.color.color }}
         >
           {blok.title} <br />
