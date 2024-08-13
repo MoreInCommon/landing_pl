@@ -1,4 +1,5 @@
 "use client";
+import { useEffect } from "react";
 import Image from "next/image";
 import { useState } from "react";
 import SocialMediaIcons from "@/app/components/SocialMediaIcons";
@@ -9,6 +10,17 @@ import { usePathname } from "next/navigation";
 
 const Navigation = ({ blok }) => {
   const [openMenu, setOpenMenu] = useState(false);
+  useEffect(() => {
+    if (openMenu) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [openMenu]);
   const pathname = usePathname();
   const navItems = blok.blocks.filter((block) => block.component === "navigation item");
   const socialMediaLink = blok.blocks.filter((block) => block.component === "social media link");
@@ -84,7 +96,7 @@ const Navigation = ({ blok }) => {
         </div>
       </div>
       {openMenu && (
-        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden px-6 pb-4">
+        <div className="absolute top-full left-0 w-full bg-white shadow-md z-50 xl:hidden px-6 pb-4 overflow-auto max-h-[100vh]">
           {mobileNavigationItems.map((item) => (
             <StoryblokComponent blok={item} key={item._uid} />
           ))}

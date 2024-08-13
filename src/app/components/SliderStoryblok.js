@@ -106,7 +106,7 @@ export default function CustomSlider({ blok }) {
         {blok.slide.map((content, index) => (
           <div key={index} className="text-center px-4 max-lg:px-0" {...storyblokEditable(content)}>
             <div className="flex max-md:flex-col-reverse">
-              <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left z-10 bg-white max-md:left-0 max-md:mx-5 min-h-[420px] content-center max-sm:p-5">
+              <div className="flex-1 shadow-slider-shadow relative left-8 my-4 p-14 text-left z-10 bg-white max-md:left-0 max-md:mx-5 min-h-[420px] content-center max-sm:p-5 max-sm:m-0">
                 <h3
                   className={`text-themeableColors-darkBlue ${isGreenUrl ? "text-[96px]" : "text-[28px]"} leading-none font-bold mb-4 max-sm:text-[28px]`}
                 >
@@ -126,7 +126,11 @@ export default function CustomSlider({ blok }) {
                 </Button>
               </div>
               <div className="flex-1 max-md:top-10 relative">
-                <img src={content.image.filename} alt="img" className="h-full object-cover" />
+                <img
+                  src={content.image.filename}
+                  alt="img"
+                  className="h-full object-cover max-md:h-[250px] max-md:m-auto"
+                />
               </div>
             </div>
           </div>
