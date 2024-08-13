@@ -66,7 +66,7 @@ const SegmentationHeader = ({ blok }) => {
       <div className="hidden max-sm:block">
         <ImageComponent src={blok.mobile_image.filename} className />
       </div>
-      <div className="bg-[#EDF0F7] p-8 max-sm:p-4">
+      <div className="bg-[#EDF0F7] p-8 max-sm:p-4 pt-2">
         <StoryblokComponent blok={blok.long_text[0]} />
       </div>
     </div>
