@@ -6,17 +6,6 @@ import Modal from "@/app/components/Modal";
 
 const Team = ({ blok }) => {
   const [showModal, setShowModal] = useState(null);
-  useEffect(() => {
-    if (showModal) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [showModal]);
   return (
     <div className="text-black mt-20 max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile flex justify-start max-lg:justify-center items-center flex-wrap gap-5">
       {blok.member.map((person) => (

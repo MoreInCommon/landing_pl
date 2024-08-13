@@ -280,9 +280,9 @@ const ClimateQuiz = ({ blok }) => {
                   </div>
                 </div>
               </CenterContainer>
-              <div className="px-[65px] max-lg-px[25px]">
+              <div className="px-[65px] max-lg-px[25px] max-sm:px-0">
                 <h4 className="text-[18px] font-bold mb-2">{currentQuestion.question}</h4>
-                <div className={`px-4 flex flex-col`}>
+                <div className={`px-4 flex flex-col max-sm:px-0`}>
                   {currentQuestion.answers.map((a, index) => (
                     <div
                       key={index}
@@ -291,7 +291,7 @@ const ClimateQuiz = ({ blok }) => {
                     >
                       <input
                         type="radio"
-                        className="h-6 w-6 cursor-pointer"
+                        className="h-6 w-6 min-w-6 cursor-pointer"
                         checked={currentAnswerIndex === index}
                         onChange={() => handleAnswer(index, a)}
                       />
@@ -368,7 +368,7 @@ const ClimateQuiz = ({ blok }) => {
             </div>
           )}
 
-          <div className="flex justify-between items-center border-t border-[#DADDE1] mx-[-20px] px-8 pt-4 mt-4">
+          <div className="flex justify-between items-center border-t border-[#DADDE1] mx-[-20px] px-8 pt-4 mt-4 max-sm:px-4">
             {!isFirstPage && (
               <ButtonText
                 onClick={() => {
@@ -383,7 +383,7 @@ const ClimateQuiz = ({ blok }) => {
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
-                    className="rotate-180"
+                    className="rotate-180 max-sm:hidden"
                   >
                     <mask
                       id="mask0_188_1274"
@@ -431,6 +431,7 @@ const ClimateQuiz = ({ blok }) => {
                     height="24"
                     viewBox="0 0 24 24"
                     fill="none"
+                    className="max-sm:hidden"
                   >
                     <mask
                       id="mask0_188_1274"
