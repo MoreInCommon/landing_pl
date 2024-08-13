@@ -60,7 +60,12 @@ const SegmentationHeader = ({ blok }) => {
           </svg>
         </Button>
       </CenterContainer>
-      <ImageComponent src={blok.image.filename} />
+      <div className="max-sm:hidden">
+        <ImageComponent src={blok.image.filename} />
+      </div>
+      <div className="hidden max-sm:block">
+        <ImageComponent src={blok.mobile_image.filename} className />
+      </div>
       <div className="bg-[#EDF0F7] p-8 max-sm:p-4">
         <StoryblokComponent blok={blok.long_text[0]} />
       </div>
