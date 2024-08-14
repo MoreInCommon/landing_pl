@@ -97,6 +97,7 @@ export default function CustomSlider({ blok }) {
   const pathname = usePathname();
   const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
   const router = useRouter();
+  console.log();
   return (
     <div
       className={`max-w-full m-auto px-full max-xl:px-tablet mb-20 m-t-[-40px] ${isGreenUrl} max-sm:p-0`}
