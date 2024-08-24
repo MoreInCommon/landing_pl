@@ -5,50 +5,13 @@ import ButtonText from "@/app/components/ButtonText";
 import { storyblokEditable } from "@storyblok/react";
 import CenterContainer from "@/app/components/CenterContainer";
 import Image from "next/image";
+import { StoryblokComponent } from "@storyblok/react";
 import Modal from "@/app/components/Modal";
-
-const questionsBe2 = [
-  {
-    question: "What is the most common greenhouse gas?",
-    answers: [
-      { text: "Carbon dioxide", correct: true },
-      { text: "Methane", correct: false },
-      { text: "Nitrous oxide", correct: false },
-      { text: "Water vapor", correct: false },
-    ],
-    commentCorrect: "Carbon dioxide is the most common greenhouse gas.",
-    commentIncorrect: "Carbon dioxide is the most common greenhouse gas.",
-    selectedAnswer: null,
-  },
-  {
-    question: "What is the main cause of climate change?",
-    answers: [
-      { text: "Deforestation", correct: false },
-      { text: "Burning fossil fuels", correct: true },
-      { text: "Agriculture", correct: false },
-      { text: "Industrial processes", correct: false },
-    ],
-    commentCorrect: "Burning fossil fuels is the main cause of climate change.",
-    commentIncorrect: "Burning fossil fuels is the main cause of climate change.",
-    selectedAnswer: null,
-  },
-  {
-    question: "What is the most effective way to reduce your carbon footprint?",
-    answers: [
-      { text: "Drive less", correct: false },
-      { text: "Eat less meat", correct: false },
-      { text: "Fly less", correct: false },
-      { text: "All of the above", correct: true },
-    ],
-    commentCorrect: "All of the above are effective ways to reduce your carbon footprint.",
-    commentIncorrect: "All of the above are effective ways to reduce your carbon footprint.",
-    selectedAnswer: null,
-  },
-];
 
 const ClimateQuiz = ({ blok }) => {
   const [questions, setQuestions] = useState(() =>
     blok.questions.map((q) => ({
+      ...q,
       question: q.question,
       answers: [
         {
@@ -142,7 +105,7 @@ const ClimateQuiz = ({ blok }) => {
         </Button>
       </div>
       <Modal showModal={showModal} setShowModal={setShowModal} style={{ maxWidth: 850 }}>
-        <div className="bg-themeGreen">
+        <div className="bg-themeGreen" {...storyblokEditable(currentQuestion)}>
           <div className="bg-white flex items-center justify-between border-solid border-b border-[#DADDE1] mx-[-20px] px-8 pb-4">
             <span className="text-black text-[20px]">Test: Co Polki i Polacy myślą o klimacie</span>
             <svg
@@ -260,7 +223,7 @@ const ClimateQuiz = ({ blok }) => {
                 )}
               </div>
               <p className="px-8">
-                Dziękujemy za Twój udziałw teście. Mamy nadzieję, że mogłeś/mogłaś dowiedzieć się
+                Dziękujemy za Twój udział w teście. Mamy nadzieję, że mogłeś/mogłaś dowiedzieć się
                 czegoś nowego. Jeśli masz jakieś uwagi lub pytania, napisz do nas:{" "}
                 <a className="underline  text-brand-darkBlue" href="polska@moreincommon.com">
                   polska@moreincommon.com

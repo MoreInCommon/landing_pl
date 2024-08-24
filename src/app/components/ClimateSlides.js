@@ -9,6 +9,7 @@ const ClimateSlides = ({ blok }) => {
   const formattedArticles = blok?.articles
     ? blok.articles.map((a) => {
         return {
+          ...a,
           image: {
             filename: a?.content?.body?.find((b) => b.component === "article header")?.image
               ?.filename,
@@ -92,6 +93,7 @@ const ClimateSlides = ({ blok }) => {
             href={`/${content?.url?.cached_url}`}
             key={index}
             onClick={(event) => handleNavigation(event, `/${content?.url?.cached_url}`)}
+            {...storyblokEditable(content)}
           >
             <h4 className="text-h4 text-black text-center min-h-[60px] ellipsis">
               {content.title}
