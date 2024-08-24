@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 
 const ChartEmbed = ({ src }) => {
   // Extract visualization ID from the URL
-  const [scriptLoaded, setScriptLoaded] = useState(false);
   const extractVisualizationId = (url) => {
     const regex = /visualisation\/(\d+)/;
     const match = url.match(regex);
@@ -18,33 +17,23 @@ const ChartEmbed = ({ src }) => {
   const visualizationId = extractVisualizationId(src || "");
   const storyId = extractStoryId(src || "");
   useEffect(() => {
-    const scriptId = "flourish-embed-script";
-    const embedScriptUrl = "https://public.flourish.studio/resources/embed.js";
+    if (typeof window !== "undefined") {
+      const addScript = () => {
+        setTimeout(() => {
+          let existingScript = document.getElementById("flourish-embed-script");
+          if (!existingScript) {
+            const script = document.createElement("script");
+            script.id = "flourish-embed-script";
+            script.src = "https://public.flourish.studio/resources/embed.js";
+            script.async = true;
+            document.body.appendChild(script);
+          }
+        }, 1000);
+      };
 
-    const addScript = () => {
-      const existingScript = document.getElementById(scriptId);
-      if (existingScript) {
-        document.body.removeChild(existingScript);
-      }
-      const script = document.createElement("script");
-      script.id = scriptId;
-      script.src = embedScriptUrl;
-      script.async = true;
-      document.body.appendChild(script);
-      setScriptLoaded(true);
-    };
-
-    addScript();
-
-    return () => {
-      const script = document.getElementById(scriptId);
-      if (script) {
-        document.body.removeChild(script);
-      }
-    };
-  }, [visualizationId]);
-
-  if (!scriptLoaded) return null;
+      addScript();
+    }
+  }, [src]);
 
   return (
     <div className="mt-10 mb-4 w-[90%] max-w-[950px] m-auto">
