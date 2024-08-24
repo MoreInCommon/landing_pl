@@ -5,11 +5,10 @@ import ButtonText from "@/app/components/ButtonText";
 import { storyblokEditable } from "@storyblok/react";
 import CenterContainer from "@/app/components/CenterContainer";
 import Image from "next/image";
-import { StoryblokComponent } from "@storyblok/react";
 import Modal from "@/app/components/Modal";
 
 const ClimateQuiz = ({ blok }) => {
-  const [questions, setQuestions] = useState(() =>
+  const [questions, setQuestions] = useState(
     blok.questions.map((q) => ({
       ...q,
       question: q.question,
