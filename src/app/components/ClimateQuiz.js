@@ -104,7 +104,7 @@ const ClimateQuiz = ({ blok }) => {
         </Button>
       </div>
       <Modal showModal={showModal} setShowModal={setShowModal} style={{ maxWidth: 850 }}>
-        <div className="bg-themeGreen" {...storyblokEditable(currentQuestion)}>
+        <div className="bg-themeGreen">
           <div className="bg-white flex items-center justify-between border-solid border-b border-[#DADDE1] mx-[-20px] px-8 pb-4">
             <span className="text-black text-[20px]">Test: Co Polki i Polacy myślą o klimacie</span>
             <svg
@@ -242,7 +242,10 @@ const ClimateQuiz = ({ blok }) => {
                   </div>
                 </div>
               </CenterContainer>
-              <div className="px-[65px] max-lg-px[25px] max-sm:px-0">
+              <div
+                className="px-[65px] max-lg-px[25px] max-sm:px-0"
+                {...storyblokEditable(currentQuestion)}
+              >
                 <h4 className="text-[18px] font-bold mb-2">{currentQuestion.question}</h4>
                 <div className={`px-4 flex flex-col max-sm:px-0`}>
                   {currentQuestion.answers.map((a, index) => (
