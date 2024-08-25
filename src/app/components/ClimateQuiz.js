@@ -8,53 +8,28 @@ import Image from "next/image";
 import Modal from "@/app/components/Modal";
 
 const ClimateQuiz = ({ blok }) => {
-  const [questions, setQuestions] = useState(
-    blok.questions.map((q) => ({
-      ...q,
-      question: q.question,
-      answers: [
-        {
-          text: q.answer_1,
-          correct: q.correct_answer === "1",
-        },
-        {
-          text: q.answer_2,
-          correct: q.correct_answer === "2",
-        },
-        {
-          text: q.answer_3,
-          correct: q.correct_answer === "3",
-        },
-      ],
-      commentIncorrect: q.comment,
-      commentCorrect: q.comment,
-      selectedAnswer: null,
-    }))
-  );
+  const totalQuestionsNumber = blok?.questions?.length || 0;
   const [currentPageIndex, setCurrentPageIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
   const isFirstPage = currentPageIndex === 0;
   const [answers, setAnswers] = useState([]);
-  const allAnswered = currentPageIndex === questions.length;
-  const totalQuestionsNumber = questions.length;
+  const allAnswered = currentPageIndex === totalQuestionsNumber;
   const totalAnsweredQuestionsNumber = answers.length;
-  const currentQuestion = questions[currentPageIndex];
-  const currentAnswerIndex = currentQuestion?.selectedAnswer;
-  const currentAnswerCorrect = currentQuestion?.answers[currentAnswerIndex]?.correct;
+  const currentAnswerIndex = answers[currentPageIndex]?.index;
+  const currentAnswerCorrect =
+    currentAnswerIndex !== undefined && answers[currentPageIndex]?.correct;
   const handleAnswer = (index, a) => {
-    setQuestions((prev) => {
-      const newQuestions = [...prev];
-      newQuestions[currentPageIndex].selectedAnswer = index;
-      return newQuestions;
-    });
     setAnswers((prev) => {
       const newAnswers = [...prev];
-      newAnswers[currentPageIndex] = a.correct;
+      newAnswers[currentPageIndex] = {
+        correct: a.correct,
+        index,
+      };
       return newAnswers;
     });
   };
 
-  const totalCorrectAnswers = answers.filter((a) => a).length;
+  const totalCorrectAnswers = answers.filter((a) => a.correct).length;
 
   const summaryColor = {
     good: {
@@ -94,7 +69,9 @@ const ClimateQuiz = ({ blok }) => {
         <h4 className="text-h4 font-bold mb-2 text-brand-darkGreen flex items-center justify-center relative">
           {blok.title}
         </h4>
-        <p className="text-bodyRegular m-auto max-w-[600px] px-10 max-sm:px-0">{blok.desc}</p>
+        <p className="text-bodyRegular m-auto max-w-[600px] px-10 max-sm:px-0 relative">
+          {blok.desc}
+        </p>
         <Button
           type="submit"
           onClick={() => setShowModal(true)}
@@ -202,7 +179,9 @@ const ClimateQuiz = ({ blok }) => {
                   </filter>
                 </defs>
               </svg>
-              {totalCorrectAnswers >= 4 && <h4 className="font-bold text-[32px]">Gratulacje!</h4>}
+              {totalCorrectAnswers / answers.length > 0.5 && (
+                <h4 className="font-bold text-[32px]">Gratulacje!</h4>
+              )}
               <p className="font-medium text-[24px] mb-1 ">Twój wynik testu to:</p>
               <div
                 className={`mb-8 p-3 mt-1 text-center mx-[-64px] font-bold text-[44px] w-full bg-[${colors.background}]`}
@@ -242,97 +221,121 @@ const ClimateQuiz = ({ blok }) => {
                   </div>
                 </div>
               </CenterContainer>
-              <div
-                className="px-[65px] max-lg-px[25px] max-sm:px-0"
-                {...storyblokEditable(currentQuestion)}
-              >
-                <h4 className="text-[18px] font-bold mb-2">{currentQuestion.question}</h4>
-                <div className={`px-4 flex flex-col max-sm:px-0`}>
-                  {currentQuestion.answers.map((a, index) => (
+              {blok?.questions?.map((q, index) => {
+                const answers = [
+                  {
+                    text: q.answer_1,
+                    correct: q.correct_answer === "1",
+                  },
+                  {
+                    text: q.answer_2,
+                    correct: q.correct_answer === "2",
+                  },
+                  {
+                    text: q.answer_3,
+                    correct: q.correct_answer === "3",
+                  },
+                ];
+                return (
+                  <>
                     <div
-                      key={index}
-                      onClick={() => handleAnswer(index, a)}
-                      className={`flex items-center cursor-pointer p-4 gap-4 ${currentAnswerIndex !== index ? "" : currentAnswerIndex === index && a.correct ? "bg-[#E9F6EE]" : "bg-[#FDE6E6]"}`}
+                      className="px-[65px] max-lg-px[25px] max-sm:px-0"
+                      {...storyblokEditable(q)}
+                      style={{ display: currentPageIndex === index ? "block" : "none" }}
                     >
-                      <input
-                        type="radio"
-                        className="h-6 w-6 min-w-6 cursor-pointer"
-                        checked={currentAnswerIndex === index}
-                        onChange={() => handleAnswer(index, a)}
-                      />
-                      <span className="text-[16px] relative top-[0.1rem]">{a.text}</span>
+                      <h4 className="text-[18px] font-bold mb-2">{q.question}</h4>
+                      <div className={`px-4 flex flex-col max-sm:px-0`}>
+                        {answers.map((a, index) => (
+                          <div
+                            key={index}
+                            onClick={() => handleAnswer(index, a)}
+                            className={`flex items-center cursor-pointer p-4 gap-4 ${currentAnswerIndex !== index ? "" : currentAnswerIndex === index && a.correct ? "bg-[#E9F6EE]" : "bg-[#FDE6E6]"}`}
+                          >
+                            <input
+                              type="radio"
+                              className="h-6 w-6 min-w-6 cursor-pointer"
+                              style={{
+                                accentColor: "currentColor",
+                                color:
+                                  currentAnswerIndex === index && a.correct ? "#03641b" : "#DF3326",
+                              }}
+                              checked={currentAnswerIndex === index}
+                              onChange={() => handleAnswer(index, a)}
+                            />
+                            <span className="text-[16px] relative top-[0.1rem]">{a.text}</span>
+                          </div>
+                        ))}
+                      </div>
                     </div>
-                  ))}
-                </div>
-              </div>
+                    {answers?.[currentAnswerIndex] && (
+                      <div
+                        className={`flex px-3 my-4 p-4 ${currentAnswerCorrect ? "bg-[#E9F6EE]" : "bg-[#FDE6E6]"} gap-3 items-start`}
+                        style={{ display: currentPageIndex === index ? "flex" : "none" }}
+                      >
+                        <div className="w-[24px] h-[24px]">
+                          {currentAnswerCorrect ? (
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g id="OK" clipPath="url(#clip0_114_7916)">
+                                <circle id="Ellipse 7" cx="12" cy="12" r="12" fill="#009E59" />
+                                <path
+                                  id="Vector"
+                                  d="M9.59844 14.9246L6.44844 11.7746L5.39844 12.8246L9.59844 17.0246L18.5984 8.02461L17.5484 6.97461L9.59844 14.9246Z"
+                                  fill="white"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_114_7916">
+                                  <rect width="24" height="24" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          ) : (
+                            <svg
+                              width="24"
+                              height="24"
+                              viewBox="0 0 24 24"
+                              fill="none"
+                              xmlns="http://www.w3.org/2000/svg"
+                            >
+                              <g id="WRONG" clipPath="url(#clip0_114_8313)">
+                                <circle id="Ellipse 7" cx="12" cy="12" r="12" fill="#F20E0E" />
+                                <path
+                                  id="Vector"
+                                  d="M17.25 7.8075L16.1925 6.75L12 10.9425L7.8075 6.75L6.75 7.8075L10.9425 12L6.75 16.1925L7.8075 17.25L12 13.0575L16.1925 17.25L17.25 16.1925L13.0575 12L17.25 7.8075Z"
+                                  fill="white"
+                                />
+                              </g>
+                              <defs>
+                                <clipPath id="clip0_114_8313">
+                                  <rect width="24" height="24" fill="white" />
+                                </clipPath>
+                              </defs>
+                            </svg>
+                          )}
+                        </div>
+                        <div>
+                          <p className="text-[16px]">
+                            {currentAnswerCorrect ? (
+                              <span className="font-medium">Dobra odpowiedź!</span>
+                            ) : (
+                              <span className="font-medium">Błędna odpowiedź</span>
+                            )}{" "}
+                            {q.comment}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </>
+                );
+              })}
             </>
           )}
-          {currentQuestion?.answers?.[currentAnswerIndex] && (
-            <div
-              className={`flex px-3 my-4 p-4 ${currentAnswerCorrect ? "bg-[#E9F6EE]" : "bg-[#FDE6E6]"} gap-3 items-start`}
-            >
-              <div className="w-[24px] h-[24px]">
-                {currentAnswerCorrect ? (
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g id="OK" clipPath="url(#clip0_114_7916)">
-                      <circle id="Ellipse 7" cx="12" cy="12" r="12" fill="#009E59" />
-                      <path
-                        id="Vector"
-                        d="M9.59844 14.9246L6.44844 11.7746L5.39844 12.8246L9.59844 17.0246L18.5984 8.02461L17.5484 6.97461L9.59844 14.9246Z"
-                        fill="white"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_114_7916">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                ) : (
-                  <svg
-                    width="24"
-                    height="24"
-                    viewBox="0 0 24 24"
-                    fill="none"
-                    xmlns="http://www.w3.org/2000/svg"
-                  >
-                    <g id="WRONG" clipPath="url(#clip0_114_8313)">
-                      <circle id="Ellipse 7" cx="12" cy="12" r="12" fill="#F20E0E" />
-                      <path
-                        id="Vector"
-                        d="M17.25 7.8075L16.1925 6.75L12 10.9425L7.8075 6.75L6.75 7.8075L10.9425 12L6.75 16.1925L7.8075 17.25L12 13.0575L16.1925 17.25L17.25 16.1925L13.0575 12L17.25 7.8075Z"
-                        fill="white"
-                      />
-                    </g>
-                    <defs>
-                      <clipPath id="clip0_114_8313">
-                        <rect width="24" height="24" fill="white" />
-                      </clipPath>
-                    </defs>
-                  </svg>
-                )}
-              </div>
-              <div>
-                <p className="text-[16px]">
-                  {currentAnswerCorrect ? (
-                    <span className="font-medium">Dobra odpowiedź!</span>
-                  ) : (
-                    <span className="font-medium">Błędna odpowiedź</span>
-                  )}{" "}
-                  {currentAnswerCorrect
-                    ? currentQuestion.commentCorrect
-                    : currentQuestion.commentIncorrect}
-                </p>
-              </div>
-            </div>
-          )}
-
           <div className="flex justify-between items-center border-t border-[#DADDE1] mx-[-20px] px-8 pt-4 mt-4 max-sm:px-4">
             {!isFirstPage && (
               <ButtonText
