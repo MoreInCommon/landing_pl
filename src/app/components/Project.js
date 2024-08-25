@@ -20,7 +20,6 @@ const Project = ({ blok }) => {
     e.preventDefault();
     const currentUrl = window.location.href;
     push(`${url}`);
-    window.location.href = url;
     window.history.replaceState(null, "", currentUrl);
   };
 

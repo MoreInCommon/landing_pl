@@ -116,7 +116,6 @@ export default function CustomSlider({ blok }) {
                   onClick={() => {
                     const currentUrl = window.location.href;
                     router.push(`/${content.button?.cached_url}`);
-                    window.location.href = url;
                     window.history.replaceState(null, "", currentUrl);
                   }}
                   classes="py-[14px] px-8 bg-themeableColors-darkBlue text-white text-[21px] leading-[16px] mt-12 min-w-[133px]"

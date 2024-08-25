@@ -13,7 +13,6 @@ const SegmentsQuiz = ({ blok }) => {
     const currentUrl = window.location.href;
     const url = `/${blok?.button_url?.cached_url}`;
     router.push(url);
-    window.location.href = url;
     window.history.replaceState(null, "", currentUrl);
   };
   const [result, setResult] = useState(null);

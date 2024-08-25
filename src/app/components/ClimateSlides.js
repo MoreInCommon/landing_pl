@@ -30,7 +30,6 @@ const ClimateSlides = ({ blok }) => {
       event.preventDefault();
       const currentUrl = window.location.href;
       router.push(url);
-      window.location.href = url;
       window.history.replaceState(null, "", currentUrl);
     },
     [router]

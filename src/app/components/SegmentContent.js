@@ -19,9 +19,7 @@ const SegmentContent = ({ blok }) => {
   }, []);
 
   const isResult = result !== null;
-  const changePage = (url) => {
-    window.location.href = url;
-  };
+  const changePage = (url) => {};
   return (
     <div {...storyblokEditable(blok)}>
       <div style={{ background: blok?.background_color?.color }} className="overflow-y-hidden px-4">

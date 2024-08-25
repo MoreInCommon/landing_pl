@@ -38,7 +38,6 @@ const SegmentationHeader = ({ blok }) => {
           onClick={() => {
             const currentUrl = window.location.href;
             router.push(`/${blok.button_link.cached_url}`);
-            window.location.href = url;
             window.history.replaceState(null, "", currentUrl);
           }}
           classes="bg-brand-darkBlue m-auto"
