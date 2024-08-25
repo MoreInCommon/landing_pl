@@ -125,7 +125,7 @@ export default function CustomSlider({ blok }) {
               </div>
               <div className="flex-1 max-md:top-10 relative">
                 <img
-                  src={content.image.filename}
+                  src={`${content.image.filename}/m/`}
                   alt="img"
                   className="h-full object-cover max-md:h-[250px] max-md:m-auto"
                 />

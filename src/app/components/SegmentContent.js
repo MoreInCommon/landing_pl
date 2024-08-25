@@ -26,7 +26,7 @@ const SegmentContent = ({ blok }) => {
         <div className="py-20 max-w-[1000px] m-auto relative flex items-center justify-center">
           <SegmentsSvg className="absolute top-[-4.375rem] right-[-9.5rem] z-0 max-sm:hidden" />
           <img
-            src={blok?.image?.filename}
+            src={`${blok.image.filename}/m/`}
             className="w-[235px] max-h-[245px] object-contain absolute left-0 max-lg:hidden"
           />
           <div className="my-[100px] max-lg:mb-0 max-lg:mt-10">

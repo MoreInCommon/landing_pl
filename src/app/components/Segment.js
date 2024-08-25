@@ -40,7 +40,7 @@ const Segment = ({ blok }) => {
           </Button>
         </div>
         <img
-          src={blok?.image?.filename}
+          src={`${blok.image.filename}/m/`}
           alt={blok.title}
           className="min-w-[195px] max-h-[200px] object-contain"
         />

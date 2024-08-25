@@ -36,9 +36,10 @@ const SimilarArticles = ({ blok }) => {
               <img
                 className="min-h-[180px] object-contain max-h-[330px] w-auto"
                 src={
-                  article?.content?.body?.find((c) => c.component === "article header")?.image
+                  (article?.content?.body?.find((c) => c.component === "article header")?.image
                     ?.filename ||
-                  article?.content?.body?.find((c) => c.component === "seo")?.image?.filename
+                    article?.content?.body?.find((c) => c.component === "seo")?.image?.filename) +
+                  "/m/"
                 }
                 alt="img"
               />
