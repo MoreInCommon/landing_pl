@@ -19,43 +19,54 @@ const AgreementPage = ({ questions, setAnswer, errors, answersOrder }) => {
       <h4 className="text-[18px] font-bold mb-10">
         W jakim stopniu zgadza się Pan/i lub nie zgadza z poniższymi stwierdzeniami?
       </h4>
-      <div
-        className={`w-full grid grid-cols-${answersOrder.length + 2} mt-2`}
-        style={{ gridTemplateColumns: `repeat(${answersOrder.length + 2}, minmax(0, 1fr))` }}
-      >
-        <div className="col-span-2 border-b b-[#E4E4E4]"></div>
-        {answersOrder.map((a, i) => (
-          <div key={i} className="p-4 text-center border-b b-[#E4E4E4] max-sm:p-2">
-            {a}
+      <div className="w-full overflow-x-auto">
+        <div
+          className={`grid grid-cols-${answersOrder.length + 2} min-w-[800px]`}
+          style={{ gridTemplateColumns: `repeat(${answersOrder.length + 2}, minmax(0, 1fr))` }}
+        >
+          {/* Header Row */}
+          <div className="sticky left-0 col-span-2 bg-white border-b border-[#E4E4E4] z-20">
+            {/* Empty div for alignment */}
           </div>
-        ))}
-        {questions.map((q, i) => (
-          <React.Fragment key={i}>
+          {answersOrder.map((a, i) => (
             <div
-              onMouseEnter={() => handleMouseEnter(i)}
-              onMouseLeave={() => handleMouseLeave(null)}
-              className={`col-span-2 p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+              key={i}
+              className="p-4 text-center border-b border-[#E4E4E4] max-sm:p-2 bg-white sticky top-0 z-10"
             >
-              {q.text}
+              {a}
             </div>
-            {answersOrder.map((a, index) => (
+          ))}
+
+          {/* Questions and Answers Rows */}
+          {questions.map((q, i) => (
+            <React.Fragment key={i}>
+              {/* Sticky Question Column */}
               <div
-                key={index}
                 onMouseEnter={() => handleMouseEnter(i)}
                 onMouseLeave={() => handleMouseLeave(null)}
-                onClick={() => handleAnswer(index, i)}
-                className={`flex items-center cursor-pointer justify-center p-4 border-b b-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+                className={`col-span-2 p-4 border-b border-[#E4E4E4] transition-all sticky left-0 bg-white z-10 ${hovered === i ? "bg-[#F8F8F9]" : ""} ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
               >
-                <input
-                  checked={q.value === index}
-                  onChange={() => handleAnswer(index, i)}
-                  type="radio"
-                  className="h-6 w-6 cursor-pointer"
-                />
+                {q.text}
               </div>
-            ))}
-          </React.Fragment>
-        ))}
+              {answersOrder.map((a, index) => (
+                <div
+                  key={index}
+                  onMouseEnter={() => handleMouseEnter(i)}
+                  onMouseLeave={() => handleMouseLeave(null)}
+                  onClick={() => handleAnswer(index, i)}
+                  className={`flex items-center cursor-pointer justify-center p-4 border-b border-[#E4E4E4] transition-all ${hovered === i ? "bg-[#F8F8F9]" : ""} hover:bg-[#DADDE1] ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+                >
+                  <input
+                    checked={q.value === index}
+                    onChange={() => handleAnswer(index, i)}
+                    type="radio"
+                    className="h-6 w-6 cursor-pointer"
+                  />
+                </div>
+              ))}
+            </React.Fragment>
+          ))}
+        </div>
       </div>
     </div>
   );

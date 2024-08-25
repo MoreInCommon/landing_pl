@@ -11,7 +11,7 @@ const StandardPage = ({ questions, setAnswer }) => {
         <React.Fragment key={i}>
           <h4 className="text-[18px] font-bold mb-2 text-center">{q.text}</h4>
           <div
-            className={`w-full grid grid-cols-${q.answers.length} mt-2 mb-10`}
+            className={`w-full grid grid-cols-${q.answers.length} mt-2 mb-10 max-sm:flex max-sm:flex-col max-sm:gap-4`}
             style={{ gridTemplateColumns: `repeat(${q.answers.length}, minmax(0, 1fr))` }}
           >
             {q.answers.map((a, index) => (
