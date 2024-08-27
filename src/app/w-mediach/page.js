@@ -21,7 +21,6 @@ export default async function Home() {
 
 export async function fetchData() {
   const { isEnabled } = draftMode();
-
   return fetchPageData(`cdn/stories/w-mediach`, isEnabled);
 }
 export async function generateMetadata() {

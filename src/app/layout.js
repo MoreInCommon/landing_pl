@@ -6,12 +6,10 @@ import "./lib/slick.css";
 import "./lib/slick-theme.css";
 import { fetchPageData } from "@/app/utils";
 import CookieConsentBanner from "@/app/components/CookieConsentBanner";
-import Newsletter from "@/app/components/Newsletter";
 import { StoryblokComponent } from "@storyblok/react";
 import { components } from "@/app/utils";
 import { draftMode } from "next/headers";
 import { GoogleAnalytics } from "@next/third-parties/google";
-import Script from "next/script";
 
 storyblokInit({
   accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,

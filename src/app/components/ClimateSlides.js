@@ -8,13 +8,13 @@ import useScroll from "@/app/useScroll";
 const ClimateSlides = ({ blok }) => {
   const formattedArticles = blok?.articles
     ? blok.articles.map((a) => {
+        const header = a?.content?.body?.find((b) => b.component === "article header");
         return {
           ...a,
           image: {
-            filename: a?.content?.body?.find((b) => b.component === "article header")?.image
-              ?.filename,
+            filename: header?.image?.filename,
           },
-          title: a?.name,
+          title: header?.title,
           url: {
             cached_url: a?.full_slug,
           },
