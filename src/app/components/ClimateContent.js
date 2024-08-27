@@ -56,9 +56,7 @@ const ClimateContent = ({ blok }) => {
   const { containerRef, ScrollRightButton, ScrollLeftButton } = useScroll();
   const { push } = useRouter();
   const changePage = (url) => {
-    const currentUrl = window.location.href;
     push(`${url}`);
-    window.history.replaceState(null, "", currentUrl);
   };
   return (
     <>

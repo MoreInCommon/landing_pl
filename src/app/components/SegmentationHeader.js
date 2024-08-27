@@ -36,9 +36,7 @@ const SegmentationHeader = ({ blok }) => {
         </div>
         <Button
           onClick={() => {
-            const currentUrl = window.location.href;
             router.push(`/${blok.button_link.cached_url}`);
-            window.history.replaceState(null, "", currentUrl);
           }}
           classes="bg-brand-darkBlue m-auto"
         >

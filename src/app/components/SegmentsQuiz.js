@@ -10,10 +10,8 @@ const SegmentsQuiz = ({ blok }) => {
   const pathname = usePathname();
   const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
   const handleClick = () => {
-    const currentUrl = window.location.href;
     const url = `/${blok?.button_url?.cached_url}`;
     router.push(url);
-    window.history.replaceState(null, "", currentUrl);
   };
   const [result, setResult] = useState(null);
 

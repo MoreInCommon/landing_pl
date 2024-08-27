@@ -99,7 +99,7 @@ export default async function RootLayout({ children }) {
           <main className="bg-transparent py-16 max-xl:py-12 max-sm:py-12 relative z-[1] max-sm:px-4">
             {children}
           </main>
-          <Newsletter />
+          {/* <Newsletter /> */}
           <StoryblokComponent blok={footer} key={footer._uid} />
           <CookieConsentBanner />
           <div id="modal-root" />

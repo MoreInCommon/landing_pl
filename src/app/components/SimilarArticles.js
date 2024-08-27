@@ -9,9 +9,7 @@ const SimilarArticles = ({ blok }) => {
   const { push } = useRouter();
   const changePage = (e, url) => {
     e.preventDefault();
-    const currentUrl = window.location.href;
     push(`${url}`);
-    window.history.replaceState(null, "", currentUrl);
   };
   const { containerRef, ScrollRightButton, ScrollLeftButton } = useScroll();
   const noBorder = blok.no_boder;

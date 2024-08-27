@@ -28,9 +28,7 @@ const ClimateSlides = ({ blok }) => {
   const handleNavigation = useCallback(
     (event, url) => {
       event.preventDefault();
-      const currentUrl = window.location.href;
       router.push(url);
-      window.history.replaceState(null, "", currentUrl);
     },
     [router]
   );

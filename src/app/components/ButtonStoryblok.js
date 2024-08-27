@@ -17,9 +17,7 @@ const Button = ({ blok }) => {
       window.open(pdf);
       return;
     }
-    const currentUrl = window.location.href;
     push(`${url}`);
-    window.history.replaceState(null, "", currentUrl);
   };
   return (
     <CenterContainer>

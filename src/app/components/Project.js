@@ -18,9 +18,7 @@ const Project = ({ blok }) => {
   const { push } = useRouter();
   const changePage = (e, url) => {
     e.preventDefault();
-    const currentUrl = window.location.href;
     push(`${url}`);
-    window.history.replaceState(null, "", currentUrl);
   };
 
   return (

@@ -12,10 +12,7 @@ const MediaMention = ({ blok }) => {
   const url = blok?.url?.url || blok?.url?.cached_url;
   const changePage = (e) => {
     e.preventDefault();
-    const currentUrl = window.location.href;
     push(`/${url}`);
-    window.location.href = `/${url}`;
-    window.history.replaceState(null, "", currentUrl);
   };
   return (
     <a
