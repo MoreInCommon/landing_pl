@@ -64,7 +64,6 @@ export const components = {
   projects: Projects,
   "article header": ArticleHeader,
   "climate article header": ClimateArticleHeader,
-  "global newsletter": Newsletter,
   "global navigation": Navigation,
   "global footer": Footer,
   "decoration urls": Decoration,

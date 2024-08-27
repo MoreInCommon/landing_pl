@@ -1,12 +1,11 @@
 "use client";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { storyblokEditable } from "@storyblok/react";
 import Markdown from "react-markdown";
 import Button from "@/app/components/Button";
 import Notification from "@/app/components/Notification";
 
-const Newsletter = ({ blok }) => {
+const Newsletter = () => {
   const pathname = usePathname();
 
   const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
@@ -50,13 +49,12 @@ const Newsletter = ({ blok }) => {
     <div
       style={{ display: "none" }}
       className={`text-themeableColors-darkBlue w-full newsletterBg bg-[url('/newsletter_bg.png')] py-[4.5rem] max-sm:py-10 ${isGreenUrl}`}
-      {...storyblokEditable(blok)}
     >
       <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile">
-        <h4 className="text-h4 font-bold mb-2">{blok.title}</h4>
-        <p className="text-bodyRegular mb-8 max-md:mb-4">{blok.description}</p>
+        {/* <h4 className="text-h4 font-bold mb-2">{blok.title}</h4>
+        <p className="text-bodyRegular mb-8 max-md:mb-4">{blok.description}</p> */}
         <div id="hubspotForm" style={{ minHeight: "300px" }}></div>{" "}
-        <form>
+        {/* <form>
           <div className="flex gap-4 items-end max-md:flex-col max-md:items-start">
             <div className="max-w-[248px] max-lg:w-[248px] max-md:w-[400px] max-md:max-w-full max-sm:w-auto">
               <label htmlFor="name" className="text-inputLabel pl-4 font-medium">
@@ -91,7 +89,7 @@ const Newsletter = ({ blok }) => {
           <div className="text-captionSmall mt-4 [&_a]:underline">
             <Markdown>{blok.terms}</Markdown>
           </div>
-        </form>
+        </form> */}
       </div>
       {showSuccess && (
         <Notification
