@@ -90,17 +90,17 @@ export const components = {
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {
-  const tempPreview = true;
+  // const tempPreview = true;
   const sbParams = {
-    version: tempPreview ? "draft" : "published",
+    version: preview ? "draft" : "published",
     resolve_relations,
   };
   const storyblokApi = await getStoryblokApi();
   try {
     const data = await storyblokApi.get(url, sbParams, {
-      cache: tempPreview ? "no-cache" : undefined,
+      cache: preview ? "no-cache" : undefined,
       next: {
-        revalidate: tempPreview ? undefined : 3600,
+        revalidate: preview ? undefined : 3600,
       },
     });
 
