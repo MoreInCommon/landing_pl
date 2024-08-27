@@ -6,7 +6,7 @@ import { components } from "@/app/utils";
 import { draftMode } from "next/headers";
 
 storyblokInit({
-  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
+  accessToken: process.env.STORYBLOK_TOKEN,
   use: [apiPlugin],
   components,
 });

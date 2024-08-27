@@ -7,7 +7,7 @@ export async function GET(req) {
   const params = req.url.split("?");
 
   // Check the secret and next parameters
-  if (secret !== process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN) {
+  if (secret !== process.env.STORYBLOK_TOKEN) {
     return new Response("Invalid token", { status: 401 });
   }
 

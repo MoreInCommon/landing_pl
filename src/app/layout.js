@@ -12,7 +12,7 @@ import { draftMode } from "next/headers";
 import { GoogleAnalytics } from "@next/third-parties/google";
 
 storyblokInit({
-  accessToken: process.env.NEXT_PUBLIC_STORYBLOK_PREVIEW_TOKEN,
+  accessToken: process.env.STORYBLOK_TOKEN,
   use: [apiPlugin],
   components,
 });
