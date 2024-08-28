@@ -44,14 +44,15 @@ const Newsletter = () => {
       document.body.removeChild(script);
     };
   }, []);
-  console.log("newsletter");
   return (
     <div
-      className={`text-themeableColors-darkBlue w-full newsletterBg bg-[url('/newsletter_bg.png')] py-[4.5rem] max-sm:py-10 ${isGreenUrl}`}
+      className={`text-[#152321] w-full newsletterBg bg-[url('/newsletter_bg.png')] py-[4.5rem] max-sm:py-10 ${isGreenUrl}`}
     >
       <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile">
-        {/* <h4 className="text-h4 font-bold mb-2">{blok.title}</h4>
-        <p className="text-bodyRegular mb-8 max-md:mb-4">{blok.description}</p> */}
+        <h4 className="text-h4 font-bold mb-2">Bądź na bieżąco!</h4>
+        <p className="text-bodyRegular mb-8 max-md:mb-4">
+          Zasubskrybuj nasz newsletter, żeby być na biężąco z działaniami More in Common.
+        </p>
         <div id="hubspotForm" style={{ minHeight: "300px" }}></div>{" "}
         {/* <form>
           <div className="flex gap-4 items-end max-md:flex-col max-md:items-start">
