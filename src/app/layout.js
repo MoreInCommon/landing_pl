@@ -80,7 +80,6 @@ const sailec = localFont({
 export default async function RootLayout({ children }) {
   const { data } = await fetchData();
   const blocks = data?.story?.content?.blocks;
-  // const newsletter = blocks?.find((blok) => blok?.component === "global newsletter");
   const navigation = blocks?.find((blok) => blok?.component === "global navigation");
   const footer = blocks?.find((blok) => blok?.component === "global footer");
   const decoration = blocks?.find((blok) => blok?.component === "decoration urls");

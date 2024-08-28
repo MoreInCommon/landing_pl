@@ -86,7 +86,7 @@ const ClimateSlides = ({ blok }) => {
       <div ref={containerRef} className="flex gap-4 my-8 mt-10 mb-10 overflow-x-scroll">
         {contents?.map((content, index) => (
           <Link
-            className="flex p-6 flex-col items-center gap-2 border-[1px] border-mono-neutral22 min-w-[325px]"
+            className="flex p-6 flex-col items-center gap-2 border-[1px] border-[#DADDE1] min-w-[325px]"
             href={`/${content?.url?.cached_url}`}
             key={index}
             onClick={(event) => handleNavigation(event, `/${content?.url?.cached_url}`)}
