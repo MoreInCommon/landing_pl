@@ -80,7 +80,7 @@ const sailec = localFont({
 export default async function RootLayout({ children }) {
   const { data } = await fetchData();
   const blocks = data?.story?.content?.blocks;
-  const newsletter = blocks?.find((blok) => blok?.component === "global newsletter");
+  // const newsletter = blocks?.find((blok) => blok?.component === "global newsletter");
   const navigation = blocks?.find((blok) => blok?.component === "global navigation");
   const footer = blocks?.find((blok) => blok?.component === "global footer");
   const decoration = blocks?.find((blok) => blok?.component === "decoration urls");
@@ -98,7 +98,7 @@ export default async function RootLayout({ children }) {
           <main className="bg-transparent py-16 max-xl:py-12 max-sm:py-12 relative z-[1] max-sm:px-4">
             {children}
           </main>
-          <Newsletter />
+          {/* <Newsletter /> */}
           <StoryblokComponent blok={footer} key={footer._uid} />
           <CookieConsentBanner />
           <div id="modal-root" />
