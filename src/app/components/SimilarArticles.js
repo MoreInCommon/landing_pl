@@ -13,7 +13,6 @@ const SimilarArticles = ({ blok }) => {
   };
   const { containerRef, ScrollRightButton, ScrollLeftButton } = useScroll();
   const noBorder = blok.no_boder;
-  console.log("a", articles);
   return (
     <>
       <CenterContainer>
