@@ -8,31 +8,31 @@ import { useRouter } from "next/navigation";
 
 const segments = [
   {
-    title: "Postępowi Zapaleńcy",
+    title: "Postępowi zapaleńcy",
     color: "#D3405B",
     image: "/tempImages/Avatar_1.png",
     url: "/fokus-na-klimat/postepowi-zapalency",
   },
   {
-    title: "Pasywni Liberałowie",
+    title: "Pasywni liberałowie",
     color: "#D87108",
     image: "/tempImages/Avatar_2.png",
     url: "/fokus-na-klimat/pasywni-liberalowie",
   },
   {
-    title: "Zawiedzenie Samotnicy",
+    title: "Zawiedzenie samotnicy",
     color: "#3A7F8E",
     image: "/tempImages/Avatar_3.png",
     url: "/fokus-na-klimat/zawiedzeni-samotnicy",
   },
   {
-    title: "Niezaangażowani Normalsi",
+    title: "Niezaangażowani normalsi",
     color: "#445170",
     image: "/tempImages/Avatar_4.png",
     url: "/fokus-na-klimat/niezaangazowani-normalsi",
   },
   {
-    title: "Spełnieni Lokaliści",
+    title: "Spełnieni lokaliści",
     color: "#37821E",
     image: "/tempImages/Avatar_5.png",
     url: "/fokus-na-klimat/spelnieni-lokalisci",
@@ -44,7 +44,7 @@ const segments = [
     url: "/fokus-na-klimat/dumni-patrioci",
   },
   {
-    title: "Oddani Tradycjonaliści",
+    title: "Oddani tradycjonaliści",
     color: "#77539E",
     image: "/tempImages/Avatar_7.png",
     url: "/fokus-na-klimat/oddani-tradycjonalisci",
