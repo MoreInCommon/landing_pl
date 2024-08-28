@@ -28,7 +28,7 @@ const SimilarArticles = ({ blok }) => {
               onClick={(e) => changePage(e, `/${article.full_slug}`)}
               className={`flex p-6 flex-col items-center gap-2 ${noBorder ? "" : "border border-mono-neutral22"} min-w-[225px] flex-1`}
             >
-              <h4 className="text-h4 text-black text-center min-h-[60px] ellipsis">
+              <h4 className="text-h4 text-black text-center min-h-[60px] ellipsis capitalize">
                 {article?.content?.body?.find((c) => c.component === "climate article header")
                   ?.title || article.name}
               </h4>
