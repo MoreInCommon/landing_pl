@@ -331,7 +331,7 @@ export default function QuizStart() {
           `Error in ${tempAnswer.propertyName}. Answer is ${result}. Correct answer is ${tempAnswer.correctAnswer}`
         );
       } else {
-        console.log(`OK`);
+        console.log(`OK.`);
       }
     }
   };
