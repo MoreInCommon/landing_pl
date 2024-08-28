@@ -239,6 +239,7 @@ const ClimateQuiz = ({ blok }) => {
                 return (
                   <>
                     <div
+                      key={index}
                       className="px-[65px] max-lg-px[25px] max-sm:px-0"
                       {...storyblokEditable(q)}
                       style={{ display: currentPageIndex === index ? "block" : "none" }}

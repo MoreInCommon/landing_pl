@@ -6,6 +6,7 @@ import "./lib/slick.css";
 import "./lib/slick-theme.css";
 import { fetchPageData } from "@/app/utils";
 import CookieConsentBanner from "@/app/components/CookieConsentBanner";
+import Newsletter from "@/app/components/Newsletter";
 import { StoryblokComponent } from "@storyblok/react";
 import { components } from "@/app/utils";
 import { draftMode } from "next/headers";
@@ -97,7 +98,7 @@ export default async function RootLayout({ children }) {
           <main className="bg-transparent py-16 max-xl:py-12 max-sm:py-12 relative z-[1] max-sm:px-4">
             {children}
           </main>
-          {/* <Newsletter /> */}
+          <Newsletter />
           <StoryblokComponent blok={footer} key={footer._uid} />
           <CookieConsentBanner />
           <div id="modal-root" />

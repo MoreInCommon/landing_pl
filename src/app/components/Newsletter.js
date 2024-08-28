@@ -44,10 +44,9 @@ const Newsletter = () => {
       document.body.removeChild(script);
     };
   }, []);
-
+  console.log("newsletter");
   return (
     <div
-      style={{ display: "none" }}
       className={`text-themeableColors-darkBlue w-full newsletterBg bg-[url('/newsletter_bg.png')] py-[4.5rem] max-sm:py-10 ${isGreenUrl}`}
     >
       <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile">
