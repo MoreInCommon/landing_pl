@@ -53,7 +53,7 @@ const Newsletter = () => {
         <p className="text-bodyRegular mb-8 max-md:mb-4">
           Zasubskrybuj nasz newsletter, żeby być na biężąco z działaniami More in Common.
         </p>
-        <div id="hubspotForm" style={{ minHeight: "300px" }}></div>{" "}
+        <div id="hubspotForm"></div>{" "}
         {/* <form>
           <div className="flex gap-4 items-end max-md:flex-col max-md:items-start">
             <div className="max-w-[248px] max-lg:w-[248px] max-md:w-[400px] max-md:max-w-full max-sm:w-auto">
