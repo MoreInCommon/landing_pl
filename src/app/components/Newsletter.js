@@ -10,10 +10,12 @@ const Newsletter = () => {
   const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
   const formRef = useRef(null);
   const [formLoaded, setFormLoaded] = useState(false);
+  const [isFormLoading, setIsFormLoading] = useState(false);
 
   useEffect(() => {
     const loadHubspotScript = () => {
-      if (!formLoaded) {
+      if (!formLoaded && !isFormLoading) {
+        setIsFormLoading(true);
         const script = document.createElement("script");
         script.src = "https://js.hsforms.net/forms/v2.js";
         script.async = true;
@@ -29,17 +31,30 @@ const Newsletter = () => {
         };
         document.body.appendChild(script);
         setFormLoaded(true);
+        setIsFormLoading(false);
       }
     };
 
-    const timer = setTimeout(() => {
-      loadHubspotScript();
-    }, 1000);
+    const handleIntersection = (entries) => {
+      if (entries[0].isIntersecting) {
+        loadHubspotScript();
+      }
+    };
+
+    const observer = new IntersectionObserver(handleIntersection, {
+      rootMargin: "400px",
+    });
+
+    if (formRef.current) {
+      observer.observe(formRef.current);
+    }
 
     return () => {
-      clearTimeout(timer);
+      if (formRef.current) {
+        observer.unobserve(formRef.current);
+      }
     };
-  }, [formLoaded]);
+  }, [formLoaded, isFormLoading]);
 
   return (
     <div
