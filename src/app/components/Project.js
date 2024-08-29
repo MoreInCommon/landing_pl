@@ -31,7 +31,7 @@ const Project = ({ blok }) => {
         <div className="relative mb-6 flex">
           <img
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-            src={`${blok.img.filename}/m/filters:quality(65)`}
+            src={`${blok.img.filename}/m/`}
             alt=""
             style={{
               objectFit: "contain",

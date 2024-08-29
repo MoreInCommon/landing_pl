@@ -46,7 +46,7 @@ const ClimateSlides = ({ blok }) => {
                 onClick={(event) => handleNavigation(event, `/${content?.url?.cached_url}`)}
               >
                 <div className="flex-1">
-                  <img src={`${content?.image?.filename}/m/filters:quality(65)`} alt="img" />
+                  <img src={`${content?.image?.filename}/m/`} alt="img" />
                 </div>
                 <div className="flex flex-col flex-1">
                   <h4 className="text-[28px] font-medium text-black">{content.title}</h4>
@@ -95,11 +95,7 @@ const ClimateSlides = ({ blok }) => {
             <h4 className="text-h4 text-black text-center min-h-[60px] ellipsis">
               {content.title}
             </h4>
-            <img
-              src={`${content?.image?.filename}/m/filters:quality(65)`}
-              alt="img"
-              className="min-h-[330px]"
-            />
+            <img src={`${content?.image?.filename}/m/`} alt="img" className="min-h-[330px]" />
             <p className="text-black flex items-center self-end mt-2">
               Czytaj dalej{" "}
               <svg
