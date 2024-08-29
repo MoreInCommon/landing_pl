@@ -122,11 +122,19 @@ export default function CustomSlider({ blok }) {
                 </Button>
               </div>
               <div className="flex-1 max-md:top-10 relative">
-                <img
-                  src={`${content.image.filename}/m/`}
-                  alt="img"
-                  className="h-full object-cover max-md:h-[250px] max-md:m-auto"
-                />
+                <picture>
+                  <source
+                    media="(max-width: 768px)"
+                    srcSet={`${content.image.filename}/m//0x250`}
+                  />
+                  <source media="(min-width: 769px)" srcSet={`${content.image.filename}/m/500x0`} />
+                  <img
+                    src={`${content.image.filename}/m/`} // Fallback for older browsers
+                    alt="img"
+                    className="h-full object-cover max-md:h-[250px] max-md:m-auto"
+                    loading={index === 0 ? "eager" : "lazy"}
+                  />
+                </picture>
               </div>
             </div>
           </div>
