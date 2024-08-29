@@ -325,7 +325,7 @@ const ClimateQuiz = ({ blok }) => {
                             {currentAnswerCorrect ? (
                               <span className="font-medium">Dobra odpowiedź!</span>
                             ) : (
-                              <span className="font-medium">Błędna odpowiedź</span>
+                              <span className="font-medium">Błędna odpowiedź.</span>
                             )}{" "}
                             {q.comment}
                           </p>
