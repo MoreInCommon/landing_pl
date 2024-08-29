@@ -15,7 +15,7 @@ export default function ArticleHeader({ blok }) {
         {...storyblokEditable(blok)}
       >
         <img
-          src={`${blok.image.filename}/m/`}
+          src={`${blok.image.filename}/m/filters:quality(65)`}
           alt="main photo"
           className="max-w-[500px] max-h-[640px] flex-1 max-lg:hidden"
         />
@@ -53,7 +53,11 @@ export default function ArticleHeader({ blok }) {
       </p>
       <SocialMedia blok={blok} />
       {blok.image.filename && (
-        <img src={`${blok.image.filename}/m/`} alt="main photo" className="w-full mt-12" />
+        <img
+          src={`${blok.image.filename}/m/filters:quality(65)`}
+          alt="main photo"
+          className="w-full mt-12"
+        />
       )}
     </div>
   );

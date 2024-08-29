@@ -38,7 +38,7 @@ const SimilarArticles = ({ blok }) => {
                   (article?.content?.body?.find((c) => c.component === "article header")?.image
                     ?.filename ||
                     article?.content?.body?.find((c) => c.component === "seo")?.image?.filename) +
-                  "/m/"
+                  "/m/filters:quality(65)"
                 }
                 alt="img"
               />
