@@ -29,5 +29,5 @@ export async function fetchData() {
   );
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/fokus-na-klimat`);
+  return fetchMetadata(`/fokus-na-klimat`);
 }

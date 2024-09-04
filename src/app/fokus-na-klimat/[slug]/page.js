@@ -30,5 +30,5 @@ export async function fetchData(slug) {
 }
 export async function generateMetadata({ params }) {
   const slug = params.slug;
-  return fetchMetadata(`cdn/stories/fokus-na-klimat/${slug}`);
+  return fetchMetadata(`/fokus-na-klimat/${slug}`);
 }

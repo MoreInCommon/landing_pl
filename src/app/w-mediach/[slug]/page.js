@@ -31,5 +31,5 @@ export async function fetchData(slug) {
 }
 export async function generateMetadata({ params }) {
   const slug = params.slug;
-  return fetchMetadata(`cdn/stories/w-mediach/${slug}`);
+  return fetchMetadata(`/w-mediach/${slug}`);
 }

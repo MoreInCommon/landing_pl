@@ -35,5 +35,5 @@ export async function fetchData(slug) {
 }
 export async function generateMetadata({ params }) {
   const slug = params.slug;
-  return fetchMetadata(`cdn/stories/kontakt/dla-mediow/artykuly/${slug}`);
+  return fetchMetadata(`/kontakt/dla-mediow/artykuly/${slug}`);
 }

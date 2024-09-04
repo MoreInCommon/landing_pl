@@ -19,5 +19,5 @@ export default async function Home() {
 }
 
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/quiz`);
+  return fetchMetadata(`/quiz`);
 }

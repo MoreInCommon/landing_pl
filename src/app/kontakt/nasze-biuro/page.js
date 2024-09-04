@@ -27,5 +27,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/kontakt/nasze-biuro`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/kontakt/nasze-biuro`);
+  return fetchMetadata(`/kontakt/nasze-biuro`);
 }

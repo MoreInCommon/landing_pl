@@ -25,5 +25,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/siedem-segmentow`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/siedem-segmentow`);
+  return fetchMetadata(`/siedem-segmentow`);
 }

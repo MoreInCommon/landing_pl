@@ -26,5 +26,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/o-nas/statut`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/o-nas/statut`);
+  return fetchMetadata(`/o-nas/statut`);
 }

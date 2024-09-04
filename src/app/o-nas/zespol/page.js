@@ -25,5 +25,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/o-nas/zespol`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/o-nas/zespol`);
+  return fetchMetadata(`/o-nas/zespol`);
 }

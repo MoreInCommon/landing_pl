@@ -26,5 +26,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/nasze-projekty`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/nasze-projekty`);
+  return fetchMetadata(`/nasze-projekty`);
 }

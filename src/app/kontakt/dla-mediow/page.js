@@ -25,5 +25,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/kontakt/dla-mediow`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/kontakt/dla-mediow`);
+  return fetchMetadata(`/kontakt/dla-mediow`);
 }

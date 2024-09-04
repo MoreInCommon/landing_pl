@@ -24,5 +24,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/home`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/home`);
+  return fetchMetadata(`/home`);
 }

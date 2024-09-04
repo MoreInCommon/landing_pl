@@ -119,16 +119,21 @@ export const fetchMetadata = async (url) => {
   const storyblokApi = await getStoryblokApi();
 
   try {
-    const data = await storyblokApi.get(url, sbParams, {
+    const data = await storyblokApi.get(`cdn/stories${url}`, sbParams, {
       cache: "no-cache",
     });
 
     const seoData =
       data?.data?.story?.content?.body?.find((blok) => blok?.component === "seo") || {};
+    let newUrl = url.replace("/home", "");
 
+    const domain = "https://www.moreincommon.pl";
     return {
       title: seoData?.title,
       description: seoData?.description,
+      alternates: {
+        canonical: `${domain}${newUrl}`,
+      },
       openGraph: {
         title: seoData?.title,
         description: seoData?.description,

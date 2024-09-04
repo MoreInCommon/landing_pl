@@ -25,5 +25,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/polityka-prywatnosci`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/polityka-prywatnosci`);
+  return fetchMetadata(`/polityka-prywatnosci`);
 }

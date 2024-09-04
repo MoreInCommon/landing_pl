@@ -25,5 +25,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/o-nas/misja`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/o-nas/misja`);
+  return fetchMetadata(`/o-nas/misja`);
 }

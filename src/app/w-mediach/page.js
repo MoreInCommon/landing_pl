@@ -24,5 +24,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/w-mediach`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/w-mediach`);
+  return fetchMetadata(`/w-mediach`);
 }

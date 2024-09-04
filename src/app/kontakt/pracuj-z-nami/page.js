@@ -25,5 +25,5 @@ export async function fetchData() {
   return fetchPageData(`cdn/stories/kontakt/pracuj-z-nami`, isEnabled);
 }
 export async function generateMetadata() {
-  return fetchMetadata(`cdn/stories/kontakt/pracuj-z-nami`);
+  return fetchMetadata(`/kontakt/pracuj-z-nami`);
 }
