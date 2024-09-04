@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const AgreementPage = ({ questions, setAnswer, errors, answersOrder }) => {
+const AgreementPage = ({ questions, setAnswer, errors, answersOrder, alternateLabel }) => {
   const [hovered, setHovered] = useState(null);
 
   const handleMouseEnter = (index) => {
@@ -13,21 +13,26 @@ const AgreementPage = ({ questions, setAnswer, errors, answersOrder }) => {
   const handleAnswer = (index, qIndex) => {
     setAnswer(index, qIndex);
   };
-
+  const addedCols = alternateLabel ? 0 : 2;
   return (
     <div className="mt-4">
       <h4 className="text-[18px] font-bold mb-10">
-        W jakim stopniu zgadza się Pan/i lub nie zgadza z poniższymi stwierdzeniami?
+        {alternateLabel ||
+          "W jakim stopniu zgadza się Pan/i lub nie zgadza z poniższymi stwierdzeniami?"}
       </h4>
       <div className="w-full overflow-x-auto">
         <div
-          className={`grid grid-cols-${answersOrder.length + 2} min-w-[800px]`}
-          style={{ gridTemplateColumns: `repeat(${answersOrder.length + 2}, minmax(0, 1fr))` }}
+          className={`grid grid-cols-${answersOrder.length + addedCols} min-w-[800px]`}
+          style={{
+            gridTemplateColumns: `repeat(${answersOrder.length + addedCols}, minmax(0, 1fr))`,
+          }}
         >
           {/* Header Row */}
-          <div className="sticky left-0 col-span-2 bg-white border-b border-[#E4E4E4] z-20">
-            {/* Empty div for alignment */}
-          </div>
+          {!alternateLabel && (
+            <div className="sticky left-0 col-span-2 bg-white border-b border-[#E4E4E4] z-20">
+              {/* Empty div for alignment */}
+            </div>
+          )}
           {answersOrder.map((a, i) => (
             <div
               key={i}
@@ -41,13 +46,15 @@ const AgreementPage = ({ questions, setAnswer, errors, answersOrder }) => {
           {questions.map((q, i) => (
             <React.Fragment key={i}>
               {/* Sticky Question Column */}
-              <div
-                onMouseEnter={() => handleMouseEnter(i)}
-                onMouseLeave={() => handleMouseLeave(null)}
-                className={`col-span-2 p-4 border-b border-[#E4E4E4] transition-all sticky left-0 bg-white z-10 ${hovered === i ? "bg-[#F8F8F9]" : ""} ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
-              >
-                {q.text}
-              </div>
+              {!alternateLabel && (
+                <div
+                  onMouseEnter={() => handleMouseEnter(i)}
+                  onMouseLeave={() => handleMouseLeave(null)}
+                  className={`col-span-2 p-4 border-b border-[#E4E4E4] transition-all sticky left-0 bg-white z-10 ${hovered === i ? "bg-[#F8F8F9]" : ""} ${errors.includes(i) ? "bg-[#FDF7E6]" : ""}`}
+                >
+                  {q.text}
+                </div>
+              )}
               {answersOrder.map((a, index) => (
                 <div
                   key={index}

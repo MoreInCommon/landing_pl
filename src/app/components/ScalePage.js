@@ -24,7 +24,7 @@ const ScalePage = ({ questions, setAnswer, pageText }) => {
                 <span className="text-[22px] font-medium">{a}</span>
                 <input
                   type="radio"
-                  className="h-6 w-6 cursor-pointer ml-2 max-sm:ml-4"
+                  className="h-6 w-6 cursor-pointer max-sm:ml-4"
                   checked={q.value === index}
                   onChange={() => handleAnswer(index, i)}
                 />

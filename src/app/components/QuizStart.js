@@ -38,7 +38,7 @@ const p = [
         realNumber: 1,
       },
       {
-        text: "Czy określił(a)by Pan(i) siebie jako osobę wierzącą?",
+        text: "Czy określiłby się Pan/określiłaby się Pani jako osobę wierzącą?",
         answers: ["Zdecydowanie nie", "Zdecydowanie tak"],
         value: null,
         realNumber: 7,
@@ -178,6 +178,8 @@ const p = [
   },
   {
     type: "agreement",
+    alternateLabel:
+      "Różne cechy określają to kim się czujemy i jak o sobie myślimy. Czy czuje się Pan/Pani dumny/dumna z swojej europejskości?",
     answersOrder: [
       "Zdecydowanie tak",
       "Raczej tak",
@@ -187,7 +189,7 @@ const p = [
     ],
     questions: [
       {
-        text: "Różne cechy określają to kim się czujemy i jak o sobie myślimy. Czy czuje się Pan/Pani dumny/dumna z swojej europejskości?",
+        text: "",
         value: null,
         realNumber: 11,
       },
@@ -216,7 +218,7 @@ const p = [
         realNumber: 13,
       },
       {
-        text: "Liczba osób w gospodarstwie",
+        text: "Liczba osób w gospodarstwie domowym",
         answers: ["1 osoba.", "2 osoby.", "3 osoby.", "4 osoby.", "5 osób i więcej."],
         value: null,
         realNumber: 14,
@@ -449,6 +451,7 @@ export default function QuizStart() {
         setAnswer={setAnswer}
         errors={errors}
         answersOrder={currentPage.answersOrder}
+        alternateLabel={currentPage.alternateLabel}
       />
     ),
     scale: (
