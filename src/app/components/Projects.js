@@ -7,7 +7,6 @@ const Projects = ({ blok }) => {
     return (a.date ? new Date(a.date) : new Date()) - (b.date ? new Date(b.date) : new Date());
   });
   sortedProjects.reverse();
-  console.log("sortedProjects", sortedProjects);
   return (
     <>
       <div className="flex gap-10 flex-wrap mt-20 items-stretch max-w-full m-auto w-full px-full max-xl:px-tablet max-sm:px-mobile max-lg:justify-center">
