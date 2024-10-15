@@ -4,10 +4,7 @@ import { StoryblokComponent } from "@storyblok/react";
 const Projects = ({ blok }) => {
   const copiedProjects = [...blok.project];
   const sortedProjects = copiedProjects.sort((a, b) => {
-    return (
-      (a.created_at ? new Date(a.created_at) : new Date()) -
-      (b.created_at ? new Date(b.created_at) : new Date())
-    );
+    return (a.date ? new Date(a.date) : new Date()) - (b.date ? new Date(b.date) : new Date());
   });
   sortedProjects.reverse();
   console.log("sortedProjects", sortedProjects);
