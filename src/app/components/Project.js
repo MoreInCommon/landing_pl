@@ -27,7 +27,7 @@ const Project = ({ blok }) => {
       className="bg-white p-6 border-t-[6px] border-brand-darkBlue flex-[47%] max-md:flex-[75%] w-1/2 flex flex-col max-w-1/2 max-md:max-w-[100%] hover:shadow-tile-shadow transition-shadow"
       {...storyblokEditable(blok)}
     >
-      <a href={blok.url.url || blok.url.cached_url} target="_blank">
+      <a href={blok.url.url || blok.url.cached_url}>
         <div className="relative mb-6 flex">
           <img
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
