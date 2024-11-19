@@ -7,6 +7,7 @@ const Button = ({ blok }) => {
   const url = blok?.url?.cached_url || blok?.url?.url;
   const pdf = blok?.pdf?.filename;
   const { push } = useRouter();
+  console.log(blok?.url);
   const color = {
     blue: "bg-brand-darkBlue hover:bg-hover-darkBlue",
     green: "bg-brand-darkGreen hover:bg-hover-green",
@@ -17,7 +18,11 @@ const Button = ({ blok }) => {
       window.open(pdf);
       return;
     }
-    push(`${url}`);
+    if (url.includes("http")) {
+      window.open(url);
+      return;
+    }
+    push(`/${url}`);
   };
   return (
     <CenterContainer>
