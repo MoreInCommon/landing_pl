@@ -7,7 +7,6 @@ const Button = ({ blok }) => {
   const url = blok?.url?.cached_url || blok?.url?.url;
   const pdf = blok?.pdf?.filename;
   const { push } = useRouter();
-  console.log(blok?.url);
   const color = {
     blue: "bg-brand-darkBlue hover:bg-hover-darkBlue",
     green: "bg-brand-darkGreen hover:bg-hover-green",
