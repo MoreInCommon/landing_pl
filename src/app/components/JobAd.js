@@ -4,7 +4,7 @@ import { storyblokEditable } from "@storyblok/react";
 const JobAd = ({ blok }) => {
   return (
     <a
-      href={blok.url.url || blok.url.cached_url}
+      href={blok?.file?.filename || blok.url.url || blok.url.cached_url}
       target="_blank"
       rel="noopener noreferrer"
       className="bg-white p-6 border border-gray-300 flex-[48%] max-lg:max-w-[46%] max-sm:max-w-[95%] flex flex-col max-w-[48%]"
@@ -14,7 +14,11 @@ const JobAd = ({ blok }) => {
       <p className="pb-4 mb-4 border-b border-gray-300">{blok.place}</p>
       <p className="mb-6">{blok.desc}</p>
       <div className="flex ml-auto gap-[2px] align-middle">
-        <a href={blok.url.url || blok.url.cached_url} target="_blank" rel="noopener noreferrer">
+        <a
+          href={blok?.file?.filename || blok.url.url || blok.url.cached_url}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Sprawdź
         </a>
         <svg
