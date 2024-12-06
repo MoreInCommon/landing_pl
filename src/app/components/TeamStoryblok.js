@@ -76,6 +76,7 @@ const Team = ({ blok }) => {
                   xUrl={person?.twitter?.url}
                   linkedinUrl={person?.linkedin?.url}
                   emailUrl={person?.email?.url}
+                  blueskyUrl={person?.bluesky?.url}
                   inverted
                 />
               </div>

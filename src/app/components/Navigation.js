@@ -27,6 +27,7 @@ const Navigation = ({ blok }) => {
   const twitter = socialMediaLink.find((block) => block.type === "twitter")?.url?.url;
   const linkedin = socialMediaLink.find((block) => block.type === "linkedin")?.url?.url;
   const facebook = socialMediaLink.find((block) => block.type === "facebook")?.url?.url;
+  const bluesky = socialMediaLink.find((block) => block.type === "bluesky")?.url?.url;
   const mobileNavigationItems = navItems.map((block) => ({
     ...block,
     component: "mobile navigation item",
@@ -94,7 +95,12 @@ const Navigation = ({ blok }) => {
             ))}
           </div>
           <div className="max-xl:hidden">
-            <SocialMediaIcons xUrl={twitter} linkedinUrl={linkedin} facebookUrl={facebook} />
+            <SocialMediaIcons
+              xUrl={twitter}
+              linkedinUrl={linkedin}
+              facebookUrl={facebook}
+              blueskyUrl={bluesky}
+            />
           </div>
         </div>
       </div>

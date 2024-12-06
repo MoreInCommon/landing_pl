@@ -13,6 +13,7 @@ const Footer = ({ blok }) => {
   const socialMediaLink = blok.blocks.filter((block) => block.component === "social media link");
   const twitter = socialMediaLink.find((block) => block.type === "twitter").url.url;
   const linkedin = socialMediaLink.find((block) => block.type === "linkedin").url.url;
+  const bluesky = socialMediaLink.find((block) => block.type === "bluesky")?.url?.url;
   return (
     <footer
       className={`relative bg-white shadow-footer-shadow text-themeableColors-darkBlue ${isGreenUrl}`}
@@ -24,7 +25,7 @@ const Footer = ({ blok }) => {
               <span className="sr-only">More in common</span>
               <Image src={Logo} alt="More in common" width={143} height={44} />
             </Link>
-            <SocialMediaIcons xUrl={twitter} linkedinUrl={linkedin} />
+            <SocialMediaIcons xUrl={twitter} linkedinUrl={linkedin} blueskyUrl={bluesky} />
             <span className="mt-10 max-lg:flex max-lg:flex-col">
               © 2024 More in Common{" "}
               <Link href="/polityka-prywatnosci" className="ml-8 max-lg:ml-0">
