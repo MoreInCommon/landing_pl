@@ -53,7 +53,9 @@ export default function ContactInfo() {
                     fill="#1C1B1F"
                   />
                 </svg>
-                <p className="text-bodyRegular">ul. Sapieżyńska 10a, p. 131 00-215 Warszawa</p>
+                <p className="text-bodyRegular">
+                  Cluster Sienna Center, ul. Sienna 75, 00-833 Warszawa
+                </p>
               </div>
               <div className="flex gap-2">
                 <svg
