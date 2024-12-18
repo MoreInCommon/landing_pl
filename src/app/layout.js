@@ -11,6 +11,7 @@ import { StoryblokComponent } from "@storyblok/react";
 import { components } from "@/app/utils";
 import { draftMode } from "next/headers";
 import { GoogleAnalytics } from "@next/third-parties/google";
+import JsonLd from "./jsonLd";
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_TOKEN,
@@ -19,7 +20,7 @@ storyblokInit({
 });
 
 export const metadata = {
-  metadataBase: new URL("https://www.moreincommon.pl/"),
+  metadataBase: new URL("https://www.moreincommon.pl"),
   alternates: {
     canonical: "/",
   },
@@ -86,9 +87,11 @@ export default async function RootLayout({ children }) {
   const bridgeOptions = {
     resolveRelations: ["similar articles.urls", "automatic climate slides.articles"],
   };
+
   return (
     <StoryblokProvider>
       <html lang="pl">
+        <JsonLd />
         <GoogleAnalytics gaId="G-7RYKX332PZ" />
         <StoryblokBridgeLoader options={bridgeOptions} />
         <body className={`${sailec.className} bg-white mt-[76px] max-xl:mt-12 overflow-x-hidden`}>
