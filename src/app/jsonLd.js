@@ -16,7 +16,10 @@ const JsonLd = () => {
       "@type": "Place",
       name: "Warsaw, Poland",
       address: {
-        "@type": "Cluster Sienna Center, ul. Sienna 75, 00-833 Warszawa",
+        "@type": "PostalAddress",
+        addressLocality: "Warsaw",
+        postalCode: "00-833",
+        streetAddress: "Cluster Sienna Center, ul. Sienna 75",
         addressCountry: "PL",
       },
     },
