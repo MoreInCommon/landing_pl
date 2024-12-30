@@ -17,8 +17,15 @@ const Project = ({ blok }) => {
 
   const { push } = useRouter();
   const changePage = (e, url) => {
-    e.preventDefault();
-    push(`${url}`);
+    if (url.includes("http") || url.includes("https")) {
+      if (url[0] === "/") {
+        url = url.substring(1);
+      }
+      window.open(url, "_blank");
+    } else {
+      e.preventDefault();
+      push(`${url}`);
+    }
   };
 
   return (

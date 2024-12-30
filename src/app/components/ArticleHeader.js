@@ -4,6 +4,7 @@ import { storyblokEditable } from "@storyblok/react";
 import Notification from "@/app/components/Notification";
 import { TwitterShareButton, LinkedinShareButton, FacebookShareButton } from "next-share";
 import { usePathname } from "next/navigation";
+import BlueskyShareButton from "@/app/components/BlueSkyShareButton";
 
 export default function ArticleHeader({ blok }) {
   const pathname = usePathname();
@@ -11,13 +12,13 @@ export default function ArticleHeader({ blok }) {
   if (isClimate) {
     return (
       <div
-        className="text-black text-bodyRegular bg-themeGreen mb-16 flex items-center max-w-full m-auto pl-[100px] pr-[60px] max-lg:px-10 max-md:px-6 max-sm:px-4 max-lg:flex-col gap-10"
+        className="text-black text-bodyRegular bg-themeGreen mb-16 flex items-center max-w-full m-auto pl-[100px] pr-[60px] max-lg:px-10 max-[880px]:px-6 max-sm:px-4 max-lg:flex-col gap-10"
         {...storyblokEditable(blok)}
       >
         <img
           src={`${blok.image.filename}/m/`}
           alt="main photo"
-          className="max-w-[500px] max-h-[640px] flex-1 max-lg:hidden"
+          className="max-w-[500px] max-[1100px]:max-w-[400px] max-h-[640px] flex-1 max-lg:hidden"
         />
         <div className="p-10 shadow-tile-shadow relative left-[-40px] max-lg:left-0 z-1 bg-white">
           <div>
@@ -27,7 +28,7 @@ export default function ArticleHeader({ blok }) {
               </h1>
             </div>
           </div>
-          <p className="text-black max-w-[818px] w-full mt-6 font-medium text-bodyRegular mx-auto mb-20 max-md:mb-8">
+          <p className="text-black max-w-[818px] w-full mt-6 font-medium text-bodyRegular mx-auto mb-20 max-[880px]:mb-8">
             {blok.text}
           </p>
           <SocialMedia blok={blok} />
@@ -48,7 +49,7 @@ export default function ArticleHeader({ blok }) {
           </h1>
         </div>
       </div>
-      <p className="text-black max-w-[818px] w-full mt-6 font-medium text-bodyRegular mx-auto mb-20 max-md:mb-8">
+      <p className="text-black max-w-[818px] w-full mt-6 font-medium text-bodyRegular mx-auto mb-20 max-[880px]:mb-8">
         {blok.text}
       </p>
       <SocialMedia blok={blok} />
@@ -91,7 +92,7 @@ const SocialMedia = ({ blok }) => {
   const report = blok?.report?.filename;
   return (
     <div
-      className={`mx-auto flex items-center ${isClimate ? "justify-start" : "justify-center"} gap-8 max-w-[800px] max-md:flex-col max-md:items-baseline max-md:gap-4`}
+      className={`mx-auto items-center flex items-center ${isClimate ? "justify-start" : "justify-center"} gap-8 max-w-[800px] max-[880px]:flex-col max-[880px]:items-baseline max-[880px]:gap-4`}
     >
       {showSuccess && (
         <Notification message={"Pomyślnie skopiowano link!"} setShowSuccess={setShowSuccess} />
@@ -187,6 +188,7 @@ const SocialMedia = ({ blok }) => {
               </svg>
             </a>
           </LinkedinShareButton>
+          <BlueskyShareButton text={blok.title} url={currentUrl} />
           <a href="#" onClick={copyToClipboard} className="pointer">
             <span className="sr-only">kopiuj link</span>
             <svg
