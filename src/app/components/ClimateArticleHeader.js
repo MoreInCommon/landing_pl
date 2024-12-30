@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { storyblokEditable } from "@storyblok/react";
 import Notification from "@/app/components/Notification";
 import { TwitterShareButton, LinkedinShareButton, FacebookShareButton } from "next-share";
@@ -12,12 +12,17 @@ export default function ClimateArticleHeader({ blok }) {
     year: "numeric",
   });
   const [showSuccess, setShowSuccess] = useState(false);
-  let currentUrl;
   const pathname = usePathname();
   const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
-  if (typeof window !== "undefined") {
-    currentUrl = window?.location?.toString();
-  }
+  const [currentUrl, setCurrentUrl] = useState("");
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setTimeout(() => {
+        setCurrentUrl(window.location.href);
+      }, 200);
+    }
+  }, []);
 
   const copyToClipboard = (e) => {
     e.preventDefault();

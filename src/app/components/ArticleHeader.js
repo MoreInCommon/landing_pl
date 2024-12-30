@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { storyblokEditable } from "@storyblok/react";
 import Notification from "@/app/components/Notification";
 import { TwitterShareButton, LinkedinShareButton, FacebookShareButton } from "next-share";
@@ -79,11 +79,15 @@ const SocialMedia = ({ blok }) => {
       clearTimeout();
     };
   };
-  let currentUrl;
+  const [currentUrl, setCurrentUrl] = useState("");
 
-  if (typeof window !== "undefined") {
-    currentUrl = window?.location?.toString();
-  }
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      setTimeout(() => {
+        setCurrentUrl(window.location.href);
+      }, 200);
+    }
+  }, []);
 
   const download = (url) => {
     window.open(url, "_blank");
