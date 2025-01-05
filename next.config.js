@@ -11,12 +11,17 @@ const nextConfig = {
   async redirects() {
     return [
       {
-        source: "/co-robimy/:path*",
-        destination: "/nasze-projekty/:path*",
+        source: "/co-robimy/nasze-projekty",
+        destination: "/nasze-projekty",
         permanent: true,
       },
       {
         source: "/co-robimy/nasze-projekty/:path*",
+        destination: "/nasze-projekty/:path*",
+        permanent: true,
+      },
+      {
+        source: "/co-robimy/:path*",
         destination: "/nasze-projekty/:path*",
         permanent: true,
       },
