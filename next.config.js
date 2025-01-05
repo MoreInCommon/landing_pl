@@ -16,6 +16,11 @@ const nextConfig = {
         permanent: true,
       },
       {
+        source: "/co-robimy/co-robimy",
+        destination: "/nasze-projekty",
+        permanent: true,
+      },
+      {
         source: "/kontakt",
         destination: "/kontakt/nasze-biuro",
         permanent: true,
