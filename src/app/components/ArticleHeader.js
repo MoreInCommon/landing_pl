@@ -96,12 +96,12 @@ const SocialMedia = ({ blok }) => {
   const report = blok?.report?.filename;
   return (
     <div
-      className={`mx-auto items-center flex items-center ${isClimate ? "justify-start" : "justify-center"} gap-8 max-w-[800px] max-[880px]:flex-col max-[880px]:items-baseline max-[880px]:gap-4`}
+      className={`mx-auto items-center flex ${isClimate ? "justify-start" : "justify-center"} gap-4 max-w-[800px] max-[880px]:flex-col max-[880px]:items-baseline max-[880px]:gap-4`}
     >
       {showSuccess && (
         <Notification message={"Pomyślnie skopiowano link!"} setShowSuccess={setShowSuccess} />
       )}
-      <div>
+      <div className="relative top-[2px] max-[880px]:top-0">
         <span className="font-medium">Data publikacji:</span>{" "}
         {formatter?.format(blok?.date ? new Date(blok?.date) : new Date())}
       </div>
