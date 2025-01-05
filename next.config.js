@@ -16,8 +16,8 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: "/co-robimy/co-robimy",
-        destination: "/nasze-projekty",
+        source: "/co-robimy/nasze-projekty/:path*",
+        destination: "/nasze-projekty/:path*",
         permanent: true,
       },
       {
