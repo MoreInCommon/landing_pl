@@ -40,7 +40,12 @@ const SimilarArticles = ({ blok }) => {
                     article?.content?.body?.find((c) => c.component === "seo")?.image?.filename) +
                   "/m/"
                 }
-                alt="img"
+                alt={
+                  article?.content?.body?.find((c) => c.component === "article header")?.image
+                    ?.alt ||
+                  article?.content?.body?.find((c) => c.component === "seo")?.image?.alt ||
+                  ""
+                }
               />
               <p className="text-black flex items-center self-end mt-2">
                 Czytaj dalej{" "}

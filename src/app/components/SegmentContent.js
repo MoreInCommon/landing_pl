@@ -27,6 +27,7 @@ const SegmentContent = ({ blok }) => {
           <SegmentsSvg className="absolute top-[-4.375rem] right-[-9.5rem] z-0 max-sm:hidden" />
           <img
             src={`${blok.image.filename}/m/`}
+            alt={blok?.image?.alt || ""}
             className="w-[235px] max-h-[245px] object-contain absolute left-0 max-lg:hidden"
           />
           <div className="my-[100px] max-lg:mb-0 max-lg:mt-10">

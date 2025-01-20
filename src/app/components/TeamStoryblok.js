@@ -19,7 +19,7 @@ const Team = ({ blok }) => {
               <img
                 src={`${person.photo.filename}/m/`}
                 className="object-contain"
-                alt={person?.photo.alt}
+                alt={person?.photo?.alt || ""}
                 width={365}
                 height={365}
               />
@@ -65,7 +65,7 @@ const Team = ({ blok }) => {
             <div className="flex justify-center items-start mb-4 p-4 border-t-4 border-brand-darkBlue gap-10 max-lg:flex-col max-lg:mb-0 max-sm:gap-6">
               <img
                 src={`${person.photo.filename}/m/`}
-                alt={person?.photo?.alt}
+                alt={person?.photo?.alt || ""}
                 className="max-lg:m-auto h-fit-content object-contain w-[365px]"
               />
               <div>

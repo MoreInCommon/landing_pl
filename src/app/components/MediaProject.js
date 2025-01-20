@@ -26,7 +26,7 @@ const Project = ({ blok }) => {
         <img
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
           src={`${blok.img.filename}/m/`}
-          alt=""
+          alt={blok?.image?.alt || ""}
           style={{ objectFit: "contain", maxHeight: 300, marginLeft: "auto" }}
         />
       </div>

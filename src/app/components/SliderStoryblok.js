@@ -130,7 +130,7 @@ export default function CustomSlider({ blok }) {
                   <source media="(min-width: 769px)" srcSet={`${content.image.filename}/m/500x0`} />
                   <img
                     src={`${content.image.filename}/m/`} // Fallback for older browsers
-                    alt="img"
+                    alt={content?.image?.alt || ""}
                     className="h-full object-cover max-md:h-[250px] max-md:m-auto"
                     loading={index === 0 ? "eager" : "lazy"}
                   />

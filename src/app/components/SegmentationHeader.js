@@ -58,10 +58,14 @@ const SegmentationHeader = ({ blok }) => {
         </Button>
       </CenterContainer>
       <div className="max-sm:hidden">
-        <ImageComponent src={blok?.image?.filename} />
+        <ImageComponent src={blok?.image?.filename} alt={blok?.image?.alt || ""} />
       </div>
       <div className="hidden max-sm:block">
-        <ImageComponent src={blok?.mobile_image?.filename} className />
+        <ImageComponent
+          src={blok?.mobile_image?.filename}
+          alt={blok?.mobile_image?.alt || ""}
+          className
+        />
       </div>
       <div className="bg-[#EDF0F7] p-8 max-sm:p-4 pt-2">
         <StoryblokComponent blok={blok.long_text[0]} />

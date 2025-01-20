@@ -17,7 +17,7 @@ export default function ArticleHeader({ blok }) {
       >
         <img
           src={`${blok.image.filename}/m/`}
-          alt="main photo"
+          alt={blok?.image?.alt || ""}
           className="max-w-[500px] max-[1100px]:max-w-[400px] max-h-[640px] flex-1 max-lg:hidden"
         />
         <div className="p-10 shadow-tile-shadow relative left-[-40px] max-lg:left-0 z-1 bg-white">
@@ -54,7 +54,11 @@ export default function ArticleHeader({ blok }) {
       </p>
       <SocialMedia blok={blok} />
       {blok.image.filename && (
-        <img src={`${blok.image.filename}/m/`} alt="main photo" className="w-full mt-12" />
+        <img
+          src={`${blok.image.filename}/m/`}
+          alt={blok?.image?.alt || ""}
+          className="w-full mt-12"
+        />
       )}
     </div>
   );
