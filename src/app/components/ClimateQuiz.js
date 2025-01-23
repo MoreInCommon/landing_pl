@@ -203,7 +203,7 @@ const ClimateQuiz = ({ blok }) => {
               <p className="px-8">
                 Dziękujemy za Twój udział w teście. Mamy nadzieję, że mogłeś/mogłaś dowiedzieć się
                 czegoś nowego. Jeśli masz jakieś uwagi lub pytania, napisz do nas:{" "}
-                <a className="underline  text-brand-darkBlue" href="polska@moreincommon.com">
+                <a className="underline  text-brand-darkBlue" href="mailto:polska@moreincommon.com">
                   polska@moreincommon.com
                 </a>
               </p>

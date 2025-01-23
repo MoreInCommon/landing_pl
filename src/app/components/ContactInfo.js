@@ -86,7 +86,7 @@ export default function ContactInfo() {
                 </svg>
                 <a
                   className="underline text-bodyRegular text-brand-darkBlue"
-                  href="polska@moreincommon.com"
+                  href="mailto:polska@moreincommon.com"
                 >
                   polska@moreincommon.com
                 </a>
