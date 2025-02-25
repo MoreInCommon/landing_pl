@@ -31,7 +31,7 @@ import Well from "@/app/components/WellStoryblok";
 import Team from "@/app/components/TeamStoryblok";
 import Quote from "@/app/components/Quote";
 import SegmentsQuiz from "@/app/components/SegmentsQuiz";
-import Newsletter from "@/app/components/Newsletter";
+import FullSizeEmbed from "@/app/components/FullSizeEmbed";
 import Navigation from "@/app/components/Navigation";
 import JobAds from "@/app/components/JobAds";
 import JobAd from "@/app/components/JobAd";
@@ -86,6 +86,7 @@ export const components = {
   "climate slides": ClimateSlides,
   "similar articles": SimilarArticles,
   "automatic climate slides": ClimateSlides,
+  "full size embed": FullSizeEmbed,
   button: Button,
 };
 
