@@ -27,7 +27,6 @@ const Project = ({ blok }) => {
       push(`${url}`);
     }
   };
-
   return (
     <div
       rel="noopener noreferrer"
@@ -59,7 +58,11 @@ const Project = ({ blok }) => {
       </a>
       <div className="flex items-center justify-end gap-2 mt-auto max-sm:flex-col-reverse">
         {blok?.downloadUrl?.filename && (
-          <ButtonText onClick={() => download(blok?.downloadUrl?.filename)}>
+          <ButtonText
+            onClick={() =>
+              download(blok?.report_download_url?.cached_url || blok?.downloadUrl?.filename)
+            }
+          >
             <div className="relative top-[2px]">Raport</div>
             <svg
               xmlns="http://www.w3.org/2000/svg"
