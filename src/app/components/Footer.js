@@ -22,8 +22,8 @@ const Footer = ({ blok }) => {
         <div className="flex justify-between py-8 px-full max-xl:px-tablet max-sm:px-mobile items-stretch max-sm:flex-col-reverse gap-10">
           <div className="flex flex-col gap-6 max-xl:gap-2">
             <Link href="/">
-              <span className="sr-only">More in common</span>
-              <Image src={Logo} alt="More in common" width={143} height={44} />
+              <span className="sr-only">More in Common Polska</span>
+              <Image src={Logo} alt="More in Common Polska" width={143} height={44} />
             </Link>
             <SocialMediaIcons xUrl={twitter} linkedinUrl={linkedin} blueskyUrl={bluesky} />
             <span className="mt-10 max-lg:flex max-lg:flex-col">

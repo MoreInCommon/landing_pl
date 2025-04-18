@@ -24,7 +24,7 @@ export const metadata = {
   alternates: {
     canonical: "/",
   },
-  title: "More in Common",
+  title: "More in Common Polska",
   description:
     "More in Common działa na rzecz wzmocnienia demokracji oraz zmniejszania polaryzacji politycznej i światopoglądowej.",
   openGraph: {

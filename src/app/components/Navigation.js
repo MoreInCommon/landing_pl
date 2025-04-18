@@ -42,8 +42,8 @@ const Navigation = ({ blok }) => {
         <div className="flex justify-between items-center px-full max-xl:px-tablet max-sm:px-mobile ">
           <div className="flex">
             <Link href="/">
-              <span className="sr-only">More in common</span>
-              <Image src={Logo} alt="More in common" width={143} height={44} />
+              <span className="sr-only">More in Common Polska</span>
+              <Image src={Logo} alt="More in Common Polska" width={143} height={44} />
             </Link>
           </div>
           <div className="-mr-2 -my-2 xl:hidden">
