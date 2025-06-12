@@ -21,7 +21,6 @@ export default async function Home() {
 
 export async function fetchData() {
   const { isEnabled } = draftMode();
-
   return fetchPageData(`cdn/stories/o-nas/zespol`, isEnabled);
 }
 export async function generateMetadata() {
