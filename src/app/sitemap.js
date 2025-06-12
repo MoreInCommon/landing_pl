@@ -14,6 +14,12 @@ export default async function sitemap() {
       priority: 0.8,
     },
     {
+      url: "https://www.moreincommon.pl/o-nas/sprawozdania",
+      lastModified: new Date(),
+      changeFrequency: "monthly",
+      priority: 0.8,
+    },
+    {
       url: "https://www.moreincommon.pl/o-nas/misja",
       lastModified: new Date(),
       changeFrequency: "weekly",
