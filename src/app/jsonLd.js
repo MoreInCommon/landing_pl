@@ -10,7 +10,7 @@ const JsonLd = () => {
     url: "https://www.moreincommon.pl",
     description:
       "More in Common działa na rzecz wzmocnienia demokracji oraz zmniejszania polaryzacji politycznej i światopoglądowej.",
-    logo: "https://www.moreincommon.pl/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage22.bdea962e.png&w=256&q=75",
+    logo: "https://www.moreincommon.pl/_next/image?url=%2F_next%2Fstatic%2Fmedia%2Fimage22.812ee1da.png&w=384&q=75",
     foundingDate: "2022-09-07",
     location: {
       "@type": "Place",
