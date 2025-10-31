@@ -24,6 +24,16 @@ const SegmentationHeader = ({ blok }) => {
         </p>
         <SegmentsSvg className="absolute top-[-9.375rem] right-[-5rem] z-0 max-sm:hidden" />
       </div>
+      <div className="max-sm:hidden mt-20 -mb-10">
+        <ImageComponent src={blok?.image?.filename} alt={blok?.image?.alt || ""} />
+      </div>
+      <div className="hidden max-sm:block">
+        <ImageComponent
+          src={blok?.mobile_image?.filename}
+          alt={blok?.mobile_image?.alt || ""}
+          className
+        />
+      </div>
       <CenteredSection>
         <MainHeader text={blok.subtitle} childClassname="pr-0" className="mt-[72px] mb-10" />
       </CenteredSection>
@@ -38,7 +48,7 @@ const SegmentationHeader = ({ blok }) => {
           onClick={() => {
             router.push(`/${blok.button_link.cached_url}`);
           }}
-          classes="bg-brand-darkBlue m-auto"
+          classes="bg-brand-darkBlue m-auto mb-20"
         >
           <div className="relative top-[1px]">{blok.button_text}</div>
           <svg
@@ -57,16 +67,6 @@ const SegmentationHeader = ({ blok }) => {
           </svg>
         </Button>
       </CenterContainer>
-      <div className="max-sm:hidden">
-        <ImageComponent src={blok?.image?.filename} alt={blok?.image?.alt || ""} />
-      </div>
-      <div className="hidden max-sm:block">
-        <ImageComponent
-          src={blok?.mobile_image?.filename}
-          alt={blok?.mobile_image?.alt || ""}
-          className
-        />
-      </div>
       <div className="bg-[#EDF0F7] p-8 max-sm:p-4 pt-2">
         <StoryblokComponent blok={blok.long_text[0]} />
       </div>
