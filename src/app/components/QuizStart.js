@@ -253,7 +253,7 @@ export default function QuizStart() {
       2: "/siedem-segmentow/spelnieni-lokalisci?result",
       3: "/siedem-segmentow/zawiedzeni-samotnicy?result",
       4: "/siedem-segmentow/pasywni-liberalowie?result",
-      5: "/siedem-segmentow/dumni-patrioci?result",
+      5: "/siedem-segmentow/lojalni-hierarchisci?result",
       6: "/siedem-segmentow/postepowi-zapalency?result",
       7: "/siedem-segmentow/oddani-tradycjonalisci?result",
     };
@@ -386,7 +386,7 @@ export default function QuizStart() {
       2: "/siedem-segmentow/spelnieni-lokalisci?result",
       3: "/siedem-segmentow/zawiedzeni-samotnicy?result",
       4: "/siedem-segmentow/pasywni-liberalowie?result",
-      5: "/siedem-segmentow/dumni-patrioci?result",
+      5: "/siedem-segmentow/lojalni-hierarchisci?result",
       6: "/siedem-segmentow/postepowi-zapalency?result",
       7: "/siedem-segmentow/oddani-tradycjonalisci?result",
     };

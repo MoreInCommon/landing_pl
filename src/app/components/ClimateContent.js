@@ -41,7 +41,7 @@ const segments = [
     title: "Dumni patrioci",
     color: "#C11A37",
     image: "/tempImages/Avatar_6.png",
-    url: "/fokus-na-klimat/dumni-patrioci",
+    url: "/fokus-na-klimat/lojalni-hierarchisci",
   },
   {
     title: "Oddani tradycjonaliści",

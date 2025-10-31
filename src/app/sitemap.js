@@ -110,7 +110,7 @@ export default async function sitemap() {
       priority: 0.5,
     },
     {
-      url: "https://www.moreincommon.pl/fokus-na-klimat/dumni-patrioci",
+      url: "https://www.moreincommon.pl/fokus-na-klimat/lojalni-hierarchisci",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,
@@ -152,7 +152,7 @@ export default async function sitemap() {
       priority: 0.5,
     },
     {
-      url: "https://www.moreincommon.pl/siedem-segmentow/dumni-patrioci",
+      url: "https://www.moreincommon.pl/siedem-segmentow/lojalni-hierarchisci",
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.5,

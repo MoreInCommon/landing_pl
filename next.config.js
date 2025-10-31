@@ -35,6 +35,11 @@ const nextConfig = {
         destination: "/o-nas/zespol",
         permanent: true,
       },
+      {
+        source: "/siedem-segmentow/dumni-patrioci",
+        destination: "/siedem-segmentow/lojalni-hierarchisci",
+        permanent: true,
+      },
     ];
   },
 };
