@@ -40,6 +40,11 @@ const nextConfig = {
         destination: "/siedem-segmentow/lojalni-hierarchisci",
         permanent: true,
       },
+      {
+        source: "/fokus-na-klimat/dumni-patrioci",
+        destination: "/fokus-na-klimat/lojalni-hierarchisci",
+        permanent: true,
+      },
     ];
   },
 };
