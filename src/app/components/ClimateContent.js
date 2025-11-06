@@ -38,7 +38,7 @@ const segments = [
     url: "/fokus-na-klimat/spelnieni-lokalisci",
   },
   {
-    title: "Dumni patrioci",
+    title: "Lojalni hierarchiści",
     color: "#C11A37",
     image: "/tempImages/Avatar_6.png",
     url: "/fokus-na-klimat/lojalni-hierarchisci",
