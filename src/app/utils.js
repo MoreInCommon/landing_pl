@@ -39,6 +39,7 @@ import QuoteContainer from "@/app/components/QuoteContainer";
 import ClimateQuiz from "@/app/components/ClimateQuiz";
 import ClimateSlides from "@/app/components/ClimateSlides";
 import Button from "@/app/components/ButtonStoryblok";
+import FlexibleImage from "@/app/components/FlexibleImage";
 import { getStoryblokApi } from "@storyblok/react/rsc";
 
 const Seo = () => {
@@ -88,6 +89,7 @@ export const components = {
   "automatic climate slides": ClimateSlides,
   "full size embed": FullSizeEmbed,
   button: Button,
+  "flexible image": FlexibleImage,
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {
