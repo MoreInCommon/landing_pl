@@ -4,7 +4,6 @@ const FlexibleImage = ({ blok }) => {
   const src = blok?.image?.filename || blok?.image || "/batory.png";
   const maxHeight = blok?.max_height ? Number(blok.max_height) : 40;
   const maxWidth = blok?.max_width ? blok.max_width : 220;
-
   return (
     <div className="flex justify-center">
       <div
