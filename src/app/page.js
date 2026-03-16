@@ -1,4 +1,5 @@
 import { fetchPageData, fetchMetadata } from "@/app/utils";
+import FlexibleImage from "@/app/components/FlexibleImage";
 import StoryblokStory from "@storyblok/react/story";
 import { storyblokInit, apiPlugin } from "@storyblok/react/rsc";
 import { components } from "@/app/utils";
