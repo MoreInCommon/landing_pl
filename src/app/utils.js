@@ -116,6 +116,13 @@ export const fetchPageData = async (url, preview, resolve_relations = "") => {
   }
 };
 export const fetchMetadata = async (url) => {
+  const domain = "https://www.moreincommon.pl";
+  const canonicalPath = url.replace("/home", "") || "/";
+  const fallbackMetadata = {
+    alternates: {
+      canonical: `${domain}${canonicalPath}`,
+    },
+  };
   const sbParams = {
     version: "published",
   };
@@ -128,15 +135,10 @@ export const fetchMetadata = async (url) => {
 
     const seoData =
       data?.data?.story?.content?.body?.find((blok) => blok?.component === "seo") || {};
-    let newUrl = url.replace("/home", "");
-
-    const domain = "https://www.moreincommon.pl";
     return {
+      ...fallbackMetadata,
       title: seoData?.title,
       description: seoData?.description,
-      alternates: {
-        canonical: `${domain}${newUrl}`,
-      },
       openGraph: {
         title: seoData?.title,
         description: seoData?.description,
@@ -150,7 +152,7 @@ export const fetchMetadata = async (url) => {
     };
   } catch (error) {
     console.error("Error fetching metadata from Storyblok API:", error);
-    return {};
+    return fallbackMetadata;
   }
 };
 
