@@ -10,8 +10,8 @@ import Newsletter from "@/app/components/Newsletter";
 import { StoryblokComponent } from "@storyblok/react";
 import { components } from "@/app/utils";
 import { draftMode } from "next/headers";
-import { GoogleAnalytics } from "@next/third-parties/google";
 import JsonLd from "./jsonLd";
+import ClimateAnalytics from "@/app/components/ClimateAnalytics";
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_TOKEN,
@@ -78,8 +78,46 @@ const sailec = localFont({
   ],
 });
 
+const CLIMATE_ROOT_PATH = "/fokus-na-klimat";
+const CLIMATE_SLIDE_COMPONENTS = ["climate slides", "automatic climate slides"];
+
+const normalizePath = (url) => {
+  if (typeof url !== "string" || !url) {
+    return null;
+  }
+
+  const path = new URL(url, "https://www.moreincommon.pl").pathname;
+  return path.replace(/\/$/, "") || "/";
+};
+
+const collectClimateSlidePaths = (value, paths) => {
+  if (Array.isArray(value)) {
+    value.forEach((item) => collectClimateSlidePaths(item, paths));
+    return;
+  }
+
+  if (!value || typeof value !== "object") {
+    return;
+  }
+
+  if (CLIMATE_SLIDE_COMPONENTS.includes(value.component)) {
+    const slides = value.articles || value.slide || [];
+
+    slides.forEach((slide) => {
+      const path = normalizePath(slide?.full_slug || slide?.url?.cached_url);
+
+      if (path && !paths.includes(path)) {
+        paths.push(path);
+      }
+    });
+  }
+
+  Object.values(value).forEach((item) => collectClimateSlidePaths(item, paths));
+};
+
 export default async function RootLayout({ children }) {
   const { data } = await fetchData();
+  const climateSlidePaths = await fetchClimateSlidePaths();
   const blocks = data?.story?.content?.blocks;
   const navigation = blocks?.find((blok) => blok?.component === "global navigation");
   const footer = blocks?.find((blok) => blok?.component === "global footer");
@@ -92,7 +130,7 @@ export default async function RootLayout({ children }) {
     <StoryblokProvider>
       <html lang="pl">
         <JsonLd />
-        <GoogleAnalytics gaId="G-7RYKX332PZ" />
+        <ClimateAnalytics targetPaths={climateSlidePaths} />
         <StoryblokBridgeLoader options={bridgeOptions} />
         <body className={`${sailec.className} bg-white mt-[76px] max-xl:mt-12 overflow-x-hidden`}>
           <StoryblokComponent blok={decoration} key={decoration._uid} />
@@ -114,4 +152,19 @@ export async function fetchData() {
   const { isEnabled } = draftMode();
 
   return fetchPageData(`cdn/stories/global`, isEnabled, "decoration urls.decoratedUrls");
+}
+
+async function fetchClimateSlidePaths() {
+  const { isEnabled } = draftMode();
+  const response = await fetchPageData(
+    "cdn/stories/fokus-na-klimat",
+    isEnabled,
+    "automatic climate slides.articles"
+  );
+  const data = response?.data;
+  const paths = [CLIMATE_ROOT_PATH];
+
+  collectClimateSlidePaths(data?.story?.content, paths);
+
+  return paths;
 }

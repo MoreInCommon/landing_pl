@@ -17,6 +17,7 @@ const CookieConsentBanner = () => {
   const handleAccept = () => {
     setShowBanner(false);
     cookie.set("cookieConsent", "accepted", { expires: 365 });
+    window.dispatchEvent(new Event("analytics-consent-granted"));
   };
 
   const handleReject = () => {
