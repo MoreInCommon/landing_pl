@@ -17,14 +17,14 @@ const Newsletter = () => {
       if (!formLoaded && !isFormLoading) {
         setIsFormLoading(true);
         const script = document.createElement("script");
-        script.src = "https://js.hsforms.net/forms/v2.js";
+        script.src = "https://js.hsforms.net/forms/embed/v2.js";
         script.async = true;
         script.onload = () => {
           if (window.hbspt) {
             window.hbspt.forms.create({
-              region: "eu1",
-              portalId: "26724274",
-              formId: "1adf0717-6e67-42d5-960f-b22994350eea",
+              region: "na1",
+              portalId: "51830611",
+              formId: "8b9f32dd-4e35-4353-bbd1-c8ab9779e430",
               target: "#hubspotForm",
             });
           }
