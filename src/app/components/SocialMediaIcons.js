@@ -10,7 +10,7 @@ const SocialMediaIcons = ({
 }) => {
   return (
     <div className="flex gap-3">
-      {xUrl && (
+      {/* {xUrl && (
         <a href={xUrl} target="_blank" rel="noopener noreferrer">
           <span className="sr-only">X</span>
           {inverted ? (
@@ -62,7 +62,7 @@ const SocialMediaIcons = ({
             </svg>
           )}
         </a>
-      )}
+      )} */}
       {linkedinUrl && (
         <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
           <span className="sr-only">facebook</span>
@@ -151,7 +151,7 @@ const SocialMediaIcons = ({
           </svg>
         </a>
       )}
-      {blueskyUrl && (
+      {/* {blueskyUrl && (
         <a href={blueskyUrl} target="_blank" rel="noopener noreferrer">
           <span className="sr-only">bluesky</span>
           {inverted ? (
@@ -203,7 +203,7 @@ const SocialMediaIcons = ({
             </svg>
           )}
         </a>
-      )}
+      )} */}
       {emailUrl && (
         <a href={`mailto:${emailUrl}`}>
           <span className="sr-only">email</span>

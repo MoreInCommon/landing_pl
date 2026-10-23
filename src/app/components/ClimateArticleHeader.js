@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { storyblokEditable } from "@storyblok/react";
 import Notification from "@/app/components/Notification";
-import { TwitterShareButton, LinkedinShareButton, FacebookShareButton } from "next-share";
+import { LinkedinShareButton, FacebookShareButton } from "next-share";
 import { usePathname } from "next/navigation";
 import BlueskyShareButton from "@/app/components/BlueSkyShareButton";
 
@@ -63,7 +63,7 @@ export default function ClimateArticleHeader({ blok }) {
         <div className="flex items-center">
           <span className="font-medium mr-2">Udostępnij:</span>
           <div className="flex gap-3">
-            <TwitterShareButton
+            {/* <TwitterShareButton
               url={currentUrl || ""}
               title={`${blok.title}`}
               via={`moreincommon_pl`}
@@ -91,7 +91,7 @@ export default function ClimateArticleHeader({ blok }) {
                   </defs>
                 </svg>
               </a>
-            </TwitterShareButton>
+            </TwitterShareButton> */}
             <FacebookShareButton url={currentUrl}>
               <a href={""} className="pointer" target="_blank" rel="noopener noreferrer">
                 <span className="sr-only">facebook</span>
