@@ -65,7 +65,7 @@ const SocialMediaIcons = ({
       )} */}
       {linkedinUrl && (
         <a href={linkedinUrl} target="_blank" rel="noopener noreferrer">
-          <span className="sr-only">facebook</span>
+          <span className="sr-only">LinkedIn</span>
           {inverted ? (
             <svg
               width="36"

@@ -1,5 +1,9 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
+Checklist and Storyblok instructions for the new navigation: [MIGRATION.md](MIGRATION.md).
+New routes and the newsletter navigation item are available without a feature flag. See [.env.example](.env.example) for preview configuration. Unpublished content still requires draft mode.
+The six review pages currently live at root-level slugs: `partnerstwa`, `kompas-spoleczny`, `wystapienia-publiczne`, `badania`, `warsztaty`, and `wystapienia-i-prezentacje`. Navigation and final URLs will be decided after content review.
+
 ## Getting Started
 
 First, run the development server:

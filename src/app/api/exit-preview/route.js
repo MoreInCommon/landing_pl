@@ -1,18 +1,12 @@
 import { draftMode } from "next/headers";
 import { NextResponse } from "next/server";
+import { previewPath } from "@/app/migration.mjs";
 
 export async function GET(req) {
-  let res = NextResponse.next();
-
-  const slug = req.nextUrl.searchParams.get("slug");
-
-  // Set the cookies to None
-  res.cookies.set("Next.js", "preview mode", { path: "/", sameSite: "none", secure: true });
-
-  // Construct absolute URL for redirection
-  const host = req.headers.get("host");
-  const protocol = req.headers.get("x-forwarded-proto") || "http";
-  const redirectUrl = `${protocol}://${host}/${slug}`;
-
-  return NextResponse.redirect(redirectUrl, 307);
+  const path = previewPath(req.nextUrl.searchParams.get("slug") ?? "home");
+  if (!path) return new Response("Invalid slug", { status: 400 });
+  draftMode().disable();
+  const response = new NextResponse(null, { status: 307, headers: { Location: path } });
+  response.headers.set("Cache-Control", "private, no-store");
+  return response;
 }

@@ -58,6 +58,8 @@ const Newsletter = () => {
 
   return (
     <div
+      id="newsletter"
+      style={{ scrollMarginTop: "96px" }}
       className={`text-[#152321] w-full newsletterBg bg-[url('/newsletter_bg.png')] py-[4.5rem] max-sm:py-10 ${isGreenUrl}`}
     >
       <div className="max-w-full m-auto px-full max-xl:px-tablet max-sm:px-mobile">
