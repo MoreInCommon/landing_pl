@@ -12,6 +12,7 @@ import { components } from "@/app/utils";
 import { draftMode } from "next/headers";
 import JsonLd from "./jsonLd";
 import ClimateAnalytics from "@/app/components/ClimateAnalytics";
+import { isPreviewDeployment } from "@/app/migration.mjs";
 
 storyblokInit({
   accessToken: process.env.STORYBLOK_TOKEN,
@@ -19,7 +20,7 @@ storyblokInit({
   components,
 });
 
-export const metadata = {
+const siteMetadata = {
   metadataBase: new URL("https://www.moreincommon.pl"),
   alternates: {
     canonical: "/",
@@ -47,6 +48,14 @@ export const metadata = {
     },
   },
 };
+
+export function generateMetadata() {
+  const { isEnabled } = draftMode();
+  return {
+    ...siteMetadata,
+    ...((isEnabled || isPreviewDeployment()) ? { robots: { index: false, follow: false } } : {}),
+  };
+}
 
 const sailec = localFont({
   src: [

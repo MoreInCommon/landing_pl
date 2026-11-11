@@ -24,15 +24,23 @@ const Navigation = ({ blok }) => {
   const pathname = usePathname();
   const navItems = blok.blocks.filter((block) => block.component === "navigation item");
   const socialMediaLink = blok.blocks.filter((block) => block.component === "social media link");
-  const twitter = socialMediaLink.find((block) => block.type === "twitter")?.url?.url;
   const linkedin = socialMediaLink.find((block) => block.type === "linkedin")?.url?.url;
-  const facebook = socialMediaLink.find((block) => block.type === "facebook")?.url?.url;
-  const bluesky = socialMediaLink.find((block) => block.type === "bluesky")?.url?.url;
   const mobileNavigationItems = navItems.map((block) => ({
     ...block,
     component: "mobile navigation item",
   }));
   const isGreenUrl = pathname?.includes("fokus-na-klimat") ? "bg-themeGreen" : "";
+  const newsletterLink = (mobile = false) => (
+    <Link
+      href="#newsletter"
+      onClick={() => setOpenMenu(false)}
+      className={mobile
+        ? "block p-4 font-bold text-gray-700"
+        : "sliding-border-bottom pt-7 pb-6 px-4 text-themeableColors-darkBlue border-b-4 border-transparent text-captionSmall leading-[20px] transition-colors"}
+    >
+      Newsletter
+    </Link>
+  );
   return (
     <div className={`w-full bg-white fixed top-0 shadow-nav-shadow z-50 ${isGreenUrl}`}>
       {openMenu && (
@@ -89,18 +97,14 @@ const Navigation = ({ blok }) => {
               )}
             </button>
           </div>
-          <div className="hidden xl:flex items-center justify-end gap-4 ml-[90px]">
+          <div id="migration-navigation" className="hidden xl:flex items-center justify-end gap-4 ml-[90px]">
             {navItems.map((item) => (
               <StoryblokComponent blok={item} key={item._uid} />
             ))}
+            {newsletterLink()}
           </div>
           <div className="max-xl:hidden">
-            <SocialMediaIcons
-              xUrl={twitter}
-              linkedinUrl={linkedin}
-              facebookUrl={facebook}
-              blueskyUrl={bluesky}
-            />
+            <SocialMediaIcons linkedinUrl={linkedin} />
           </div>
         </div>
       </div>
@@ -109,6 +113,10 @@ const Navigation = ({ blok }) => {
           {mobileNavigationItems.map((item) => (
             <StoryblokComponent blok={item} key={item._uid} callback={() => setOpenMenu(false)} />
           ))}
+          {newsletterLink(true)}
+          <div className="p-4">
+            <SocialMediaIcons linkedinUrl={linkedin} />
+          </div>
         </div>
       )}
     </div>

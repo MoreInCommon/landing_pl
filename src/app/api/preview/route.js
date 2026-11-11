@@ -1,25 +1,29 @@
 import { draftMode } from "next/headers";
 import { NextResponse } from "next/server";
+import { previewPath } from "@/app/migration.mjs";
 
 export async function GET(req) {
   const slug = req.nextUrl.searchParams.get("slug");
   const secret = req.nextUrl.searchParams.get("secret");
-  const params = req.url.split("?");
 
   // Check the secret and next parameters
-  if (secret !== process.env.STORYBLOK_TOKEN) {
+  if (!process.env.STORYBLOK_TOKEN || secret !== process.env.STORYBLOK_TOKEN) {
     return new Response("Invalid token", { status: 401 });
   }
 
-  // Enable Preview Mode by setting the cookies
-  const res = NextResponse.next();
-  res.cookies.set("Next.js", "preview mode", { path: "/", sameSite: "none", secure: true });
-
-  // Construct absolute URL for redirection
-  const host = req.headers.get("host");
-  const protocol = req.headers.get("x-forwarded-proto") || "http";
-  const redirectUrl = `${protocol}://${host}/${slug}?${params[1]}`;
+  const path = previewPath(slug ?? "home");
+  if (!path) return new Response("Invalid slug", { status: 400 });
+  const redirectUrl = new URL(req.url);
+  redirectUrl.pathname = path;
+  redirectUrl.searchParams.delete("secret");
+  redirectUrl.searchParams.delete("slug");
   draftMode().enable();
-
-  return NextResponse.redirect(redirectUrl, 307);
+  // Relative Location preserves the public host even behind a reverse proxy.
+  const response = new NextResponse(null, {
+    status: 307,
+    headers: { Location: `${redirectUrl.pathname}${redirectUrl.search}` },
+  });
+  response.headers.set("Cache-Control", "private, no-store");
+  response.headers.set("Referrer-Policy", "no-referrer");
+  return response;
 }
