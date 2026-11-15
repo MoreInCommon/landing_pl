@@ -46,8 +46,19 @@ Konfiguracja kafelków w Storybloku (kod jest przygotowany; schemat wymaga ustaw
 
 - [ ] Lista partnerów i pliki logotypów.
 - [ ] Właściwe teksty opinii wraz z podpisami oraz potwierdzenie, które dotyczą Amnesty.
-- [ ] Ustalenie karuzeli logotypów; istniejący `slider` jest slajderem tekst + zdjęcie, nie samych logotypów.
+- [ ] Dodać `logo carousel` z logotypami partnerów (konfiguracja poniżej). Istniejący `slider` pozostaje slajderem tekst + zdjęcie.
 - [ ] Opinie można złożyć z istniejącego `quote container`, pole `quote`, z blokami `quote`: `text`, `author`, `color`. Sprawdzić dostępność tych bloków w CMS. Nie dodawać pustej karuzeli, jeśli brak cytatów.
+
+Karuzela logotypów — konfiguracja w Storybloku:
+
+1. Utworzyć komponent **Nestable** o nazwie technicznej `logo carousel` (etykieta „Karuzela logotypów”).
+2. Dodać opcjonalne pole `title` typu **Text** i pole `logos` typu **Multi-Assets**, ograniczone do obrazów.
+3. Dopuścić `logo carousel` w `page.body` oraz w dozwolonych blokach pola Rich Text `long text.text`, jeśli te pola mają ograniczenia.
+4. Dodać blok osobno w `Body` albo przez wstawienie bloku w `Long Text`. W `title` wpisać np. „Z kim już pracowaliśmy?”, a w `logos` wybrać obrazy z Assets i ustawić ich kolejność. Uzupełnić tekst alternatywny każdego obrazu nazwą organizacji.
+5. Na czas przygotowania treści można wybrać własne logo. Jeden obraz wyświetli się bez przewijania; do sprawdzenia przewijania na komputerze dodać co najmniej pięć pozycji (mogą tymczasowo zawierać własne logo). Potem podmienić je na właściwe logotypy.
+6. Zapisać przez **Save**, bez publikowania, i sprawdzić podgląd po wdrożeniu aktualnego kodu.
+
+Karuzela ma maksymalnie 820 px szerokości, pokazuje do czterech logotypów na komputerze, dwa na tablecie i jeden na małym telefonie. Obrazy mieszczą się w całości, bez przycinania. Przewijanie strzałkami lub gestem, bez automatycznego przesuwania. Pusta lista nie wyświetla sekcji.
 
 ## 3. Wystąpienia publiczne — `/wystapienia-publiczne`
 
