@@ -18,6 +18,8 @@ import MainHeader from "@/app/components/MainHeader";
 import QuoteContainer from "@/app/components/QuoteContainer";
 import Button from "@/app/components/ButtonStoryblok";
 import FlexibleImage from "@/app/components/FlexibleImage";
+import TriviaContainer from "@/app/components/TriviaContainer";
+import ContactCard from "@/app/components/ContactCard";
 import dynamic from "next/dynamic";
 const ChartEmbed = dynamic(() => import("@/app/components/ChartEmbed"), { ssr: false });
 
@@ -102,6 +104,8 @@ export default function LongText({ blok }) {
           },
         },
         blokResolvers: {
+          ["trivia container"]: (props) => <TriviaContainer blok={props} />,
+          ["contact card"]: (props) => <ContactCard blok={props} />,
           ["page lead"]: (props) => (
             <StandardText blok={props} className="mb-[72px] max-xl:mb-12" />
           ),

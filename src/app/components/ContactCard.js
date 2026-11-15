@@ -8,7 +8,7 @@ export default function ContactCard({ blok }) {
 
   return (
     <div
-      className="w-full px-full max-xl:px-tablet max-sm:px-mobile my-12"
+      className="max-w-standard mx-auto w-full max-xl:px-tablet max-sm:px-0 my-12"
       {...storyblokEditable(blok)}
     >
       <div className="border border-[#DADDE1] rounded-[4px] p-8 max-sm:p-5 flex items-start gap-10 max-sm:flex-col max-sm:gap-6">
@@ -19,7 +19,7 @@ export default function ContactCard({ blok }) {
               alt={blok.photo.alt || blok.name || ""}
               width={480}
               height={520}
-              sizes="(max-width: 640px) 100vw, 38vw"
+              sizes="(max-width: 640px) 100vw, (max-width: 820px) 38vw, 312px"
               className="w-full h-auto"
             />
           </div>

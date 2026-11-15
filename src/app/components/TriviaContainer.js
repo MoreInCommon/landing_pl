@@ -6,7 +6,7 @@ import Trivia from "@/app/components/Trivia";
 export default function TriviaContainer({ blok }) {
   return (
     <section
-      className="w-full px-full max-xl:px-tablet max-sm:px-mobile my-12"
+      className="max-w-standard mx-auto w-full max-xl:px-tablet max-sm:px-0 my-12"
       {...storyblokEditable(blok)}
     >
       {blok.title && (

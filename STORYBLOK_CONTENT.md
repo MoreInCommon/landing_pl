@@ -10,6 +10,7 @@ Nie wprowadzono zmian w CMS. Nazwy techniczne bloków wynikają z repozytorium; 
 - Dodać jeden `page title`, uzupełnić pole `title`.
 - Wprowadzenie można umieścić w `page lead.text`; ten komponent wyświetla zwykły tekst, nie Rich Text.
 - Dalszą treść umieszczać w `long text.text`. Można podzielić ją na kilka takich bloków, aby pomiędzy nimi dodać zdjęcia lub inne sekcje.
+- `trivia container` i `contact card` można też osadzić bezpośrednio w `long text.text` przez opcję wstawiania bloku w edytorze Rich Text. Jeśli wybór komponentów jest ograniczony, dopuścić obie nazwy w konfiguracji pola `text` komponentu `long text` w Storybloku. Oba komponenty mają tę samą maksymalną szerokość co standardowe akapity `long text` (820 px) i są wyśrodkowane, zarówno osobno, jak i wewnątrz Rich Text.
 - Akapit w `long text` z jawnie ustawionym wyrównaniem (`textAlign`: `left`, `center`, `right` lub `justify`) pomija `CenterContainer` i korzysta z szerszego układu z bocznymi odstępami. Wyrównanie i pogrubienie są zachowane. Bez tego ustawienia akapit zachowuje dotychczasową szerokość. Dotyczy akapitów, nie nagłówków ani osadzonych bloków; nie wymaga nowego pola w schemacie CMS.
 - Nagłówki sekcji oznaczać H2, podsekcji H3; nie dodawać kolejnego H1 w treści.
 - Wklejać treść bez formatowania Worda, następnie odtworzyć nagłówki, pogrubienia i listy w edytorze CMS.
