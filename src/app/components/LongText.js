@@ -27,7 +27,7 @@ export default function LongText({ blok }) {
     <div>
       {render(blok.text, {
         nodeResolvers: {
-          [NODE_PARAGRAPH]: (props) => {
+          [NODE_PARAGRAPH]: (props, attrs = {}) => {
             if (!props?.[0]?.type && typeof props?.[0] !== "string") return null;
             if (
               props[0].type === "a" ||
@@ -38,6 +38,14 @@ export default function LongText({ blok }) {
               props[0].type === "paragraph" ||
               typeof props?.[0] === "string"
             ) {
+              const textAlign = attrs?.textAlign;
+              if (["left", "center", "right", "justify"].includes(textAlign)) {
+                return (
+                  <div className="w-full px-full max-xl:px-0" style={{ textAlign }}>
+                    <CenterText text={props} />
+                  </div>
+                );
+              }
               return (
                 <CenterContainer>
                   <CenterText text={props} />

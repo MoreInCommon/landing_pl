@@ -42,6 +42,8 @@ W **Content** utworzyć sześć stories bezpośrednio w katalogu głównym. Uży
 
 ## 3. Treści i komponenty w Storybloku
 
+Dokładna rozpiska na podstawie przekazanego DOCX: [STORYBLOK_CONTENT.md](STORYBLOK_CONTENT.md). Dokument zawiera teksty pięciu stron; dla Partnerstw właściwy tekst jeszcze nie powstał. Uwagi o karuzelach, kontaktach i brakujących materiałach są opisane oddzielnie od treści do wklejenia.
+
 W każdej stronie ułożyć `page.body` z istniejących bloków. Techniczne nazwy wynikają z kodu; etykiety i dozwolone komponenty trzeba sprawdzić w panelu CMS.
 
 | Komponent | Pola | Zastosowanie |
