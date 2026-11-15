@@ -21,6 +21,7 @@ import FlexibleImage from "@/app/components/FlexibleImage";
 import TriviaContainer from "@/app/components/TriviaContainer";
 import ContactCard from "@/app/components/ContactCard";
 import LogoCarousel from "@/app/components/LogoCarousel";
+import MainInfo from "@/app/components/MainInfo";
 import dynamic from "next/dynamic";
 const ChartEmbed = dynamic(() => import("@/app/components/ChartEmbed"), { ssr: false });
 
@@ -105,6 +106,7 @@ export default function LongText({ blok }) {
           },
         },
         blokResolvers: {
+          ["main page info"]: (props) => <MainInfo blok={props} />,
           ["logo carousel"]: (props) => <LogoCarousel blok={props} />,
           ["trivia container"]: (props) => <TriviaContainer blok={props} />,
           ["contact card"]: (props) => <ContactCard blok={props} />,

@@ -2,23 +2,39 @@
 import { storyblokEditable } from "@storyblok/react/rsc";
 import Button from "@/app/components/Button";
 import { useRouter } from "next/navigation";
+import { navigationHref } from "@/app/migration.mjs";
 
 export default function MainInfo({ blok }) {
   const router = useRouter();
+  const hasText = Boolean(blok.text?.trim());
+  const link = blok.button_url;
+  const hasLink = Boolean(link?.cached_url || link?.url || link?.anchor);
+  const href = !link?.cached_url && !link?.url && link?.anchor
+    ? `#${link.anchor.replace(/^#/, "")}`
+    : navigationHref(link);
+  const openContact = () => {
+    if (/^(https?:\/\/|mailto:|tel:)/i.test(href)) {
+      window.location.assign(href);
+    } else {
+      router.push(href);
+    }
+  };
 
   return (
-    <>
+    <div {...storyblokEditable(blok)}>
+      {hasText && (
       <div
         className="px-full max-xl:px-tablet max-sm:px-mobile bg-[#F1F1F3] p-8 justify-center mb-12"
-        {...storyblokEditable(blok)}
       >
         <h1 className="text-brand-darkBlue text-[36px] leading-[36px] font-bold top-1 relative z-[1] text-center">
           {blok?.text}
           <span className="text-brand-blue">.</span>
         </h1>
       </div>
+      )}
+      {blok.button_text && hasLink && (
       <Button
-        onClick={() => router.push(`/${blok.button_url.cached_url}`)}
+        onClick={openContact}
         classes="bg-brand-darkBlue m-auto mb-10"
       >
         <div className="relative top-[1px]">{blok.button_text}</div>
@@ -37,6 +53,7 @@ export default function MainInfo({ blok }) {
           />
         </svg>
       </Button>
-    </>
+      )}
+    </div>
   );
 }
