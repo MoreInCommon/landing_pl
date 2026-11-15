@@ -28,12 +28,20 @@ Kolejność bloków:
 3. `long text.text`: trzy pytania z akapitu zaczynającego się od „Jak mówić o ważnych sprawach społecznych…”.
 4. W tym samym lub kolejnym `long text` sekcja **Czym jest Kompas Społeczny?**: definicja programu, trzy punkty od „Od 2025 roku…”, następnie akapity o edycjach i współpracy indywidualnej.
 5. Sekcja **Jak wygląda proces**: cztery numerowane etapy, od rozpoznania celów do przełożenia strategii na działania. Zachować treść i kolejność z DOCX.
-6. Sekcja **Co wyróżnia nasze podejście?**, a pod nią cztery podsekcje: „Patrzymy dalej niż demografia”, „Łączymy badania z praktyką”, „Wychodzimy poza grono przekonanych”, „Nie szukamy komunikacji «dla wszystkich»”, każda z odpowiadającym akapitem.
+6. Sekcja **Co wyróżnia nasze podejście?** jako `trivia container`: cztery kafelki z samymi hasłami „Patrzymy dalej niż demografia”, „Łączymy badania z praktyką”, „Wychodzimy poza grono przekonanych”, „Nie szukamy komunikacji «dla wszystkich»”. Bez rozwijających opisów. Układ 2×2 na komputerze, jedna kolumna na telefonie.
 7. Sekcja **Porozmawiajmy o współpracy** i dwa akapity zaproszenia do kontaktu.
 8. Kontakt do Beaty według sekcji 7 poniżej.
 9. Sekcja **Z kim już pracowaliśmy?**: logotypy dotychczasowych partnerów, potem opinie organizacji uczestniczących w Kompasie i Amnesty.
 
 Materiały do uzupełnienia:
+
+Konfiguracja kafelków w Storybloku (kod jest przygotowany; schemat wymaga ustawienia w CMS):
+
+1. Utworzyć zagnieżdżalny komponent `trivia container` (etykieta „Kafelki”).
+2. Dodać pole `title` typu Text oraz `items` typu Blocks, dopuszczające istniejący komponent `trivia`.
+3. Dopuścić `trivia container` w `page.body`, jeśli lista komponentów jest ograniczona.
+4. W `Body` strony dodać „Kafelki” z tytułem „Co wyróżnia nasze podejście?”. W `items` dodać cztery bloki `trivia`, uzupełnić ich `title` powyższymi hasłami, pozostawić `text` puste. Nie dublować tytułu sekcji w `long text`.
+5. Zapisać przez **Save** i sprawdzić podgląd, bez publikowania.
 
 - [ ] Lista partnerów i pliki logotypów.
 - [ ] Właściwe teksty opinii wraz z podpisami oraz potwierdzenie, które dotyczą Amnesty.
