@@ -1,4 +1,5 @@
-import { isMigrationPath, migrationPaths, normalizeStoryPath, isPreviewDeployment } from "@/app/migration.mjs";
+import { isPreviewDeployment } from "@/app/migration.mjs";
+import { fetchMigrationRoutes } from "./sitemapMigration.mjs";
 
 export default async function sitemap() {
   if (isPreviewDeployment()) return [];
@@ -194,28 +195,6 @@ export default async function sitemap() {
 
   const migrationRoutes = await fetchMigrationRoutes();
   return [...staticRoutes, ...dynamicFokus, ...dynamicProject, ...dynamicMedia, ...migrationRoutes];
-}
-
-async function fetchMigrationRoutes() {
-  const query = new URLSearchParams({
-    by_slugs: migrationPaths.flatMap((path) => [path, `${path}/`]).join(","),
-    version: "published",
-    token: process.env.STORYBLOK_TOKEN,
-    per_page: "100",
-  });
-  const response = await fetch(`https://api.storyblok.com/v2/cdn/stories?${query}`, {
-    next: { revalidate: 3600 },
-  });
-  if (!response.ok) throw new Error("Could not fetch published migration routes for sitemap");
-  const data = await response.json();
-  return (data.stories || [])
-    .filter((story) => isMigrationPath(story.full_slug))
-    .map((story) => ({
-      url: `https://www.moreincommon.pl/${normalizeStoryPath(story.full_slug)}`,
-      ...(story.published_at ? { lastModified: new Date(story.published_at) } : {}),
-      changeFrequency: "monthly",
-      priority: 0.5,
-    }));
 }
 
 async function fetchDynamicSlugs(startsWith) {

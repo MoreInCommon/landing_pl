@@ -134,9 +134,16 @@ beata@moreincommon.com
 
 W źródle jest literówka „partnertsw”; do draftu proponowana poprawna forma to „partnerstw”. Nazwę stanowiska potwierdzić przy odbiorze.
 
-Na roboczą wersję można użyć `long text` z imieniem, stanowiskiem i zwykłym linkiem mailowym `mailto:beata@moreincommon.com`, ewentualnie zdjęciem w Rich Text. `page lead` nie obsługuje linkowania tekstu.
+Kontakt umieścić jako osobny blok `contact card` w `page.body`. Kod wyświetla box ze zdjęciem po lewej i imieniem, stanowiskiem oraz klikalnym mailem po prawej; na telefonie zdjęcie jest nad danymi. Wszystkie dane są edytowalne, aby można było później podmienić osobę. Zdjęcie wybrać z Assets; nie używać zrzutu ekranu całej wizytówki jako zdjęcia.
 
-**Nie używać obecnego `button` do mailto:** kod tego komponentu traktuje adresy inne niż HTTP jako ścieżki strony, więc link mailowy wymagałby poprawki. Istniejący `team` otwiera modal z biografią, a `ContactInfo` wyświetla biuro i mapę — nie odpowiadają bezpośrednio prostej wizytówce z DOCX. Osobna wizytówka ze zdjęciem i tekstem obok wymaga dobrania lub przygotowania właściwego bloku, bez zmieniania obecnych komponentów globalnie.
+Konfiguracja w Storybloku (schemat wymaga ustawienia w CMS):
+
+1. Utworzyć komponent **Nestable** o nazwie technicznej `contact card`, etykieta „Osoba kontaktowa”.
+2. Dodać pola: `photo` typu **Asset** (tylko obrazy), `name` typu **Text** (imię i nazwisko), `position` typu **Text** (stanowisko), `email` typu **Text** (sam adres e-mail).
+3. Dopuścić komponent w `page.body`, jeśli lista bloków jest ograniczona.
+4. Dodać go w odpowiednim miejscu strony i uzupełnić pola. Zapisać przez **Save**, bez publikowania.
+
+`contact card` sam tworzy link `mailto:`. Nie trzeba dodawać przycisku ani używać komponentów `team` lub `ContactInfo`.
 
 ## 8. Partnerstwa — `/partnerstwa`
 

@@ -17,6 +17,7 @@ import SegmentContent from "@/app/components/SegmentContent";
 import ClimateContent from "@/app/components/ClimateContent";
 import Trivia from "@/app/components/Trivia";
 import TriviaContainer from "@/app/components/TriviaContainer";
+import ContactCard from "@/app/components/ContactCard";
 import LongText from "@/app/components/LongText";
 import SegmentationContent from "@/app/components/SegmentationContent";
 import MainInfo from "@/app/components/MainInfo";
@@ -80,6 +81,7 @@ export const components = {
   "climate content": ClimateContent,
   trivia: Trivia,
   "trivia container": TriviaContainer,
+  "contact card": ContactCard,
   segment: Segment,
   seo: Seo,
   "job ads": JobAds,
