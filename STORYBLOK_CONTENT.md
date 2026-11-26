@@ -22,14 +22,14 @@ Nie wprowadzono zmian w CMS. Nazwy techniczne bloków wynikają z repozytorium; 
 
 Kod `long text` obsługuje opcjonalne pole `list_spacing`. Aby udostępnić je autorom, trzeba dodać je do schematu komponentu w Storybloku (sama zmiana kodu nie tworzy pola w CMS):
 
-1. W konfiguracji komponentu `long text` dodać pole **Single-Option** o nazwie technicznej `list_spacing`, z etykietą **Odstępy między punktami**.
-2. Dodać opcje: **Małe** → `compact`, **Standardowe** → `standard`, **Duże** → `spacious`. Ustawić domyślną wartość `standard`; pole pozostawić opcjonalne.
-3. Dodać opis pola: „Odstępy między punktami wszystkich list punktowanych w tym bloku tekstowym”. Zapisać schemat.
-4. Autor otwiera blok **Long Text**, wybiera odstępy w nowym polu obok Rich Text, zapisuje treść i sprawdza podgląd. Dla listy tematów na stronie „Wystąpienia i prezentacje” wybrać **Małe**.
+1. W konfiguracji komponentu `long text` dodać pole **Single-Option** o nazwie technicznej `list_spacing`, z etykietą **List item spacing**.
+2. Dodać opcje: **Compact** → `compact`, **Standard** → `standard`, **Spacious** → `spacious`. Ustawić domyślną wartość `standard`; pole pozostawić opcjonalne.
+3. Pozostawić opis pola pusty. Zapisać schemat.
+4. Autor otwiera blok **Long Text**, wybiera odstępy w nowym polu obok Rich Text, zapisuje treść i sprawdza podgląd. Dla listy tematów na stronie „Wystąpienia i prezentacje” wybrać **Compact**.
 
 Ustawienie obejmuje wszystkie listy punktowane w danym bloku `long text`, także zagnieżdżone; nie zmienia list numerowanych ani odstępów między zwykłymi akapitami. Jeśli listy mają mieć różne odstępy, umieścić je w osobnych blokach `long text`. Brak pola, pusta lub nieznana wartość zachowuje dotychczasowy wygląd. Margines między elementami listy wynosi odpowiednio 4, 16 i 24 px; wewnętrzne marginesy akapitów nadal wynikają ze wspólnych stylów strony.
 
-Do działania na stronie potrzebne są zarówno wdrożenie aktualnego kodu, jak i dodanie pola w CMS. Ta instrukcja nie oznacza, że schemat został już zmieniony w Storybloku.
+Do działania na stronie potrzebne są zarówno wdrożenie aktualnego kodu, jak i dodanie pola w CMS. **Stan na 26.11.2026:** pole dodano do komponentu `long text` w Storybloku; ponowny odczyt API potwierdził trzy opcje i domyślną wartość `standard`. Pozostałe ustawienia pól zachowano (API nadało im identyfikatory). Przy tej zmianie nie edytowano ani nie publikowano stories. Wdrożenie kodu pozostaje osobnym krokiem.
 
 ## 2. Kompas Społeczny — `/kompas-spoleczny`
 
@@ -73,6 +73,8 @@ Karuzela logotypów — konfiguracja w Storybloku:
 
 Karuzela ma maksymalnie 820 px szerokości, pokazuje do czterech logotypów na komputerze, dwa na tablecie i jeden na małym telefonie. Obrazy mieszczą się w całości, bez przycinania. Przewijanie strzałkami lub gestem, bez automatycznego przesuwania. Pusta lista nie wyświetla sekcji.
 
+Komponent `logo carousel` ma też opcjonalny przełącznik **Single image** (`single_image`, Boolean, domyślnie `false`). Po włączeniu pokazuje jedno zdjęcie naraz na każdej szerokości ekranu, w większym obszarze o proporcjach 3:2, bez przycinania. Pozostawienie przełącznika wyłączonego zachowuje układ logotypów. Pole jest dodane do schematu CMS; do działania potrzebne jest wdrożenie kodu obsługującego ten tryb.
+
 ## 3. Wystąpienia publiczne — `/wystapienia-publiczne`
 
 Kolejność bloków:
@@ -83,6 +85,8 @@ Kolejność bloków:
 4. Nagłówek **Ostatnio byliśmy na:** i lista trzech wydarzeń: Igrzyska Wolności w Łodzi; konferencja „Kandydatki. Którędy do polityki?”; Ogólnopolskie Forum Inicjatyw Pozarządowych w Warszawie.
 
 DOCX nie podaje dat, nagrań ani opisów poszczególnych wystąpień. Nie dopisywać ich na podstawie wcześniejszej ogólnej propozycji. Zdjęcia i linki można uzupełnić po otrzymaniu materiałów.
+
+Aktualizacja 26.11.2026: istniejąca karuzela `logo carousel` zawiera cztery zdjęcia; na prośbę użytkownika włączono w niej **Single image** i zapisano draft. Ponowny odczyt API potwierdził ustawienie i zachowanie pozostałej treści. Strona nie została opublikowana. Po wdrożeniu kodu zdjęcia będą wyświetlane pojedynczo w większym rozmiarze.
 
 ## 4. Badania — `/badania`
 

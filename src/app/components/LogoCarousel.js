@@ -12,7 +12,7 @@ function CarouselArrow({ className, style, onClick, previous = false }) {
       style={style}
       onClick={onClick}
       disabled={!onClick}
-      aria-label={previous ? "Poprzednie logotypy" : "Następne logotypy"}
+      aria-label={previous ? "Poprzedni slajd" : "Następny slajd"}
     >
       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
         <path
@@ -30,17 +30,18 @@ function CarouselArrow({ className, style, onClick, previous = false }) {
 export default function LogoCarousel({ blok }) {
   const logos = (blok.logos || []).filter((logo) => logo.filename);
   if (!logos.length) return null;
+  const singleImage = blok.single_image === true;
 
   const settings = {
     infinite: false,
-    slidesToShow: Math.min(4, logos.length),
+    slidesToShow: singleImage ? 1 : Math.min(4, logos.length),
     slidesToScroll: 1,
     autoplay: false,
     dots: false,
     nextArrow: <CarouselArrow />,
     prevArrow: <CarouselArrow previous />,
     responsive: [
-      { breakpoint: 768, settings: { slidesToShow: Math.min(2, logos.length) } },
+      { breakpoint: 768, settings: { slidesToShow: singleImage ? 1 : Math.min(2, logos.length) } },
       { breakpoint: 480, settings: { slidesToShow: 1 } },
     ],
   };
@@ -49,19 +50,21 @@ export default function LogoCarousel({ blok }) {
     <section
       className="max-w-standard mx-auto w-full max-xl:px-tablet max-sm:px-0 my-12"
       {...storyblokEditable(blok)}
-      aria-label={blok.title || "Logotypy partnerów"}
+      aria-label={blok.title || (singleImage ? "Zdjęcia z wydarzeń" : "Logotypy partnerów")}
     >
       {blok.title && <h2 className="text-h2 font-bold text-black mb-8">{blok.title}</h2>}
       <div className="px-8 [&_.slick-list]:!mx-0">
         <Slider {...settings}>
           {logos.map((logo, index) => (
             <div key={`${logo.id || logo.filename}-${index}`} className="px-3">
-              <div className="relative h-32 w-full">
+              <div className={`relative w-full ${singleImage ? "aspect-[3/2]" : "h-32"}`}>
                 <Image
                   src={logo.filename}
-                  alt={logo.alt || logo.title || "Logo partnera"}
+                  alt={logo.alt || logo.title || (singleImage ? "Zdjęcie z wydarzenia" : "Logo partnera")}
                   fill
-                  sizes="(max-width: 480px) 100vw, (max-width: 768px) 50vw, 205px"
+                  sizes={singleImage
+                    ? "(max-width: 820px) 100vw, 820px"
+                    : "(max-width: 480px) 100vw, (max-width: 768px) 50vw, 205px"}
                   className="object-contain"
                 />
               </div>
