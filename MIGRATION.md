@@ -54,7 +54,7 @@ W każdej stronie ułożyć `page.body` z istniejących bloków. Techniczne nazw
 | --- | --- | --- |
 | `page title` | `title` | Tytuł strony |
 | `page lead` | `text` | Krótkie wprowadzenie |
-| `long text` | `text` (Rich Text), opcjonalnie `decoration_color` | Tekst, nagłówki, listy i zdjęcia |
+| `long text` | `text` (Rich Text), opcjonalnie `decoration_color`, `list_spacing` (Single-Option: `compact`, `standard`, `spacious`) | Tekst, nagłówki, listy i zdjęcia; ustawienie odstępów list opisane w `STORYBLOK_CONTENT.md` |
 | `flexible image` | `image`, `alt`, `max_width`, `max_height`, `align` | Grafiki i logotypy; domyślne 220×40 px zmienić stosownie do grafiki |
 | `button` | `text`, `url` lub `pdf`, `color` | Linki lub materiały do pobrania |
 | `seo` | `title`, `description`, `image` | Metadane |

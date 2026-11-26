@@ -25,8 +25,17 @@ import MainInfo from "@/app/components/MainInfo";
 import dynamic from "next/dynamic";
 const ChartEmbed = dynamic(() => import("@/app/components/ChartEmbed"), { ssr: false });
 
+const listSpacingClasses = {
+  compact: "space-y-1",
+  standard: "space-y-4",
+  spacious: "space-y-6",
+};
+
 export default function LongText({ blok }) {
   const color = blok?.decoration_color?.color;
+  const listSpacing = Object.hasOwn(listSpacingClasses, blok?.list_spacing)
+    ? listSpacingClasses[blok.list_spacing]
+    : listSpacingClasses.standard;
   return (
     <div>
       {render(blok.text, {
@@ -88,7 +97,7 @@ export default function LongText({ blok }) {
           [NODE_UL]: (props) => {
             return (
               <CenterContainer>
-                <ul className="space-y-4 mt-8 mb-12 max-xl:px-tablet max-sm:px-0">
+                <ul className={`${listSpacing} mt-8 mb-12 max-xl:px-tablet max-sm:px-0`}>
                   {props.map((child, i) => {
                     return (
                       <li className="flex space-x-4 items-baseline mt-0" key={i}>

@@ -18,6 +18,19 @@ Nie wprowadzono zmian w CMS. Nazwy techniczne bloków wynikają z repozytorium; 
 - Uzupełnić `seo.title`, `seo.description`, ewentualnie `seo.image`. Dokument nie zawiera osobnych tekstów SEO; są do przygotowania i zatwierdzenia.
 - Zapis przez **Save**, bez **Publish**. Następnie odświeżyć aktywny podgląd.
 
+### Odstępy między punktami listy
+
+Kod `long text` obsługuje opcjonalne pole `list_spacing`. Aby udostępnić je autorom, trzeba dodać je do schematu komponentu w Storybloku (sama zmiana kodu nie tworzy pola w CMS):
+
+1. W konfiguracji komponentu `long text` dodać pole **Single-Option** o nazwie technicznej `list_spacing`, z etykietą **Odstępy między punktami**.
+2. Dodać opcje: **Małe** → `compact`, **Standardowe** → `standard`, **Duże** → `spacious`. Ustawić domyślną wartość `standard`; pole pozostawić opcjonalne.
+3. Dodać opis pola: „Odstępy między punktami wszystkich list punktowanych w tym bloku tekstowym”. Zapisać schemat.
+4. Autor otwiera blok **Long Text**, wybiera odstępy w nowym polu obok Rich Text, zapisuje treść i sprawdza podgląd. Dla listy tematów na stronie „Wystąpienia i prezentacje” wybrać **Małe**.
+
+Ustawienie obejmuje wszystkie listy punktowane w danym bloku `long text`, także zagnieżdżone; nie zmienia list numerowanych ani odstępów między zwykłymi akapitami. Jeśli listy mają mieć różne odstępy, umieścić je w osobnych blokach `long text`. Brak pola, pusta lub nieznana wartość zachowuje dotychczasowy wygląd. Margines między elementami listy wynosi odpowiednio 4, 16 i 24 px; wewnętrzne marginesy akapitów nadal wynikają ze wspólnych stylów strony.
+
+Do działania na stronie potrzebne są zarówno wdrożenie aktualnego kodu, jak i dodanie pola w CMS. Ta instrukcja nie oznacza, że schemat został już zmieniony w Storybloku.
+
 ## 2. Kompas Społeczny — `/kompas-spoleczny`
 
 DOCX opisuje program strategicznej współpracy, nie aplikację ani quiz. W dokumencie są dwa następujące po sobie nagłówki „Kompas społeczny” / „Kompas Społeczny”; na stronie wyświetlić tytuł tylko raz.
