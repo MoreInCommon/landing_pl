@@ -52,16 +52,14 @@ export default function LongText({ blok }) {
               typeof props?.[0] === "string"
             ) {
               const textAlign = attrs?.textAlign;
-              if (["left", "center", "right", "justify"].includes(textAlign)) {
-                return (
-                  <div className="w-full px-full max-xl:px-0" style={{ textAlign }}>
-                    <CenterText text={props} />
-                  </div>
-                );
-              }
               return (
                 <CenterContainer>
-                  <CenterText text={props} />
+                  <CenterText
+                    text={props}
+                    textAlign={["left", "center", "right", "justify"].includes(textAlign)
+                      ? textAlign
+                      : undefined}
+                  />
                 </CenterContainer>
               );
             }
