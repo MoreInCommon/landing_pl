@@ -117,6 +117,8 @@ Elementy wymagające osobnego sprawdzenia:
 - [ ] Otrzymać listę raportów, okładki, opisy i docelowe linki.
 - [ ] Dobrać istniejący `slider` do karuzeli raportów po sprawdzeniu schematu CMS. Kod oczekuje `slide`, a wewnątrz `title`, `description`, `image`, `button`; ma stały przycisk „Sprawdź”. Nie tworzyć pustych slajdów bez obrazów lub linków.
 
+Jakość zdjęć w `slider`: komponent udostępnia wersje 1× i 2× na komputerze (500 i 1000 px szerokości) oraz 1×, 2× i 3× na telefonie (250, 500 i 750 px wysokości). Przeglądarka wybiera wariant do gęstości pikseli ekranu. Usunięto podwójny ukośnik z mobilnego adresu Image Service; ustawiono jakość 90. Dotyczy wszystkich stron korzystających z `slider`, w tym karuzeli raportów na końcu „Badań”. Zmiana wymaga wdrożenia kodu, bez zmian w CMS i ponownego wgrywania zdjęć.
+
 ## 5. Warsztaty — `/warsztaty`
 
 Kolejność bloków:

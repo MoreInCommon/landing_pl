@@ -125,11 +125,22 @@ export default function CustomSlider({ blok }) {
                 <picture>
                   <source
                     media="(max-width: 768px)"
-                    srcSet={`${content.image.filename}/m//0x250`}
+                    srcSet={[1, 2, 3]
+                      .map((density) =>
+                        `${content.image.filename}/m/0x${250 * density}/filters:quality(90) ${density}x`
+                      )
+                      .join(", ")}
                   />
-                  <source media="(min-width: 769px)" srcSet={`${content.image.filename}/m/500x0`} />
+                  <source
+                    media="(min-width: 769px)"
+                    srcSet={[1, 2]
+                      .map((density) =>
+                        `${content.image.filename}/m/${500 * density}x0/filters:quality(90) ${density}x`
+                      )
+                      .join(", ")}
+                  />
                   <img
-                    src={`${content.image.filename}/m/`} // Fallback for older browsers
+                    src={`${content.image.filename}/m/filters:quality(90)`}
                     alt={content?.image?.alt || ""}
                     className="h-full object-cover max-md:h-[250px] max-md:m-auto"
                     loading={index === 0 ? "eager" : "lazy"}
