@@ -10,6 +10,7 @@ if (!["127.0.0.1", "localhost"].includes(target.hostname) &&
   throw new Error("HTTP tests require a local server or the designated HTTPS test deployment");
 }
 const previewDeployment = process.env.EXPECT_PREVIEW === "true";
+const migrationEnabled = process.env.EXPECT_MIGRATION === "true";
 
 test("home includes the newsletter navigation item without an extra feature flag", async () => {
   const response = await fetch(origin);
@@ -104,4 +105,52 @@ test("preview sets a cookie, removes the secret and exit deletes the cookie", { 
   assert.equal(exited.status, 307);
   assert.equal(new URL(exited.headers.get("location"), origin).pathname, "/");
   assert.equal(exited.headers.getSetCookie().some((cookie) => /^__prerender_bypass=;/.test(cookie)), true);
+});
+
+test("new publication listing has its own canonical URL", async () => {
+  const response = await fetch(`${origin}/nasze-publikacje`);
+  assert.equal(response.status, migrationEnabled ? 200 : 404);
+  if (migrationEnabled) assert.match(await response.text(), /rel="canonical" href="https:\/\/www.moreincommon.pl\/nasze-publikacje"/);
+  if (process.env.STORYBLOK_TOKEN) {
+    const query = new URLSearchParams({ secret: process.env.STORYBLOK_TOKEN, slug: "nasze-publikacje" });
+    const entered = await fetch(`${origin}/api/preview?${query}`, { redirect: "manual" });
+    assert.equal(entered.status, 307);
+    const cookie = entered.headers.getSetCookie().map((value) => value.split(";")[0]).join("; ");
+    const draft = await fetch(`${origin}/nasze-publikacje`, { headers: { Cookie: cookie } });
+    assert.equal(draft.status, 200);
+    assert.match(await draft.text(), /rel="canonical" href="https:\/\/www.moreincommon.pl\/nasze-publikacje"/);
+  }
+});
+
+test("draft menu does not activate public redirects", { skip: !process.env.STORYBLOK_TOKEN }, async () => {
+  const { publishedRedirects, redirectDestination } = await import("../src/app/redirects.mjs");
+  const query = new URLSearchParams({ token: process.env.STORYBLOK_TOKEN, version: "published", cv: String(Date.now()) });
+  const source = await fetch(`https://api.storyblok.com/v2/cdn/stories/global?${query}`);
+  assert.equal(source.status, 200);
+  const publishedRules = publishedRedirects((await source.json()).story);
+  const rules = migrationEnabled ? publishedRules : [];
+  const previewQuery = new URLSearchParams({ secret: process.env.STORYBLOK_TOKEN, slug: "home" });
+  const entered = await fetch(`${origin}/api/preview?${previewQuery}`, { redirect: "manual" });
+  const cookie = entered.headers.getSetCookie().map((value) => value.split(";")[0]).join("; ");
+  const draft = await fetch(origin, { headers: { Cookie: cookie } });
+  assert.equal(draft.status, 200);
+  const draftHtml = await draft.text();
+  assert.match(draftHtml, />Oferta<\/button>/);
+  // Desktop submenu links render after opening the dropdown; their CMS data
+  // is already present in the initial response.
+  assert.ok(draftHtml.includes("/nasze-publikacje"));
+  const publicHtml = await (await fetch(origin)).text();
+  if (!rules.length) assert.doesNotMatch(publicHtml, />Oferta<\/button>/);
+  for (const path of ["/nasze-projekty", "/co-robimy", "/co-robimy/nasze-projekty"]) {
+    const destination = redirectDestination(path, rules);
+    for (const headers of [{}, { Cookie: cookie }]) {
+      const response = await fetch(`${origin}${path}?utm_source=redirect-test`, { headers, redirect: "manual" });
+      assert.equal(response.status, destination ? 308 : 200, path);
+      if (destination) {
+        const location = new URL(response.headers.get("location"), origin);
+        assert.equal(location.pathname, destination);
+        assert.equal(location.searchParams.get("utm_source"), "redirect-test");
+      }
+    }
+  }
 });

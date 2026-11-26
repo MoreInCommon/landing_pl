@@ -1,3 +1,5 @@
+import { isNavigationMigrationEnabled } from "./deployment.mjs";
+
 /** Import your components */
 import Page from "@/app/components/Page";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
@@ -99,17 +101,18 @@ export const components = {
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {
-  // const tempPreview = true;
+  const liveGlobal = url === "cdn/stories/global" && (preview || isNavigationMigrationEnabled());
   const sbParams = {
     version: preview ? "draft" : "published",
     resolve_relations,
+    ...(liveGlobal ? { cv: Date.now() } : {}),
   };
   const storyblokApi = await getStoryblokApi();
   try {
     const data = await storyblokApi.get(url, sbParams, {
-      cache: preview ? "no-cache" : undefined,
+      cache: liveGlobal ? "no-store" : preview ? "no-cache" : undefined,
       next: {
-        revalidate: preview ? undefined : 3600,
+        revalidate: preview || liveGlobal ? undefined : 3600,
       },
     });
 
@@ -118,7 +121,11 @@ export const fetchPageData = async (url, preview, resolve_relations = "") => {
     }
     return data;
   } catch (error) {
-    console.error("Error fetching data from Storyblok API:", error);
+    // The SDK can wrap Next's static-render bailout inside `message`. It must
+    // reach Next rather than being swallowed as an unavailable CMS response.
+    const cause = typeof error?.message === "object" ? error.message : error;
+    if (liveGlobal && cause?.digest === "DYNAMIC_SERVER_USAGE") throw cause;
+    console.error("Error fetching data from Storyblok API:", { status: error?.status || "unknown" });
   }
 };
 export const fetchMetadata = async (url) => {
@@ -157,7 +164,7 @@ export const fetchMetadata = async (url) => {
       },
     };
   } catch (error) {
-    console.error("Error fetching metadata from Storyblok API:", error);
+    console.error("Error fetching metadata from Storyblok API:", { status: error?.status || "unknown" });
     return fallbackMetadata;
   }
 };

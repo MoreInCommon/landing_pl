@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { isMigrationPath, navigationHref, isNavigationActive, previewPath } from "../src/app/migration.mjs";
 
 test("migration allowlist accepts only the agreed routes", () => {
-  for (const path of ["partnerstwa", "/kompas-spoleczny/", "wystapienia-publiczne", "badania", "warsztaty", "wystapienia-i-prezentacje"]) {
+  for (const path of ["nasze-publikacje", "partnerstwa", "/kompas-spoleczny/", "wystapienia-publiczne", "badania", "warsztaty", "wystapienia-i-prezentacje"]) {
     assert.equal(isMigrationPath(path), true, path);
   }
   for (const path of ["", "oferta", "oferta/badania", "oferta/warsztaty", "oferta/wystapienia-i-prezentacje", "nowe/partnerstwa", "o-nas", "badania/podstrona", "oferta/../partnerstwa"]) {
@@ -28,4 +28,8 @@ test("preview redirects stay on-site and accept only story paths", () => {
   for (const path of ["//evil.example", "https://evil.example", "../admin", "oferta?secret=x", "oferta#x", "a\\b", "%2f%2fevil.example"]) {
     assert.equal(previewPath(path), null, path);
   }
+});
+
+test("URL-type menu links take precedence over a cached story path", () => {
+  assert.equal(navigationHref({ linktype: "url", url: "/nasze-publikacje", cached_url: "nasze-projekty" }), "/nasze-publikacje");
 });

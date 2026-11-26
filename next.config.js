@@ -1,5 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  env: {
+    SITE_NAVIGATION_MIGRATION_ENABLED:
+      process.env.SITE_NAVIGATION_MIGRATION_ENABLED === "true" ? "true" : "false",
+  },
   images: {
     remotePatterns: [
       {
@@ -9,22 +13,13 @@ const nextConfig = {
     ],
   },
   async redirects() {
+    const legacyRedirects = [
+      { source: "/co-robimy/nasze-projekty", destination: "/nasze-projekty", permanent: true },
+      { source: "/co-robimy/nasze-projekty/:path*", destination: "/nasze-projekty/:path*", permanent: true },
+      { source: "/co-robimy/:path*", destination: "/nasze-projekty/:path*", permanent: true },
+    ];
     return [
-      {
-        source: "/co-robimy/nasze-projekty",
-        destination: "/nasze-projekty",
-        permanent: true,
-      },
-      {
-        source: "/co-robimy/nasze-projekty/:path*",
-        destination: "/nasze-projekty/:path*",
-        permanent: true,
-      },
-      {
-        source: "/co-robimy/:path*",
-        destination: "/nasze-projekty/:path*",
-        permanent: true,
-      },
+      ...(process.env.SITE_NAVIGATION_MIGRATION_ENABLED === "true" ? [] : legacyRedirects),
       {
         source: "/kontakt",
         destination: "/kontakt/nasze-biuro",

@@ -1,34 +1,33 @@
 "use client";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { navigationHref, isNavigationActive } from "@/app/migration.mjs";
 
-function removeTrailingSlash(str) {
-  if (str.endsWith("/")) {
-    return str.slice(0, -1);
-  }
-  return str;
-}
 const Navblok = ({ blok, callback }) => {
   const pathname = usePathname();
-  const url = removeTrailingSlash(blok.urls.cached_url);
+  const url = navigationHref(blok.urls);
 
   return (
     <div key={url} className="w-full">
+      {blok.menu_only ? (
+        <div className="block p-4 font-bold text-gray-700">{blok.text}</div>
+      ) : (
       <Link
         onClick={callback}
-        href={`/${url}`}
-        className={`block p-4 hover:bg-gray-100 font-bold ${pathname === `/${url}` ? "text-themeableColors-darkBlue" : "text-gray-700"}`}
+        href={url}
+        className={`block p-4 hover:bg-gray-100 font-bold ${pathname === url ? "text-themeableColors-darkBlue" : "text-gray-700"}`}
       >
         {blok.text}
       </Link>
+      )}
       {blok.subitem && (
         <div className="pl-4">
           {blok.subitem.map((subblok) => (
             <Link
               onClick={callback}
-              key={subblok.urls.cached_url}
-              href={`/${subblok.urls.cached_url}`}
-              className={`block p-4 hover:bg-gray-50 ${pathname.includes(subblok.urls.cached_url) ? "text-themeableColors-darkBlue" : "text-gray-600"}`}
+              key={subblok._uid || navigationHref(subblok.urls)}
+              href={navigationHref(subblok.urls)}
+              className={`block p-4 hover:bg-gray-50 ${isNavigationActive(pathname, subblok.urls) ? "text-themeableColors-darkBlue" : "text-gray-600"}`}
             >
               {subblok.text}
             </Link>

@@ -12,7 +12,7 @@ export function normalizeStoryPath(path = "") {
 }
 
 export function isMigrationPath(path) {
-  return migrationPaths.includes(normalizeStoryPath(path));
+  return normalizeStoryPath(path) === "nasze-publikacje" || migrationPaths.includes(normalizeStoryPath(path));
 }
 
 export function isPreviewDeployment() {
@@ -21,7 +21,9 @@ export function isPreviewDeployment() {
 
 // CMS links may be internal stories, external URLs or anchors.
 export function navigationHref(link) {
-  const value = link?.cached_url || link?.url || "";
+  const value = link?.linktype === "url"
+    ? link.url || link.cached_url || ""
+    : link?.cached_url || link?.url || "";
   if (/^https?:\/\//i.test(value) || /^(mailto:|tel:)/i.test(value)) return value;
   if (link?.linktype === "url" && value && !value.startsWith("/") && !value.startsWith("#")) {
     return "#";
