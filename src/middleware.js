@@ -1,10 +1,8 @@
 import { NextResponse } from "next/server";
-import { isNavigationMigrationEnabled } from "./app/deployment.mjs";
 import { fetchPublishedGlobalStory } from "./app/globalConfig";
 import { publishedRedirects, redirectDestination } from "./app/redirects.mjs";
 
 export async function middleware(request) {
-  if (!isNavigationMigrationEnabled()) return NextResponse.next();
   let rules = [];
   // Redirects always use published configuration, including in draft mode.
   // Detailed publication URLs keep their current addresses.

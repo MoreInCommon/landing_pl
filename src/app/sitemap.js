@@ -1,4 +1,3 @@
-import { isNavigationMigrationEnabled } from "./deployment.mjs";
 import { fetchPublishedGlobalStory } from "./globalConfig";
 import { publishedRedirects } from "./redirects.mjs";
 import { isPreviewDeployment } from "@/app/migration.mjs";
@@ -197,9 +196,7 @@ export default async function sitemap() {
   }));
 
   const migrationRoutes = await fetchMigrationRoutes();
-  const rules = isNavigationMigrationEnabled()
-    ? publishedRedirects(await fetchPublishedGlobalStory())
-    : [];
+  const rules = publishedRedirects(await fetchPublishedGlobalStory());
   const routes = [...staticRoutes, ...dynamicFokus, ...dynamicProject, ...dynamicMedia, ...migrationRoutes];
   // The new listing shares its CMS story with the old listing. Only advertise
   // the new canonical address after the redirect configuration is published.

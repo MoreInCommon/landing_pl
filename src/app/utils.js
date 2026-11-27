@@ -1,5 +1,3 @@
-import { isNavigationMigrationEnabled } from "./deployment.mjs";
-
 /** Import your components */
 import Page from "@/app/components/Page";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
@@ -101,7 +99,7 @@ export const components = {
 };
 
 export const fetchPageData = async (url, preview, resolve_relations = "") => {
-  const liveGlobal = url === "cdn/stories/global" && (preview || isNavigationMigrationEnabled());
+  const liveGlobal = url === "cdn/stories/global";
   const sbParams = {
     version: preview ? "draft" : "published",
     resolve_relations,

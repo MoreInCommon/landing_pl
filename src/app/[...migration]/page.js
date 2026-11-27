@@ -1,5 +1,4 @@
 import { cache } from "react";
-import { isNavigationMigrationEnabled } from "@/app/deployment.mjs";
 import { draftMode } from "next/headers";
 import { notFound } from "next/navigation";
 import { storyblokInit, apiPlugin, getStoryblokApi } from "@storyblok/react/rsc";
@@ -16,7 +15,6 @@ storyblokInit({
 const getStory = cache(async (path) => {
   if (!isMigrationPath(path)) notFound();
   const { isEnabled } = draftMode();
-  if (path === "nasze-publikacje" && !isEnabled && !isNavigationMigrationEnabled()) notFound();
   let story;
   try {
     const response = await getStoryblokApi().get(

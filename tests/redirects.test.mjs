@@ -39,34 +39,15 @@ test("CMS rules reject external URLs, ambiguous paths, duplicate sources, loops 
   ])), []);
 });
 
-test("first deployment keeps all original redirects unless migration is explicitly enabled", async () => {
+test("legacy publication redirects are handled by middleware, other redirects remain static", async () => {
   const { createRequire } = await import("node:module");
   const require = createRequire(import.meta.url);
-  const previous = process.env.SITE_NAVIGATION_MIGRATION_ENABLED;
-  try {
-    for (const value of [undefined, "false", "TRUE", "1", "true"]) {
-      if (value === undefined) delete process.env.SITE_NAVIGATION_MIGRATION_ENABLED;
-      else process.env.SITE_NAVIGATION_MIGRATION_ENABLED = value;
-      delete require.cache[require.resolve("../next.config.js")];
-      const config = require("../next.config.js");
-      const redirects = await config.redirects();
-      const expectedEnabled = value === "true";
-      assert.equal(config.env.SITE_NAVIGATION_MIGRATION_ENABLED, String(expectedEnabled));
-      assert.equal(redirects.length, expectedEnabled ? 4 : 7);
-      assert.deepEqual(redirects.find((rule) => rule.source === "/kontakt"), {
-        source: "/kontakt", destination: "/kontakt/nasze-biuro", permanent: true,
-      });
-      if (!expectedEnabled) {
-        assert.deepEqual(redirects.slice(0, 3), [
-          { source: "/co-robimy/nasze-projekty", destination: "/nasze-projekty", permanent: true },
-          { source: "/co-robimy/nasze-projekty/:path*", destination: "/nasze-projekty/:path*", permanent: true },
-          { source: "/co-robimy/:path*", destination: "/nasze-projekty/:path*", permanent: true },
-        ]);
-      }
-    }
-  } finally {
-    if (previous === undefined) delete process.env.SITE_NAVIGATION_MIGRATION_ENABLED;
-    else process.env.SITE_NAVIGATION_MIGRATION_ENABLED = previous;
-    delete require.cache[require.resolve("../next.config.js")];
-  }
+  const config = require("../next.config.js");
+  const redirects = await config.redirects();
+  assert.deepEqual(redirects, [
+    { source: "/kontakt", destination: "/kontakt/nasze-biuro", permanent: true },
+    { source: "/o-nas", destination: "/o-nas/zespol", permanent: true },
+    { source: "/siedem-segmentow/dumni-patrioci", destination: "/siedem-segmentow/lojalni-hierarchisci", permanent: true },
+    { source: "/fokus-na-klimat/dumni-patrioci", destination: "/fokus-na-klimat/lojalni-hierarchisci", permanent: true },
+  ]);
 });

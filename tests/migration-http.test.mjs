@@ -10,7 +10,6 @@ if (!["127.0.0.1", "localhost"].includes(target.hostname) &&
   throw new Error("HTTP tests require a local server or the designated HTTPS test deployment");
 }
 const previewDeployment = process.env.EXPECT_PREVIEW === "true";
-const migrationEnabled = process.env.EXPECT_MIGRATION === "true";
 
 test("home includes the newsletter navigation item without an extra feature flag", async () => {
   const response = await fetch(origin);
@@ -109,8 +108,8 @@ test("preview sets a cookie, removes the secret and exit deletes the cookie", { 
 
 test("new publication listing has its own canonical URL", async () => {
   const response = await fetch(`${origin}/nasze-publikacje`);
-  assert.equal(response.status, migrationEnabled ? 200 : 404);
-  if (migrationEnabled) assert.match(await response.text(), /rel="canonical" href="https:\/\/www.moreincommon.pl\/nasze-publikacje"/);
+  assert.equal(response.status, 200);
+  assert.match(await response.text(), /rel="canonical" href="https:\/\/www.moreincommon.pl\/nasze-publikacje"/);
   if (process.env.STORYBLOK_TOKEN) {
     const query = new URLSearchParams({ secret: process.env.STORYBLOK_TOKEN, slug: "nasze-publikacje" });
     const entered = await fetch(`${origin}/api/preview?${query}`, { redirect: "manual" });
@@ -128,7 +127,7 @@ test("draft menu does not activate public redirects", { skip: !process.env.STORY
   const source = await fetch(`https://api.storyblok.com/v2/cdn/stories/global?${query}`);
   assert.equal(source.status, 200);
   const publishedRules = publishedRedirects((await source.json()).story);
-  const rules = migrationEnabled ? publishedRules : [];
+  const rules = publishedRules;
   const previewQuery = new URLSearchParams({ secret: process.env.STORYBLOK_TOKEN, slug: "home" });
   const entered = await fetch(`${origin}/api/preview?${previewQuery}`, { redirect: "manual" });
   const cookie = entered.headers.getSetCookie().map((value) => value.split(";")[0]).join("; ");
