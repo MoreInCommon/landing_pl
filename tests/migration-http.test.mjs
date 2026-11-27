@@ -135,6 +135,11 @@ test("draft menu does not activate public redirects", { skip: !process.env.STORY
   assert.equal(draft.status, 200);
   const draftHtml = await draft.text();
   assert.match(draftHtml, />Oferta<\/button>/);
+  for (const label of ["Co robimy", "Oferta"]) {
+    const button = draftHtml.match(new RegExp(`<button[^>]*class="([^"]*)"[^>]*>${label}</button>`));
+    assert.ok(button, `${label}: draft menu group is rendered`);
+    assert.equal(button[1].split(/\s+/).includes("active"), false, `${label}: homepage must not activate a menu-only group`);
+  }
   // Desktop submenu links render after opening the dropdown; their CMS data
   // is already present in the initial response.
   assert.ok(draftHtml.includes("/nasze-publikacje"));

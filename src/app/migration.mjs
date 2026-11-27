@@ -28,15 +28,30 @@ export function navigationHref(link) {
   if (link?.linktype === "url" && value && !value.startsWith("/") && !value.startsWith("#")) {
     return "#";
   }
+  if (!value) return "#";
   const normalized = normalizeStoryPath(value);
   const path = value.startsWith("#") ? value : normalized === "home" ? "/" : `/${normalized}`;
   return link?.anchor ? `${path.split("#")[0]}#${link.anchor.replace(/^#/, "")}` : path;
 }
 
+// Only page links identify the current section. Anchors and empty CMS links
+// must never mark a whole page (especially the homepage) as active.
 export function isNavigationActive(pathname, link) {
-  const href = navigationHref(link).split("#")[0];
-  return href.startsWith("/") && href !== "/" &&
-    (pathname === href || pathname?.startsWith(`${href}/`));
+  const href = navigationHref(link);
+  if (!pathname || !href.startsWith("/") || href.startsWith("//") || href.includes("#")) return false;
+  const path = `/${normalizeStoryPath(pathname.split(/[?#]/)[0])}`;
+  const destination = `/${normalizeStoryPath(href.split("?")[0])}`;
+  if (destination === "/") return path === "/";
+  // The renamed listing keeps publication detail stories under the old prefix.
+  const sectionPath = (value) => value === "/nasze-publikacje" ? "/nasze-projekty" : value;
+  const current = sectionPath(path);
+  const section = sectionPath(destination);
+  return current === section || current.startsWith(`${section}/`);
+}
+
+export function isNavigationItemActive(pathname, item) {
+  return (!item.menu_only && isNavigationActive(pathname, item.urls)) ||
+    Boolean(item.subitem?.some((child) => isNavigationActive(pathname, child.urls)));
 }
 
 // Do not allow a slug to escape this site's origin or introduce query parameters.

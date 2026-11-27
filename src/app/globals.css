@@ -66,55 +66,32 @@ li p {
   transition: all 0.5s;
 }
 
-@keyframes slideInFromLeft {
-  from {
-    width: 0%;
-  }
-  to {
-    width: 100%;
-  }
-}
-
-@keyframes slideOutFromRight {
-  from {
-    width: 100%;
-  }
-  to {
-    width: 0%;
-  }
-}
-
 .sliding-border-bottom {
   position: relative;
 }
 
-.sliding-border-bottom:hover::after {
+.sliding-border-bottom::after {
   content: "";
   display: block;
   bottom: -4px;
   position: absolute;
   height: 4px;
   left: 0;
+  width: 100%;
   background-color: currentColor;
-  animation: slideInFromLeft 0.5s ease forwards;
-  width: 0;
-  z-index: 0;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s ease;
 }
 
-.animate-out.sliding-border-bottom::after {
-  content: "";
-  display: block;
-  bottom: -4px;
-  position: absolute;
-  left: 0;
-  height: 4px;
-  background-color: currentColor;
-  animation: slideOutFromRight 0.5s ease forwards;
-  z-index: 0;
+.sliding-border-bottom:hover::after,
+.sliding-border-bottom:focus-visible::after {
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-.sliding-border-bottom.active:hover::after {
-  height: 0;
+.sliding-border-bottom.active::after {
+  display: none;
 }
 
 .svg-stroke {

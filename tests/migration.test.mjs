@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { isMigrationPath, navigationHref, isNavigationActive, previewPath } from "../src/app/migration.mjs";
+import { isMigrationPath, navigationHref, isNavigationActive, isNavigationItemActive, previewPath } from "../src/app/migration.mjs";
 
 test("migration allowlist accepts only the agreed routes", () => {
   for (const path of ["nasze-publikacje", "partnerstwa", "/kompas-spoleczny/", "wystapienia-publiczne", "badania", "warsztaty", "wystapienia-i-prezentacje"]) {
@@ -32,4 +32,50 @@ test("preview redirects stay on-site and accept only story paths", () => {
 
 test("URL-type menu links take precedence over a cached story path", () => {
   assert.equal(navigationHref({ linktype: "url", url: "/nasze-publikacje", cached_url: "nasze-projekty" }), "/nasze-publikacje");
+});
+
+const pageLink = (path) => ({ linktype: "story", cached_url: path });
+const navigation = [
+  { text: "O nas", urls: pageLink("o-nas"), subitem: [{ urls: pageLink("o-nas/zespol") }] },
+  { text: "Co robimy", menu_only: true, urls: pageLink("home"), subitem: ["siedem-segmentow", "nasze-publikacje", "kompas-spoleczny", "fokus-na-klimat", "w-mediach", "wystapienia-publiczne"].map((path) => ({ urls: pageLink(path) })) },
+  { text: "Oferta", menu_only: true, subitem: ["badania", "warsztaty", "wystapienia-i-prezentacje"].map((path) => ({ urls: pageLink(path) })) },
+  { text: "Partnerstwa", urls: pageLink("partnerstwa") },
+  { text: "Kontakt", urls: pageLink("kontakt"), subitem: [{ urls: pageLink("kontakt/nasze-biuro") }] },
+];
+
+test("every navigation section activates only on its own pages on desktop and mobile", () => {
+  const cases = [
+    ["/", []], ["/nieznana", []], ["/badania-inne", []],
+    ["/o-nas/zespol", ["O nas"]], ["/o-nas/misja", ["O nas"]],
+    ["/siedem-segmentow", ["Co robimy"]], ["/siedem-segmentow/segment", ["Co robimy"]],
+    ["/nasze-publikacje", ["Co robimy"]], ["/nasze-projekty", ["Co robimy"]], ["/nasze-projekty/raport", ["Co robimy"]],
+    ["/kompas-spoleczny", ["Co robimy"]], ["/fokus-na-klimat/artykuly/raport", ["Co robimy"]],
+    ["/w-mediach/artykul", ["Co robimy"]], ["/wystapienia-publiczne", ["Co robimy"]],
+    ["/badania", ["Oferta"]], ["/warsztaty/", ["Oferta"]], ["/wystapienia-i-prezentacje", ["Oferta"]],
+    ["/partnerstwa", ["Partnerstwa"]], ["/kontakt/nasze-biuro", ["Kontakt"]], ["/kontakt/dla-mediow/artykuly/raport", ["Kontakt"]],
+    ["/quiz", []],
+  ];
+  for (const [path, expected] of cases) {
+    assert.deepEqual(navigation.filter((item) => isNavigationItemActive(path, item)).map((item) => item.text), expected, path);
+  }
+});
+
+test("empty, external and anchor links never identify an active page", () => {
+  for (const link of [undefined, {}, { cached_url: "" }, { url: "#newsletter" }, { cached_url: "home", anchor: "newsletter" }, { url: "/badania#kontakt" }, { url: "https://example.com/badania" }, { url: "mailto:test@example.com" }]) {
+    for (const path of ["/", "/badania"]) assert.equal(isNavigationActive(path, link), false);
+  }
+  assert.equal(navigationHref({}), "#");
+  assert.equal(isNavigationActive("/", pageLink("home")), true);
+  assert.equal(isNavigationActive("/badania", pageLink("home")), false);
+  assert.equal(isNavigationItemActive("/", { menu_only: true, urls: pageLink("home") }), false);
+});
+
+test("active page matching handles trailing slashes, queries and path boundaries", () => {
+  assert.equal(isNavigationActive("/badania/", { url: "/badania/?source=menu" }), true);
+  assert.equal(isNavigationActive("/badania/raport", pageLink("badania")), true);
+  assert.equal(isNavigationActive("/badania-inne", pageLink("badania")), false);
+  assert.equal(isNavigationActive(null, pageLink("badania")), false);
+  assert.equal(isNavigationActive("/nasze-projekty/raport", { url: "/nasze-publikacje" }), true);
+  assert.equal(isNavigationActive("/nasze-publikacje", pageLink("nasze-projekty")), true);
+  assert.equal(isNavigationActive("/nasze-projekty-inne", { url: "/nasze-publikacje" }), false);
 });
