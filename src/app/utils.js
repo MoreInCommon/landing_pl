@@ -1,3 +1,5 @@
+import { requestStoryblok, rethrowNextRenderError } from "./storyblokRequest.mjs";
+
 /** Import your components */
 import Page from "@/app/components/Page";
 import MainHeader from "@/app/components/MainHeaderStoryblok";
@@ -106,25 +108,12 @@ export const fetchPageData = async (url, preview, resolve_relations = "") => {
     ...(liveGlobal ? { cv: Date.now() } : {}),
   };
   const storyblokApi = await getStoryblokApi();
-  try {
-    const data = await storyblokApi.get(url, sbParams, {
-      cache: liveGlobal ? "no-store" : preview ? "no-cache" : undefined,
-      next: {
-        revalidate: preview || liveGlobal ? undefined : 3600,
-      },
-    });
-
-    if (!data) {
-      console.error("No data returned from the API.");
-    }
-    return data;
-  } catch (error) {
-    // The SDK can wrap Next's static-render bailout inside `message`. It must
-    // reach Next rather than being swallowed as an unavailable CMS response.
-    const cause = typeof error?.message === "object" ? error.message : error;
-    if (liveGlobal && cause?.digest === "DYNAMIC_SERVER_USAGE") throw cause;
-    console.error("Error fetching data from Storyblok API:", { status: error?.status || "unknown" });
-  }
+  return requestStoryblok(storyblokApi, url, sbParams, {
+    cache: liveGlobal ? "no-store" : preview ? "no-cache" : undefined,
+    next: {
+      revalidate: preview || liveGlobal ? undefined : 3600,
+    },
+  });
 };
 export const fetchMetadata = async (url) => {
   const domain = "https://www.moreincommon.pl";
@@ -140,7 +129,7 @@ export const fetchMetadata = async (url) => {
   const storyblokApi = await getStoryblokApi();
 
   try {
-    const data = await storyblokApi.get(`cdn/stories${url}`, sbParams, {
+    const data = await requestStoryblok(storyblokApi, `cdn/stories${url}`, sbParams, {
       cache: "no-cache",
     });
 
@@ -162,6 +151,7 @@ export const fetchMetadata = async (url) => {
       },
     };
   } catch (error) {
+    rethrowNextRenderError(error);
     console.error("Error fetching metadata from Storyblok API:", { status: error?.status || "unknown" });
     return fallbackMetadata;
   }
